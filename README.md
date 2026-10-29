@@ -13,7 +13,7 @@ An online gallery of cultural heritage, made as a graduation project. It brings 
 
 ## Getting started
 
-Requires Node 20.9+ and pnpm.
+Requires Node 22+ and pnpm.
 
 ```bash
 pnpm install
