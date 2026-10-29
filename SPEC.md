@@ -210,7 +210,11 @@ The UI maps each `ActionError` to a dictionary string. Raw DB errors never reach
 
 ### Auth
 
-- Google OAuth through Supabase. The Email provider is off.
+- Google OAuth through Supabase.
+- The Email provider is off in prod. While it is on, anyone with the publishable key can sign up through `/auth/v1/signup`.
+- The Email provider is on in dev, for test accounts only.
+  - Create them in the dashboard (Users → Add user, with Auto Confirm).
+  - The app has no email login UI. Test accounts sign in from scripts with `signInWithPassword`.
 - `redirectTo = <request Origin>/auth/callback?next=<path>`.
   - Using the request's own origin keeps login working on preview URLs.
   - The Supabase redirect allowlist must include `http://localhost:3000/**`, the production URL, and `https://*-<vercel-team>.vercel.app/**`.
