@@ -274,19 +274,28 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
 | Env | Branch | Supabase |
 |---|---|---|
 | Local | any | `project-xm-dev` (shared) |
-| Preview | PR | `project-xm-dev` |
+| Preview | PRs and `dev` | `project-xm-dev` |
 | Production | `main` | `project-xm-prod` |
 
 - **Env vars:**
   - `NEXT_PUBLIC_SUPABASE_URL`
   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
   - `NEXT_PUBLIC_SITE_URL` (production and local)
-- **Branches:** any name, off `main` → PR → squash merge. `main` requires a PR and green CI. The commit format is in `AGENTS.md`.
+- **Branches:**
+  - `main`: production. It only gets release PRs from `dev`.
+  - `dev`: development. Branch off `dev` (any name), open a PR into `dev`, and squash merge.
+  - Both branches are protected by rulesets: changes go through a PR, with no force-push or deletion. Squash is the only merge method on `dev`; merge commit is the only one on `main`.
+  - The commit format is in `AGENTS.md`.
+- **Release:**
+  1. Push new migrations to prod.
+  2. Open a PR `dev` → `main` and merge it with a merge commit.
+
+  Don't squash: a squashed release makes `dev` and `main` diverge. Env vars are set once per Vercel environment (Production/Preview), not per release.
 - **CI:** lint, typecheck and build, plus `pnpm test` for the few pure-logic tests.
-- **Deploys:** Vercel deploys a preview for every PR and production from `main`.
+- **Deploys:** Vercel deploys previews for PRs and `dev`, and production from `main`.
 - **Migrations:**
-  - run `pnpm db:push` to dev after the PR is approved, since the dev DB is shared;
-  - push to prod just before merging.
+  - run `pnpm db:push` to dev after the PR into `dev` is approved, since the dev DB is shared;
+  - push to prod during a release, before merging into `main`.
 - **PWA:** `manifest.ts` with 192, 512 and maskable icons. No service worker.
 - **SEO:** hreflang metadata, `sitemap.ts`, and a `robots.ts` that disallows `/account` and `/auth`.
 - **Security headers:** `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: DENY`.
