@@ -55,7 +55,7 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
                 </span>
                 <span className={s.name}>{h.name[lang]}</span>
                 <span className={s.meta}>
-                  {h.place[lang]} · {t.unesco} <span className={s.num}>{h.year}</span>
+                  {h.place[lang]} · {t.unesco} <span className={s.num}>{h.year[lang]}</span>
                 </span>
                 <span className={s.sum}>{h.summary[lang]}</span>
               </Link>
