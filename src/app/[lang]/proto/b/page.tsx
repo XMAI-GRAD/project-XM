@@ -53,7 +53,7 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
                   {t.imagePlaceholder} · {h.name[lang]}
                 </p>
                 <p className={s.slideMeta}>
-                  {h.place[lang]} · <span className={s.num}>{h.year}</span>
+                  {h.place[lang]} · <span className={s.num}>{h.year[lang]}</span>
                 </p>
               </div>
             ))}
@@ -68,7 +68,7 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
                 <span className={s.swatch} style={{ background: tones[i] }} aria-hidden="true" />
                 <span className={s.nameText}>{h.name[lang]}</span>
                 <span className={s.sub}>
-                  {h.place[lang]} · <span className={s.num}>{h.year}</span>
+                  {h.place[lang]} · <span className={s.num}>{h.year[lang]}</span>
                 </span>
               </Link>
             </li>
