@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { Suspense } from "react";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { LangSwitch } from "@/components/lang-switch";
+import { AccountStatus, LoginLink } from "@/features/auth/account-status";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, siteUrl } from "@/i18n/server";
@@ -46,7 +49,11 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
             <Link href={`/${lang}`}>{nav.home}</Link>{" "}
             <Link href={`/${lang}/map`}>{nav.map}</Link>{" "}
             <Link href={`/${lang}/about`}>{nav.about}</Link>{" "}
-            <Link href={`/${lang}/login`}>{nav.login}</Link>{" "}
+            <ErrorBoundary fallback={<LoginLink lang={lang} />}>
+              <Suspense fallback={<LoginLink lang={lang} />}>
+                <AccountStatus lang={lang} />
+              </Suspense>
+            </ErrorBoundary>{" "}
             <LangSwitch to={other} label={nav.switchLanguage} />
           </nav>
         </header>

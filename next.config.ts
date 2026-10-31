@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  images: {
+    // Google profile photos.
+    remotePatterns: [new URL("https://lh3.googleusercontent.com/**")],
+  },
   turbopack: {
     rules: {
       "*.css": {
