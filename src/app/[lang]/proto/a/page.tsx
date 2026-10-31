@@ -41,7 +41,6 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
   const other: Locale = lang === "vi" ? "en" : "vi";
   const first = mockHeritages[0];
   const last = mockHeritages[mockHeritages.length - 1];
-  const years = mockHeritages.map((h) => h.year);
   const nav = [
     { href: `/${lang}/map`, label: t.nav.map },
     { href: `/${lang}/about`, label: t.nav.about },
@@ -96,7 +95,7 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
                     <span className={`pa-meta pa-num`}>{pad(i)}</span>
                     <span className={"pa-name"}>{h.name[lang]}</span>
                     <span className={`pa-meta pa-where`}>
-                      {h.place[lang]} · {t.unesco} {h.year}
+                      {h.place[lang]} · {t.unesco} {h.year[lang]}
                     </span>
                     <span className={"pa-panel"} aria-hidden="true">
                       <span className={"pa-figure"}>
@@ -110,7 +109,7 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
                       </span>
                       <span className={`pa-meta pa-cap pa-capTop`}>
                         <span>{pad(i)}</span>
-                        <span>{h.year}</span>
+                        <span>{h.year[lang]}</span>
                       </span>
                       <span className={`pa-meta pa-cap pa-capBottom`}>
                         <span>{h.name[lang]}</span>
@@ -125,7 +124,7 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
 
           <section className={"pa-intro"}>
             <p className={`pa-meta pa-introMeta`}>
-              {t.unesco} {Math.min(...years)}–{Math.max(...years)}
+              {t.unesco} {first.year[lang]}–{last.year[lang]}
             </p>
             <p className={"pa-statement"}>{t.intro}</p>
           </section>
