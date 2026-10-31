@@ -94,6 +94,8 @@ Screens will be added or removed as the design settles. Update this table when t
 
 All heritage content lives in one JSON file. Images live in `public/heritages/<slug>/`.
 
+Until O-04 is settled, the file holds placeholders: slugs `slug-1`…`slug-5` and `article-1`…`article-4`, text like `<Heritage 1 name>`, and solid-color PNGs.
+
 - When the designer changes text, images or the route, they edit the JSON and push assets. Logic code doesn't change.
 - Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.
 
@@ -261,7 +263,7 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
 
 ### Languages (VI/EN)
 
-- **The switch:** a VI/EN toggle in the header. It feels like a dark/light toggle, but it switches the URL: `/vi/map` ↔ `/en/map`. The choice is remembered in the `NEXT_LOCALE` cookie.
+- **The switch:** a VI/EN toggle in the header. It feels like a dark/light toggle, but it switches the URL: `/vi/map` ↔ `/en/map`. The choice is remembered in the `NEXT_LOCALE` cookie, which the proxy sets to the locale of the last page visited.
   - Shared links open in the right language.
   - Google indexes both languages.
   - Both versions prerender as static pages.
@@ -301,7 +303,7 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
   - run `pnpm db:push` to dev after the PR into `dev` is approved, since the dev DB is shared;
   - push to prod during a release, before merging into `main`.
 - **PWA:** `manifest.ts` with 192, 512 and maskable icons. No service worker.
-- **SEO:** hreflang metadata, `sitemap.ts`, and a `robots.ts` that disallows `/account` and `/auth`.
+- **SEO:** hreflang metadata, `sitemap.ts`, and a `robots.ts` that disallows `/auth/` and `/<lang>/account` for each locale.
 - **Security headers:** `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: DENY`.
 - Free Supabase projects pause after 7 days of inactivity.
 

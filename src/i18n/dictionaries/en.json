@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "siteName": "project-xm",
+    "description": "<Site description: an online gallery of Vietnamese cultural heritage>"
+  },
+  "nav": {
+    "home": "Home",
+    "map": "Map",
+    "about": "About",
+    "account": "Account",
+    "login": "Log in",
+    "switchLanguage": "Tiếng Việt"
+  },
+  "home": {
+    "title": "<Home title>",
+    "intro": "<Home intro paragraph>"
+  },
+  "heritage": {
+    "relatedArticles": "Related articles"
+  },
+  "map": {
+    "title": "Map"
+  },
+  "about": {
+    "title": "About",
+    "body": "<About page content>",
+    "contact": "Contact",
+    "contactEmail": "contact@example.com"
+  },
+  "account": {
+    "title": "Account"
+  },
+  "login": {
+    "title": "Log in",
+    "continueWithGoogle": "Continue with Google"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist.",
+    "backHome": "Back to home"
+  }
+}

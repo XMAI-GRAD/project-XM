@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { notFound } from "next/navigation";
-import { hasLocale, locales } from "@/i18n/config";
+import Link from "next/link";
+import { LangSwitch } from "@/components/lang-switch";
+import { locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale, siteUrl } from "@/i18n/server";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -14,28 +17,41 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "project-xm",
-  description: "Online gallery of cultural heritage",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = getDictionary(await getLocale());
+  return {
+    metadataBase: new URL(siteUrl),
+    title: { default: meta.siteName, template: `%s | ${meta.siteName}` },
+    description: meta.description,
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!hasLocale(lang)) notFound();
+export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
+  const lang = await getLocale();
+  const { nav } = getDictionary(lang);
+  const other = locales.find((l) => l !== lang)!;
 
   return (
     <html
       lang={lang}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <header>
+          <nav>
+            <Link href={`/${lang}`}>{nav.home}</Link>{" "}
+            <Link href={`/${lang}/map`}>{nav.map}</Link>{" "}
+            <Link href={`/${lang}/about`}>{nav.about}</Link>{" "}
+            <Link href={`/${lang}/login`}>{nav.login}</Link>{" "}
+            <LangSwitch to={other} label={nav.switchLanguage} />
+          </nav>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
