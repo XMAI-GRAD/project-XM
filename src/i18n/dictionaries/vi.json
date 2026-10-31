@@ -28,11 +28,23 @@
     "contactEmail": "contact@example.com"
   },
   "account": {
-    "title": "Tài khoản"
+    "title": "Tài khoản",
+    "displayName": "Tên hiển thị",
+    "save": "Lưu",
+    "saved": "Đã lưu.",
+    "signOut": "Đăng xuất"
   },
   "login": {
     "title": "Đăng nhập",
-    "continueWithGoogle": "Tiếp tục với Google"
+    "continueWithGoogle": "Tiếp tục với Google",
+    "error": "Đăng nhập không thành công. Vui lòng thử lại."
+  },
+  "errors": {
+    "unauthenticated": "Bạn cần đăng nhập.",
+    "invalid_input": "Dữ liệu không hợp lệ.",
+    "not_found": "Không tìm thấy.",
+    "rate_limited": "Bạn thao tác quá nhanh, thử lại sau ít giây.",
+    "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại."
   },
   "notFound": {
     "title": "Không tìm thấy trang",
