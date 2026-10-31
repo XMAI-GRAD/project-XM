@@ -1,0 +1,289 @@
+/* Landing: one rounded frame in the centre, the sites listed beside it.
+   Hovering or focusing a name swaps the frame's photo. Pure CSS (:has). */
+
+.hero {
+  min-height: calc(100dvh - 4.5rem);
+  padding: 2rem 3vw 3rem;
+  display: grid;
+  grid-template-columns: 1fr min(45vw, 760px) 1fr;
+  align-items: center;
+}
+
+.phrase {
+  grid-column: 1;
+  justify-self: end;
+  z-index: 2;
+  max-width: 9ch;
+  margin: 0 2.5vw 0 0;
+  text-align: right;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3.2vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  text-shadow: 0 0 12px rgb(0 0 0 / 0.6);
+  pointer-events: none;
+}
+
+.stage {
+  grid-column: 2;
+}
+
+.frame {
+  position: relative;
+  height: 64vh;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+/* Scrim keeps the caption legible on any photo. */
+.caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.65), transparent);
+}
+
+.caption p {
+  margin: 0;
+  font-size: 0.8125rem;
+}
+
+.captionSummary {
+  color: #c9c7c1;
+}
+
+.names {
+  grid-column: 3;
+  z-index: 2;
+  max-width: 14ch;
+  margin: 0 0 0 2.5vw;
+  padding: 0;
+  list-style: none;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.8vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.item a {
+  display: block;
+  padding: 0.18em 0;
+  text-decoration: none;
+}
+
+.nameText {
+  color: var(--dim);
+  text-shadow: 0 0 12px rgb(0 0 0 / 0.6);
+  transition: color 0.4s ease;
+}
+
+.thumb,
+.sub {
+  display: none;
+}
+
+/* Site 1 is active until a name is hovered or focused. */
+.hero:not(:has(.item:is(:hover, :focus-within))) .slide:nth-child(1),
+.hero:has(.item:nth-child(1):is(:hover, :focus-within)) .slide:nth-child(1),
+.hero:has(.item:nth-child(2):is(:hover, :focus-within)) .slide:nth-child(2),
+.hero:has(.item:nth-child(3):is(:hover, :focus-within)) .slide:nth-child(3),
+.hero:has(.item:nth-child(4):is(:hover, :focus-within)) .slide:nth-child(4),
+.hero:has(.item:nth-child(5):is(:hover, :focus-within)) .slide:nth-child(5) {
+  opacity: 1;
+}
+
+.hero:not(:has(.item:is(:hover, :focus-within))) .item:nth-child(1) .nameText,
+.item:is(:hover, :focus-within) .nameText {
+  color: var(--paper);
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  padding: 18vh 3vw;
+}
+
+.intro p {
+  max-width: 24ch;
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(1.75rem, 3.6vw, 3.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.mapSection {
+  display: grid;
+  grid-template-columns: min(45vw, 760px) 1fr;
+  gap: 6vw;
+  align-items: end;
+  justify-content: center;
+  padding: 0 3vw 18vh;
+}
+
+.mapFrame {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #131315;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+}
+
+.mapText h2 {
+  max-width: 14ch;
+  margin: 0 0 1.75rem;
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cta:hover {
+  background: #fff;
+}
+
+.footer {
+  margin: 0 3vw;
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Touch and narrow screens: no hover, so every row shows its own thumbnail. */
+@media (max-width: 800px) {
+  .hero {
+    display: block;
+    min-height: 0;
+    padding: 1.5rem 16px 2.5rem;
+  }
+
+  .phrase {
+    justify-self: start;
+    max-width: none;
+    margin: 0 0 1rem;
+    text-align: left;
+    font-size: 1.75rem;
+  }
+
+  .frame {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    margin-bottom: 1.5rem;
+  }
+
+  .names {
+    max-width: none;
+    margin: 0;
+    font-size: 1.375rem;
+  }
+
+  .item a {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 14px;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .thumb {
+    position: relative;
+    display: block;
+    grid-row: 1 / 3;
+    width: 48px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .thumb img {
+    object-fit: cover;
+  }
+
+  .sub {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--dim);
+  }
+
+  .nameText {
+    color: var(--paper);
+    text-shadow: none;
+  }
+
+  .intro {
+    justify-content: flex-start;
+    padding: 80px 16px;
+  }
+
+  .mapSection {
+    display: block;
+    padding: 0 16px 80px;
+  }
+
+  .mapFrame {
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  .footer {
+    margin: 0 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide,
+  .nameText {
+    transition: none;
+  }
+}

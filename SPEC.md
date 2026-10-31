@@ -239,7 +239,7 @@ The UI maps each `ActionError` to a dictionary string. Raw DB errors never reach
 ### Theme
 
 - One designed theme. No dark/light mode.
-- Ignore the OS dark setting: set `color-scheme: light` and delete the boilerplate `prefers-color-scheme: dark` CSS.
+- Ignore the OS dark setting: the designed theme is near-black, so set a fixed `color-scheme: dark` and delete the boilerplate `prefers-color-scheme: dark` CSS.
 
 ### Images
 

@@ -9,11 +9,16 @@
     "about": "About",
     "account": "Account",
     "login": "Log in",
-    "switchLanguage": "Tiếng Việt"
+    "switchLanguage": "Tiếng Việt",
+    "label": "Main"
   },
   "home": {
     "title": "<Home title>",
-    "intro": "<Home intro paragraph>"
+    "intro": "<Home intro paragraph>",
+    "listLabel": "Five heritage sites",
+    "mapTeaser": "<Map teaser line>",
+    "openMap": "Open the map",
+    "mapLabel": "Route through the five heritage sites"
   },
   "heritage": {
     "relatedArticles": "Related articles"
@@ -38,6 +43,9 @@
     "title": "Log in",
     "continueWithGoogle": "Continue with Google",
     "error": "Sign-in failed. Please try again."
+  },
+  "footer": {
+    "label": "Footer"
   },
   "errors": {
     "unauthenticated": "You need to log in.",

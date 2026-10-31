@@ -9,11 +9,16 @@
     "about": "Giới thiệu",
     "account": "Tài khoản",
     "login": "Đăng nhập",
-    "switchLanguage": "English"
+    "switchLanguage": "English",
+    "label": "Điều hướng chính"
   },
   "home": {
     "title": "<Tiêu đề trang chủ>",
-    "intro": "<Đoạn giới thiệu trang chủ>"
+    "intro": "<Đoạn giới thiệu trang chủ>",
+    "listLabel": "Năm di sản",
+    "mapTeaser": "<Câu dẫn bản đồ>",
+    "openMap": "Mở bản đồ",
+    "mapLabel": "Sơ đồ tuyến đường qua năm di sản"
   },
   "heritage": {
     "relatedArticles": "Bài viết liên quan"
@@ -38,6 +43,9 @@
     "title": "Đăng nhập",
     "continueWithGoogle": "Tiếp tục với Google",
     "error": "Đăng nhập không thành công. Vui lòng thử lại."
+  },
+  "footer": {
+    "label": "Chân trang"
   },
   "errors": {
     "unauthenticated": "Bạn cần đăng nhập.",
