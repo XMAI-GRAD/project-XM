@@ -1,5 +1,4 @@
 import type { NextConfig } from "next";
-import { defaultLocale } from "./src/i18n/config";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -8,6 +7,8 @@ const nextConfig: NextConfig = {
   turbopack: {
     rules: {
       "*.css": {
+        // `as: "*.css"` would turn CSS Modules into global CSS, so leave them out.
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
@@ -23,12 +24,6 @@ const nextConfig: NextConfig = {
           { key: "X-Frame-Options", value: "DENY" },
         ],
       },
-    ];
-  },
-  // ponytail: fixed redirect to the default locale; replaced by locale negotiation in proxy.ts
-  async redirects() {
-    return [
-      { source: "/", destination: `/${defaultLocale}`, permanent: false },
     ];
   },
 };

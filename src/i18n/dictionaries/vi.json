@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "siteName": "project-xm",
+    "description": "<Mô tả trang: phòng trưng bày trực tuyến về di sản văn hoá Việt Nam>"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "map": "Bản đồ",
+    "about": "Giới thiệu",
+    "account": "Tài khoản",
+    "login": "Đăng nhập",
+    "switchLanguage": "English"
+  },
+  "home": {
+    "title": "<Tiêu đề trang chủ>",
+    "intro": "<Đoạn giới thiệu trang chủ>"
+  },
+  "heritage": {
+    "relatedArticles": "Bài viết liên quan"
+  },
+  "map": {
+    "title": "Bản đồ"
+  },
+  "about": {
+    "title": "Giới thiệu",
+    "body": "<Nội dung trang giới thiệu>",
+    "contact": "Liên hệ",
+    "contactEmail": "contact@example.com"
+  },
+  "account": {
+    "title": "Tài khoản"
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "continueWithGoogle": "Tiếp tục với Google"
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "body": "Trang bạn tìm không tồn tại.",
+    "backHome": "Về trang chủ"
+  }
+}

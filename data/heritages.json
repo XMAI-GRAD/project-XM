@@ -1,0 +1,308 @@
+{
+  "route": ["slug-1", "slug-2", "slug-3", "slug-4", "slug-5"],
+  "heritages": [
+    {
+      "slug": "slug-1",
+      "name": {
+        "vi": "<Tên di sản 1>",
+        "en": "<Heritage 1 name>"
+      },
+      "summary": {
+        "vi": "<Tóm tắt di sản 1>",
+        "en": "<Heritage 1 summary>"
+      },
+      "body": {
+        "vi": ["<Đoạn 1 về di sản 1>", "<Đoạn 2 về di sản 1>"],
+        "en": ["<Heritage 1 paragraph 1>", "<Heritage 1 paragraph 2>"]
+      },
+      "images": [
+        {
+          "src": "/heritages/slug-1/photo-1.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 1 của slug-1>",
+            "en": "<Photo 1 of slug-1 alt>"
+          }
+        },
+        {
+          "src": "/heritages/slug-1/photo-2.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 2 của slug-1>",
+            "en": "<Photo 2 of slug-1 alt>"
+          }
+        }
+      ],
+      "map": {
+        "x": 100,
+        "y": 200
+      },
+      "articles": [
+        {
+          "slug": "article-1",
+          "title": {
+            "vi": "<Tiêu đề bài viết 1>",
+            "en": "<Article 1 title>"
+          },
+          "excerpt": {
+            "vi": "<Trích dẫn bài viết 1>",
+            "en": "<Article 1 excerpt>"
+          },
+          "cover": {
+            "src": "/heritages/slug-1/photo-2.png",
+            "width": 2400,
+            "height": 1600,
+            "alt": {
+              "vi": "<Mô tả ảnh 2 của slug-1>",
+              "en": "<Photo 2 of slug-1 alt>"
+            }
+          },
+          "body": {
+            "vi": ["<Đoạn 1 bài viết 1>", "<Đoạn 2 bài viết 1>"],
+            "en": ["<Article 1 paragraph 1>", "<Article 1 paragraph 2>"]
+          },
+          "publishedAt": "2026-11-01"
+        },
+        {
+          "slug": "article-2",
+          "title": {
+            "vi": "<Tiêu đề bài viết 2>",
+            "en": "<Article 2 title>"
+          },
+          "excerpt": {
+            "vi": "<Trích dẫn bài viết 2>",
+            "en": "<Article 2 excerpt>"
+          },
+          "cover": {
+            "src": "/heritages/slug-1/photo-2.png",
+            "width": 2400,
+            "height": 1600,
+            "alt": {
+              "vi": "<Mô tả ảnh 2 của slug-1>",
+              "en": "<Photo 2 of slug-1 alt>"
+            }
+          },
+          "body": {
+            "vi": ["<Đoạn 1 bài viết 2>", "<Đoạn 2 bài viết 2>"],
+            "en": ["<Article 2 paragraph 1>", "<Article 2 paragraph 2>"]
+          },
+          "publishedAt": "2026-11-02"
+        }
+      ]
+    },
+    {
+      "slug": "slug-2",
+      "name": {
+        "vi": "<Tên di sản 2>",
+        "en": "<Heritage 2 name>"
+      },
+      "summary": {
+        "vi": "<Tóm tắt di sản 2>",
+        "en": "<Heritage 2 summary>"
+      },
+      "body": {
+        "vi": ["<Đoạn 1 về di sản 2>", "<Đoạn 2 về di sản 2>"],
+        "en": ["<Heritage 2 paragraph 1>", "<Heritage 2 paragraph 2>"]
+      },
+      "images": [
+        {
+          "src": "/heritages/slug-2/photo-1.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 1 của slug-2>",
+            "en": "<Photo 1 of slug-2 alt>"
+          }
+        },
+        {
+          "src": "/heritages/slug-2/photo-2.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 2 của slug-2>",
+            "en": "<Photo 2 of slug-2 alt>"
+          }
+        }
+      ],
+      "map": {
+        "x": 300,
+        "y": 600
+      },
+      "articles": [
+        {
+          "slug": "article-3",
+          "title": {
+            "vi": "<Tiêu đề bài viết 3>",
+            "en": "<Article 3 title>"
+          },
+          "excerpt": {
+            "vi": "<Trích dẫn bài viết 3>",
+            "en": "<Article 3 excerpt>"
+          },
+          "cover": {
+            "src": "/heritages/slug-2/photo-2.png",
+            "width": 2400,
+            "height": 1600,
+            "alt": {
+              "vi": "<Mô tả ảnh 2 của slug-2>",
+              "en": "<Photo 2 of slug-2 alt>"
+            }
+          },
+          "body": {
+            "vi": ["<Đoạn 1 bài viết 3>", "<Đoạn 2 bài viết 3>"],
+            "en": ["<Article 3 paragraph 1>", "<Article 3 paragraph 2>"]
+          },
+          "publishedAt": "2026-11-03"
+        }
+      ]
+    },
+    {
+      "slug": "slug-3",
+      "name": {
+        "vi": "<Tên di sản 3>",
+        "en": "<Heritage 3 name>"
+      },
+      "summary": {
+        "vi": "<Tóm tắt di sản 3>",
+        "en": "<Heritage 3 summary>"
+      },
+      "body": {
+        "vi": ["<Đoạn 1 về di sản 3>", "<Đoạn 2 về di sản 3>"],
+        "en": ["<Heritage 3 paragraph 1>", "<Heritage 3 paragraph 2>"]
+      },
+      "images": [
+        {
+          "src": "/heritages/slug-3/photo-1.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 1 của slug-3>",
+            "en": "<Photo 1 of slug-3 alt>"
+          }
+        },
+        {
+          "src": "/heritages/slug-3/photo-2.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 2 của slug-3>",
+            "en": "<Photo 2 of slug-3 alt>"
+          }
+        }
+      ],
+      "map": {
+        "x": 500,
+        "y": 200
+      },
+      "articles": [
+        {
+          "slug": "article-4",
+          "title": {
+            "vi": "<Tiêu đề bài viết 4>",
+            "en": "<Article 4 title>"
+          },
+          "excerpt": {
+            "vi": "<Trích dẫn bài viết 4>",
+            "en": "<Article 4 excerpt>"
+          },
+          "cover": {
+            "src": "/heritages/slug-3/photo-2.png",
+            "width": 2400,
+            "height": 1600,
+            "alt": {
+              "vi": "<Mô tả ảnh 2 của slug-3>",
+              "en": "<Photo 2 of slug-3 alt>"
+            }
+          },
+          "body": {
+            "vi": ["<Đoạn 1 bài viết 4>", "<Đoạn 2 bài viết 4>"],
+            "en": ["<Article 4 paragraph 1>", "<Article 4 paragraph 2>"]
+          },
+          "publishedAt": "2026-11-04"
+        }
+      ]
+    },
+    {
+      "slug": "slug-4",
+      "name": {
+        "vi": "<Tên di sản 4>",
+        "en": "<Heritage 4 name>"
+      },
+      "summary": {
+        "vi": "<Tóm tắt di sản 4>",
+        "en": "<Heritage 4 summary>"
+      },
+      "body": {
+        "vi": ["<Đoạn 1 về di sản 4>", "<Đoạn 2 về di sản 4>"],
+        "en": ["<Heritage 4 paragraph 1>", "<Heritage 4 paragraph 2>"]
+      },
+      "images": [
+        {
+          "src": "/heritages/slug-4/photo-1.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 1 của slug-4>",
+            "en": "<Photo 1 of slug-4 alt>"
+          }
+        },
+        {
+          "src": "/heritages/slug-4/photo-2.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 2 của slug-4>",
+            "en": "<Photo 2 of slug-4 alt>"
+          }
+        }
+      ],
+      "map": {
+        "x": 700,
+        "y": 600
+      },
+      "articles": []
+    },
+    {
+      "slug": "slug-5",
+      "name": {
+        "vi": "<Tên di sản 5>",
+        "en": "<Heritage 5 name>"
+      },
+      "summary": {
+        "vi": "<Tóm tắt di sản 5>",
+        "en": "<Heritage 5 summary>"
+      },
+      "body": {
+        "vi": ["<Đoạn 1 về di sản 5>", "<Đoạn 2 về di sản 5>"],
+        "en": ["<Heritage 5 paragraph 1>", "<Heritage 5 paragraph 2>"]
+      },
+      "images": [
+        {
+          "src": "/heritages/slug-5/photo-1.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 1 của slug-5>",
+            "en": "<Photo 1 of slug-5 alt>"
+          }
+        },
+        {
+          "src": "/heritages/slug-5/photo-2.png",
+          "width": 2400,
+          "height": 1600,
+          "alt": {
+            "vi": "<Mô tả ảnh 2 của slug-5>",
+            "en": "<Photo 2 of slug-5 alt>"
+          }
+        }
+      ],
+      "map": {
+        "x": 900,
+        "y": 200
+      },
+      "articles": []
+    }
+  ]
+}
