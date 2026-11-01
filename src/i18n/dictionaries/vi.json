@@ -24,6 +24,17 @@
     "relatedArticles": "Bài viết liên quan",
     "favorite": "Yêu thích"
   },
+  "comments": {
+    "title": "Bình luận",
+    "loading": "Đang tải bình luận…",
+    "loadError": "Không tải được bình luận. Vui lòng thử lại sau.",
+    "empty": "Chưa có bình luận nào.",
+    "label": "Bình luận của bạn",
+    "submit": "Gửi",
+    "delete": "Xoá",
+    "login": "Đăng nhập để bình luận",
+    "anonymous": "Ẩn danh"
+  },
   "map": {
     "title": "Bản đồ"
   },

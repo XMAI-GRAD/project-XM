@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { getHeritage, heritages } from "@/content";
 import { getCurrentUser } from "@/features/auth/queries";
+import { Comments } from "@/features/interactions/comments";
 import { FavoriteButton } from "@/features/interactions/favorite-button";
 import { getMyFavoriteSlugs } from "@/features/interactions/queries";
 import type { Locale } from "@/i18n/config";
@@ -78,6 +79,7 @@ export default async function HeritagePage({
           </ul>
         </section>
       )}
+      <Comments lang={lang} slug={slug} path={`/${lang}/heritage/${slug}`} />
     </article>
   );
 }

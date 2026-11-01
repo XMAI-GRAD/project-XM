@@ -162,7 +162,7 @@ RLS is on for every table. Each migration revokes Supabase's default grants from
 - **Columns:** `user_id`, `heritage_slug`, `created_at`. PK `(user_id, heritage_slug)`.
 - **Access:** select, insert and delete on your own rows.
 
-**`comments` (new)**
+**`comments` (exists)**
 
 - **Columns:**
   - `id`;
@@ -170,10 +170,10 @@ RLS is on for every table. Each migration revokes Supabase's default grants from
   - `target_slug`: a heritage or article slug;
   - `body`: 1–1000 chars after trim;
   - `created_at`.
-- **Index:** `(target_slug, created_at desc)`.
+- **Indexes:** `(target_slug, created_at desc)` for the list; `(user_id, created_at desc)` for the rate limit and the profiles check.
 - **Access:**
   - Read: everyone.
-  - Insert: your own, at most 1 per 10 s, enforced by an RLS check.
+  - Insert: your own, at most 1 per 10 s, enforced by an RLS check. Clients insert only `target_slug` and `body`; `user_id` defaults to `auth.uid()`, and `created_at` can't be set, so a backdated row can't get around the limit.
   - Delete: your own.
   - No update.
 

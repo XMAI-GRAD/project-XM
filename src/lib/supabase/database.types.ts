@@ -39,6 +39,38 @@ export type Database = {
   }
   public: {
     Tables: {
+      comments: {
+        Row: {
+          body: string
+          created_at: string
+          id: number
+          target_slug: string
+          user_id: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          id?: never
+          target_slug: string
+          user_id?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          id?: never
+          target_slug?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       contact_submissions: {
         Row: {
           created_at: string
