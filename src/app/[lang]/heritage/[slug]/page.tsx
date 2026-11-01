@@ -13,6 +13,11 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 
+// ponytail: the page awaits `params` outside <Suspense>, so client navigations
+// block on the server. Fine for prerendered pages. For instant navigation, move
+// the `params` read into children inside <Suspense> and drop this (SPEC appendix).
+export const instant = false;
+
 export function generateStaticParams() {
   return heritages.map((h) => ({ slug: h.slug }));
 }

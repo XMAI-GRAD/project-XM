@@ -6,6 +6,9 @@ import { articles, getArticle, getHeritage } from "@/content";
 import { Comments } from "@/features/interactions/comments";
 import { getLocale, pageMetadata } from "@/i18n/server";
 
+// ponytail: same as the heritage page, see SPEC appendix "Instant navigation".
+export const instant = false;
+
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
 }

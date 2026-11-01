@@ -311,6 +311,15 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
 - **Migrations:**
   - run `pnpm db:push` to dev after the PR into `dev` is approved, since the dev DB is shared;
   - push to prod during a release, before merging into `main`.
+- **Instant navigation (opted out):**
+  - `heritage/[slug]` and `articles/[slug]` set `export const instant = false`.
+  - Why: both pages `await params` at the top, outside `<Suspense>`. A click to one of them waits for the server before anything shows.
+  - Without the opt-out, Next's dev-only instant validation shows a red overlay. The build isn't affected, and the pages are prerendered via `generateStaticParams`, so the wait is short.
+  - To make them instant later:
+    1. Pass `params` (the Promise) to child components.
+    2. Await it inside `<Suspense>` with a content fallback.
+    3. Delete the `instant` export.
+  - See `node_modules/next/dist/docs/01-app/02-guides/instant-navigation.md`.
 - **PWA:** `manifest.ts` with 192, 512 and maskable icons. No service worker.
 - **SEO:** hreflang metadata, `sitemap.ts`, and a `robots.ts` that disallows `/auth/` and `/<lang>/account` for each locale.
 - **Security headers:** `nosniff`, `strict-origin-when-cross-origin`, `X-Frame-Options: DENY`.
