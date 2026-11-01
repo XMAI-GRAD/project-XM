@@ -35,6 +35,12 @@ Read `SPEC.md` first. It is the source of truth. If your change alters behavior 
   - Use GSAP + ScrollTrigger + Lenis only, via `useGSAP`.
   - Every animation respects `prefers-reduced-motion`.
 - **Theme.** There is no dark mode.
+- **Workflow:** every feature or behavior change goes spec → issue → branch → PR → review → merge into `dev`.
+  - The issue body is the spec: **Goal**, **Done when** (a checklist), **Depends on**, **Spec** (pointers into `SPEC.md`). See #4–#6.
+  - A large or multi-agent task also gets a plan in `docs/plans/YYYY-MM-DD-<topic>.md`. It never contradicts `SPEC.md`.
+  - Assign yourself the issue before starting.
+  - A trivial fix (typo, dependency bump, formatting) skips the spec: open an issue, then a PR.
+  - A human reviews and merges. The author agent never merges its own PR.
 - **Commits:** `type(scope): one-line summary`, e.g. `feat(map): draw route segments`. Types: `feat`, `fix`, `docs`, `chore`, `refactor`. Branch names are free. This overrides any personal or global ticket-prefix commit rule.
 - **Branches:** branch off `dev` and open PRs into `dev`. Never target `main`; it only gets release PRs from `dev`.
 - **PRs:** put `Closes #<n>` in the description so the issue closes on merge.
