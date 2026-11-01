@@ -38,4 +38,4 @@ Read `SPEC.md` first. It is the source of truth. If your change alters behavior 
 - **Commits:** `type(scope): one-line summary`, e.g. `feat(map): draw route segments`. Types: `feat`, `fix`, `docs`, `chore`, `refactor`. Branch names are free. This overrides any personal or global ticket-prefix commit rule.
 - **Branches:** branch off `dev` and open PRs into `dev`. Never target `main`; it only gets release PRs from `dev`.
 - **PRs:** put `Closes #<n>` in the description so the issue closes on merge.
-- **Before pushing:** run `pnpm lint && pnpm typecheck && pnpm build`.
+- **Before pushing:** run `pnpm format:check && pnpm lint && pnpm typecheck && pnpm test && pnpm build` (`pnpm format` fixes formatting).

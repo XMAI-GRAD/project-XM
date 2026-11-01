@@ -28,23 +28,25 @@ A graduation project by a graphic-design student: an online gallery of 5 Vietnam
 
 ### Screens (current idea, not final: depends on the design)
 
-| Screen | Route | Content |
-|---|---|---|
-| Landing / Gallery | `/[lang]` | Intro + the 5 heritage sites |
-| Heritage detail | `/[lang]/heritage/[slug]` | Images, story, related articles, favorite button, comments |
-| Interactive map | `/[lang]/map` | Illustrated map, 5 pins joined by a route. Click a pin → info panel → detail page |
-| Article | `/[lang]/articles/[slug]` | Reading page, comments |
-| Profile | `/[lang]/account` | Login required: display name, favorites list, sign out |
+| Screen            | Route                     | Content                                                                           |
+| ----------------- | ------------------------- | --------------------------------------------------------------------------------- |
+| Landing / Gallery | `/[lang]`                 | Intro + the 5 heritage sites                                                      |
+| Heritage detail   | `/[lang]/heritage/[slug]` | Images, story, related articles, favorite button, comments                        |
+| Interactive map   | `/[lang]/map`             | Illustrated map, 5 pins joined by a route. Click a pin → info panel → detail page |
+| Article           | `/[lang]/articles/[slug]` | Reading page, comments                                                            |
+| Profile           | `/[lang]/account`         | Login required: display name, favorites list, sign out                            |
 
 Supporting routes:
 
-| Route | Purpose |
-|---|---|
-| `/[lang]/login` | "Continue with Google" |
-| `/auth/callback` | OAuth return |
-| `/[lang]/about` | About, with a `mailto:` contact link |
-| localized 404 | Unknown paths and slugs |
-| `/[lang]/proto/a`, `/b`, `/c` | Throwaway landing prototypes (B was picked), kept for sharing. Mock text in `proto/_mock.ts` is the one exception to "content only in the JSON". Not in the sitemap. Delete the folder when no longer needed. |
+| Route                         | Purpose                                     |
+| ----------------------------- | ------------------------------------------- |
+| `/[lang]/login`               | "Continue with Google"                      |
+| `/auth/callback`              | OAuth return                                |
+| `/[lang]/about`               | About, with a `mailto:` contact link        |
+| localized 404                 | Unknown paths and slugs                     |
+| `/[lang]/proto/a`, `/b`, `/c` | Throwaway landing prototypes (B was picked) |
+
+The proto routes are kept for sharing and are not in the sitemap. Their mock text in `proto/_mock.ts` is the one exception to "content only in the JSON". Delete the folder when no longer needed.
 
 Screens will be added or removed as the design settles. Update this table when they change.
 
@@ -73,13 +75,13 @@ Screens will be added or removed as the design settles. Update this table when t
 
 ### Open decisions
 
-| ID | Question | Owner | Needed by |
-|---|---|---|---|
-| O-01 | Buy a domain (~$10/yr `.com`, or a free `.id.vn`)? This unblocks email/password login. | Team | 2026-11-13 |
-| O-02 | Will any Lottie or 3D assets come? | Designer | Before motion work |
-| O-03 | Map camera: user pan/zoom, or only an automatic zoom-to-pin? | Designer | Before map camera work |
-| O-04 | Final screens and content: the 5 sites, articles. | Team + designer | Before content entry |
-| O-05 | Map art style: painterly raster, or pure vector? (Part 3) | Designer | Before map work |
+| ID   | Question                                                                               | Owner           | Needed by              |
+| ---- | -------------------------------------------------------------------------------------- | --------------- | ---------------------- |
+| O-01 | Buy a domain (~$10/yr `.com`, or a free `.id.vn`)? This unblocks email/password login. | Team            | 2026-11-13             |
+| O-02 | Will any Lottie or 3D assets come?                                                     | Designer        | Before motion work     |
+| O-03 | Map camera: user pan/zoom, or only an automatic zoom-to-pin?                           | Designer        | Before map camera work |
+| O-04 | Final screens and content: the 5 sites, articles.                                      | Team + designer | Before content entry   |
+| O-05 | Map art style: painterly raster, or pure vector? (Part 3)                              | Designer        | Before map work        |
 
 ### Way of working
 
@@ -106,33 +108,33 @@ Until O-04 is settled, the file holds placeholders: slugs `slug-1`…`slug-5` an
 type Localized<T = string> = { vi: T; en: T };
 
 interface Photo {
-  src: string;                 // "/heritages/<slug>/<file>.jpg"
+  src: string; // "/heritages/<slug>/<file>.jpg"
   width: number;
   height: number;
   alt: Localized;
 }
 
 interface Article {
-  slug: string;                // unique across all heritages and articles
+  slug: string; // unique across all heritages and articles
   title: Localized;
   excerpt: Localized;
   cover: Photo;
-  body: Localized<string[]>;   // paragraphs; switch to Markdown only if rich formatting is needed
-  publishedAt: string;         // YYYY-MM-DD
+  body: Localized<string[]>; // paragraphs; switch to Markdown only if rich formatting is needed
+  publishedAt: string; // YYYY-MM-DD
 }
 
 interface Heritage {
-  slug: string;                // kebab-case, no diacritics, e.g. "hoi-an"
+  slug: string; // kebab-case, no diacritics, e.g. "hoi-an"
   name: Localized;
   summary: Localized;
   body: Localized<string[]>;
   images: Photo[];
-  map: { x: number; y: number };  // pin position in map viewBox units
+  map: { x: number; y: number }; // pin position in map viewBox units
   articles: Article[];
 }
 
 interface HeritageData {
-  route: string[];             // heritage slugs in route order; segment i is <path id="route-<route[i]>-<route[i+1]>">
+  route: string[]; // heritage slugs in route order; segment i is <path id="route-<route[i]>-<route[i+1]>">
   heritages: Heritage[];
 }
 ```
@@ -283,11 +285,11 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
 
 ## Appendix — environments & ops (not needed in AI prompts)
 
-| Env | Branch | Supabase |
-|---|---|---|
-| Local | any | `project-xm-dev` (shared) |
-| Preview | PRs and `dev` | `project-xm-dev` |
-| Production | `main` | `project-xm-prod` |
+| Env        | Branch        | Supabase                  |
+| ---------- | ------------- | ------------------------- |
+| Local      | any           | `project-xm-dev` (shared) |
+| Preview    | PRs and `dev` | `project-xm-dev`          |
+| Production | `main`        | `project-xm-prod`         |
 
 - **Env vars:**
   - `NEXT_PUBLIC_SUPABASE_URL`
@@ -303,7 +305,8 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
   2. Open a PR `dev` → `main` and merge it with a merge commit.
 
   Don't squash: a squashed release makes `dev` and `main` diverge. Env vars are set once per Vercel environment (Production/Preview), not per release.
-- **CI:** lint, typecheck and build, plus `pnpm test` for the few pure-logic tests.
+
+- **CI:** Prettier check, lint, typecheck and build, plus `pnpm test` for the few pure-logic tests.
 - **Deploys:** Vercel deploys previews for PRs and `dev`, and production from `main`.
 - **Migrations:**
   - run `pnpm db:push` to dev after the PR into `dev` is approved, since the dev DB is shared;

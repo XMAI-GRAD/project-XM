@@ -73,6 +73,7 @@ Density is low. A screen holds one subject, one short line of large type, and at
 There is one theme. `color-scheme` is fixed to `dark`, and there is no light mode or OS-driven switching.
 
 **Key Characteristics:**
+
 - Near-black ground, off-white type, dim grey for inactive or secondary text.
 - No accent colour; photographs supply all chroma.
 - One 16px-radius frame as the hero object; pills for nav and the primary action.
@@ -84,6 +85,7 @@ There is one theme. `color-scheme` is fixed to `dark`, and there is no light mod
 A five-step neutral ramp from ink to paper, with no hue of its own.
 
 ### Neutral
+
 - **Stage Black** (ink): page background everywhere; text colour on the paper CTA.
 - **Gallery Paper** (paper): all primary text, active list names, route lines and pins, the CTA fill, the focus ring and the selection fill.
 - **Dim Grey** (dim): inactive list names, the brand link in the nav, secondary sub-lines on mobile.
@@ -91,6 +93,7 @@ A five-step neutral ramp from ink to paper, with no hue of its own.
 - **Raised Surface** (surface): the nav pill, and the frame background before a photo loads.
 
 ### Named Rules
+
 **The Photos Bring the Colour Rule.** No accent hue exists. Do not add one for links, buttons or states; state is carried by the paper/dim contrast.
 
 **The Inverted Selection Rule.** Text selection is paper on ink inverted (paper background, ink text). Keep it.
@@ -102,12 +105,14 @@ A five-step neutral ramp from ink to paper, with no hue of its own.
 **Character:** A plain neo-grotesk used big and medium-weight. It reads as a gallery wall label scaled up for a projector.
 
 ### Hierarchy
+
 - **Display** (500, `clamp(1.75rem, 3.6vw, 3.75rem)`, 1.15, -0.02em): a single standalone statement per section, max 24ch, `text-wrap: balance`.
 - **Headline** (500, about `clamp(1.5rem, 3vw, 3.5rem)`, 1.15, -0.02em): the hero phrase (max 9ch), the site-name list (max 14ch) and section h2s (max 14ch). Each instance tunes its clamp within this range. Mobile drops to a fixed 1.375–1.75rem.
 - **Body** (400, 1rem, 1.4): running text.
 - **Label** (400, 0.8125rem): nav links, photo captions, list sub-lines.
 
 ### Named Rules
+
 **The Two Weights Rule.** Use 400 and 500 only. Large type is always 500 with -0.02em tracking and 1.15 leading; small type is 400 with normal tracking.
 
 **The Short Measure Rule.** Large type is capped in `ch` (9–24ch) and balanced. Never let display or headline text run full width.
@@ -123,6 +128,7 @@ A five-step neutral ramp from ink to paper, with no hue of its own.
 ## Elevation & Depth
 
 Flat and tonal. Depth comes from stepping lightness (ink, then surface, then a slightly lifted panel), never from drop shadows on surfaces. Two legibility devices are allowed over photography:
+
 - **Text glow** (`text-shadow: 0 0 12px rgb(0 0 0 / 0.6)`): on large type that may sit near imagery.
 - **Caption scrim** (`linear-gradient(to top, rgb(0 0 0 / 0.65), transparent)`): under captions on photos.
 
@@ -140,31 +146,38 @@ The direction named a single 16px frame. The build also uses 16px for the map te
 ## Components
 
 ### Buttons
+
 - **Primary (pill CTA):** paper fill, ink text, 500 weight, 999px radius, `14px 24px` padding. A trailing 16px inline-SVG arrow (1.5 stroke, `currentColor`) with a 10px gap.
 - **Hover:** fill lifts to pure white. **Focus:** the global ring (below).
 - No secondary button exists yet.
 
 ### Navigation
+
 - **Header pill:** surface fill, 999px radius, centred and sticky. Label-size text (0.75rem below 640px), gap 12px rising to 20px. Scrolls horizontally rather than wrapping.
 - **States:** the brand link is dim, other links are paper. Hover underlines the link (1px thickness, 0.3em offset).
 - **Footer:** a `line` top border, a wrapped row of links at 0.875rem, underline on hover.
 
 ### Focus
+
 - 2px solid paper outline, 4px offset, 4px radius, applied globally on `:focus-visible`.
 
 ### Gallery Frame (signature)
+
 One rounded frame (surface fill, 16px, `overflow: hidden`) holding stacked full-bleed photos, each with a bottom caption scrim. A list of site names sits beside it.
+
 - **Default:** site 1 is shown and its name is paper; the other names are dim.
 - **Hover / `:focus-within` a name:** that site's photo fades in (opacity, 0.5s ease) and its name turns paper (colour, 0.4s ease). This is pure CSS via `:has()`, with no JS.
 - **Reduced motion:** both transitions are off and the swap is instant.
 - **Below 800px:** no hover; rows show their own thumbnails and all names are paper.
 
 ### Motion (pending)
+
 SPEC mandates GSAP + ScrollTrigger + Lenis via `useGSAP`, with `gsap.matchMedia` for reduced motion. None of it is built yet. Only the CSS transitions above have shipped. Scroll-driven motion is an open decision, not a recorded pattern.
 
 ## Do's and Don'ts
 
 ### Do:
+
 - **Do** use only the five colour tokens through their custom properties (`var(--ink)` and so on, or Tailwind `bg-surface`, `text-dim`).
 - **Do** set large type at 500, -0.02em, 1.15 leading, capped in `ch` and balanced.
 - **Do** give large photo containers a 16px radius, and pills to nav and primary actions.
@@ -174,6 +187,7 @@ SPEC mandates GSAP + ScrollTrigger + Lenis via `useGSAP`, with `gsap.matchMedia`
 - **Do** load fonts with the `vietnamese` subset.
 
 ### Don't:
+
 - **Don't** introduce an accent colour; the photographs carry the colour.
 - **Don't** lay the five sites out as a card grid; show one place at a time.
 - **Don't** add a light theme or respond to `prefers-color-scheme`.

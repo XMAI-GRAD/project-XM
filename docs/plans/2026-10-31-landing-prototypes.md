@@ -14,11 +14,11 @@ Routes: `/vi/proto/a`, `/vi/proto/b`, `/vi/proto/c` (and `/en/...`). A floating 
 
 The first viewport is an index of the five sites. Hovering or focusing a row reveals that site's image. Each prototype expresses it in its own grammar:
 
-| | World | Hero index |
-|---|---|---|
-| A | DAS × Wildy Riftian: saturated yellow and black, giant tight grotesk, hairline-framed panels with corner crosshairs, small mono metadata | Five huge name rows, numbered by route stop, spanning the width. Hover/focus inverts the row to black and shows a framed image panel |
-| B | Collective: near-black, one large rounded image frame in the centre, words swapping left and right of it | The five names stack on the right of a fixed centre frame. The active name is bright and the others dim; hover/focus swaps the frame's image |
-| C | Analogue: off-white, a quiet grid of rounded thumbnails with small captions | A five-column thumbnail grid. Hover/focus lifts a thumbnail and enlarges its caption |
+|     | World                                                                                                                                    | Hero index                                                                                                                                   |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| A   | DAS × Wildy Riftian: saturated yellow and black, giant tight grotesk, hairline-framed panels with corner crosshairs, small mono metadata | Five huge name rows, numbered by route stop, spanning the width. Hover/focus inverts the row to black and shows a framed image panel         |
+| B   | Collective: near-black, one large rounded image frame in the centre, words swapping left and right of it                                 | The five names stack on the right of a fixed centre frame. The active name is bright and the others dim; hover/focus swaps the frame's image |
+| C   | Analogue: off-white, a quiet grid of rounded thumbnails with small captions                                                              | A five-column thumbnail grid. Hover/focus lifts a thumbnail and enlarges its caption                                                         |
 
 ## Sections after the hero (all three)
 
