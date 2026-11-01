@@ -21,7 +21,8 @@
     "mapLabel": "Route through the five heritage sites"
   },
   "heritage": {
-    "relatedArticles": "Related articles"
+    "relatedArticles": "Related articles",
+    "favorite": "Favorite"
   },
   "map": {
     "title": "Map"
@@ -37,7 +38,9 @@
     "displayName": "Display name",
     "save": "Save",
     "saved": "Saved.",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "favorites": "Favorites",
+    "noFavorites": "No favorites yet."
   },
   "login": {
     "title": "Log in",
