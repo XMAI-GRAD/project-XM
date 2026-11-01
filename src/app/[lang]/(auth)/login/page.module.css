@@ -1,6 +1,6 @@
 .page {
-  min-height: 100dvh;
-  padding: 88px 3vw 72px;
+  min-height: calc(100dvh - 4.5rem);
+  padding: 2rem 3vw 3rem;
   display: grid;
   grid-template-columns: min(45vw, 760px) minmax(0, 1fr);
   gap: 6vw;
@@ -8,45 +8,56 @@
 }
 
 .frame {
-  height: calc(100dvh - 160px);
+  position: relative;
+  height: 72vh;
   min-height: 420px;
   border-radius: 16px;
-  background: #1f2a1d;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 2px;
-  padding: 20px;
+  overflow: hidden;
+  background: var(--surface);
 }
-.frameLabel,
-.frameMeta {
+
+.photo {
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.65), transparent);
+}
+
+.caption p {
   margin: 0;
   font-size: 0.8125rem;
 }
-.frameMeta {
-  color: var(--dim);
+
+.captionSummary {
+  color: #c9c7c1;
 }
 
 .panel {
   max-width: 26rem;
 }
+
 .title {
-  margin: 0 0 16px;
+  margin: 0 0 1rem;
   font-weight: 500;
   font-size: clamp(1.75rem, 3.2vw, 3.5rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
+
 .lead {
-  margin: 0 0 40px;
+  margin: 0 0 2.5rem;
   color: var(--dim);
   text-wrap: pretty;
 }
 
 .error {
-  margin: 0 0 16px;
-  padding: 12px 16px;
+  margin: 0 0 1rem;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
   background: #2f1c1b;
   border: 1px solid #5a2f2c;
@@ -59,38 +70,43 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 16px 24px;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
   border: 0;
   border-radius: 999px;
-  background: var(--fg);
-  color: var(--bg);
+  background: var(--paper);
+  color: var(--ink);
   font: inherit;
   font-weight: 500;
   cursor: pointer;
 }
-.google:hover {
+
+.google:hover:enabled {
   background: #fff;
 }
-.google:focus-visible {
-  outline: 2px solid var(--fg);
-  outline-offset: 4px;
+
+.google:disabled {
+  opacity: 0.6;
+  cursor: default;
 }
 
 .note {
-  margin: 16px 0 0;
+  margin: 1rem 0 0;
   font-size: 0.8125rem;
   color: var(--dim);
   text-align: center;
 }
 
 .back {
-  margin-top: 56px;
+  margin-top: 3.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
+  color: inherit;
   font-size: 0.875rem;
+  text-decoration: none;
 }
+
 .back:hover {
   text-decoration: underline;
 }
@@ -98,21 +114,25 @@
 @media (max-width: 800px) {
   .page {
     display: block;
-    padding: 80px 16px 88px;
+    padding: 1.5rem 1rem 3rem;
   }
+
   .frame {
     height: auto;
     min-height: 0;
     aspect-ratio: 4 / 3;
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
+
   .panel {
     max-width: none;
   }
+
   .lead {
-    margin-bottom: 32px;
+    margin-bottom: 2rem;
   }
+
   .back {
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 }

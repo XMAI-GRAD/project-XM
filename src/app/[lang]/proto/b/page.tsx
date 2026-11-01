@@ -22,7 +22,7 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
   const links = [
     { href: `/${lang}/map`, label: t.nav.map },
     { href: `/${lang}/about`, label: t.nav.about },
-    { href: `/${lang}/proto/b/login`, label: t.nav.account },
+    { href: `/${lang}/account`, label: t.nav.account },
   ];
   const route = mockHeritages.map((h) => `${h.map.x},${h.map.y}`).join(" ");
   // Labels flip side where pins sit close together.

@@ -42,7 +42,10 @@
   "login": {
     "title": "Đăng nhập",
     "continueWithGoogle": "Tiếp tục với Google",
-    "error": "Đăng nhập không thành công. Vui lòng thử lại."
+    "error": "Đăng nhập không thành công. Vui lòng thử lại.",
+    "lead": "Đăng nhập để lưu di sản yêu thích và bình luận. Xem nội dung không cần tài khoản.",
+    "note": "<Ghi chú quyền riêng tư>",
+    "back": "Về trang chủ"
   },
   "footer": {
     "label": "Chân trang"

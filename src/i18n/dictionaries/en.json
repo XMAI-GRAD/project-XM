@@ -42,7 +42,10 @@
   "login": {
     "title": "Log in",
     "continueWithGoogle": "Continue with Google",
-    "error": "Sign-in failed. Please try again."
+    "error": "Sign-in failed. Please try again.",
+    "lead": "Sign in to save favorite sites and leave comments. Browsing needs no account.",
+    "note": "<Privacy note>",
+    "back": "Back to home"
   },
   "footer": {
     "label": "Footer"
