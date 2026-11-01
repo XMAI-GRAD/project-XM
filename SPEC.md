@@ -44,12 +44,15 @@ Supporting routes:
 | `/auth/callback` | OAuth return |
 | `/[lang]/about` | About, with a `mailto:` contact link |
 | localized 404 | Unknown paths and slugs |
+| `/[lang]/proto/a`, `/b`, `/c` | Throwaway landing prototypes (B was picked), kept for sharing. Mock text in `proto/_mock.ts` is the one exception to "content only in the JSON". Not in the sitemap. Delete the folder when no longer needed. |
 
 Screens will be added or removed as the design settles. Update this table when they change.
 
 ### Flows
 
 - **Browse:** everything is readable without logging in.
+- **Header:** signed in, it shows the Google avatar and display name, linking to `/[lang]/account`. Signed out, it shows a login link.
+- **Profile while signed out:** `/[lang]/account` redirects to `/[lang]/login?next=/[lang]/account`.
 - **Favorite or comment while signed out:**
   1. The user is sent to log in with Google.
   2. They land back on the same page.
@@ -148,7 +151,7 @@ RLS is on for every table. Each migration revokes Supabase's default grants from
 **`profiles` (exists)**
 
 - **Columns:** `id` (→ `auth.users`), `display_name` (≤ 100 chars), `avatar_url`, `created_at`.
-- **Created by:** a trigger, from Google metadata.
+- **Created by:** a trigger, from Google metadata (`full_name`, else `name`, cut to 100 chars).
 - **Read:** your own row, or anyone who has commented.
 - **Update:** your own `display_name` only. The avatar comes from Google.
 
@@ -221,8 +224,10 @@ The UI maps each `ActionError` to a dictionary string. Raw DB errors never reach
   - Using the request's own origin keeps login working on preview URLs.
   - The Supabase redirect allowlist must include `http://localhost:3000/**`, the production URL, and `https://*-<vercel-team>.vercel.app/**`.
 - `/auth/callback` exchanges the code and redirects to `next`.
-  - `next` must be a same-origin path: it starts with `/`, but not with `//` or `/\`. Otherwise the redirect goes to `/vi`.
+  - `next` must be a same-origin path (`safeNextPath`): it starts with `/` and keeps the site's origin when resolved as a URL, so `//host`, `/\host` and `/<tab>/host` fail. Otherwise the redirect goes to `/<lang>` (`/vi` in the callback).
   - When the exchange fails, it redirects to `/vi/login?error=auth`.
+  - When `signInWithOAuth` itself fails, `signInWithGoogle` redirects to `/[lang]/login?error=auth`.
+- Avatars load through `next/image` from `lh3.googleusercontent.com` (`images.remotePatterns` in `next.config.ts`).
 - Server code authorizes with `getUser()` or `getClaims()`, never `getSession()`. Both Supabase projects use asymmetric JWT keys.
 - The Google consent screen is published "In production", with basic scopes only.
 
@@ -268,6 +273,7 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
   - Google indexes both languages.
   - Both versions prerender as static pages.
 - **First visit to `/`:** the language comes from the cookie, then the browser's `Accept-Language`, then `vi`.
+- **Unprefixed paths:** the proxy redirects any path without a locale to `/<lang>/…`, and a wrong-case locale (`/EN/map`) to lowercase. These paths keep no prefix: `/auth/*`, `/sitemap.xml`, `/robots.txt`, `/manifest.webmanifest`, and Next internals (`/_*`).
 - **Content:** every text field is `{ vi, en }` in the JSON. `vi` is the source; `en` is required, and the build check enforces it.
 - **UI strings:** they live in `src/i18n/dictionaries/vi.json` and `en.json`, with the same keys in both.
 - **Slugs:** one slug per item, shared by both languages, with no diacritics.
