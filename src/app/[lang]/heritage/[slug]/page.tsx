@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import { ErrorBoundary } from "@/components/error-boundary";
 import { getHeritage, heritages } from "@/content";
+import { getCurrentUser } from "@/features/auth/queries";
+import { FavoriteButton } from "@/features/interactions/favorite-button";
+import { getMyFavoriteSlugs } from "@/features/interactions/queries";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 
@@ -33,6 +39,17 @@ export default async function HeritagePage({
     <article>
       <h1>{heritage.name[lang]}</h1>
       <p>{heritage.summary[lang]}</p>
+      <ErrorBoundary fallback={null}>
+        <Suspense
+          fallback={
+            <button type="button" disabled>
+              {dict.heritage.favorite}
+            </button>
+          }
+        >
+          <Favorite lang={lang} slug={slug} />
+        </Suspense>
+      </ErrorBoundary>
       {heritage.images.map((img) => (
         <Image
           key={img.src}
@@ -62,5 +79,24 @@ export default async function HeritagePage({
         </section>
       )}
     </article>
+  );
+}
+
+async function Favorite({ lang, slug }: { lang: Locale; slug: string }) {
+  const { heritage, errors } = getDictionary(lang);
+  const user = await getCurrentUser();
+  if (!user) {
+    const next = encodeURIComponent(`/${lang}/heritage/${slug}`);
+    return (
+      <Link href={`/${lang}/login?next=${next}`}>{heritage.favorite}</Link>
+    );
+  }
+  const favorites = await getMyFavoriteSlugs();
+  return (
+    <FavoriteButton
+      slug={slug}
+      initialFavorited={favorites.includes(slug)}
+      dict={{ heritage, errors }}
+    />
   );
 }

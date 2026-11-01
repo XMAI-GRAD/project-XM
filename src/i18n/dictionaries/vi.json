@@ -21,7 +21,8 @@
     "mapLabel": "Sơ đồ tuyến đường qua năm di sản"
   },
   "heritage": {
-    "relatedArticles": "Bài viết liên quan"
+    "relatedArticles": "Bài viết liên quan",
+    "favorite": "Yêu thích"
   },
   "map": {
     "title": "Bản đồ"
@@ -37,7 +38,9 @@
     "displayName": "Tên hiển thị",
     "save": "Lưu",
     "saved": "Đã lưu.",
-    "signOut": "Đăng xuất"
+    "signOut": "Đăng xuất",
+    "favorites": "Di sản yêu thích",
+    "noFavorites": "Chưa có di sản yêu thích."
   },
   "login": {
     "title": "Đăng nhập",
