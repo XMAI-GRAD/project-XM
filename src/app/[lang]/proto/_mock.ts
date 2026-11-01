@@ -67,6 +67,14 @@ export const mockCopy = {
     imagePlaceholder: "<Ảnh di sản>",
     contact: "<Footer · Liên hệ>",
     placeholderNote: "<Footer · ghi chú / bản quyền>",
+    login: {
+      title: "<Login · tiêu đề>",
+      lead: "<Login · 1 câu: đăng nhập để lưu yêu thích và bình luận>",
+      google: "<Nút · Tiếp tục với Google>",
+      error: "<Login · thông báo lỗi, chỉ hiện khi đăng nhập thất bại>",
+      note: "<Login · ghi chú quyền riêng tư / điều khoản>",
+      back: "<Link · Quay lại trang chủ>",
+    },
   },
   en: {
     siteName: "<Logo>",
@@ -92,5 +100,13 @@ export const mockCopy = {
     imagePlaceholder: "<Heritage photo>",
     contact: "<Footer · Contact>",
     placeholderNote: "<Footer · note / copyright>",
+    login: {
+      title: "<Login · headline>",
+      lead: "<Login · one line: sign in to save favorites and comment>",
+      google: "<Button · Continue with Google>",
+      error: "<Login · error message, shown only when sign-in fails>",
+      note: "<Login · privacy / terms note>",
+      back: "<Link · Back to home>",
+    },
   },
 } satisfies Record<Locale, unknown>;
