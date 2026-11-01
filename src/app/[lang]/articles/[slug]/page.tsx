@@ -3,7 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticle, getHeritage } from "@/content";
+import { Comments } from "@/features/interactions/comments";
 import { getLocale, pageMetadata } from "@/i18n/server";
+
+// ponytail: same as the heritage page, see SPEC appendix "Instant navigation".
+export const instant = false;
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -45,6 +49,7 @@ export default async function ArticlePage({
       <Link href={`/${lang}/heritage/${heritage.slug}`}>
         {heritage.name[lang]}
       </Link>
+      <Comments lang={lang} slug={slug} path={`/${lang}/articles/${slug}`} />
     </article>
   );
 }

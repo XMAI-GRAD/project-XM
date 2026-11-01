@@ -24,6 +24,17 @@
     "relatedArticles": "Related articles",
     "favorite": "Favorite"
   },
+  "comments": {
+    "title": "Comments",
+    "loading": "Loading comments…",
+    "loadError": "Comments couldn’t load. Please try again later.",
+    "empty": "No comments yet.",
+    "label": "Your comment",
+    "submit": "Post",
+    "delete": "Delete",
+    "login": "Log in to comment",
+    "anonymous": "Anonymous"
+  },
   "map": {
     "title": "Map"
   },
