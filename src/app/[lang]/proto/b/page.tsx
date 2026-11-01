@@ -48,12 +48,17 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
         <div className={s.stage}>
           <div className={s.frame} aria-hidden="true">
             {mockHeritages.map((h, i) => (
-              <div key={h.slug} className={s.slide} style={{ background: tones[i] }}>
+              <div
+                key={h.slug}
+                className={s.slide}
+                style={{ background: tones[i] }}
+              >
                 <p className={s.slideLabel}>
                   {t.imagePlaceholder} · {h.name[lang]}
                 </p>
                 <p className={s.slideMeta}>
-                  {h.place[lang]} · <span className={s.num}>{h.year[lang]}</span>
+                  {h.place[lang]} ·{" "}
+                  <span className={s.num}>{h.year[lang]}</span>
                 </p>
               </div>
             ))}
@@ -65,10 +70,15 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
           {mockHeritages.map((h, i) => (
             <li key={h.slug} className={s.item}>
               <Link href={`/${lang}/heritage/${h.slug}`}>
-                <span className={s.swatch} style={{ background: tones[i] }} aria-hidden="true" />
+                <span
+                  className={s.swatch}
+                  style={{ background: tones[i] }}
+                  aria-hidden="true"
+                />
                 <span className={s.nameText}>{h.name[lang]}</span>
                 <span className={s.sub}>
-                  {h.place[lang]} · <span className={s.num}>{h.year[lang]}</span>
+                  {h.place[lang]} ·{" "}
+                  <span className={s.num}>{h.year[lang]}</span>
                 </span>
               </Link>
             </li>
@@ -82,8 +92,18 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
 
       <section className={s.mapSection}>
         <div className={s.mapFrame}>
-          <svg viewBox="10 18 80 110" role="img" aria-label={t.mapLabel} className={s.svg}>
-            <polyline points={route} fill="none" stroke="var(--fg)" strokeWidth="0.4" />
+          <svg
+            viewBox="10 18 80 110"
+            role="img"
+            aria-label={t.mapLabel}
+            className={s.svg}
+          >
+            <polyline
+              points={route}
+              fill="none"
+              stroke="var(--fg)"
+              strokeWidth="0.4"
+            />
             {mockHeritages.map((h, i) => (
               <g key={h.slug}>
                 <circle cx={h.map.x} cy={h.map.y} r="1.6" fill="var(--fg)" />
@@ -104,7 +124,12 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
           <Link href={`/${lang}/map`} className={s.cta}>
             {t.openMap}
             <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-              <path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <path
+                d="M2 8h11M9 4l4 4-4 4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
             </svg>
           </Link>
         </div>

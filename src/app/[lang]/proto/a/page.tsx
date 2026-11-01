@@ -19,16 +19,36 @@ const mono = Chivo_Mono({
 
 function Cross({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
   return (
-    <svg className={`pa-cross pa-${pos}`} viewBox="0 0 11 11" aria-hidden="true">
-      <path d="M5.5 0v11M0 5.5h11" fill="none" stroke="currentColor" strokeWidth="1" />
+    <svg
+      className={`pa-cross pa-${pos}`}
+      viewBox="0 0 11 11"
+      aria-hidden="true"
+    >
+      <path
+        d="M5.5 0v11M0 5.5h11"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+      />
     </svg>
   );
 }
 
 function Arrow({ className }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
-      <path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+    <svg
+      className={className}
+      viewBox="0 0 16 10"
+      width="16"
+      height="10"
+      aria-hidden="true"
+    >
+      <path
+        d="M0 5h14M10 1l4 4-4 4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </svg>
   );
 }
@@ -57,7 +77,12 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
           <a className={"pa-cta"} href="#index">
             <span>{t.explore}</span>
             <svg viewBox="0 0 10 16" width="10" height="16" aria-hidden="true">
-              <path d="M5 0v14M1 10l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <path
+                d="M5 0v14M1 10l4 4 4-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
             </svg>
           </a>
         </aside>
@@ -77,7 +102,12 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
                   {n.label}
                 </Link>
               ))}
-              <Link href={`/${other}/proto/a`} lang={other} hrefLang={other} className={"pa-lang"}>
+              <Link
+                href={`/${other}/proto/a`}
+                lang={other}
+                hrefLang={other}
+                className={"pa-lang"}
+              >
                 {other.toUpperCase()}
               </Link>
             </nav>
@@ -91,7 +121,10 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
             <ol className={"pa-list"}>
               {mockHeritages.map((h, i) => (
                 <li key={h.slug} className={"pa-item"}>
-                  <Link href={`/${lang}/heritage/${h.slug}`} className={"pa-link"}>
+                  <Link
+                    href={`/${lang}/heritage/${h.slug}`}
+                    className={"pa-link"}
+                  >
                     <span className={`pa-meta pa-num`}>{pad(i)}</span>
                     <span className={"pa-name"}>{h.name[lang]}</span>
                     <span className={`pa-meta pa-where`}>
@@ -157,17 +190,36 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
                 aria-label={`${t.mapTeaser} ${first.place[lang]} – ${last.place[lang]}`}
               >
                 {[40, 80, 120, 160].map((y) => (
-                  <line key={y} x1="0" x2="100" y1={y} y2={y} className={"pa-grid"} />
+                  <line
+                    key={y}
+                    x1="0"
+                    x2="100"
+                    y1={y}
+                    y2={y}
+                    className={"pa-grid"}
+                  />
                 ))}
                 {[25, 50, 75].map((x) => (
-                  <line key={x} x1={x} x2={x} y1="0" y2="200" className={"pa-grid"} />
+                  <line
+                    key={x}
+                    x1={x}
+                    x2={x}
+                    y1="0"
+                    y2="200"
+                    className={"pa-grid"}
+                  />
                 ))}
                 <polyline points={pts} className={"pa-routeLine"} />
                 {mockHeritages.map((h, i) => {
                   const left = i === 0 || i === 2 || i === 4;
                   return (
                     <g key={h.slug}>
-                      <circle cx={h.map.x} cy={h.map.y} r="1.8" className={"pa-pin"} />
+                      <circle
+                        cx={h.map.x}
+                        cy={h.map.y}
+                        r="1.8"
+                        className={"pa-pin"}
+                      />
                       <text
                         x={h.map.x + (left ? -3.4 : 3.4)}
                         y={h.map.y + 1.4}

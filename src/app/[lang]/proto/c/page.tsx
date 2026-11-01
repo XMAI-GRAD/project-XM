@@ -55,7 +55,8 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
                 </span>
                 <span className={s.name}>{h.name[lang]}</span>
                 <span className={s.meta}>
-                  {h.place[lang]} · {t.unesco} <span className={s.num}>{h.year[lang]}</span>
+                  {h.place[lang]} · {t.unesco}{" "}
+                  <span className={s.num}>{h.year[lang]}</span>
                 </span>
                 <span className={s.sum}>{h.summary[lang]}</span>
               </Link>
@@ -84,7 +85,12 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
             const left = i === 0 || i === 4;
             return (
               <g key={h.slug}>
-                <circle cx={h.map.x} cy={h.map.y} r={i === 0 ? 2.6 : 2} className={i === 0 ? s.pinStart : s.pin} />
+                <circle
+                  cx={h.map.x}
+                  cy={h.map.y}
+                  r={i === 0 ? 2.6 : 2}
+                  className={i === 0 ? s.pinStart : s.pin}
+                />
                 <text
                   x={h.map.x + (left ? -4 : 4)}
                   y={h.map.y + 1.6}
@@ -102,7 +108,14 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
           <Link href={`/${lang}/map`} className={s.button}>
             {t.openMap}
             <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </Link>
         </div>
