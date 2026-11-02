@@ -48,6 +48,8 @@ Supporting routes:
 
 The proto routes are kept for sharing and are not in the sitemap. Their mock text in `proto/_mock.ts` is the one exception to "content only in the JSON". Delete the folder when no longer needed.
 
+The three prototypes share an experimental palette: Seashell `#FFF6F1`, Deep Navy `#0D1855`, Frosted Blue `#9CEAFF`, Dark Cyan `#008B86`, Mauve `#DBB8FF`, Brick Red `#B7262A`, and Sunflower Gold `#FEC35A`. A uses gold and navy, B uses a navy stage, and C uses a seashell canvas, with the five accent colors identifying the same route stops across all three. This palette is scoped to `/[lang]/proto/*`; the main site's cinematic theme remains as specified in Part 3.
+
 Screens will be added or removed as the design settles. Update this table when they change.
 
 ### Flows

@@ -43,9 +43,9 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
         <p className={s.tagline}>{t.tagline}</p>
         <ul className={s.grid}>
           {mockHeritages.map((h, i) => (
-            <li key={h.slug} className={s.item}>
+            <li key={h.slug} className={s.item} data-stop={i + 1}>
               <Link href={`/${lang}/heritage/${h.slug}`} className={s.card}>
-                <span className={`${s.thumb} ${s[`tone${i}`]}`}>
+                <span className={s.thumb}>
                   <span className={s.ph}>{t.imagePlaceholder}</span>
                   {i === 0 && (
                     <span className={s.dot}>
@@ -84,12 +84,12 @@ export default async function ProtoC({ params }: PageProps<"/[lang]/proto/c">) {
           {mockHeritages.map((h, i) => {
             const left = i === 0 || i === 4;
             return (
-              <g key={h.slug}>
+              <g key={h.slug} data-stop={i + 1}>
                 <circle
                   cx={h.map.x}
                   cy={h.map.y}
                   r={i === 0 ? 2.6 : 2}
-                  className={i === 0 ? s.pinStart : s.pin}
+                  className={s.pin}
                 />
                 <text
                   x={h.map.x + (left ? -4 : 4)}

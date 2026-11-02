@@ -1,9 +1,9 @@
 .root {
-  --ground: #f3f3f1;
-  --ink: #161615;
-  --grey: #5f5f5a; /* 5.6:1 on ground */
-  --card: #fff;
-  --red: #e5322d;
+  --ground: var(--proto-seashell);
+  --ink: var(--proto-navy);
+  --secondary: color-mix(in srgb, var(--proto-navy) 75%, var(--proto-seashell));
+  --card: var(--proto-blue);
+  --red: var(--proto-brick);
   --gap: 28px;
   background: var(--ground);
   color: var(--ink);
@@ -48,7 +48,7 @@
   justify-content: center;
   gap: 4px 20px;
   font-size: 13px;
-  color: var(--grey);
+  color: var(--secondary);
 }
 .links a {
   text-decoration: none;
@@ -70,7 +70,7 @@
   margin: 0;
 }
 .tagline {
-  color: var(--grey);
+  color: var(--secondary);
   margin: 6px 0 clamp(24px, 4vw, 40px);
   max-width: 52ch;
 }
@@ -106,6 +106,7 @@
   text-decoration: none;
 }
 .thumb {
+  background: var(--stop-color);
   position: relative;
   display: grid;
   place-items: center;
@@ -116,29 +117,16 @@
     box-shadow 0.3s ease;
 }
 .ph {
+  padding: 5px 8px;
+  border-radius: 4px;
+  background: var(--proto-navy);
   font-size: 12px;
-  color: var(--ink);
-  opacity: 0.7;
-}
-.tone0 {
-  background: #d9dcd2;
-}
-.tone1 {
-  background: #cfd9db;
-}
-.tone2 {
-  background: #e0d6d0;
-}
-.tone3 {
-  background: #e3dcc8;
-}
-.tone4 {
-  background: #d6d2df;
+  color: var(--proto-seashell);
 }
 .card:hover .thumb,
 .card:focus-visible .thumb {
   transform: scale(1.02);
-  box-shadow: 0 14px 28px -10px rgb(22 22 21 / 0.28);
+  box-shadow: 0 14px 28px -10px color-mix(in srgb, var(--ink) 28%, transparent);
 }
 .name {
   display: block;
@@ -153,7 +141,7 @@
 }
 .meta {
   display: block;
-  color: var(--grey);
+  color: var(--secondary);
   font-size: 13px;
 }
 .num {
@@ -161,7 +149,7 @@
 }
 .sum {
   display: block;
-  color: var(--grey);
+  color: var(--secondary);
   font-size: 13px;
   margin-top: 4px;
   transition: opacity 0.3s ease;
@@ -242,10 +230,9 @@
   stroke-linejoin: round;
 }
 .pin {
-  fill: var(--ink);
-}
-.pinStart {
-  fill: var(--red);
+  fill: var(--stop-color);
+  stroke: var(--ink);
+  stroke-width: 0.5;
 }
 .pinLabel {
   font-size: 4.2px;
@@ -268,7 +255,7 @@
   align-items: center;
   gap: 8px;
   align-self: flex-start;
-  background: var(--ink);
+  background: var(--proto-brick);
   color: var(--ground);
   padding: 12px 22px;
   border-radius: 999px;
@@ -280,6 +267,7 @@
   color: var(--ground);
 }
 .button:hover {
+  background: var(--proto-navy);
   transform: translateY(-1px);
 }
 @media (max-width: 559px) {
@@ -297,7 +285,7 @@
   align-items: center;
 }
 .note {
-  color: var(--grey);
+  color: var(--secondary);
   font-size: 13px;
   margin: 0;
 }

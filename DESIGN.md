@@ -72,6 +72,8 @@ Density is low. A screen holds one subject, one short line of large type, and at
 
 There is one theme. `color-scheme` is fixed to `dark`, and there is no light mode or OS-driven switching.
 
+These rules describe the main site. The retained A/B/C prototypes explore the seven-color palette recorded in SPEC Part 1, scoped to `/[lang]/proto/*`: gold/navy for A, navy for B, and seashell for C. Their shared palette lives in `proto/palette.module.css`.
+
 **Key Characteristics:**
 
 - Near-black ground, off-white type, dim grey for inactive or secondary text.
