@@ -62,14 +62,14 @@ Screens will be added or removed as the design settles. Update this table when t
 
 ### Out of scope
 
-- CMS or admin
+- CMS or admin dashboard (an admin only deletes comments, on the site)
 - Offline mode, push notifications
 - Dark/light mode (one designed theme only)
 - E2E tests
 - Runtime machine translation
 - Email/password login (needs a domain, O-01)
 - Contact form (a `mailto:` link instead)
-- Comment edit, replies or reporting
+- Comment edit, nested replies (more than one level) or reporting
 - Visits/journey tracking
 - Account deletion, analytics
 
@@ -152,10 +152,11 @@ RLS is on for every table. Each migration revokes Supabase's default grants from
 
 **`profiles` (exists)**
 
-- **Columns:** `id` (→ `auth.users`), `display_name` (≤ 100 chars), `avatar_url`, `created_at`.
+- **Columns:** `id` (→ `auth.users`), `display_name` (≤ 100 chars), `avatar_url`, `role` (`user` | `admin`, default `user`), `created_at`.
 - **Created by:** a trigger, from Google metadata (`full_name`, else `name`, cut to 100 chars).
 - **Read:** your own row, or anyone who has commented.
-- **Update:** your own `display_name` only. The avatar comes from Google.
+- **Update:** your own `display_name` only. The avatar comes from Google. Nobody can change `role` through the API.
+- **Admins:** grant with SQL in the dashboard: `update public.profiles set role = 'admin' where id = '<uuid>';`. `public.is_admin()` (security definer, `authenticated` only) is what policies check.
 
 **`favorites` (exists)**
 
@@ -168,20 +169,25 @@ RLS is on for every table. Each migration revokes Supabase's default grants from
   - `id`;
   - `user_id` → **`profiles`**, so the author can be embedded;
   - `target_slug`: a heritage or article slug;
+  - `parent_id` → `comments`, null for a top-level comment. Replies are one level deep: a reply's parent is a top-level comment on the same slug. Deleting a comment deletes its replies (`on delete cascade`);
   - `body`: 1–1000 chars after trim;
   - `created_at`.
-- **Indexes:** `(target_slug, created_at desc)` for the list; `(user_id, created_at desc)` for the rate limit and the profiles check.
+- **Indexes:** `(target_slug, created_at desc)` for the list; `(user_id, created_at desc)` for the rate limit and the profiles check; `(parent_id)` for replies and the cascade.
 - **Access:**
   - Read: everyone.
-  - Insert: your own, at most 1 per 10 s, enforced by an RLS check. Clients insert only `target_slug` and `body`; `user_id` defaults to `auth.uid()`, and `created_at` can't be set, so a backdated row can't get around the limit.
-  - Delete: your own.
+  - Insert: your own comment or reply, at most 1 per 10 s, enforced by an RLS check. The same check enforces the reply rule. Clients insert only `target_slug`, `body` and `parent_id`; `user_id` defaults to `auth.uid()`, and `created_at` can't be set, so a backdated row can't get around the limit.
+  - Delete: your own, or any comment if you're an admin.
   - No update.
 
 **`contact_submissions` (exists, unused)**
 
 It stays unused while contact is a `mailto:` link.
 
-Moderation: delete rows in the Supabase dashboard.
+Moderation: an admin deletes comments on the site; each comment shows them a delete button.
+
+**`get_stats()` (RPC)**
+
+Favorite and comment counts per slug: `(slug, favorites, comments)`. Comment counts include replies; only heritages have favorites. It is security definer, because `favorites` RLS only shows your own rows; it returns counts only. Callable by `anon` and `authenticated`.
 
 ### API contract
 
@@ -191,26 +197,29 @@ There are no REST endpoints. The FE calls typed Server Actions and server query 
 type ActionError = 'unauthenticated' | 'invalid_input' | 'not_found' | 'rate_limited' | 'unknown';
 type Result<T = void> = { ok: true; data: T } | { ok: false; error: ActionError };
 
-interface CurrentUser { id: string; displayName: string; avatarUrl: string | null }
+interface CurrentUser { id: string; displayName: string; avatarUrl: string | null; isAdmin: boolean }  // isAdmin is a UI hint; RLS is the check
 interface Comment {
   id: number;
   body: string;
   createdAt: string;           // ISO
   author: { id: string; displayName: string; avatarUrl: string | null };
+  replies: Comment[];          // oldest first; always [] on a reply
 }
+interface Stats { favorites: number; comments: number }
 
 // Queries: server-only, render inside <Suspense>, throw on DB error
 getCurrentUser(): Promise<CurrentUser | null>
 getMyFavoriteSlugs(): Promise<string[]>              // [] when signed out
-getComments(slug: string): Promise<Comment[]>       // latest 50, newest first
+getComments(slug: string): Promise<Comment[]>       // latest 50 top-level, newest first, each with all its replies
+getStats(): Promise<Record<string, Stats>>          // keyed by content slug; a missing slug means 0
 
 // Server Actions
 signInWithGoogle(formData: FormData): Promise<never>  // fields: lang, next → redirect to Google
 signOut(formData: FormData): Promise<never>           // field: lang → redirect to /[lang]
 updateProfile(prev: Result<{ displayName: string }> | null, formData: FormData): Promise<Result<{ displayName: string }>>  // field: displayName, 1–50 chars after trim
 toggleFavorite(heritageSlug: string): Promise<Result<{ favorited: boolean }>>
-addComment(prev: Result | null, formData: FormData): Promise<Result>  // fields: slug, body (1–1000 chars after trim); 2nd within 10 s → rate_limited
-deleteComment(id: number): Promise<Result>            // own comments only, else not_found
+addComment(prev: Result | null, formData: FormData): Promise<Result>  // fields: slug, body (1–1000 chars after trim), parentId? (a top-level comment's id on the same slug, else not_found); 2nd within 10 s → rate_limited
+deleteComment(id: number): Promise<Result>            // own comments, or any if admin; else not_found
 ```
 
 The UI maps each `ActionError` to a dictionary string. Raw DB errors never reach the client.
@@ -331,6 +340,9 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font` with the `v
 - [ ] Run the two-account check on prod:
   - B can't see A's favorites.
   - B can't delete A's comments.
+  - B can't make themself admin.
+  - Admin A can delete B's comment, and its replies go with it.
+  - A signed-out user sees the counts.
   - A signed-out user can't comment.
 - [ ] Install the PWA on Android Chrome and iOS Safari.
 - [ ] Run Lighthouse on home and map, in both languages.
