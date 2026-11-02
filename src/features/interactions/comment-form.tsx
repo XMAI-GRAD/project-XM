@@ -6,11 +6,14 @@ import type { Result } from "@/lib/action-result";
 import { addComment } from "./actions";
 import { maxCommentLength } from "./comment-input";
 
+/** A new comment, or a reply when `parentId` (a top-level comment's id) is set. */
 export function CommentForm({
   slug,
+  parentId,
   dict,
 }: {
   slug: string;
+  parentId?: number;
   dict: Pick<Dictionary, "comments" | "errors">;
 }) {
   const form = useRef<HTMLFormElement>(null);
@@ -33,8 +36,13 @@ export function CommentForm({
       }}
     >
       <input type="hidden" name="slug" value={slug} />
+      {parentId !== undefined && (
+        <input type="hidden" name="parentId" value={parentId} />
+      )}
       <label>
-        {dict.comments.label}
+        {parentId === undefined
+          ? dict.comments.label
+          : dict.comments.replyLabel}
         <textarea name="body" required maxLength={maxCommentLength} />
       </label>
       <button type="submit" disabled={pending}>

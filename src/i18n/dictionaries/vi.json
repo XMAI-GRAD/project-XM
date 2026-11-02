@@ -33,7 +33,13 @@
     "submit": "Gửi",
     "delete": "Xoá",
     "login": "Đăng nhập để bình luận",
-    "anonymous": "Ẩn danh"
+    "anonymous": "Ẩn danh",
+    "reply": "Trả lời",
+    "replyLabel": "Câu trả lời của bạn"
+  },
+  "stats": {
+    "favorites": "lượt thích",
+    "comments": "bình luận"
   },
   "map": {
     "title": "Bản đồ"

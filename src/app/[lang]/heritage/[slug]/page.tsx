@@ -9,6 +9,7 @@ import { getCurrentUser } from "@/features/auth/queries";
 import { Comments } from "@/features/interactions/comments";
 import { FavoriteButton } from "@/features/interactions/favorite-button";
 import { getMyFavoriteSlugs } from "@/features/interactions/queries";
+import { StatCounts } from "@/features/interactions/stat-counts";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
@@ -45,6 +46,7 @@ export default async function HeritagePage({
     <article>
       <h1>{heritage.name[lang]}</h1>
       <p>{heritage.summary[lang]}</p>
+      <StatCounts lang={lang} slug={slug} favorites />
       <ErrorBoundary fallback={null}>
         <Suspense
           fallback={

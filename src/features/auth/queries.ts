@@ -5,6 +5,8 @@ export interface CurrentUser {
   id: string;
   displayName: string;
   avatarUrl: string | null;
+  /** UI hint only: RLS is the real check. */
+  isAdmin: boolean;
 }
 
 /** The signed-in user, or null. Reads cookies: render inside <Suspense>. */
@@ -18,7 +20,7 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
 
   const { data, error } = await supabase
     .from("profiles")
-    .select("display_name, avatar_url")
+    .select("display_name, avatar_url, role")
     .eq("id", id)
     .maybeSingle();
   if (error) throw error;
@@ -27,5 +29,6 @@ export async function getCurrentUser(): Promise<CurrentUser | null> {
     id,
     displayName: data?.display_name ?? "",
     avatarUrl: data?.avatar_url ?? null,
+    isAdmin: data?.role === "admin",
   };
 }

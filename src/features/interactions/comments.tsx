@@ -7,7 +7,7 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { CommentForm } from "./comment-form";
 import { DeleteCommentButton } from "./delete-comment-button";
-import { getComments } from "./queries";
+import { type Comment, getComments } from "./queries";
 
 /** Comments on a heritage or article page; `path` is where login returns to. */
 export function Comments({
@@ -66,18 +66,22 @@ async function CommentList({
         <p>{comments.empty}</p>
       ) : (
         <ul>
-          {list.map((c) => (
-            <li key={c.id}>
-              {c.author.avatarUrl && (
-                <Image src={c.author.avatarUrl} alt="" width={32} height={32} />
+          {list.map((top) => (
+            <li key={top.id}>
+              {item(top)}
+              {top.replies.length > 0 && (
+                <ul>
+                  {top.replies.map((reply) => (
+                    <li key={reply.id}>{item(reply)}</li>
+                  ))}
+                </ul>
               )}
-              <strong>{c.author.displayName || comments.anonymous}</strong>{" "}
-              <time dateTime={c.createdAt}>
-                {format.format(new Date(c.createdAt))}
-              </time>
-              <p className="whitespace-pre-line">{c.body}</p>
-              {user?.id === c.author.id && (
-                <DeleteCommentButton id={c.id} dict={dict} />
+              {/* One level only: every reply in this thread attaches to `top`. */}
+              {user && (
+                <details>
+                  <summary>{comments.reply}</summary>
+                  <CommentForm slug={slug} parentId={top.id} dict={dict} />
+                </details>
               )}
             </li>
           ))}
@@ -85,4 +89,23 @@ async function CommentList({
       )}
     </>
   );
+
+  function item(c: Comment) {
+    return (
+      <>
+        {c.author.avatarUrl && (
+          <Image src={c.author.avatarUrl} alt="" width={32} height={32} />
+        )}
+        <strong>{c.author.displayName || comments.anonymous}</strong>{" "}
+        <time dateTime={c.createdAt}>
+          {format.format(new Date(c.createdAt))}
+        </time>
+        <p className="whitespace-pre-line">{c.body}</p>
+        {/* UI hint only: the delete policy is the real check. */}
+        {(user?.id === c.author.id || user?.isAdmin) && (
+          <DeleteCommentButton id={c.id} dict={dict} />
+        )}
+      </>
+    );
+  }
 }
