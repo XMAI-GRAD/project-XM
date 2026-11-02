@@ -44,6 +44,7 @@ export type Database = {
           body: string
           created_at: string
           id: number
+          parent_id: number | null
           target_slug: string
           user_id: string
         }
@@ -51,6 +52,7 @@ export type Database = {
           body: string
           created_at?: string
           id?: never
+          parent_id?: number | null
           target_slug: string
           user_id?: string
         }
@@ -58,10 +60,18 @@ export type Database = {
           body?: string
           created_at?: string
           id?: never
+          parent_id?: number | null
           target_slug?: string
           user_id?: string
         }
         Relationships: [
+          {
+            foreignKeyName: "comments_parent_id_fkey"
+            columns: ["parent_id"]
+            isOneToOne: false
+            referencedRelation: "comments"
+            referencedColumns: ["id"]
+          },
           {
             foreignKeyName: "comments_user_id_fkey"
             columns: ["user_id"]
@@ -119,18 +129,21 @@ export type Database = {
           created_at: string
           display_name: string | null
           id: string
+          role: string
         }
         Insert: {
           avatar_url?: string | null
           created_at?: string
           display_name?: string | null
           id: string
+          role?: string
         }
         Update: {
           avatar_url?: string | null
           created_at?: string
           display_name?: string | null
           id?: string
+          role?: string
         }
         Relationships: []
       }
@@ -139,7 +152,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_stats: {
+        Args: never
+        Returns: {
+          comments: number
+          favorites: number
+          slug: string
+        }[]
+      }
+      is_admin: { Args: never; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
