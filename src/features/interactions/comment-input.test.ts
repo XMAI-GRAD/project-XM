@@ -1,6 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { parseCommentBody, parseCommentId } from "./comment-input.ts";
+import {
+  parseCommentBody,
+  parseCommentId,
+  parseParentId,
+} from "./comment-input.ts";
 
 test("rejects empty, whitespace-only, too long and non-string bodies", () => {
   for (const raw of [
@@ -33,4 +37,12 @@ test("accepts only positive safe integer ids", () => {
   assert.equal(parseCommentId(2 ** 40), 2 ** 40);
   for (const raw of [0, -1, 1.5, NaN, Infinity, 2 ** 53, "1", null, undefined])
     assert.equal(parseCommentId(raw), null, String(raw));
+});
+
+test("parent id: empty means top-level, else a positive integer string", () => {
+  assert.equal(parseParentId(null), null);
+  assert.equal(parseParentId(""), null);
+  assert.equal(parseParentId("42"), 42);
+  for (const raw of ["abc", "0", "-1", "1.5", "01", " 1", String(2 ** 53), 42])
+    assert.equal(parseParentId(raw), undefined, String(raw));
 });
