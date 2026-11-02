@@ -77,6 +77,12 @@
     "rate_limited": "Bạn thao tác quá nhanh, thử lại sau ít giây.",
     "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại."
   },
+  "prototypes": {
+    "switcher": "Chuyển bản mẫu",
+    "a": "A · Vàng",
+    "b": "B · Xanh đậm",
+    "c": "C · Trắng kem"
+  },
   "notFound": {
     "title": "Không tìm thấy trang",
     "body": "Trang bạn tìm không tồn tại.",

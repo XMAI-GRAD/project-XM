@@ -120,7 +120,7 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
             </div>
             <ol className={"pa-list"}>
               {mockHeritages.map((h, i) => (
-                <li key={h.slug} className={"pa-item"}>
+                <li key={h.slug} className={"pa-item"} data-stop={i + 1}>
                   <Link
                     href={`/${lang}/heritage/${h.slug}`}
                     className={"pa-link"}
@@ -213,7 +213,7 @@ export default async function ProtoA({ params }: PageProps<"/[lang]/proto/a">) {
                 {mockHeritages.map((h, i) => {
                   const left = i === 0 || i === 2 || i === 4;
                   return (
-                    <g key={h.slug}>
+                    <g key={h.slug} data-stop={i + 1}>
                       <circle
                         cx={h.map.x}
                         cy={h.map.y}

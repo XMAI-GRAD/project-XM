@@ -77,6 +77,12 @@
     "rate_limited": "Too fast. Try again in a few seconds.",
     "unknown": "Something went wrong. Please try again."
   },
+  "prototypes": {
+    "switcher": "Prototype switcher",
+    "a": "A · Gold",
+    "b": "B · Navy",
+    "c": "C · Seashell"
+  },
   "notFound": {
     "title": "Page not found",
     "body": "The page you are looking for does not exist.",

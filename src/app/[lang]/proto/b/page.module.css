@@ -1,13 +1,13 @@
 .root {
-  --bg: #0b0b0c;
-  --fg: #efede8;
-  --dim: #8e8e93;
-  --line: #2a2a2d;
+  --bg: var(--proto-navy);
+  --fg: var(--proto-seashell);
+  --dim: var(--proto-mauve);
+  --line: color-mix(in srgb, var(--proto-blue) 35%, transparent);
   font-family: var(--font-b), system-ui, sans-serif;
   font-weight: 400;
   background: var(--bg);
   color: var(--fg);
-  color-scheme: light;
+  color-scheme: dark;
   min-height: 100dvh;
   overflow-x: clip;
   line-height: 1.4;
@@ -43,11 +43,15 @@
   white-space: nowrap;
   padding: 10px 20px;
   border-radius: 999px;
-  background: #19191b;
+  background: var(--proto-seashell);
+  color: var(--proto-navy);
   font-size: 0.8125rem;
 }
 .pillName {
-  color: var(--dim);
+  color: var(--proto-brick);
+}
+.pill a:focus-visible {
+  outline-color: var(--proto-navy);
 }
 .pill a:hover,
 .footer a:hover {
@@ -65,7 +69,7 @@
   grid-column: 1;
   justify-self: end;
   text-align: right;
-  margin: 0 -3.5vw 0 0;
+  margin: 0 2.5vw 0 0;
   z-index: 2;
   pointer-events: none;
   font-weight: 500;
@@ -83,9 +87,10 @@
   height: 60vh;
   border-radius: 16px;
   overflow: hidden;
-  background: #1a1a1c;
+  background: var(--proto-blue);
 }
 .slide {
+  background: var(--stop-color);
   position: absolute;
   inset: 0;
   opacity: 0;
@@ -96,6 +101,12 @@
   padding: 20px;
   gap: 2px;
 }
+.caption {
+  align-self: flex-start;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--proto-navy);
+}
 .slideLabel,
 .slideMeta {
   margin: 0;
@@ -103,7 +114,7 @@
   color: var(--fg);
 }
 .slideMeta {
-  color: #c9c7c1;
+  color: var(--proto-blue);
 }
 .tagline {
   margin: 16px 0 0;
@@ -160,7 +171,7 @@
 .names {
   grid-column: 3;
   list-style: none;
-  margin: 0 0 0 -3.5vw;
+  margin: 0 0 0 2.5vw;
   padding: 0;
   z-index: 2;
   font-weight: 500;
@@ -177,11 +188,13 @@
 .nameText {
   color: var(--dim);
   transition: color 0.4s ease;
-  text-shadow: 0 0 12px rgb(0 0 0 / 0.6);
 }
 .swatch,
 .sub {
   display: none;
+}
+.swatch {
+  background: var(--stop-color);
 }
 
 .intro {
@@ -209,7 +222,7 @@
 }
 .mapFrame {
   border-radius: 16px;
-  background: #131315;
+  background: var(--proto-seashell);
   border: 1px solid var(--line);
   padding: 24px;
 }
@@ -222,8 +235,13 @@
 }
 .pinLabel {
   font-size: 3.4px;
-  fill: var(--fg);
+  fill: var(--proto-navy);
   font-family: inherit;
+}
+.pin {
+  fill: var(--stop-color);
+  stroke: var(--proto-navy);
+  stroke-width: 0.4;
 }
 .mapText h2 {
   margin: 0 0 28px;
@@ -240,12 +258,12 @@
   gap: 10px;
   padding: 14px 24px;
   border-radius: 999px;
-  background: var(--fg);
+  background: var(--proto-gold);
   color: var(--bg) !important;
   font-weight: 500;
 }
 .cta:hover {
-  background: #fff;
+  background: var(--proto-blue);
 }
 .root .cta:focus-visible {
   outline-color: var(--fg);

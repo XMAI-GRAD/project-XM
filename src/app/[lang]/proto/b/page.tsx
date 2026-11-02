@@ -11,9 +11,6 @@ const font = Hanken_Grotesk({
   weight: ["400", "500"],
 });
 
-// Flat dark tones per site: moss, clay, slate, ochre, brick.
-const tones = ["#1f2a1d", "#2e211c", "#1c2530", "#2b2616", "#2f1c1b"];
-
 export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -48,18 +45,16 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
         <div className={s.stage}>
           <div className={s.frame} aria-hidden="true">
             {mockHeritages.map((h, i) => (
-              <div
-                key={h.slug}
-                className={s.slide}
-                style={{ background: tones[i] }}
-              >
-                <p className={s.slideLabel}>
-                  {t.imagePlaceholder} · {h.name[lang]}
-                </p>
-                <p className={s.slideMeta}>
-                  {h.place[lang]} ·{" "}
-                  <span className={s.num}>{h.year[lang]}</span>
-                </p>
+              <div key={h.slug} className={s.slide} data-stop={i + 1}>
+                <div className={s.caption}>
+                  <p className={s.slideLabel}>
+                    {t.imagePlaceholder} · {h.name[lang]}
+                  </p>
+                  <p className={s.slideMeta}>
+                    {h.place[lang]} ·{" "}
+                    <span className={s.num}>{h.year[lang]}</span>
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -68,13 +63,9 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
 
         <ul className={s.names} aria-label={t.heroListLabel}>
           {mockHeritages.map((h, i) => (
-            <li key={h.slug} className={s.item}>
+            <li key={h.slug} className={s.item} data-stop={i + 1}>
               <Link href={`/${lang}/heritage/${h.slug}`}>
-                <span
-                  className={s.swatch}
-                  style={{ background: tones[i] }}
-                  aria-hidden="true"
-                />
+                <span className={s.swatch} aria-hidden="true" />
                 <span className={s.nameText}>{h.name[lang]}</span>
                 <span className={s.sub}>
                   {h.place[lang]} ·{" "}
@@ -101,12 +92,12 @@ export default async function ProtoB({ params }: PageProps<"/[lang]/proto/b">) {
             <polyline
               points={route}
               fill="none"
-              stroke="var(--fg)"
+              stroke="var(--proto-navy)"
               strokeWidth="0.4"
             />
             {mockHeritages.map((h, i) => (
-              <g key={h.slug}>
-                <circle cx={h.map.x} cy={h.map.y} r="1.6" fill="var(--fg)" />
+              <g key={h.slug} data-stop={i + 1}>
+                <circle cx={h.map.x} cy={h.map.y} r="1.6" className={s.pin} />
                 <text
                   x={h.map.x + (labelLeft[i] ? -3.2 : 3.2)}
                   y={h.map.y + 1.2}

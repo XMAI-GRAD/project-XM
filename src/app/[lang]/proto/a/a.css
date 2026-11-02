@@ -1,12 +1,12 @@
 .pa-root {
-  --y: #ffe500;
-  --y-deep: #f0d300;
-  --k: #0b0b0b;
-  --paper: #f6f2e2;
+  --gold: var(--proto-gold);
+  --blue: var(--proto-blue);
+  --navy: var(--proto-navy);
+  --seashell: var(--proto-seashell);
   --rail: 64px;
   --pad: clamp(16px, 2.4vw, 32px);
-  background: var(--y);
-  color: var(--k);
+  background: var(--gold);
+  color: var(--navy);
   color-scheme: light;
   min-height: 100dvh;
   font-family: var(--font-a-display), "Arial Narrow", Arial, sans-serif;
@@ -20,11 +20,11 @@
   text-decoration-thickness: 1px;
 }
 .pa-root ::selection {
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
 }
 .pa-root :focus-visible {
-  outline: 3px solid var(--k);
+  outline: 3px solid var(--navy);
   outline-offset: 3px;
 }
 .pa-root p,
@@ -62,8 +62,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
   z-index: 20;
 }
 .pa-logo {
@@ -88,7 +88,7 @@
   align-items: center;
   gap: 12px;
   padding: 20px 0;
-  border-top: 1px solid var(--y);
+  border-top: 1px solid var(--gold);
   font-weight: 700;
   font-stretch: 80%;
   text-transform: uppercase;
@@ -99,12 +99,12 @@
   transform: rotate(180deg);
 }
 .pa-rail :focus-visible {
-  outline-color: var(--y);
+  outline-color: var(--gold);
   outline-offset: -4px;
 }
 .pa-rail .pa-cta:hover {
-  background: var(--y);
-  color: var(--k);
+  background: var(--gold);
+  color: var(--navy);
 }
 
 /* top bar */
@@ -115,7 +115,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px var(--pad);
-  border-bottom: 1px solid var(--k);
+  border-bottom: 1px solid var(--navy);
 }
 .pa-route {
   display: flex;
@@ -125,7 +125,7 @@
 .pa-sep {
   width: 1px;
   height: 12px;
-  background: var(--k);
+  background: var(--navy);
 }
 .pa-routeArrow {
   flex: none;
@@ -147,17 +147,17 @@
   border-radius: 999px;
 }
 .pa-nav a:hover {
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
 }
 .pa-nav .pa-lang {
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
 }
 .pa-nav .pa-lang:hover {
   background: transparent;
-  color: var(--k);
-  box-shadow: inset 0 0 0 1px var(--k);
+  color: var(--navy);
+  box-shadow: inset 0 0 0 1px var(--navy);
 }
 
 /* hero */
@@ -190,11 +190,11 @@
 }
 
 .pa-list {
-  border-bottom: 1px solid var(--k);
+  border-bottom: 1px solid var(--navy);
 }
 .pa-item {
   position: relative;
-  border-top: 1px solid var(--k);
+  border-top: 1px solid var(--navy);
 }
 .pa-link {
   display: grid;
@@ -203,8 +203,8 @@
   align-items: baseline;
   padding: 12px var(--pad);
   text-decoration: none;
-  color: var(--k);
-  background: var(--y);
+  color: var(--navy);
+  background: var(--gold);
 }
 .pa-num {
   font-weight: 500;
@@ -224,9 +224,9 @@
   margin-top: 6px;
 }
 .pa-link:focus-visible {
-  background: var(--k);
-  color: var(--y);
-  outline: 3px solid var(--y);
+  background: var(--navy);
+  color: var(--gold);
+  outline: 3px solid var(--gold);
   outline-offset: -6px;
 }
 
@@ -237,29 +237,29 @@
   position: relative;
   margin: 14px 0 6px;
   padding: 34px 14px;
-  background: var(--y);
-  color: var(--k);
-  border: 1px solid var(--k);
+  background: var(--seashell);
+  color: var(--navy);
+  border: 1px solid var(--navy);
 }
 .pa-figure {
   position: relative;
   display: grid;
   place-items: center;
   aspect-ratio: 3 / 2;
-  border: 1px solid var(--k);
+  border: 1px solid var(--navy);
   background:
     repeating-linear-gradient(
       135deg,
       transparent 0 7px,
-      rgb(11 11 11 / 0.22) 7px 8px
+      color-mix(in srgb, var(--navy) 22%, transparent) 7px 8px
     ),
-    var(--y-deep);
+    var(--stop-color);
 }
 .pa-label {
   max-width: 88%;
   padding: 6px 10px;
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--seashell);
   text-align: center;
   font-family: var(--font-a-mono), ui-monospace, monospace;
   font-size: 0.7rem;
@@ -288,7 +288,7 @@
   position: absolute;
   width: 11px;
   height: 11px;
-  color: var(--k);
+  color: var(--navy);
 }
 .pa-tl {
   top: -6px;
@@ -319,8 +319,8 @@
     align-self: center;
   }
   .pa-link:hover {
-    background: var(--k);
-    color: var(--y);
+    background: var(--navy);
+    color: var(--gold);
   }
   .pa-panel {
     position: absolute;
@@ -359,11 +359,12 @@
 /* intro */
 .pa-intro {
   position: relative;
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
   padding: clamp(64px, 12vw, 160px) var(--pad);
 }
 .pa-introMeta {
+  color: var(--proto-mauve);
   position: absolute;
   top: 16px;
   right: var(--pad);
@@ -380,17 +381,17 @@
 
 /* map teaser */
 .pa-mapSection {
-  background: var(--k);
-  color: var(--y);
+  background: var(--navy);
+  color: var(--gold);
   padding: 0 var(--pad) clamp(48px, 8vw, 112px);
 }
 .pa-card {
   position: relative;
   display: grid;
   gap: 24px;
-  background: var(--y);
-  color: var(--k);
-  border: 1px solid var(--y);
+  background: var(--seashell);
+  color: var(--navy);
+  border: 1px solid var(--seashell);
   padding: clamp(20px, 3vw, 40px);
 }
 .pa-cardText {
@@ -409,13 +410,13 @@
   text-wrap: balance;
 }
 .pa-key {
-  border-top: 1px solid var(--k);
+  border-top: 1px solid var(--navy);
 }
 .pa-key li {
   display: flex;
   gap: 14px;
   padding: 8px 0;
-  border-bottom: 1px solid var(--k);
+  border-bottom: 1px solid var(--navy);
 }
 .pa-root .pa-primary {
   display: inline-flex;
@@ -423,8 +424,8 @@
   gap: 14px;
   align-self: flex-start;
   padding: 16px 24px;
-  background: var(--k);
-  color: var(--y);
+  background: var(--proto-brick);
+  color: var(--seashell);
   text-decoration: none;
   border-radius: 999px;
   font-weight: 800;
@@ -433,40 +434,39 @@
   letter-spacing: 0.02em;
   font-size: 1.05rem;
 }
-.pa-primary:hover {
-  background: transparent;
-  color: var(--k);
-  box-shadow: inset 0 0 0 2px var(--k);
+.pa-root .pa-primary:hover {
+  background: var(--navy);
+  color: var(--seashell);
 }
 .pa-map {
   width: 100%;
   max-height: 70vh;
   justify-self: center;
-  border: 1px solid var(--k);
-  background: var(--y-deep);
+  border: 1px solid var(--navy);
+  background: var(--blue);
 }
 .pa-grid {
-  stroke: var(--k);
+  stroke: var(--navy);
   stroke-width: 1;
   opacity: 0.25;
   vector-effect: non-scaling-stroke;
 }
 .pa-routeLine {
   fill: none;
-  stroke: var(--k);
+  stroke: var(--navy);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 .pa-pin {
-  fill: var(--k);
-  stroke: var(--y-deep);
+  fill: var(--stop-color);
+  stroke: var(--navy);
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
 }
 .pa-pinLabel {
   font-family: var(--font-a-mono), ui-monospace, monospace;
   font-size: 4.2px;
-  fill: var(--k);
+  fill: var(--navy);
   letter-spacing: 0.1px;
   font-variant-numeric: tabular-nums;
 }
@@ -488,13 +488,13 @@
   gap: 16px 32px;
   justify-content: space-between;
   align-items: center;
-  background: var(--k);
-  color: var(--y);
-  border-top: 1px solid var(--y);
+  background: var(--navy);
+  color: var(--seashell);
+  border-top: 1px solid var(--proto-mauve);
   padding: 24px var(--pad) 88px;
 }
 .pa-footer :focus-visible {
-  outline-color: var(--y);
+  outline-color: var(--gold);
 }
 .pa-footNav {
   display: flex;
@@ -529,7 +529,7 @@
   .pa-cta {
     flex-direction: row;
     border-top: 0;
-    border-left: 1px solid var(--y);
+    border-left: 1px solid var(--gold);
     padding: 12px var(--pad);
     align-self: stretch;
     align-items: center;
