@@ -5,7 +5,11 @@ import { refresh } from "next/cache";
 import { contentSlugs, heritageSlugs } from "@/content";
 import type { Result } from "@/lib/action-result";
 import { createClient } from "@/lib/supabase/server";
-import { parseCommentBody, parseCommentId } from "./comment-input";
+import {
+  parseCommentBody,
+  parseCommentId,
+  parseParentId,
+} from "./comment-input";
 
 /** The Supabase client and signed-in user, or the error to return. */
 async function authed(where: string) {
@@ -69,13 +73,35 @@ export async function addComment(
 
   const slug = formData.get("slug");
   const body = parseCommentBody(formData.get("body"));
-  if (typeof slug !== "string" || !contentSlugs.has(slug) || body === null)
+  const parentId = parseParentId(formData.get("parentId"));
+  if (
+    typeof slug !== "string" ||
+    !contentSlugs.has(slug) ||
+    body === null ||
+    parentId === undefined
+  )
     return { ok: false, error: "invalid_input" };
+
+  // A reply's parent must be a top-level comment on the same slug. RLS checks
+  // this too, but checking here keeps a 42501 below meaning only the rate limit.
+  if (parentId !== null) {
+    const { data: parent, error } = await supabase
+      .from("comments")
+      .select("parent_id, target_slug")
+      .eq("id", parentId)
+      .maybeSingle();
+    if (error) {
+      console.error("addComment parent", error);
+      return { ok: false, error: "unknown" };
+    }
+    if (!parent || parent.parent_id !== null || parent.target_slug !== slug)
+      return { ok: false, error: "not_found" };
+  }
 
   // user_id defaults to auth.uid(); the RLS check allows 1 comment per 10 s.
   const { error } = await supabase
     .from("comments")
-    .insert({ target_slug: slug, body });
+    .insert({ target_slug: slug, body, parent_id: parentId });
   if (error) {
     if (error.code === "42501") return { ok: false, error: "rate_limited" };
     console.error("addComment", error);
@@ -93,7 +119,8 @@ export async function deleteComment(id: number): Promise<Result> {
   const commentId = parseCommentId(id);
   if (commentId === null) return { ok: false, error: "invalid_input" };
 
-  // RLS hides other users' rows from delete, so theirs count as not found.
+  // RLS hides other users' rows from delete (unless you're an admin), so
+  // theirs count as not found. Replies go with their parent (on delete cascade).
   const { data, error } = await supabase
     .from("comments")
     .delete()
