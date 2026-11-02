@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { getHeritage, heritages, route } from "@/content";
+import { StatCounts } from "@/features/interactions/stat-counts";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 import s from "./page.module.css";
@@ -66,6 +67,12 @@ export default async function HomePage() {
                 </span>
                 <span className={s.nameText}>{h.name[lang]}</span>
                 <span className={s.sub}>{h.summary[lang]}</span>
+                <StatCounts
+                  lang={lang}
+                  slug={h.slug}
+                  favorites
+                  className={s.sub}
+                />
               </Link>
             </li>
           ))}

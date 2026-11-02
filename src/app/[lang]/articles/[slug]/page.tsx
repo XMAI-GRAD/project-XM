@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticle, getHeritage } from "@/content";
 import { Comments } from "@/features/interactions/comments";
+import { StatCounts } from "@/features/interactions/stat-counts";
 import { getLocale, pageMetadata } from "@/i18n/server";
 
 // ponytail: same as the heritage page, see SPEC appendix "Instant navigation".
@@ -36,6 +37,7 @@ export default async function ArticlePage({
     <article>
       <h1>{article.title[lang]}</h1>
       <time dateTime={article.publishedAt}>{article.publishedAt}</time>
+      <StatCounts lang={lang} slug={slug} />
       <Image
         src={article.cover.src}
         width={article.cover.width}

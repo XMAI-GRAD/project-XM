@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { contentSlugs } from "@/content";
 import { createClient } from "@/lib/supabase/server";
 
@@ -80,7 +81,8 @@ export interface Stats {
 }
 
 /** Favorite and comment counts (replies included) per content slug; a missing slug means 0. Render inside <Suspense>. */
-export async function getStats(): Promise<Record<string, Stats>> {
+// cache(): the gallery renders one count per item; one RPC per request.
+export const getStats = cache(async (): Promise<Record<string, Stats>> => {
   const supabase = await createClient();
   const { data, error } = await supabase.rpc("get_stats");
   if (error) throw error;
@@ -92,4 +94,4 @@ export async function getStats(): Promise<Record<string, Stats>> {
         comments: Number(row.comments),
       };
   return stats;
-}
+});

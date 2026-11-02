@@ -33,7 +33,13 @@
     "submit": "Post",
     "delete": "Delete",
     "login": "Log in to comment",
-    "anonymous": "Anonymous"
+    "anonymous": "Anonymous",
+    "reply": "Reply",
+    "replyLabel": "Your reply"
+  },
+  "stats": {
+    "favorites": "favorites",
+    "comments": "comments"
   },
   "map": {
     "title": "Map"
