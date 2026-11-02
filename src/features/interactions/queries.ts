@@ -58,9 +58,7 @@ export async function getComments(slug: string): Promise<Comment[]> {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("comments")
-    .select(
-      `${commentColumns}, replies:comments!comments_parent_id_fkey(${commentColumns})`,
-    )
+    .select(`${commentColumns}, replies:comments!parent_id(${commentColumns})`)
     .eq("target_slug", slug)
     .is("parent_id", null)
     .order("created_at", { ascending: false })
