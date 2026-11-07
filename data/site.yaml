@@ -1,0 +1,34 @@
+brand:
+  vi: Hanoi Creative City
+  en: ""
+designation:
+  vi: UNESCO City of Design
+  en: ""
+fullName:
+  vi: Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội
+  en: ""
+tagline:
+  vi: Thủ đô Hà Nội — nơi những mạch nối gặp nhau
+  en: ""
+motto:
+  vi: Một thành phố sáng tạo không bắt đầu từ cái mới, mà từ cái cũ được nối tiếp.
+  en: ""
+mottoShort:
+  vi: Sáng tạo bắt đầu từ cái cũ được nối tiếp.
+  en: ""
+contact:
+  address:
+    vi:
+      - Trong khuôn viên Bảo tàng Hà Nội
+      - Đường Phạm Hùng, phường Từ Liêm, Hà Nội
+    en: []
+  hours:
+    vi:
+      - Thứ Ba – Chủ Nhật, 9h00 – 17h00
+      - Nghỉ Thứ Hai
+    en: []
+  phone: 0984 997 579
+  email: ttdieuphoihoatdongsangtao@gmail.com
+credits:
+  vi: © 2026 Copyright by Sở Văn hóa và Thể thao Hà Nội. All rights reserved
+  en: ""

@@ -1,43 +1,79 @@
 @import "tailwindcss";
 
-/* One designed theme: cinematic near-black. No light/dark switching. */
+/* One designed theme on seashell. Colors and ratio: SPEC Part 3, Color. No light/dark switching. */
 :root {
-  --ink: #0b0b0c;
-  --paper: #efede8;
-  --dim: #8e8e93;
-  --line: #2a2a2d;
-  --surface: #19191b;
-  color-scheme: dark;
+  --navy-500: #0d1855;
+  --navy-400: #273991;
+  --navy-300: #394fa0;
+  --navy-200: #5c76ba;
+  --seashell: #fff6f1;
+  --frosted-blue: #9ceaff;
+  --dark-cyan: #008b86;
+  --brick-red: #b7262a;
+  --sunflower-gold: #fec35a;
+  --lime: #cadc2b;
+  --mauve: #dbb8ff;
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-ink: var(--ink);
-  --color-paper: var(--paper);
-  --color-dim: var(--dim);
-  --color-line: var(--line);
-  --color-surface: var(--surface);
-  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --color-navy-500: var(--navy-500);
+  --color-navy-400: var(--navy-400);
+  --color-navy-300: var(--navy-300);
+  --color-navy-200: var(--navy-200);
+  --color-seashell: var(--seashell);
+  --color-frosted-blue: var(--frosted-blue);
+  --color-dark-cyan: var(--dark-cyan);
+  --color-brick-red: var(--brick-red);
+  --color-sunflower-gold: var(--sunflower-gold);
+  --color-lime: var(--lime);
+  --color-mauve: var(--mauve);
+  /* --font-display (Phudu) and --font-body (Inter) come from next/font in the layout. */
+  --font-sans: var(--font-body), system-ui, sans-serif;
 }
 
 body {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--seashell);
+  color: var(--navy-500);
   font-family: var(--font-sans);
   line-height: 1.4;
 }
 
 ::selection {
-  background: var(--paper);
-  color: var(--ink);
+  background: var(--navy-500);
+  color: var(--seashell);
 }
 
 a {
-  text-underline-offset: 0.3em;
+  color: inherit;
+  text-underline-offset: 0.22em;
   text-decoration-thickness: 1px;
 }
 
 :focus-visible {
-  outline: 2px solid var(--paper);
-  outline-offset: 4px;
-  border-radius: 4px;
+  outline: 3px solid var(--navy-500);
+  outline-offset: 3px;
+}
+
+/* Layer colors (SPEC Part 3, Color): set data-layer, read --layer-bg and --layer-pin. */
+[data-layer="place"] {
+  --layer-bg: var(--sunflower-gold);
+  --layer-pin: var(--navy-500);
+}
+[data-layer="taste"] {
+  --layer-bg: var(--brick-red);
+  --layer-pin: var(--sunflower-gold);
+}
+[data-layer="craft"] {
+  --layer-bg: var(--dark-cyan);
+  --layer-pin: var(--brick-red);
+}
+
+/* Small uppercase label for codes, dates, places and other metadata. */
+.meta {
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }

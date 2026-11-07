@@ -1,289 +1,387 @@
-/* Landing: one rounded frame in the centre, the sites listed beside it.
-   Hovering or focusing a name swaps the frame's photo. Pure CSS (:has). */
-
-.hero {
-  min-height: calc(100dvh - 4.5rem);
-  padding: 2rem 3vw 3rem;
-  display: grid;
-  grid-template-columns: 1fr min(45vw, 760px) 1fr;
-  align-items: center;
+/* Home on the prototype A wireframe. Colors: SPEC Part 3, Color (40 navy / 30 seashell / 30 accents). */
+.hero,
+.intro,
+.mapSection {
+  --pad: clamp(16px, 2.4vw, 32px);
 }
-
-.phrase {
-  grid-column: 1;
-  justify-self: end;
-  z-index: 2;
-  max-width: 9ch;
-  margin: 0 2.5vw 0 0;
-  text-align: right;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3.2vw, 3.5rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-  text-shadow: 0 0 12px rgb(0 0 0 / 0.6);
-  pointer-events: none;
-}
-
-.stage {
-  grid-column: 2;
-}
-
-.frame {
-  position: relative;
-  height: 64vh;
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--surface);
-}
-
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.photo {
-  object-fit: cover;
-}
-
-/* Scrim keeps the caption legible on any photo. */
-.caption {
-  position: absolute;
-  inset: auto 0 0;
-  padding: 3rem 1.25rem 1.25rem;
-  background: linear-gradient(to top, rgb(0 0 0 / 0.65), transparent);
-}
-
-.caption p {
+.hero p,
+.hero ol,
+.intro p,
+.mapSection p,
+.mapSection ol,
+.title,
+.statement,
+.teaser {
   margin: 0;
-  font-size: 0.8125rem;
 }
-
-.captionSummary {
-  color: #c9c7c1;
-}
-
-.names {
-  grid-column: 3;
-  z-index: 2;
-  max-width: 14ch;
-  margin: 0 0 0 2.5vw;
+.hero ol,
+.mapSection ol {
   padding: 0;
   list-style: none;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 2.8vw, 3.2rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
 }
 
-.item a {
-  display: block;
-  padding: 0.18em 0;
-  text-decoration: none;
+/* hero */
+.hero {
+  position: relative;
 }
-
-.nameText {
-  color: var(--dim);
-  text-shadow: 0 0 12px rgb(0 0 0 / 0.6);
-  transition: color 0.4s ease;
-}
-
-.thumb,
-.sub {
-  display: none;
-}
-
-/* Site 1 is active until a name is hovered or focused. */
-.hero:not(:has(.item:is(:hover, :focus-within))) .slide:nth-child(1),
-.hero:has(.item:nth-child(1):is(:hover, :focus-within)) .slide:nth-child(1),
-.hero:has(.item:nth-child(2):is(:hover, :focus-within)) .slide:nth-child(2),
-.hero:has(.item:nth-child(3):is(:hover, :focus-within)) .slide:nth-child(3),
-.hero:has(.item:nth-child(4):is(:hover, :focus-within)) .slide:nth-child(4),
-.hero:has(.item:nth-child(5):is(:hover, :focus-within)) .slide:nth-child(5) {
-  opacity: 1;
-}
-
-.hero:not(:has(.item:is(:hover, :focus-within))) .item:nth-child(1) .nameText,
-.item:is(:hover, :focus-within) .nameText {
-  color: var(--paper);
-}
-
-.intro {
-  display: flex;
-  justify-content: center;
-  padding: 18vh 3vw;
-}
-
-.intro p {
-  max-width: 24ch;
-  margin: 0;
-  font-weight: 500;
-  font-size: clamp(1.75rem, 3.6vw, 3.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-.mapSection {
-  display: grid;
-  grid-template-columns: min(45vw, 760px) 1fr;
-  gap: 6vw;
-  align-items: end;
-  justify-content: center;
-  padding: 0 3vw 18vh;
-}
-
-.mapFrame {
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: #131315;
-}
-
-.svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-}
-
-.mapText h2 {
-  max-width: 14ch;
-  margin: 0 0 1.75rem;
-  font-weight: 500;
-  font-size: clamp(1.5rem, 3vw, 3rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
-  border-radius: 999px;
-  background: var(--paper);
-  color: var(--ink);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.cta:hover {
-  background: #fff;
-}
-
-.footer {
-  margin: 0 3vw;
-  padding: 2rem 0 3rem;
-  border-top: 1px solid var(--line);
-  font-size: 0.875rem;
-}
-
-.footer nav {
+.heroHead {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+  padding: var(--pad) var(--pad) 20px;
+}
+.title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+  overflow-wrap: anywhere;
+}
+.heroText {
+  display: grid;
+  gap: 12px;
+  max-width: 34ch;
+  padding-bottom: 0.5rem;
+}
+.tagline {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 8px;
 }
 
-.footer a {
+.list {
+  border-bottom: 1px solid var(--navy-500);
+}
+.item {
+  position: relative;
+  border-top: 1px solid var(--navy-500);
+}
+.link {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: baseline;
+  padding: 12px var(--pad);
   text-decoration: none;
 }
-
-.footer a:hover {
-  text-decoration: underline;
+.num {
+  font-weight: 600;
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 5.4vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  padding-block: 0.05em;
+  text-wrap: balance;
+}
+.where {
+  grid-column: 2;
+  margin-top: 6px;
+}
+.link:focus-visible {
+  background: var(--navy-500);
+  color: var(--seashell);
+  outline: 3px solid var(--frosted-blue);
+  outline-offset: -6px;
 }
 
-/* Touch and narrow screens: no hover, so every row shows its own thumbnail. */
-@media (max-width: 800px) {
-  .hero {
-    display: block;
-    min-height: 0;
-    padding: 1.5rem 16px 2.5rem;
-  }
+/* framed image panel */
+.panel {
+  grid-column: 1 / -1;
+  display: block;
+  position: relative;
+  margin: 14px 0 6px;
+  padding: 34px 14px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  border: 1px solid var(--navy-500);
+}
+.figure {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--navy-500);
+  background: var(--layer-bg);
+}
+.figure img {
+  object-fit: cover;
+}
+.label {
+  max-width: 88%;
+  padding: 6px 10px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cap {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cap span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.capTop {
+  top: 10px;
+}
+.capBottom {
+  bottom: 10px;
+}
+.cross {
+  position: absolute;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  color: var(--navy-500);
+}
+.tl {
+  top: -6px;
+  left: -6px;
+}
+.tr {
+  top: -6px;
+  right: -6px;
+}
+.bl {
+  bottom: -6px;
+  left: -6px;
+}
+.br {
+  bottom: -6px;
+  right: -6px;
+}
 
-  .phrase {
-    justify-self: start;
-    max-width: none;
-    margin: 0 0 1rem;
-    text-align: left;
-    font-size: 1.75rem;
+@media (min-width: 56rem) and (hover: hover) {
+  .link {
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
   }
-
-  .frame {
-    height: auto;
-    aspect-ratio: 4 / 5;
-    margin-bottom: 1.5rem;
-  }
-
-  .names {
-    max-width: none;
+  .where {
+    grid-column: auto;
     margin: 0;
-    font-size: 1.375rem;
+    text-align: right;
+    white-space: nowrap;
+    align-self: center;
   }
-
-  .item a {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    column-gap: 14px;
-    align-items: center;
-    padding: 10px 0;
-    border-top: 1px solid var(--line);
+  .link:hover {
+    background: var(--navy-500);
+    color: var(--seashell);
   }
-
-  .thumb {
-    position: relative;
-    display: block;
-    grid-row: 1 / 3;
-    width: 48px;
-    height: 60px;
-    overflow: hidden;
-    border-radius: 8px;
+  .panel {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    width: min(22vw, 320px);
+    margin: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 5;
   }
-
-  .thumb img {
-    object-fit: cover;
+  .link:hover .panel,
+  .link:focus-visible .panel {
+    opacity: 1;
+    visibility: visible;
   }
-
-  .sub {
-    display: block;
-    font-size: 0.8125rem;
-    font-weight: 400;
-    letter-spacing: 0;
-    color: var(--dim);
+}
+@media (min-width: 56rem) and (hover: none) {
+  .link {
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
   }
-
-  .nameText {
-    color: var(--paper);
-    text-shadow: none;
+  .where {
+    grid-column: auto;
+    margin: 0;
+    text-align: right;
+    align-self: center;
   }
-
-  .intro {
-    justify-content: flex-start;
-    padding: 80px 16px;
-  }
-
-  .mapSection {
-    display: block;
-    padding: 0 16px 80px;
-  }
-
-  .mapFrame {
-    margin-bottom: 2rem;
-    padding: 1rem;
-  }
-
-  .footer {
-    margin: 0 16px;
+  .panel {
+    grid-column: 2 / -1;
+    max-width: 420px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .slide,
-  .nameText {
-    transition: none;
+/* intro */
+.intro {
+  position: relative;
+  display: grid;
+  gap: 32px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  padding: clamp(64px, 12vw, 160px) var(--pad);
+}
+.introMeta {
+  position: absolute;
+  top: 16px;
+  right: var(--pad);
+  color: var(--frosted-blue);
+}
+.statement {
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 4.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.introBody {
+  display: grid;
+  gap: 12px;
+  max-width: 56ch;
+  font-size: 1.1rem;
+}
+
+/* map teaser */
+.mapSection {
+  background: var(--navy-400);
+  padding: clamp(48px, 8vw, 112px) var(--pad);
+}
+.card {
+  position: relative;
+  display: grid;
+  gap: 24px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  padding: clamp(20px, 3vw, 40px);
+}
+.card > .cross {
+  color: var(--seashell);
+}
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: space-between;
+}
+.teaser {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 6vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.key {
+  border-top: 1px solid var(--navy-500);
+}
+.key li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--navy-500);
+}
+.swatch {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--layer-bg);
+  box-shadow: inset 0 0 0 3px var(--layer-pin);
+}
+.layerName {
+  min-width: 4.5rem;
+  font-weight: 700;
+}
+
+.primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  align-self: flex-start;
+  padding: 16px 24px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  text-decoration: none;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+}
+.primary:hover {
+  background: var(--navy-500);
+}
+
+/* Placeholder for the map teaser: three layer bands. The real map is free-form (SPEC Part 3, Map). */
+.map {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(96px, 1fr));
+  min-height: 360px;
+  border: 1px solid var(--navy-500);
+  background: var(--frosted-blue);
+  padding: 16px;
+  gap: 12px;
+}
+.mapLayer {
+  display: flex;
+  align-items: flex-end;
+  padding: 10px 12px;
+  background: var(--layer-bg);
+  color: var(--navy-500);
+}
+.mapLayer[data-layer="taste"] {
+  color: var(--seashell);
+}
+.mapNote {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+}
+
+@media (min-width: 56rem) {
+  .card {
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 40px;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .introMeta {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link,
+  .primary {
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+  .panel {
+    transition:
+      opacity 0.15s,
+      visibility 0.15s;
   }
 }

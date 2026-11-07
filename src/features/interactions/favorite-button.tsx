@@ -12,7 +12,7 @@ export function FavoriteButton({
 }: {
   slug: string;
   initialFavorited: boolean;
-  dict: Pick<Dictionary, "heritage" | "errors">;
+  dict: Pick<Dictionary, "point" | "errors">;
 }) {
   const [favorited, setFavorited] = useState(initialFavorited);
   const [shown, setShown] = useOptimistic(favorited);
@@ -39,7 +39,7 @@ export function FavoriteButton({
         disabled={pending}
         onClick={toggle}
       >
-        <span aria-hidden>{shown ? "★" : "☆"}</span> {dict.heritage.favorite}
+        <span aria-hidden>{shown ? "★" : "☆"}</span> {dict.point.favorite}
       </button>
       <p role="status">{error && dict.errors[error]}</p>
     </>

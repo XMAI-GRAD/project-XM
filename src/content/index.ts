@@ -1,10 +1,13 @@
 import "server-only";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import raw from "../../data/heritages.json";
-import { locales } from "@/i18n/config";
+import { parse } from "yaml";
 
 export type Localized<T = string> = { vi: T; en: T };
+
+export const layers = ["place", "taste", "craft"] as const;
+export type Layer = (typeof layers)[number];
+export type Season = "spring" | "summer" | "autumn" | "winter";
 
 export interface Photo {
   src: string;
@@ -13,97 +16,156 @@ export interface Photo {
   alt: Localized;
 }
 
-export interface Article {
+interface PointBase {
   slug: string;
-  title: Localized;
-  excerpt: Localized;
-  cover: Photo;
-  body: Localized<string[]>;
-  publishedAt: string;
-}
-
-export interface Heritage {
-  slug: string;
+  code: string;
   name: Localized;
-  summary: Localized;
-  body: Localized<string[]>;
+  hook: Localized;
+  story: Localized<string[]>;
+  fact: Localized;
+  address: string;
+  hours: Localized;
+  nearby: { slug: string; km: number }[];
   images: Photo[];
-  map: { x: number; y: number };
-  articles: Article[];
+  audio?: string;
 }
 
-export interface HeritageData {
-  route: string[];
-  heritages: Heritage[];
+export interface Place extends PointBase {
+  layer: "place";
+  era: Localized;
+  kind: Localized;
+  price: Localized;
+}
+export interface Taste extends PointBase {
+  layer: "taste";
+  since?: number;
+  dish: Localized;
+  price: Localized;
+  season: Season;
+}
+export interface Craft extends PointBase {
+  layer: "craft";
+  craft: Localized;
+}
+export type Point = Place | Taste | Craft;
+
+export interface Pages {
+  site: {
+    brand: Localized;
+    designation: Localized;
+    fullName: Localized;
+    tagline: Localized;
+    motto: Localized;
+    mottoShort: Localized;
+    contact: {
+      address: Localized<string[]>;
+      hours: Localized<string[]>;
+      phone: string;
+      email: string;
+    };
+    credits: Localized;
+  };
+  home: {
+    lead: Localized;
+    intro: { title: Localized; body: Localized<string[]> };
+  };
+  explore: { title: Localized; lead: Localized };
+  maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
 }
 
-const data: HeritageData = raw;
+const read = (file: string): unknown =>
+  parse(readFileSync(join(process.cwd(), "data", file), "utf8"));
 
-// Runs when the module loads, so a bad edit to heritages.json fails `next build`.
-function validate({ route, heritages }: HeritageData): string[] {
+const codePrefix: Record<Layer, string> = {
+  place: "d",
+  taste: "v",
+  craft: "n",
+};
+
+export const points: Point[] = layers.flatMap((layer) =>
+  (read(`points/${layer}.yaml`) as Omit<Point, "layer">[]).map(
+    (p) => ({ ...p, layer }) as Point,
+  ),
+);
+const pages = Object.fromEntries(
+  (["site", "home", "explore", "maps"] as const).map((name) => [
+    name,
+    read(`${name}.yaml`),
+  ]),
+) as unknown as Pages;
+
+const isEmpty = (v: unknown) => {
+  const parts = Array.isArray(v) ? v : [v];
+  return (
+    parts.length === 0 || parts.some((p) => typeof p !== "string" || !p.trim())
+  );
+};
+
+// public/ isn't shipped with the deployed functions (next.config.ts), so file checks and warnings run in dev and `next build` only.
+const buildOrDev =
+  process.env.NODE_ENV !== "production" ||
+  process.env.NEXT_PHASE === "phase-production-build";
+
+// Runs when the module loads, so a bad YAML edit fails `next build`.
+function validate(): string[] {
   const errors: string[] = [];
-  const seen = new Set<string>();
-  const checkSlug = (slug: string) => {
-    if (seen.has(slug)) errors.push(`duplicate slug "${slug}"`);
-    seen.add(slug);
-  };
-  const checkText = (where: string, value: Localized<string | string[]>) => {
-    for (const lang of locales) {
-      const v = value[lang];
-      const parts = Array.isArray(v) ? v : [v];
-      if (parts.length === 0 || parts.some((p) => !p?.trim()))
-        errors.push(`${where}: empty "${lang}"`);
+  const untranslated: string[] = [];
+  const walk = (where: string, value: unknown): void => {
+    if (!value || typeof value !== "object") return;
+    if ("vi" in value || "en" in value) {
+      const text = value as Localized<unknown>;
+      if (isEmpty(text.vi)) errors.push(`${where}: empty "vi"`);
+      // ponytail: English is translated later; until then an empty `en` shows the Vietnamese.
+      else if (isEmpty(text.en)) {
+        untranslated.push(where);
+        text.en = text.vi;
+      }
+      return;
     }
+    for (const [k, v] of Object.entries(value)) walk(`${where}.${k}`, v);
   };
-  const checkPhoto = (where: string, photo: Photo) => {
-    checkText(`${where} alt`, photo.alt);
-    if (!existsSync(join(process.cwd(), "public", photo.src)))
-      errors.push(`${where}: missing image public${photo.src}`);
+  const checkFile = (where: string, src: string) => {
+    if (buildOrDev && !existsSync(join(process.cwd(), "public", src)))
+      errors.push(`${where}: missing file public${src}`);
   };
 
-  for (const h of heritages) {
-    checkSlug(h.slug);
-    checkText(`${h.slug} name`, h.name);
-    checkText(`${h.slug} summary`, h.summary);
-    checkText(`${h.slug} body`, h.body);
-    h.images.forEach((p, i) => checkPhoto(`${h.slug} images[${i}]`, p));
-    for (const a of h.articles) {
-      checkSlug(a.slug);
-      checkText(`${a.slug} title`, a.title);
-      checkText(`${a.slug} excerpt`, a.excerpt);
-      checkText(`${a.slug} body`, a.body);
-      checkPhoto(`${a.slug} cover`, a.cover);
-    }
+  for (const [name, page] of Object.entries(pages)) walk(name, page);
+
+  const slugs = new Set<string>();
+  const codes = new Set<string>();
+  for (const p of points) {
+    if (slugs.has(p.slug)) errors.push(`duplicate slug "${p.slug}"`);
+    if (codes.has(p.code)) errors.push(`duplicate code "${p.code}"`);
+    slugs.add(p.slug);
+    codes.add(p.code);
+    if (!p.code?.startsWith(codePrefix[p.layer]))
+      errors.push(`${p.slug}: code "${p.code}" doesn't match ${p.layer}`);
+    walk(p.slug, p);
+    p.images.forEach((img, i) => checkFile(`${p.slug} images[${i}]`, img.src));
+    if (p.audio) checkFile(`${p.slug} audio`, p.audio);
   }
-  const heritageSlugs = new Set(heritages.map((h) => h.slug));
-  for (const stop of route)
-    if (!heritageSlugs.has(stop))
-      errors.push(`route stop "${stop}" is not a heritage`);
+  for (const p of points)
+    for (const n of p.nearby)
+      if (!slugs.has(n.slug))
+        errors.push(`${p.slug}: nearby "${n.slug}" is not a point`);
+  if (untranslated.length && buildOrDev)
+    console.warn(
+      `data/: ${untranslated.length} fields have no English yet; showing Vietnamese.`,
+    );
   return errors;
 }
 
-const errors = validate(data);
+const errors = validate();
 if (errors.length)
-  throw new Error(`data/heritages.json is invalid:\n- ${errors.join("\n- ")}`);
+  throw new Error(`data/ content is invalid:\n- ${errors.join("\n- ")}`);
 
-export const { route, heritages } = data;
-export const articles = heritages.flatMap((h) =>
-  h.articles.map((a) => ({ ...a, heritageSlug: h.slug })),
+/** Every point slug. Validates user-supplied slugs (favorites, comments). */
+export const pointSlugs: ReadonlySet<string> = new Set(
+  points.map((p) => p.slug),
 );
 
-export const heritageSlugs: ReadonlySet<string> = new Set(
-  heritages.map((h) => h.slug),
-);
-export const articleSlugs: ReadonlySet<string> = new Set(
-  articles.map((a) => a.slug),
-);
-/** Valid comment targets: every heritage and article slug. */
-export const contentSlugs: ReadonlySet<string> = new Set([
-  ...heritageSlugs,
-  ...articleSlugs,
-]);
-
-export const getHeritage = (slug: string) =>
-  heritages.find((h) => h.slug === slug);
-export const getArticle = (slug: string) =>
-  articles.find((a) => a.slug === slug);
+export const getPoints = (layer: Layer) =>
+  points.filter((p) => p.layer === layer);
+export const getPoint = (slug: string) => points.find((p) => p.slug === slug);
+export const getPage = <K extends keyof Pages>(name: K): Pages[K] =>
+  pages[name];

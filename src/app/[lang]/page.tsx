@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getHeritage, heritages, route } from "@/content";
-import { StatCounts } from "@/features/interactions/stat-counts";
+import { getPage, layers, points } from "@/content";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 import s from "./page.module.css";
@@ -11,138 +10,141 @@ export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata(await getLocale(), "");
 }
 
-// Map teaser: fit the viewBox to the pins, whatever units the real map uses.
-const stops = route.map((slug) => getHeritage(slug)!);
-const xs = stops.map((h) => h.map.x);
-const ys = stops.map((h) => h.map.y);
-const span =
-  Math.max(
-    Math.max(...xs) - Math.min(...xs),
-    Math.max(...ys) - Math.min(...ys),
-  ) || 1;
-const pad = span * 0.18;
-const viewBox = [
-  Math.min(...xs) - pad,
-  Math.min(...ys) - pad,
-  Math.max(...xs) - Math.min(...xs) + pad * 2,
-  Math.max(...ys) - Math.min(...ys) + pad * 2,
-].join(" ");
+function Cross({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
+  return (
+    <svg className={`${s.cross} ${s[pos]}`} viewBox="0 0 11 11" aria-hidden>
+      <path
+        d="M5.5 0v11M0 5.5h11"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1"
+      />
+    </svg>
+  );
+}
 
+function Arrow() {
+  return (
+    <svg viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
+      <path
+        d="M0 5h14M10 1l4 4-4 4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
+    </svg>
+  );
+}
+
+const crosses = (["tl", "tr", "bl", "br"] as const).map((p) => (
+  <Cross key={p} pos={p} />
+));
+
+/** Home on the prototype A wireframe: hero list of points, intro band, map teaser. */
 export default async function HomePage() {
   const lang = await getLocale();
-  const { home, nav, about, footer } = getDictionary(lang);
+  const { home, layers: layerNames, nav } = getDictionary(lang);
+  const site = getPage("site");
+  const { lead, intro } = getPage("home");
+  const maps = getPage("maps");
 
   return (
     <>
       <section className={s.hero}>
-        <h1 className={s.phrase}>{home.title}</h1>
-
-        <div className={s.stage}>
-          <div className={s.frame} aria-hidden="true">
-            {heritages.map((h, i) => (
-              <div key={h.slug} className={s.slide}>
-                <Image
-                  src={h.images[0].src}
-                  alt=""
-                  fill
-                  sizes="(max-width: 800px) 100vw, 45vw"
-                  priority={i === 0}
-                  className={s.photo}
-                />
-                <div className={s.caption}>
-                  <p className={s.captionName}>{h.name[lang]}</p>
-                  <p className={s.captionSummary}>{h.summary[lang]}</p>
-                </div>
-              </div>
-            ))}
+        <div className={s.heroHead}>
+          <h1 className={s.title}>{site.brand[lang]}</h1>
+          <div className={s.heroText}>
+            <p className={s.tagline}>{site.tagline[lang]}</p>
+            <p>{lead[lang]}</p>
+            <p className={s.actions}>
+              <Link href={`/${lang}/maps`} className={s.primary}>
+                {home.exploreMap}
+                <Arrow />
+              </Link>
+              <Link href={`/${lang}/join`}>{home.joinNetwork}</Link>
+            </p>
           </div>
         </div>
-
-        <ul className={s.names} aria-label={home.listLabel}>
-          {heritages.map((h) => (
-            <li key={h.slug} className={s.item}>
-              <Link href={`/${lang}/heritage/${h.slug}`}>
-                <span className={s.thumb} aria-hidden="true">
-                  <Image src={h.images[0].src} alt="" fill sizes="48px" />
-                </span>
-                <span className={s.nameText}>{h.name[lang]}</span>
-                <span className={s.sub}>{h.summary[lang]}</span>
-                <StatCounts
-                  lang={lang}
-                  slug={h.slug}
-                  favorites
-                  className={s.sub}
-                />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ol className={s.list} aria-label={home.listLabel}>
+          {points.map((p) => {
+            const cover = p.images[0];
+            return (
+              <li key={p.slug} className={s.item} data-layer={p.layer}>
+                <Link href={`/${lang}/explore/${p.slug}`} className={s.link}>
+                  <span className={`meta ${s.num}`}>
+                    {p.code.toUpperCase()}
+                  </span>
+                  <span className={s.name}>{p.name[lang]}</span>
+                  <span className={`meta ${s.where}`}>
+                    {layerNames[p.layer]} · {p.address}
+                  </span>
+                  <span className={s.panel} aria-hidden="true">
+                    <span className={s.figure}>
+                      {crosses}
+                      {cover ? (
+                        <Image src={cover.src} alt="" fill sizes="320px" />
+                      ) : (
+                        <span className={s.label}>
+                          {home.imagePlaceholder} · {p.name[lang]}
+                        </span>
+                      )}
+                    </span>
+                    <span className={`meta ${s.cap} ${s.capTop}`}>
+                      <span>{p.code.toUpperCase()}</span>
+                      <span>{layerNames[p.layer]}</span>
+                    </span>
+                    <span className={`meta ${s.cap} ${s.capBottom}`}>
+                      <span>{p.name[lang]}</span>
+                      <span>{p.address}</span>
+                    </span>
+                  </span>
+                </Link>
+              </li>
+            );
+          })}
+        </ol>
       </section>
 
       <section className={s.intro}>
-        <p>{home.intro}</p>
+        <p className={`meta ${s.introMeta}`}>{site.designation[lang]}</p>
+        <h2 className={s.statement}>{intro.title[lang]}</h2>
+        <div className={s.introBody}>
+          {intro.body[lang].map((p, i) => (
+            <p key={i}>{p}</p>
+          ))}
+        </div>
       </section>
 
       <section className={s.mapSection}>
-        <div className={s.mapFrame}>
-          <svg
-            viewBox={viewBox}
-            role="img"
-            aria-label={home.mapLabel}
-            className={s.svg}
-            style={{ fontSize: span * 0.04 }}
-          >
-            <polyline
-              points={stops.map((h) => `${h.map.x},${h.map.y}`).join(" ")}
-              fill="none"
-              stroke="var(--paper)"
-              strokeWidth={1}
-              vectorEffect="non-scaling-stroke"
-            />
-            {stops.map((h) => (
-              <g key={h.slug}>
-                <circle
-                  cx={h.map.x}
-                  cy={h.map.y}
-                  r={span * 0.012}
-                  fill="var(--paper)"
-                />
-                <text
-                  x={h.map.x}
-                  y={h.map.y - span * 0.035}
-                  textAnchor="middle"
-                  fill="var(--paper)"
-                >
-                  {h.name[lang]}
-                </text>
-              </g>
+        <div className={s.card}>
+          {crosses}
+          <div className={s.cardText}>
+            <h2 className={s.teaser}>{maps.title[lang]}</h2>
+            <p>{maps.lead[lang]}</p>
+            <ol className={s.key}>
+              {layers.map((layer) => (
+                <li key={layer} className="meta" data-layer={layer}>
+                  <span className={s.swatch} aria-hidden="true" />
+                  <span className={s.layerName}>{layerNames[layer]}</span>
+                  <span>{maps.layers[layer][lang]}</span>
+                </li>
+              ))}
+            </ol>
+            <Link href={`/${lang}/maps`} className={s.primary}>
+              {home.openMap}
+              <Arrow />
+            </Link>
+          </div>
+          <div className={s.map} aria-hidden="true">
+            {layers.map((layer) => (
+              <span key={layer} className={s.mapLayer} data-layer={layer}>
+                <span className="meta">{layerNames[layer]}</span>
+              </span>
             ))}
-          </svg>
-        </div>
-        <div className={s.mapText}>
-          <h2>{home.mapTeaser}</h2>
-          <Link href={`/${lang}/map`} className={s.cta}>
-            {home.openMap}
-            <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
-              <path
-                d="M2 8h11M9 4l4 4-4 4"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-            </svg>
-          </Link>
+            <span className={`meta ${s.mapNote}`}>{nav.maps}</span>
+          </div>
         </div>
       </section>
-
-      <footer className={s.footer}>
-        <nav aria-label={footer.label}>
-          <Link href={`/${lang}/map`}>{nav.map}</Link>
-          <Link href={`/${lang}/about`}>{nav.about}</Link>
-          <Link href={`/${lang}/account`}>{nav.account}</Link>
-          <a href={`mailto:${about.contactEmail}`}>{about.contact}</a>
-        </nav>
-      </footer>
     </>
   );
 }

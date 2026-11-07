@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { heritages } from "@/content";
+import { points } from "@/content";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
@@ -19,7 +19,7 @@ export default async function LoginPage({
 }: PageProps<"/[lang]/login">) {
   const lang = await getLocale();
   const { login } = getDictionary(lang);
-  const site = heritages[0];
+  const site = points[0];
 
   return (
     <div className={s.page}>
@@ -34,7 +34,7 @@ export default async function LoginPage({
         />
         <div className={s.caption}>
           <p>{site.name[lang]}</p>
-          <p className={s.captionSummary}>{site.summary[lang]}</p>
+          <p className={s.captionSummary}>{site.hook[lang]}</p>
         </div>
       </div>
 

@@ -1,0 +1,33 @@
+# CRAFT · NGHỀ. Seeded with n01; the rest come from the content document (bản 07/11/2026).
+- slug: ngu-xa
+  code: n01
+  name:
+    vi: Ngũ Xã
+    en: ""
+  craft:
+    vi: Đúc đồng
+    en: ""
+  hours:
+    vi: 8h00–17h00, nên hẹn trước
+    en: ""
+  address: Bán đảo Trúc Bạch
+  hook:
+    vi: "Lĩnh hoa Yên Thái, đồ gốm Bát Tràng, / Thợ vàng Định Công, thợ đồng Ngũ Xã."
+    en: ""
+  story:
+    vi:
+      - Từ thế kỷ 17, thợ đúc đồng từ các làng nghề về lập nghiệp trên bán đảo giữa hồ Trúc Bạch, dần thành trường đúc lớn nhất kinh thành. Tượng Huyền Thiên Trấn Vũ ở đền Quán Thánh và tượng A Di Đà ở chùa Thần Quang ngay trong làng đều ra lò từ đất này.
+      - Nghề đúc đòi hỏi làm khuôn đất, nấu đồng ở nhiệt độ rất cao, rồi rót một lần duy nhất — hỏng là phải đập khuôn làm lại từ đầu. Hôm nay, cả làng còn hai hộ giữ nghề.
+    en: []
+  fact:
+    vi: Nghệ nhân Nguyễn Văn Ứng, sinh năm 1949, là đời thứ mười sáu trong gia đình làm nghề này. Con trai ông vẫn đang tiếp tục.
+    en: ""
+  nearby:
+    - { slug: hoang-thanh-thang-long, km: 1.5 }
+  images:
+    - src: /points/ngu-xa/cover.png
+      width: 2400
+      height: 1600
+      alt:
+        vi: Ảnh tạm cho Ngũ Xã
+        en: ""

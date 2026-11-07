@@ -1,28 +1,46 @@
 {
   "meta": {
-    "siteName": "project-xm",
-    "description": "<Mô tả trang: phòng trưng bày trực tuyến về di sản văn hoá Việt Nam>"
+    "siteName": "Hanoi Creative City",
+    "description": "Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội — UNESCO City of Design."
   },
   "nav": {
     "home": "Trang chủ",
-    "map": "Bản đồ",
     "about": "Giới thiệu",
+    "explore": "Khám phá",
+    "maps": "Bản đồ",
+    "events": "Sự kiện",
+    "join": "Tham gia",
     "account": "Tài khoản",
     "login": "Đăng nhập",
-    "switchLanguage": "English",
+    "switchLanguage": "EN",
     "label": "Điều hướng chính"
   },
-  "home": {
-    "title": "<Tiêu đề trang chủ>",
-    "intro": "<Đoạn giới thiệu trang chủ>",
-    "listLabel": "Năm di sản",
-    "mapTeaser": "<Câu dẫn bản đồ>",
-    "openMap": "Mở bản đồ",
-    "mapLabel": "Sơ đồ tuyến đường qua năm di sản"
+  "layers": {
+    "place": "ĐỊA",
+    "taste": "VỊ",
+    "craft": "NGHỀ"
   },
-  "heritage": {
-    "relatedArticles": "Bài viết liên quan",
-    "favorite": "Yêu thích"
+  "home": {
+    "listLabel": "Các điểm của Mạch nối ngàn năm",
+    "exploreMap": "Khám phá bản đồ",
+    "joinNetwork": "Tham gia mạng lưới",
+    "openMap": "Mở bản đồ đầy đủ",
+    "imagePlaceholder": "Ảnh"
+  },
+  "point": {
+    "favorite": "Yêu thích",
+    "whatToOrder": "Món nên gọi",
+    "price": "Mức giá",
+    "hours": "Giờ mở cửa",
+    "directions": "Chỉ đường",
+    "fact": "Điều ít người biết",
+    "nearby": "Gần đây"
+  },
+  "explore": {
+    "empty": "Chưa có điểm nào ở lớp này."
+  },
+  "about": {
+    "title": "Giới thiệu"
   },
   "comments": {
     "title": "Bình luận",
@@ -41,34 +59,29 @@
     "favorites": "lượt thích",
     "comments": "bình luận"
   },
-  "map": {
-    "title": "Bản đồ"
-  },
-  "about": {
-    "title": "Giới thiệu",
-    "body": "<Nội dung trang giới thiệu>",
-    "contact": "Liên hệ",
-    "contactEmail": "contact@example.com"
-  },
   "account": {
     "title": "Tài khoản",
     "displayName": "Tên hiển thị",
     "save": "Lưu",
     "saved": "Đã lưu.",
     "signOut": "Đăng xuất",
-    "favorites": "Di sản yêu thích",
-    "noFavorites": "Chưa có di sản yêu thích."
+    "favorites": "Điểm yêu thích",
+    "noFavorites": "Chưa có điểm yêu thích."
   },
   "login": {
     "title": "Đăng nhập",
     "continueWithGoogle": "Tiếp tục với Google",
     "error": "Đăng nhập không thành công. Vui lòng thử lại.",
-    "lead": "Đăng nhập để lưu di sản yêu thích và bình luận. Xem nội dung không cần tài khoản.",
+    "lead": "Đăng nhập để lưu điểm yêu thích và bình luận. Xem nội dung không cần tài khoản.",
     "note": "<Ghi chú quyền riêng tư>",
     "back": "Về trang chủ"
   },
   "footer": {
-    "label": "Chân trang"
+    "label": "Chân trang",
+    "contact": "Liên hệ",
+    "hours": "Mở cửa",
+    "phone": "Điện thoại",
+    "email": "Email"
   },
   "errors": {
     "unauthenticated": "Bạn cần đăng nhập.",
@@ -76,12 +89,6 @@
     "not_found": "Không tìm thấy.",
     "rate_limited": "Bạn thao tác quá nhanh, thử lại sau ít giây.",
     "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại."
-  },
-  "prototypes": {
-    "switcher": "Chuyển bản mẫu",
-    "a": "A · Vàng",
-    "b": "B · Xanh đậm",
-    "c": "C · Trắng kem"
   },
   "notFound": {
     "title": "Không tìm thấy trang",

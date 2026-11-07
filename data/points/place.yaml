@@ -1,0 +1,39 @@
+# PLACE · ĐỊA. Seeded with d01; the rest come from the content document (bản 07/11/2026).
+- slug: hoang-thanh-thang-long
+  code: d01
+  name:
+    vi: Hoàng thành Thăng Long
+    en: ""
+  era:
+    vi: Thế kỷ 11
+    en: ""
+  kind:
+    vi: Di sản Thế giới
+    en: ""
+  hours:
+    vi: 8h00–17h00, nghỉ Thứ Hai
+    en: ""
+  price:
+    vi: 70.000 đ
+    en: ""
+  address: 19C Hoàng Diệu
+  hook:
+    vi: "Thăng Long Hà Nội đô thành, / Nước non ai vẽ nên tranh họa đồ."
+    en: ""
+  story:
+    vi:
+      - Từ thế kỷ 11, đây là trung tâm chính trị của nước Việt qua các triều Lý, Trần, Lê rồi Nguyễn. Mỗi triều dựng cung điện của mình lên trên nền của triều trước, nên lòng đất ở đây không phải một lớp mà là nhiều lớp chồng nhau.
+      - "Khu khảo cổ 18 Hoàng Diệu cho thấy rõ điều đó: móng cung điện của bốn thời kỳ nằm trong cùng một hố đào, cái sau cắt qua cái trước. Năm 2010, UNESCO công nhận Hoàng thành là Di sản Thế giới, đúng dịp Hà Nội tròn một nghìn tuổi."
+    en: []
+  fact:
+    vi: Điện Kính Thiên không còn, nhưng đôi thềm rồng đá thời Lê vẫn nằm nguyên chỗ cũ. Bạn đang đứng đúng nơi vua từng ngồi.
+    en: ""
+  nearby:
+    - { slug: ngu-xa, km: 1.5 }
+  images:
+    - src: /points/hoang-thanh-thang-long/cover.png
+      width: 2400
+      height: 1600
+      alt:
+        vi: Ảnh tạm cho Hoàng thành Thăng Long
+        en: ""
