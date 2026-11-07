@@ -11,7 +11,7 @@ colors:
   dark-cyan: "#008b86"
   brick-red: "#b7262a"
   sunflower-gold: "#fec35a"
-  lime: "#cadc2b"
+  lime: "#cbdb2b"
   mauve: "#dbb8ff"
 typography:
   display:
@@ -77,7 +77,7 @@ Colors, ratio and fonts are set in [SPEC.md](SPEC.md) Part 3. This file describe
 
 **North Star: "The Coordinated City"**
 
-The site is an editorial frame. A navy rail runs down the left edge, a thin top bar carries the nav, and the page below is a stack of full-width bands. Type is big, condensed and uppercase. Accent colors are small marks — a pin, a hover state, one swatch — never a whole page.
+The site is an editorial frame. A navy rail runs down the left edge, a thin top bar carries the nav, and the page below is a stack of full-width bands. Type is big, condensed and uppercase. Accent colors mark pins, hover states and swatches, and frosted blue or dark cyan can fill a whole band, but never a whole page.
 
 The frame comes from the former prototype A, which is now the main wireframe. All new UI builds on it.
 
@@ -95,16 +95,16 @@ There is one theme on a seashell background. `color-scheme` is fixed to `light`,
 
 The tokens are CSS custom properties in `globals.css` (`var(--navy-500)`) and Tailwind colors (`bg-navy-500`, `text-seashell`).
 
-**Ratio: 40% navy ramp · 30% seashell · 30% accents.**
+**Ratio: 20% navy ramp · 40% seashell · 40% accents.**
 
-- **Navy ramp (40%).** `navy-500` is the primary color and the default text color. It covers the rail, the footer and dark bands. `navy-400` is for a second dark band. `navy-300` and `navy-200` are for quieter lines and inactive states.
-- **Seashell (30%).** The page background and the background of cards and panels.
-- **Accents (30% together).**
-  - Frosted blue and dark cyan carry the most (about 7.5% each).
-  - Brick red, sunflower gold, lime and mauve carry about 3.75% each.
+- **Navy ramp (20%).** `navy-500` is the primary color and the default text color. It covers the rail, the footer and dark bands. `navy-400` is for a second dark band. `navy-300` and `navy-200` are for quieter lines and inactive states.
+- **Seashell (40%).** The page background and the background of cards and panels.
+- **Accents (40% together).**
+  - Frosted blue and dark cyan carry the most (about 10% each). They can fill whole bands.
+  - Brick red, sunflower gold, lime and mauve carry about 5% each.
   - Brick red is the primary button.
 
-**Text on color.** Use seashell text on navy and on brick red. Use navy text on seashell and on every other accent.
+**Text on color.** Use seashell text on navy and on brick red. Use navy text on seashell and on every other accent. Dark cyan with any text, and seashell on `navy-200`, reach only about 4:1: large or bold text only.
 
 **Layers.** Set `data-layer="place|taste|craft"` on an element and read `--layer-bg` and `--layer-pin`.
 
@@ -155,10 +155,10 @@ Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for r
 
 ### Do
 
-- **Do** keep the 40 / 30 / 30 ratio when no design is given.
+- **Do** keep the 20 / 40 / 40 ratio when no design is given.
 - **Do** use the color tokens, never raw hex, in components.
 - **Do** use hairline navy borders for structure.
-- **Do** keep accents to small marks.
+- **Do** use frosted blue or dark cyan for bands that would otherwise be navy.
 - **Do** turn off every transition under `prefers-reduced-motion`.
 
 ### Don't
