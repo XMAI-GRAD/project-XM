@@ -9,7 +9,7 @@ import { CommentForm } from "./comment-form";
 import { DeleteCommentButton } from "./delete-comment-button";
 import { type Comment, getComments } from "./queries";
 
-/** Comments on a heritage or article page; `path` is where login returns to. */
+/** Comments on a point page; `path` is where login returns to. */
 export function Comments({
   lang,
   slug,

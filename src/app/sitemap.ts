@@ -1,15 +1,15 @@
 import type { MetadataRoute } from "next";
-import { articles, heritages } from "@/content";
+import { points } from "@/content";
 import { locales } from "@/i18n/config";
 import { alternates, siteUrl } from "@/i18n/server";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
-    "/map",
     "/about",
-    ...heritages.map((h) => `/heritage/${h.slug}`),
-    ...articles.map((a) => `/articles/${a.slug}`),
+    "/explore",
+    ...points.map((p) => `/explore/${p.slug}`),
+    "/maps",
   ];
   const abs = (p: string) => `${siteUrl}${p}`;
   return paths.flatMap((path) =>

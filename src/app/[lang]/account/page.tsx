@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
-import { getHeritage } from "@/content";
+import { getPoint } from "@/content";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale } from "@/i18n/server";
@@ -38,9 +38,9 @@ async function Profile({ lang }: { lang: Locale }) {
   if (!user)
     redirect(`/${lang}/login?next=${encodeURIComponent(`/${lang}/account`)}`);
   const { account, errors } = getDictionary(lang);
-  // Skips slugs whose heritage was removed from the content.
+  // Skips slugs whose point was removed from the content.
   const favorites = (await getMyFavoriteSlugs()).flatMap(
-    (slug) => getHeritage(slug) ?? [],
+    (slug) => getPoint(slug) ?? [],
   );
   return (
     <>
@@ -51,9 +51,9 @@ async function Profile({ lang }: { lang: Locale }) {
       <h2>{account.favorites}</h2>
       {favorites.length > 0 ? (
         <ul>
-          {favorites.map((h) => (
-            <li key={h.slug}>
-              <Link href={`/${lang}/heritage/${h.slug}`}>{h.name[lang]}</Link>
+          {favorites.map((p) => (
+            <li key={p.slug}>
+              <Link href={`/${lang}/explore/${p.slug}`}>{p.name[lang]}</Link>
             </li>
           ))}
         </ul>

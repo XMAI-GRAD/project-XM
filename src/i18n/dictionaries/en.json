@@ -1,28 +1,46 @@
 {
   "meta": {
-    "siteName": "project-xm",
-    "description": "<Site description: an online gallery of Vietnamese cultural heritage>"
+    "siteName": "Hanoi Creative City",
+    "description": "Hanoi Creative Activities Coordination Centre — UNESCO City of Design."
   },
   "nav": {
     "home": "Home",
-    "map": "Map",
-    "about": "About",
+    "about": "About us",
+    "explore": "Explore",
+    "maps": "Maps",
+    "events": "Events",
+    "join": "Join",
     "account": "Account",
     "login": "Log in",
-    "switchLanguage": "Tiếng Việt",
+    "switchLanguage": "VI",
     "label": "Main"
   },
-  "home": {
-    "title": "<Home title>",
-    "intro": "<Home intro paragraph>",
-    "listLabel": "Five heritage sites",
-    "mapTeaser": "<Map teaser line>",
-    "openMap": "Open the map",
-    "mapLabel": "Route through the five heritage sites"
+  "layers": {
+    "place": "PLACE",
+    "taste": "TASTE",
+    "craft": "CRAFT"
   },
-  "heritage": {
-    "relatedArticles": "Related articles",
-    "favorite": "Favorite"
+  "home": {
+    "listLabel": "Points of A thousand years of connections",
+    "exploreMap": "Explore the map",
+    "joinNetwork": "Join the network",
+    "openMap": "Open the full map",
+    "imagePlaceholder": "Photo"
+  },
+  "point": {
+    "favorite": "Favorite",
+    "whatToOrder": "What to order",
+    "price": "Price range",
+    "hours": "Opening hours",
+    "directions": "Directions",
+    "fact": "Little-known fact",
+    "nearby": "Nearby"
+  },
+  "explore": {
+    "empty": "No points in this layer yet."
+  },
+  "about": {
+    "title": "About us"
   },
   "comments": {
     "title": "Comments",
@@ -41,34 +59,29 @@
     "favorites": "favorites",
     "comments": "comments"
   },
-  "map": {
-    "title": "Map"
-  },
-  "about": {
-    "title": "About",
-    "body": "<About page content>",
-    "contact": "Contact",
-    "contactEmail": "contact@example.com"
-  },
   "account": {
     "title": "Account",
     "displayName": "Display name",
     "save": "Save",
     "saved": "Saved.",
     "signOut": "Sign out",
-    "favorites": "Favorites",
-    "noFavorites": "No favorites yet."
+    "favorites": "Saved points",
+    "noFavorites": "No saved points yet."
   },
   "login": {
     "title": "Log in",
     "continueWithGoogle": "Continue with Google",
     "error": "Sign-in failed. Please try again.",
-    "lead": "Sign in to save favorite sites and leave comments. Browsing needs no account.",
+    "lead": "Sign in to save points and leave comments. Browsing needs no account.",
     "note": "<Privacy note>",
     "back": "Back to home"
   },
   "footer": {
-    "label": "Footer"
+    "label": "Footer",
+    "contact": "Contact",
+    "hours": "Opening hours",
+    "phone": "Phone",
+    "email": "Email"
   },
   "errors": {
     "unauthenticated": "You need to log in.",
@@ -76,12 +89,6 @@
     "not_found": "Not found.",
     "rate_limited": "Too fast. Try again in a few seconds.",
     "unknown": "Something went wrong. Please try again."
-  },
-  "prototypes": {
-    "switcher": "Prototype switcher",
-    "a": "A · Gold",
-    "b": "B · Navy",
-    "c": "C · Seashell"
   },
   "notFound": {
     "title": "Page not found",

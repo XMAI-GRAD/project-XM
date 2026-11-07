@@ -2,7 +2,7 @@
 
 import { isAuthSessionMissingError } from "@supabase/supabase-js";
 import { refresh } from "next/cache";
-import { contentSlugs, heritageSlugs } from "@/content";
+import { pointSlugs } from "@/content";
 import type { Result } from "@/lib/action-result";
 import { createClient } from "@/lib/supabase/server";
 import {
@@ -27,16 +27,16 @@ async function authed(where: string) {
 }
 
 export async function toggleFavorite(
-  heritageSlug: string,
+  pointSlug: string,
 ): Promise<Result<{ favorited: boolean }>> {
   const auth = await authed("toggleFavorite");
   if (!auth.ok) return { ok: false, error: auth.error };
   const { supabase, user } = auth;
 
-  if (typeof heritageSlug !== "string" || !heritageSlugs.has(heritageSlug))
+  if (typeof pointSlug !== "string" || !pointSlugs.has(pointSlug))
     return { ok: false, error: "invalid_input" };
 
-  const row = { user_id: user.id, heritage_slug: heritageSlug };
+  const row = { user_id: user.id, heritage_slug: pointSlug };
   const { data: removed, error: deleteError } = await supabase
     .from("favorites")
     .delete()
@@ -76,7 +76,7 @@ export async function addComment(
   const parentId = parseParentId(formData.get("parentId"));
   if (
     typeof slug !== "string" ||
-    !contentSlugs.has(slug) ||
+    !pointSlugs.has(slug) ||
     body === null ||
     parentId === undefined
   )

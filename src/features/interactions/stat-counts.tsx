@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getStats } from "./queries";
 
-/** Favorite (heritages only) and comment counts for one slug. Renders nothing while loading or on error. */
+/** Favorite and comment counts for one slug. Renders nothing while loading or on error. */
 export function StatCounts({
   lang,
   slug,

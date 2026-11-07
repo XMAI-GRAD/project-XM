@@ -1,198 +1,170 @@
 ---
 name: project-xm
-description: A cinematic gallery of five Vietnamese heritage sites on a near-black stage.
+description: Hanoi Creative City — a navy-and-seashell editorial frame with a side rail, big condensed type and small accent marks.
 colors:
-  ink: "#0b0b0c"
-  paper: "#efede8"
-  dim: "#8e8e93"
-  line: "#2a2a2d"
-  surface: "#19191b"
+  navy-500: "#0d1855"
+  navy-400: "#273991"
+  navy-300: "#394fa0"
+  navy-200: "#5c76ba"
+  seashell: "#fff6f1"
+  frosted-blue: "#9ceaff"
+  dark-cyan: "#008b86"
+  brick-red: "#b7262a"
+  sunflower-gold: "#fec35a"
+  lime: "#cadc2b"
+  mauve: "#dbb8ff"
 typography:
   display:
-    fontFamily: "Hanken Grotesk, system-ui, sans-serif"
-    fontSize: "clamp(1.75rem, 3.6vw, 3.75rem)"
-    fontWeight: 500
-    lineHeight: 1.15
-    letterSpacing: "-0.02em"
+    fontFamily: "Phudu, system-ui, sans-serif"
+    fontSize: "clamp(3rem, 10vw, 10rem)"
+    fontWeight: 900
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
+    textTransform: uppercase
   headline:
-    fontFamily: "Hanken Grotesk, system-ui, sans-serif"
-    fontSize: "clamp(1.5rem, 3vw, 3.5rem)"
-    fontWeight: 500
-    lineHeight: 1.15
+    fontFamily: "Phudu, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 5.4vw, 5.75rem)"
+    fontWeight: 800
+    lineHeight: 1.02
     letterSpacing: "-0.02em"
+    textTransform: uppercase
+  subheading:
+    fontFamily: "Phudu, system-ui, sans-serif"
+    fontSize: "1.35rem"
+    fontWeight: 600
+    lineHeight: 1.2
   body:
-    fontFamily: "Hanken Grotesk, system-ui, sans-serif"
+    fontFamily: "Inter, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.4
-  label:
-    fontFamily: "Hanken Grotesk, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+  meta:
+    fontFamily: "Inter, system-ui, sans-serif"
+    fontSize: "0.72rem"
     fontWeight: 400
-    lineHeight: 1.4
+    lineHeight: 1.3
+    letterSpacing: "0.08em"
+    textTransform: uppercase
 rounded:
-  focus: "4px"
-  thumb: "8px"
-  frame: "16px"
   pill: "999px"
 spacing:
-  gutter: "3vw"
-  gutter-mobile: "16px"
-  section: "18vh"
-  section-mobile: "80px"
+  rail: "64px"
+  pad: "clamp(16px, 2.4vw, 32px)"
 components:
   button-primary:
-    backgroundColor: "{colors.paper}"
-    textColor: "{colors.ink}"
-    typography: "{typography.body}"
+    backgroundColor: "{colors.brick-red}"
+    textColor: "{colors.seashell}"
+    typography: "{typography.subheading}"
     rounded: "{rounded.pill}"
-    padding: "14px 24px"
-  nav-pill:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.paper}"
-    typography: "{typography.label}"
+    padding: "16px 24px"
+  nav-link:
+    textColor: "{colors.navy-500}"
+    hoverBackground: "{colors.navy-500}"
+    hoverText: "{colors.seashell}"
     rounded: "{rounded.pill}"
-    padding: "10px 16px"
-  frame:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.frame}"
-    width: "min(45vw, 760px)"
-    height: "64vh"
+    padding: "8px 14px"
+  rail:
+    backgroundColor: "{colors.navy-500}"
+    textColor: "{colors.seashell}"
+    width: "{spacing.rail}"
 ---
 
 # Design System: project-xm
 
+Colors, ratio and fonts are set in [SPEC.md](SPEC.md) Part 3. This file describes how they are used. When the two disagree, SPEC wins.
+
 ## Overview
 
-**Creative North Star: "The Cinematic Gallery"**
+**North Star: "The Coordinated City"**
 
-One place at a time, lit on a dark stage. The interface is a near-black room with off-white type and one rounded photo frame. The photographs are the only source of colour. Type is large and medium-weight, set tight, and runs beside the frame rather than over it. Everything else (nav, footer, borders) stays quiet and grey so the image leads.
+The site is an editorial frame. A navy rail runs down the left edge, a thin top bar carries the nav, and the page below is a stack of full-width bands. Type is big, condensed and uppercase. Accent colors are small marks — a pin, a hover state, one swatch — never a whole page.
 
-Density is low. A screen holds one subject, one short line of large type, and at most one action. Interaction is a slow swap, never a jolt: choosing a name crossfades the frame. The five sites are presented as a list of names beside a single frame, never as a card grid.
+The frame comes from the former prototype A, which is now the main wireframe. All new UI builds on it.
 
-There is one theme. `color-scheme` is fixed to `dark`, and there is no light mode or OS-driven switching.
+There is one theme on a seashell background. `color-scheme` is fixed to `light`, with no dark mode.
 
-These rules describe the main site. The retained A/B/C prototypes explore the seven-color palette recorded in SPEC Part 1, scoped to `/[lang]/proto/*`: gold/navy for A, navy for B, and seashell for C. Their shared palette lives in `proto/palette.module.css`.
+**Key characteristics:**
 
-**Key Characteristics:**
-
-- Near-black ground, off-white type, dim grey for inactive or secondary text.
-- No accent colour; photographs supply all chroma.
-- One 16px-radius frame as the hero object; pills for nav and the primary action.
-- Hanken Grotesk 500 at large sizes, tracked -0.02em, line-height 1.15.
-- Flat, tonal surfaces; hairline `line` borders for structure.
+- Seashell ground, navy type, navy bands.
+- A 64px navy side rail holding the vertical logo and the explore CTA.
+- Hairline navy borders between rows and around frames.
+- Corner-cross marks on framed figures.
+- Pills for nav links and the primary action.
 
 ## Colors
 
-A five-step neutral ramp from ink to paper, with no hue of its own.
+The tokens are CSS custom properties in `globals.css` (`var(--navy-500)`) and Tailwind colors (`bg-navy-500`, `text-seashell`).
 
-### Neutral
+**Ratio: 40% navy ramp · 30% seashell · 30% accents.**
 
-- **Stage Black** (ink): page background everywhere; text colour on the paper CTA.
-- **Gallery Paper** (paper): all primary text, active list names, route lines and pins, the CTA fill, the focus ring and the selection fill.
-- **Dim Grey** (dim): inactive list names, the brand link in the nav, secondary sub-lines on mobile.
-- **Hairline** (line): 1px borders on the map frame and footer, and between list rows on mobile.
-- **Raised Surface** (surface): the nav pill, and the frame background before a photo loads.
+- **Navy ramp (40%).** `navy-500` is the primary color and the default text color. It covers the rail, the footer and dark bands. `navy-400` is for a second dark band. `navy-300` and `navy-200` are for quieter lines and inactive states.
+- **Seashell (30%).** The page background and the background of cards and panels.
+- **Accents (30% together).**
+  - Frosted blue and dark cyan carry the most (about 7.5% each).
+  - Brick red, sunflower gold, lime and mauve carry about 3.75% each.
+  - Brick red is the primary button.
 
-### Named Rules
+**Text on color.** Use seashell text on navy and on brick red. Use navy text on seashell and on every other accent.
 
-**The Photos Bring the Colour Rule.** No accent hue exists. Do not add one for links, buttons or states; state is carried by the paper/dim contrast.
+**Layers.** Set `data-layer="place|taste|craft"` on an element and read `--layer-bg` and `--layer-pin`.
 
-**The Inverted Selection Rule.** Text selection is paper on ink inverted (paper background, ink text). Keep it.
+| Layer | `--layer-bg`   | `--layer-pin`  |
+| ----- | -------------- | -------------- |
+| PLACE | sunflower gold | navy-500       |
+| TASTE | brick red      | sunflower gold |
+| CRAFT | dark cyan      | brick red      |
 
 ## Typography
 
-**Display / Body Font:** Hanken Grotesk (fallback `system-ui, sans-serif`), weights 400 and 500 only, loaded through `next/font` with the `latin` and `vietnamese` subsets.
+- **Phudu** (`--font-display`) is for headings, display type and subheadings.
+- **Inter** (`--font-body`, Tailwind `font-sans`) is for body text, labels and meta.
+- Both load through `next/font/google` with the `vietnamese` subset.
 
-**Character:** A plain neo-grotesk used big and medium-weight. It reads as a gallery wall label scaled up for a projector.
+| Role       | Font  | Weight | Notes                                                                 |
+| ---------- | ----- | ------ | --------------------------------------------------------------------- |
+| Display    | Phudu | 900    | Uppercase, `clamp(3rem, 10vw, 10rem)`, 0.95 leading, -0.03em          |
+| Headline   | Phudu | 800    | Uppercase list names, section statements, -0.02em                     |
+| Subheading | Phudu | 600    | Taglines, 1.2 leading                                                 |
+| Body       | Inter | 400    | 1rem, 1.4 leading                                                     |
+| Meta       | Inter | 400    | The global `.meta` class: 0.72rem, uppercase, 0.08em, tabular numbers |
 
-### Hierarchy
-
-- **Display** (500, `clamp(1.75rem, 3.6vw, 3.75rem)`, 1.15, -0.02em): a single standalone statement per section, max 24ch, `text-wrap: balance`.
-- **Headline** (500, about `clamp(1.5rem, 3vw, 3.5rem)`, 1.15, -0.02em): the hero phrase (max 9ch), the site-name list (max 14ch) and section h2s (max 14ch). Each instance tunes its clamp within this range. Mobile drops to a fixed 1.375–1.75rem.
-- **Body** (400, 1rem, 1.4): running text.
-- **Label** (400, 0.8125rem): nav links, photo captions, list sub-lines.
-
-### Named Rules
-
-**The Two Weights Rule.** Use 400 and 500 only. Large type is always 500 with -0.02em tracking and 1.15 leading; small type is 400 with normal tracking.
-
-**The Short Measure Rule.** Large type is capped in `ch` (9–24ch) and balanced. Never let display or headline text run full width.
+Phudu has no width axis, so don't use `font-stretch`.
 
 ## Layout
 
-- **Hero:** a three-column grid `1fr min(45vw, 760px) 1fr` filling `100dvh` minus the header. The phrase sits right-aligned in column 1, the frame in column 2 at 64vh tall, the names in column 3.
-- **Gutters:** 3vw on desktop, 16px on mobile. **Section rhythm:** 18vh vertical padding on desktop, 80px on mobile.
-- **Two-column sections** reuse the frame width: `min(45vw, 760px) 1fr` with a 6vw gap, bottom-aligned.
-- **Header:** sticky, centred, floating 16px from the top. It does not span the width.
-- **Below 800px:** grids collapse to one column. The frame becomes full-width at 4:5. Each list row becomes a 48px thumbnail plus name and sub-line, separated by `line` hairlines. Hover affordances are replaced by visible thumbnails.
-
-## Elevation & Depth
-
-Flat and tonal. Depth comes from stepping lightness (ink, then surface, then a slightly lifted panel), never from drop shadows on surfaces. Two legibility devices are allowed over photography:
-
-- **Text glow** (`text-shadow: 0 0 12px rgb(0 0 0 / 0.6)`): on large type that may sit near imagery.
-- **Caption scrim** (`linear-gradient(to top, rgb(0 0 0 / 0.65), transparent)`): under captions on photos.
-
-**The Shadows Serve Legibility Rule.** Glow and scrim exist only to keep text readable on photos. They are not used for elevation.
-
-## Shapes
-
-- **Frame** (16px): the photo frame and any framed figure such as the map teaser.
-- **Pill** (999px): the nav bar and the primary CTA.
-- **Thumbnail** (8px): small photo thumbnails nested in lists.
-- **Focus** (4px): the focus-ring radius.
-
-The direction named a single 16px frame. The build also uses 16px for the map teaser frame and 8px for list thumbnails. Keep 16px as the only radius for large containers.
+- **Shell** (`layout.module.css`): a grid of `64px` rail plus content. The rail is sticky at full height.
+- **Top bar:** brand and designation as meta on the left, and pill nav links, the account link and the VI/EN switch on the right. A 1px navy bottom border.
+- **Bands:** full width, with `--pad` gutters (`clamp(16px, 2.4vw, 32px)`). Dark bands use generous vertical padding (`clamp(64px, 12vw, 160px)`).
+- **Lists:** rows split by 1px navy hairlines, each row a code, a big name and a meta line.
+- **Footer:** a navy band with a 4px mauve top border, holding the nav, the contact block and the credits.
+- **Desktop first.** Below 48rem the rail becomes a top strip. A dedicated mobile design comes after 2026-11-23.
 
 ## Components
 
-### Buttons
+- **Primary button:** a brick-red pill with seashell text and a trailing arrow. Hover turns it navy.
+- **Nav link:** an uppercase Phudu pill. Hover inverts it to navy with seashell text. The language switch is always inverted.
+- **Framed figure:** a 1px navy border, a corner cross at each corner, and a layer-colored fill behind the photo or placeholder label.
+- **Hover panel (home list):** on hover-capable desktops, a framed figure appears at the right of the row. Without hover, it shows inline.
+- **Focus:** a 3px navy outline with a 3px offset. Inside navy areas it is seashell.
 
-- **Primary (pill CTA):** paper fill, ink text, 500 weight, 999px radius, `14px 24px` padding. A trailing 16px inline-SVG arrow (1.5 stroke, `currentColor`) with a 10px gap.
-- **Hover:** fill lifts to pure white. **Focus:** the global ring (below).
-- No secondary button exists yet.
+## Motion
 
-### Navigation
-
-- **Header pill:** surface fill, 999px radius, centred and sticky. Label-size text (0.75rem below 640px), gap 12px rising to 20px. Scrolls horizontally rather than wrapping.
-- **States:** the brand link is dim, other links are paper. Hover underlines the link (1px thickness, 0.3em offset).
-- **Footer:** a `line` top border, a wrapped row of links at 0.875rem, underline on hover.
-
-### Focus
-
-- 2px solid paper outline, 4px offset, 4px radius, applied globally on `:focus-visible`.
-
-### Gallery Frame (signature)
-
-One rounded frame (surface fill, 16px, `overflow: hidden`) holding stacked full-bleed photos, each with a bottom caption scrim. A list of site names sits beside it.
-
-- **Default:** site 1 is shown and its name is paper; the other names are dim.
-- **Hover / `:focus-within` a name:** that site's photo fades in (opacity, 0.5s ease) and its name turns paper (colour, 0.4s ease). This is pure CSS via `:has()`, with no JS.
-- **Reduced motion:** both transitions are off and the swap is instant.
-- **Below 800px:** no hover; rows show their own thumbnails and all names are paper.
-
-### Motion (pending)
-
-SPEC mandates GSAP + ScrollTrigger + Lenis via `useGSAP`, with `gsap.matchMedia` for reduced motion. None of it is built yet. Only the CSS transitions above have shipped. Scroll-driven motion is an open decision, not a recorded pattern.
+Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. None of it is built yet. The only motion so far is short CSS color and opacity transitions, and they are wrapped in `prefers-reduced-motion: no-preference`.
 
 ## Do's and Don'ts
 
-### Do:
+### Do
 
-- **Do** use only the five colour tokens through their custom properties (`var(--ink)` and so on, or Tailwind `bg-surface`, `text-dim`).
-- **Do** set large type at 500, -0.02em, 1.15 leading, capped in `ch` and balanced.
-- **Do** give large photo containers a 16px radius, and pills to nav and primary actions.
-- **Do** use 1px `line` hairlines for structure, and underline-on-hover for text links.
-- **Do** put a scrim under any text placed on a photograph.
+- **Do** keep the 40 / 30 / 30 ratio when no design is given.
+- **Do** use the color tokens, never raw hex, in components.
+- **Do** use hairline navy borders for structure.
+- **Do** keep accents to small marks.
 - **Do** turn off every transition under `prefers-reduced-motion`.
-- **Do** load fonts with the `vietnamese` subset.
 
-### Don't:
+### Don't
 
-- **Don't** introduce an accent colour; the photographs carry the colour.
-- **Don't** lay the five sites out as a card grid; show one place at a time.
-- **Don't** add a light theme or respond to `prefers-color-scheme`.
-- **Don't** use drop shadows for elevation; step tone instead.
-- **Don't** use font weights other than 400 and 500.
+- **Don't** fill a whole page with an accent color.
+- **Don't** add a dark theme or respond to `prefers-color-scheme`.
+- **Don't** use drop shadows for elevation.
 - **Don't** add animation libraries other than GSAP + ScrollTrigger + Lenis.
+- **Don't** hardcode content text. It comes from `data/*.yaml` or the dictionaries.

@@ -1,0 +1,36 @@
+# TASTE · VỊ. Seeded with v01; the rest come from the content document (bản 07/11/2026).
+- slug: bun-thang-ba-duc
+  code: v01
+  name:
+    vi: Bún thang Bà Đức
+    en: ""
+  dish:
+    vi: Bún thang
+    en: ""
+  price:
+    vi: 50.000 – 70.000 đ
+    en: ""
+  hours:
+    vi: 7h00–14h00
+    en: ""
+  season: spring
+  address: 48 Cầu Gỗ
+  hook:
+    vi: Mâm cỗ Tết vừa tan, bát bún thang mới bắt đầu.
+    en: ""
+  story:
+    vi:
+      - Bún thang là món của những ngày sau Tết. Khi mâm cỗ đã vãn, người Hà Nội gom những thứ còn lại — giò lụa, thịt gà, trứng tráng, tôm khô — thái chỉ rồi bày lên bát bún, chan nước dùng trong veo.
+      - Một bát đầy đủ cần hơn hai mươi nguyên liệu, và gần như thứ gì cũng phải thái nhỏ như sợi chỉ, xếp thành từng ô màu riêng trên mặt bát. Món sinh ra từ việc tiếc của, nhưng lại thành món cầu kỳ bậc nhất của bếp Hà Nội.
+    en: []
+  fact:
+    vi: Nước dùng bún thang phải trong đến mức nhìn thấy đáy bát. Chỉ một chút váng mỡ là người sành ăn biết ngay nồi nước chưa đạt.
+    en: ""
+  nearby: []
+  images:
+    - src: /points/bun-thang-ba-duc/cover.png
+      width: 2400
+      height: 1600
+      alt:
+        vi: Ảnh tạm cho Bún thang Bà Đức
+        en: ""

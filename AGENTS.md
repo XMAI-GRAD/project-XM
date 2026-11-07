@@ -13,7 +13,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 Read `SPEC.md` first. It is the source of truth. If your change alters behavior it describes, update it in the same PR.
 
 - **Content:**
-  - All heritage content lives in `data/heritages.json`, with images in `public/heritages/<slug>/`.
+  - All content lives in YAML files in `data/` (SPEC Part 2), with images in `public/points/<slug>/` and `public/events/`.
   - Read it only through `src/content/`, which is typed and validated at build.
   - Never hardcode content text in components.
 - **DB.** The DB holds user data only, keyed by slug.
