@@ -334,26 +334,27 @@ Every `slug` argument is checked against `pointSlugs`. The UI maps each `ActionE
 
 This section is the source of truth for color. `DESIGN.md`, `globals.css` and every component follow it. Token names are plain (`navy-500`, `seashell`); don't name them by meaning.
 
-| Token            | Hex       | Share  | Role                                     |
-| ---------------- | --------- | ------ | ---------------------------------------- |
-| `navy-500`       | `#0d1855` | ~24%   | Primary (deep navy)                      |
-| `navy-400`       | `#273991` | ~8%    | Navy ramp                                |
-| `navy-300`       | `#394fa0` | ~4%    | Navy ramp                                |
-| `navy-200`       | `#5c76ba` | ~4%    | Navy ramp                                |
-| `seashell`       | `#fff6f1` | ~30%   | The "white": background of most surfaces |
-| `frosted-blue`   | `#9ceaff` | ~7.5%  | Accent                                   |
-| `dark-cyan`      | `#008b86` | ~7.5%  | Accent                                   |
-| `brick-red`      | `#b7262a` | ~3.75% | Accent                                   |
-| `sunflower-gold` | `#fec35a` | ~3.75% | Accent                                   |
-| `lime`           | `#cadc2b` | ~3.75% | Accent                                   |
-| `mauve`          | `#dbb8ff` | ~3.75% | Accent                                   |
+| Token            | Hex       | Share | Role                                     |
+| ---------------- | --------- | ----- | ---------------------------------------- |
+| `navy-500`       | `#0d1855` | ~12%  | Primary (deep navy)                      |
+| `navy-400`       | `#273991` | ~4%   | Navy ramp                                |
+| `navy-300`       | `#394fa0` | ~2%   | Navy ramp                                |
+| `navy-200`       | `#5c76ba` | ~2%   | Navy ramp                                |
+| `seashell`       | `#fff6f1` | ~40%  | The "white": background of most surfaces |
+| `frosted-blue`   | `#9ceaff` | ~10%  | Accent                                   |
+| `dark-cyan`      | `#008b86` | ~10%  | Accent                                   |
+| `brick-red`      | `#b7262a` | ~5%   | Accent                                   |
+| `sunflower-gold` | `#fec35a` | ~5%   | Accent                                   |
+| `lime`           | `#cbdb2b` | ~5%   | Accent                                   |
+| `mauve`          | `#dbb8ff` | ~5%   | Accent                                   |
 
-**Ratio: 40% navy ramp · 30% seashell · 30% accents.** Keep it in mind when building UI without a design from the designer. Accents mark small things: pins, hover states, tags, one block at a time.
+**Ratio: 20% navy ramp · 40% seashell · 40% accents** (palette confirmed by the designer, 2026-11-07). Keep it in mind when building UI without a design from the designer. Navy is for the rail, the footer and type; whole bands can use frosted blue or dark cyan.
 
 **Text on color:**
 
 - Seashell text on navy (any step) and on brick red.
 - Navy (`navy-500`) text on seashell and on every other accent.
+- Dark cyan with any text, and seashell on `navy-200`, reach only about 4:1. Use them for large or bold text only.
 
 **Layers:**
 
