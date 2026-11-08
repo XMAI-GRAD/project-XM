@@ -145,11 +145,14 @@ Phudu has no width axis, so don't use `font-stretch`.
 - **Nav link:** an uppercase Phudu pill. Hover inverts it to navy with seashell text. The language switch is always inverted.
 - **Framed figure:** a 1px navy border, a corner cross at each corner, and a layer-colored fill behind the photo or placeholder label.
 - **Hover panel (home list):** on hover-capable desktops, a framed figure appears at the right of the row. Without hover, it shows inline.
-- **Focus:** a 3px navy outline with a 3px offset. Inside navy areas it is seashell.
+- **Opening row (explore):** a list row without a code or hover panel. A plus turns into a minus when it opens to a short description and the primary button. A hovered row inverts to navy. An open row's header and its button are sunflower gold with navy text, the button with a navy hairline: an explore-only change from the brick-red primary. The page uses navy, seashell and frosted blue, with gold only on the open row. The meta line sits under the name; it and the description grow with the viewport (up to 1.25rem and 1.5rem), so both read on a projector.
+- **Folder tabs (explore):** under a frosted blue title band. The active tab is navy; inactive tabs are seashell.
+- **Point detail:** a full-width photo hero with a navy scrim, the name and the gold directions pill at the bottom, and seashell pills for back and favorite at the top. Below it a hairline info bar whose first cell leads in display type, then the story, under a name line that appears once the hero has scrolled away and stays pinned, with the comment thread in a sticky side column. Frosted blue marks only the little-known fact.
+- **Focus:** a 3px navy outline with a 3px offset. Inside navy areas it is seashell. Explore tabs and rows sit inside a frame that clips, so their outline is inset by 6px, and a focused row fills navy with a frosted blue outline.
 
 ## Motion
 
-Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. None of it is built yet. The only motion so far is short CSS color and opacity transitions, and they are wrapped in `prefers-reduced-motion: no-preference`.
+Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. GSAP drives explore and the point page. On a point page the photo settles and the name slides in, the info bar unrolls after it, and the content below reveals once on scroll with ScrollTrigger. Rows slide out from under their top hairline with a matching `clip-path`, staggered, on arrival and on a tab change; the old rows leave faster, and the panel height moves in the same timeline. Opening a row tweens its height, collapses the open row and keeps the clicked header in place. Everything else is short CSS color and opacity transitions, wrapped in `prefers-reduced-motion: no-preference`.
 
 ## Do's and Don'ts
 

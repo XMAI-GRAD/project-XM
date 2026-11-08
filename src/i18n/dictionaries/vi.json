@@ -34,10 +34,25 @@
     "hours": "Giờ mở cửa",
     "directions": "Chỉ đường",
     "fact": "Điều ít người biết",
-    "nearby": "Gần đây"
+    "nearby": "Gần đây",
+    "listen": "Nghe câu chuyện",
+    "year": "Năm",
+    "type": "Loại hình",
+    "ticket": "Giá vé",
+    "openedSince": "Mở từ năm",
+    "craft": "Nghề",
+    "season": "Mùa hợp nhất",
+    "seasons": {
+      "spring": "Xuân",
+      "summer": "Hạ",
+      "autumn": "Thu",
+      "winter": "Đông"
+    }
   },
   "explore": {
-    "empty": "Chưa có điểm nào ở lớp này."
+    "empty": "Chưa có điểm nào ở lớp này.",
+    "tabsLabel": "Các lớp của Mạch nối ngàn năm",
+    "viewDetail": "Xem chi tiết"
   },
   "about": {
     "title": "Giới thiệu"

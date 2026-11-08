@@ -16,38 +16,25 @@ export interface Photo {
   alt: Localized;
 }
 
-interface PointBase {
+/** One shape for all three layers; the layer decides how `kind` is labelled. */
+export interface Point {
   slug: string;
   code: string;
+  layer: Layer;
   name: Localized;
+  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
+  since?: Localized;
+  season?: Season; // TASTE only
+  hours: Localized;
+  price?: Localized; // PLACE and TASTE
+  address: string;
   hook: Localized;
   story: Localized<string[]>;
   fact: Localized;
-  address: string;
-  hours: Localized;
   nearby: { slug: string; km: number }[];
   images: Photo[];
   audio?: string;
 }
-
-export interface Place extends PointBase {
-  layer: "place";
-  era: Localized;
-  kind: Localized;
-  price: Localized;
-}
-export interface Taste extends PointBase {
-  layer: "taste";
-  since?: number;
-  dish: Localized;
-  price: Localized;
-  season: Season;
-}
-export interface Craft extends PointBase {
-  layer: "craft";
-  craft: Localized;
-}
-export type Point = Place | Taste | Craft;
 
 export interface EventCard {
   title: Localized;
