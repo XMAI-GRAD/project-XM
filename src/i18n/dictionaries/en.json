@@ -39,6 +39,20 @@
   "explore": {
     "empty": "No points in this layer yet."
   },
+  "maps": {
+    "preview": "Layout preview",
+    "search": "Search places",
+    "searchPlaceholder": "Where would you like to explore?",
+    "layers": "Three layers to explore",
+    "places": "Places to explore",
+    "canvas": "Hanoi map",
+    "sampleCard": "Place preview",
+    "viewDetails": "Explore this place",
+    "controls": "Map controls",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "resetView": "Show the whole map"
+  },
   "about": {
     "title": "About us"
   },

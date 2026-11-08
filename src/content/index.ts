@@ -70,7 +70,12 @@ export interface Pages {
     intro: { title: Localized; body: Localized<string[]> };
   };
   explore: { title: Localized; lead: Localized };
-  maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
+  maps: {
+    title: Localized;
+    lead: Localized;
+    artwork: Photo;
+    layers: Record<Layer, Localized>;
+  };
 }
 
 const read = (file: string): unknown =>
@@ -130,6 +135,7 @@ function validate(): string[] {
   };
 
   for (const [name, page] of Object.entries(pages)) walk(name, page);
+  checkFile("maps.artwork", pages.maps.artwork.src);
 
   const slugs = new Set<string>();
   const codes = new Set<string>();

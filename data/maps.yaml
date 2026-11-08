@@ -4,6 +4,13 @@ title:
 lead:
   vi: Một bản đồ, ba lớp. Chạm để đổi lớp.
   en: ""
+artwork:
+  src: /maps/hanoi-map.png
+  width: 1618
+  height: 1020
+  alt:
+    vi: Bản đồ đường phố Hà Nội
+    en: ""
 layers:
   place:
     vi: Năm nơi giữ ký ức của thành phố
