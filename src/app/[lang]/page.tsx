@@ -1,26 +1,15 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { getPage, layers, points } from "@/content";
+import { crosses } from "@/components/cross";
+import { EventList } from "@/components/event-list";
+import { getEvents, getPage, layers, points } from "@/content";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 import s from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata(await getLocale(), "");
-}
-
-function Cross({ pos }: { pos: "tl" | "tr" | "bl" | "br" }) {
-  return (
-    <svg className={`${s.cross} ${s[pos]}`} viewBox="0 0 11 11" aria-hidden>
-      <path
-        d="M5.5 0v11M0 5.5h11"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-    </svg>
-  );
 }
 
 function Arrow() {
@@ -36,14 +25,10 @@ function Arrow() {
   );
 }
 
-const crosses = (["tl", "tr", "bl", "br"] as const).map((p) => (
-  <Cross key={p} pos={p} />
-));
-
-/** Home on the prototype A wireframe: hero list of points, intro band, map teaser. */
+/** Home on the prototype A wireframe: hero list of points, intro band, map teaser, events. */
 export default async function HomePage() {
   const lang = await getLocale();
-  const { home, layers: layerNames, nav } = getDictionary(lang);
+  const { home, layers: layerNames, nav, events } = getDictionary(lang);
   const site = getPage("site");
   const { lead, intro } = getPage("home");
   const maps = getPage("maps");
@@ -144,6 +129,23 @@ export default async function HomePage() {
             <span className={`meta ${s.mapNote}`}>{nav.maps}</span>
           </div>
         </div>
+      </section>
+
+      <section className={s.events}>
+        <div className={s.eventsHead}>
+          <h2 className={s.teaser}>{events.title}</h2>
+          <Link href={`/${lang}/events`} className={s.primary}>
+            {events.seeAll}
+            <Arrow />
+          </Link>
+        </div>
+        <EventList
+          events={getEvents().slice(0, 3)}
+          lang={lang}
+          empty={events.empty}
+          imageLabel={home.imagePlaceholder}
+          heading="h3"
+        />
       </section>
     </>
   );

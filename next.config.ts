@@ -4,8 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
-  // src/content reads data/*.yaml with fs at runtime (Server Actions), so ship it with every function.
-  outputFileTracingIncludes: { "/**": ["./data/**/*"] },
   // Images are served from the CDN; the content check that reads public/ only runs at build.
   outputFileTracingExcludes: { "/**": ["./public/**/*"] },
   images: {
@@ -14,6 +12,8 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     rules: {
+      // src/content imports data/*.yaml with `?raw` as plain text (import.meta.glob).
+      "*.yaml": { condition: { query: "?raw" }, type: "text" },
       "*.css": {
         // `as: "*.css"` would turn CSS Modules into global CSS, so leave them out.
         condition: { not: { path: /\.module\.css$/ } },

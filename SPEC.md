@@ -87,6 +87,7 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 
 - A gallery of event cards in the spirit of hanoicreativecity.com/su-kien, designed better.
 - Cards show image · date · title · place. Data comes from `data/events.yaml` and is placeholder only.
+- Until an event has a photo, its frame shows an accent fill with an "Image" chip, like the point panels.
 - Cards are not links. There are no filters, no detail pages, no registration and no calendar export.
 - Home block 3 shows the first 3 events by date. With no events, both show the empty text.
 
@@ -149,7 +150,7 @@ One YAML file per page, plus one file per layer for the points.
 - **Content vs UI strings:** copy from the content document goes in YAML. Interface text goes in the dictionaries (Part 3, Languages): nav labels, buttons, form labels, info-bar labels ("What to order", "Price range"…), empty states, aria labels.
 - When the designer changes text or images, they edit YAML and push assets. Logic code doesn't change. Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.
 
-**Getting data:** read content only through `src/content/`, which parses YAML with the `yaml` package at build time.
+**Getting data:** read content only through `src/content/`, which imports the YAML as text through the bundler (so `next dev` reloads an edit) and parses it with the `yaml` package.
 
 ```ts
 getPoints(layer: Layer): Point[]      // in file order
@@ -215,7 +216,7 @@ interface EventCard {
   date: string; // YYYY-MM-DD
   endDate?: string; // YYYY-MM-DD
   place: Localized;
-  image: Photo; // "/events/<file>.jpg"
+  image?: Photo; // "/events/<file>.jpg"; absent until there is a photo
 }
 ```
 
@@ -226,6 +227,7 @@ interface EventCard {
 - a slug or code is duplicated, or a code prefix doesn't match its layer;
 - a `nearby` slug isn't a point;
 - a `vi` field is empty;
+- an event `date` or `endDate` isn't a real `YYYY-MM-DD` day, or `endDate` is before `date`;
 - an image or audio file is missing.
 
 ### Database (Supabase Postgres)

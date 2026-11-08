@@ -1,7 +1,8 @@
 /* Home on the prototype A wireframe. Colors: SPEC Part 3, Color (20 navy / 40 seashell / 40 accents). */
 .hero,
 .intro,
-.mapSection {
+.mapSection,
+.events {
   --pad: clamp(16px, 2.4vw, 32px);
 }
 .hero p,
@@ -153,29 +154,6 @@
 .capBottom {
   bottom: 10px;
 }
-.cross {
-  position: absolute;
-  z-index: 1;
-  width: 11px;
-  height: 11px;
-  color: var(--navy-500);
-}
-.tl {
-  top: -6px;
-  left: -6px;
-}
-.tr {
-  top: -6px;
-  right: -6px;
-}
-.bl {
-  bottom: -6px;
-  left: -6px;
-}
-.br {
-  bottom: -6px;
-  right: -6px;
-}
 
 @media (min-width: 56rem) and (hover: hover) {
   .link {
@@ -270,9 +248,9 @@
   background: var(--seashell);
   color: var(--navy-500);
   padding: clamp(20px, 3vw, 40px);
-}
-.card > .cross {
-  color: var(--seashell);
+  --cross: var(
+    --seashell
+  ); /* the crosses sit on the navy band outside the card */
 }
 .cardText {
   display: flex;
@@ -357,6 +335,23 @@
   position: absolute;
   top: 8px;
   right: 12px;
+}
+
+/* events (block 3) */
+.events {
+  display: grid;
+  gap: 32px;
+  padding: clamp(48px, 8vw, 112px) var(--pad);
+}
+.eventsHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+.eventsHead .primary {
+  align-self: auto;
 }
 
 @media (min-width: 56rem) {

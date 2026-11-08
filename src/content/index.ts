@@ -1,5 +1,5 @@
 import "server-only";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { parse } from "yaml";
@@ -65,6 +65,14 @@ export interface Craft extends PointBase {
 }
 export type Point = Place | Taste | Craft;
 
+export interface EventCard {
+  title: Localized;
+  date: string; // YYYY-MM-DD
+  endDate?: string; // YYYY-MM-DD
+  place: Localized;
+  image?: Photo; // absent until the event has a photo
+}
+
 export interface Pages {
   site: {
     brand: Localized;
@@ -94,8 +102,18 @@ export interface Pages {
   };
 }
 
-const read = (file: string): unknown =>
-  parse(readFileSync(join(process.cwd(), "data", file), "utf8"));
+// Bundled as text (next.config.ts rule), so `next dev` reloads content when a YAML file
+// changes; files read with fs at runtime are not watched. Read `.default` per module:
+// the glob's `import: "default"` option yields undefined in `next build` (Next 16.4).
+const files = import.meta.glob<{ default: string }>("/data/**/*.yaml", {
+  query: "?raw",
+  eager: true,
+});
+const read = (file: string): unknown => {
+  const text = files[`/data/${file}`]?.default;
+  if (text === undefined) throw new Error(`data/${file} is missing`);
+  return parse(text);
+};
 
 const codePrefix: Record<Layer, string> = {
   place: "d",
@@ -108,6 +126,7 @@ export const points: Point[] = layers.flatMap((layer) =>
     (p) => ({ ...p, layer }) as Point,
   ),
 );
+const events = (read("events.yaml") ?? []) as EventCard[];
 const pages = Object.fromEntries(
   (["site", "home", "explore", "maps"] as const).map((name) => [
     name,
@@ -259,6 +278,19 @@ function validate(): string[] {
     for (const n of p.nearby)
       if (!slugs.has(n.slug))
         errors.push(`${p.slug}: nearby "${n.slug}" is not a point`);
+  // Round-trips, so 2026-02-31 fails instead of rolling over to March.
+  const isDate = (d: unknown) =>
+    typeof d === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(d) &&
+    new Date(Date.parse(d) || 0).toISOString().slice(0, 10) === d;
+  events.forEach((e, i) => {
+    const where = `events[${i}]`;
+    if (!isDate(e.date)) errors.push(`${where}: date must be YYYY-MM-DD`);
+    if (e.endDate !== undefined && !(isDate(e.endDate) && e.endDate >= e.date))
+      errors.push(`${where}: endDate must be YYYY-MM-DD, not before date`);
+    walk(where, e);
+    if (e.image) checkFile(`${where} image`, e.image.src);
+  });
   if (untranslated.length && buildOrDev)
     console.warn(
       `data/: ${untranslated.length} fields have no English yet; showing Vietnamese.`,
@@ -278,5 +310,8 @@ export const pointSlugs: ReadonlySet<string> = new Set(
 export const getPoints = (layer: Layer) =>
   points.filter((p) => p.layer === layer);
 export const getPoint = (slug: string) => points.find((p) => p.slug === slug);
+/** Events sorted by date, earliest first. */
+export const getEvents = (): EventCard[] =>
+  [...events].sort((a, b) => a.date.localeCompare(b.date));
 export const getPage = <K extends keyof Pages>(name: K): Pages[K] =>
   pages[name];
