@@ -42,6 +42,11 @@
   "about": {
     "title": "About us"
   },
+  "events": {
+    "title": "Events",
+    "empty": "No events yet.",
+    "seeAll": "See all events"
+  },
   "comments": {
     "title": "Comments",
     "loading": "Loading comments…",

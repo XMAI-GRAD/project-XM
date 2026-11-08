@@ -1,0 +1,23 @@
+.cross {
+  position: absolute;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  color: var(--cross, var(--navy-500));
+}
+.tl {
+  top: -6px;
+  left: -6px;
+}
+.tr {
+  top: -6px;
+  right: -6px;
+}
+.bl {
+  bottom: -6px;
+  left: -6px;
+}
+.br {
+  bottom: -6px;
+  right: -6px;
+}

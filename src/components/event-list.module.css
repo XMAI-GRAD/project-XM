@@ -1,0 +1,87 @@
+/* Events as editorial entries on the prototype A wireframe: a navy rule over each entry,
+   framed 3:2 image with corner crosses. No boxed cells, so nothing reads as a button. */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 48px var(--pad, 24px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* Three columns so Home's three events fill the band and the page splits 3 + 3. */
+@media (min-width: 56rem) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--navy-500);
+  color: var(--navy-500);
+  --fill: var(--frosted-blue);
+}
+.card p {
+  margin: 0;
+}
+
+/* Fill while there's no photo: non-layer accents (gold, red and cyan mean PLACE, TASTE,
+   CRAFT), shifted each row of three so no column repeats one color. */
+.card:nth-child(6n + 2),
+.card:nth-child(6n + 4) {
+  --fill: var(--mauve);
+}
+.card:nth-child(6n + 3),
+.card:nth-child(6n + 5) {
+  --fill: var(--lime);
+}
+.figure {
+  position: relative; /* no overflow clip: the crosses sit 6px outside */
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  margin-bottom: 12px;
+  border: 1px solid var(--navy-500);
+  background: var(--fill);
+}
+.figure img {
+  object-fit: cover;
+}
+.label {
+  padding: 6px 10px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.date {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+  color: var(--brick-red);
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.place {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.empty {
+  margin: 0;
+  padding: 24px 0;
+  border-top: 1px solid var(--navy-500);
+}
