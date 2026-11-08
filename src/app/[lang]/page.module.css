@@ -2,7 +2,8 @@
 .hero,
 .intro,
 .mapSection,
-.events {
+.events,
+.join {
   --pad: clamp(16px, 2.4vw, 32px);
 }
 .hero p,
@@ -235,6 +236,75 @@
   max-width: 56ch;
   font-size: 1.1rem;
 }
+.introText {
+  display: grid;
+  gap: 32px;
+}
+
+/* Block 1: State · Artists · Public as three overlapping circles, the centre where they
+   meet is the city program. Non-layer accents (gold, red and cyan mean the three layers),
+   screened so each overlap reads lighter. */
+.venn {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 520px);
+  aspect-ratio: 1;
+  isolation: isolate;
+}
+.venn ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.venn li {
+  position: absolute;
+  display: flex;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  mix-blend-mode: screen;
+  color: var(--navy-500);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.1rem, 1.8vw, 1.6rem);
+  line-height: 1.05;
+}
+.venn li:nth-child(1) {
+  top: 0;
+  left: 0;
+  padding: 24% 0 0 16%;
+  background: var(--frosted-blue);
+}
+.venn li:nth-child(2) {
+  top: 0;
+  right: 0;
+  justify-content: flex-end;
+  padding: 24% 16% 0 0;
+  background: var(--mauve);
+}
+.venn li:nth-child(3) {
+  bottom: 0;
+  left: 19%;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20%;
+  background: var(--lime);
+}
+.vennCore {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 22%;
+  transform: translate(-50%, -50%);
+  color: var(--navy-500);
+  text-align: center;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
 
 /* map teaser */
 .mapSection {
@@ -354,10 +424,91 @@
   align-self: auto;
 }
 
+/* Block 4: the two ways to join, drawn like the Join page chooser. Each row opens the Join
+   page with its form chosen. */
+.join {
+  display: grid;
+  gap: 32px;
+  padding: clamp(48px, 8vw, 112px) var(--pad);
+  border-top: 1px solid var(--navy-500);
+}
+.joinHead {
+  display: grid;
+  gap: 16px;
+  max-width: 48rem;
+}
+.joinHead p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.joinList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--navy-500);
+}
+.joinList li {
+  border-bottom: 1px solid var(--navy-500);
+}
+.joinList [data-audience="individual"] {
+  --fill: var(--frosted-blue);
+}
+.joinList [data-audience="organization"] {
+  --fill: var(--mauve);
+}
+.joinLink {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 24px;
+  padding: 24px 16px;
+  text-decoration: none;
+}
+.joinLink > span:nth-child(2) {
+  grid-column: 1 / -1;
+  max-width: 32rem;
+}
+.joinLink svg {
+  grid-row: 1;
+  grid-column: 2;
+  transform: scale(1.5);
+}
+.joinLink:hover {
+  background: var(--fill);
+}
+.joinName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4.4vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+.joinLink:hover .joinName {
+  text-decoration-color: var(--brick-red);
+}
+
 @media (min-width: 56rem) {
   .card {
     grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
     gap: 40px;
+  }
+  .intro {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 64px;
+  }
+  .joinLink {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  }
+  .joinLink > span:nth-child(2) {
+    grid-column: 2;
+  }
+  .joinLink svg {
+    grid-column: 3;
   }
 }
 
@@ -369,7 +520,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .link,
-  .primary {
+  .primary,
+  .joinLink {
     transition:
       background-color 0.15s,
       color 0.15s;
