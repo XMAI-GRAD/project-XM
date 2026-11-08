@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/explore",
     ...points.map((p) => `/explore/${p.slug}`),
     "/maps",
+    "/events",
   ];
   const abs = (p: string) => `${siteUrl}${p}`;
   return paths.flatMap((path) =>

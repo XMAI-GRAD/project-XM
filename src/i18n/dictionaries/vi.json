@@ -42,6 +42,11 @@
   "about": {
     "title": "Giới thiệu"
   },
+  "events": {
+    "title": "Sự kiện",
+    "empty": "Chưa có sự kiện nào.",
+    "seeAll": "Xem tất cả sự kiện"
+  },
   "comments": {
     "title": "Bình luận",
     "loading": "Đang tải bình luận…",
