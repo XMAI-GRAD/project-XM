@@ -62,6 +62,37 @@
     "empty": "No events yet.",
     "seeAll": "See all events"
   },
+  "join": {
+    "as": "Join as",
+    "name": "Full name",
+    "email": "Email",
+    "field": "Field",
+    "choose": "Choose…",
+    "fields": {
+      "design": "Design",
+      "architecture": "Architecture",
+      "fineArts": "Fine arts",
+      "performingArts": "Performing arts",
+      "crafts": "Crafts"
+    },
+    "portfolio": "Portfolio link",
+    "optional": "optional",
+    "project": "Project description",
+    "projectHint": "up to 300 characters",
+    "orgName": "Organization name",
+    "contact": "Contact person",
+    "size": "Size",
+    "sizes": {
+      "xs": "1–10 people",
+      "s": "11–50 people",
+      "m": "51–200 people",
+      "l": "Over 200 people"
+    },
+    "needs": "Collaboration needs",
+    "submit": "Send",
+    "sentTitle": "Sent",
+    "sentBody": "Thank you for your interest in the Hanoi Creative City network."
+  },
   "comments": {
     "title": "Comments",
     "loading": "Loading comments…",

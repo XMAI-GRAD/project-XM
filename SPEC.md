@@ -148,7 +148,7 @@ One YAML file per page, plus one file per layer for the points.
 | `data/points/taste.yaml` | The 4 TASTE points                                                             |
 | `data/points/craft.yaml` | The 3 CRAFT points                                                             |
 | `data/events.yaml`       | Placeholder events (home block 3 and the events page)                          |
-| `data/join.yaml`         | Join intro, audiences, benefits, steps                                         |
+| `data/join.yaml`         | Join title, lead, and the title and intro of each audience                     |
 
 - **Content vs UI strings:** copy from the content document goes in YAML. Interface text goes in the dictionaries (Part 3, Languages): nav labels, buttons, form labels, info-bar labels ("What to order", "Price range"…), empty states, aria labels.
 - When the designer changes text or images, they edit YAML and push assets. Logic code doesn't change. Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.

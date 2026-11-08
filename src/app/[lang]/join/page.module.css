@@ -1,0 +1,264 @@
+/* Join on the prototype A frame: display title, an audience chooser drawn like the home
+   list (hairline rows, big names), then the one chosen form. Each audience owns a non-layer
+   accent (gold, red and cyan mean PLACE, TASTE, CRAFT). */
+.page {
+  --pad: clamp(16px, 2.4vw, 32px);
+  display: grid;
+  gap: clamp(32px, 4vw, 56px);
+  padding: var(--pad);
+}
+.option[data-audience="individual"],
+.panel[data-audience="individual"] {
+  --fill: var(--frosted-blue);
+}
+.option[data-audience="organization"],
+.panel[data-audience="organization"] {
+  --fill: var(--mauve);
+}
+
+.head {
+  display: grid;
+  gap: 16px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+  text-wrap: balance;
+}
+.lead {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+/* Chooser: native radios (visually hidden), so arrow keys and screen readers work as a
+   group. The chosen row grows into a tall accent band with a display-size name; the other
+   collapses to a slim row. */
+.chooser {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+  border-top: 1px solid var(--navy-500);
+}
+.srOnly,
+.option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.option {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 14px var(--pad);
+  border-bottom: 1px solid var(--navy-500);
+  cursor: pointer;
+}
+.option:has(:checked) {
+  padding-block: 40px;
+  background: var(--fill);
+}
+.option:has(:focus-visible) {
+  outline: 3px solid var(--navy-500);
+  outline-offset: -3px;
+}
+@media (hover: hover) {
+  .option:not(:has(:checked)):hover {
+    background: color-mix(in srgb, var(--fill) 40%, transparent);
+  }
+}
+.optionTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+/* The collapsed row reads as a link, so it looks clickable without hover (projector, touch). */
+.option:not(:has(:checked)) .optionTitle {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+.option:not(:has(:checked)):hover .optionTitle {
+  text-decoration-color: var(--brick-red);
+}
+.option:has(:checked) .optionTitle {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+}
+.optionIntro {
+  display: none;
+  grid-column: 1 / -1;
+  max-width: 32rem;
+  font-size: 1.1rem;
+}
+.option:has(:checked) .optionIntro {
+  display: block;
+}
+.optionArrow {
+  display: flex;
+  grid-row: 1;
+  grid-column: 2;
+  transform: scale(1.5);
+}
+.option:has(:checked) .optionArrow {
+  transform: scale(1.5) rotate(90deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .option {
+    transition: background-color 0.2s ease-out;
+  }
+  .optionArrow {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* The chosen form: top rule in the audience accent ties it to the row above. */
+.panel {
+  border: 1px solid var(--navy-500);
+  border-top: 6px solid var(--fill);
+}
+.panel[hidden] {
+  display: none;
+}
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px clamp(24px, 4vw, 56px);
+  padding: clamp(24px, 3vw, 40px);
+}
+@media (min-width: 48rem) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+}
+.wide {
+  grid-column: 1 / -1;
+}
+.label {
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.note {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: var(--navy-300);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--navy-500);
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy-500);
+  font: inherit;
+  font-size: 1.1rem;
+  caret-color: var(--brick-red);
+}
+.field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--navy-500);
+  resize: vertical;
+}
+.field input:user-invalid,
+.field select:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--brick-red);
+}
+/* Native select chrome off; the chevron is drawn from borders in the navy text color. */
+.select {
+  position: relative;
+  display: block;
+}
+.select select {
+  appearance: none;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.select select:invalid {
+  color: var(--navy-300);
+}
+.select::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid var(--navy-500);
+  border-bottom: 1.5px solid var(--navy-500);
+  transform: translateY(-75%) rotate(45deg);
+  pointer-events: none;
+}
+
+.primary {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: start;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.primary:hover {
+  background: var(--navy-500);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .primary {
+    transition: background-color 0.2s ease-out;
+  }
+}
+
+.sent {
+  display: grid;
+  gap: 8px;
+  padding: clamp(24px, 3vw, 40px);
+}
+.sent p {
+  margin: 0;
+}
+.sentTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4.4vw, 4rem);
+  line-height: 1.02;
+}

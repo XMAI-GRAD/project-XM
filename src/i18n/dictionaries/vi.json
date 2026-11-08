@@ -62,6 +62,37 @@
     "empty": "Chưa có sự kiện nào.",
     "seeAll": "Xem tất cả sự kiện"
   },
+  "join": {
+    "as": "Đăng ký với tư cách",
+    "name": "Họ và tên",
+    "email": "Email",
+    "field": "Lĩnh vực",
+    "choose": "Chọn…",
+    "fields": {
+      "design": "Thiết kế",
+      "architecture": "Kiến trúc",
+      "fineArts": "Mỹ thuật",
+      "performingArts": "Nghệ thuật biểu diễn",
+      "crafts": "Thủ công"
+    },
+    "portfolio": "Link portfolio",
+    "optional": "không bắt buộc",
+    "project": "Mô tả dự án",
+    "projectHint": "tối đa 300 ký tự",
+    "orgName": "Tên tổ chức",
+    "contact": "Người liên hệ",
+    "size": "Quy mô",
+    "sizes": {
+      "xs": "1–10 người",
+      "s": "11–50 người",
+      "m": "51–200 người",
+      "l": "Trên 200 người"
+    },
+    "needs": "Nhu cầu hợp tác",
+    "submit": "Gửi đăng ký",
+    "sentTitle": "Đã gửi",
+    "sentBody": "Cảm ơn bạn đã quan tâm tới mạng lưới Hanoi Creative City."
+  },
   "comments": {
     "title": "Bình luận",
     "loading": "Đang tải bình luận…",
