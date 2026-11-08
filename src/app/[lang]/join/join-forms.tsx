@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, useState } from "react";
+import { type ReactNode, useState, useSyncExternalStore } from "react";
 import { Arrow } from "@/components/arrow";
 import s from "./page.module.css";
 
@@ -13,6 +13,14 @@ export interface Audience {
 
 // Stable identity, so React calls it once on mount rather than on every render.
 const focusOnMount = (el: HTMLElement | null) => el?.focus();
+
+// Home block 4 links to /join#individual or /join#organization. The server has no hash.
+const onHashChange = (cb: () => void) => {
+  addEventListener("hashchange", cb);
+  return () => removeEventListener("hashchange", cb);
+};
+const readHash = () => location.hash.slice(1);
+const noHash = () => "";
 
 /**
  * Join (SPEC Part 1): pick Individual or Organization, then fill that one mock form.
@@ -30,7 +38,10 @@ export function JoinForms({
   submit: ReactNode;
   sent: ReactNode;
 }) {
-  const [active, setActive] = useState(audiences[0].key);
+  const hash = useSyncExternalStore(onHashChange, readHash, noHash);
+  const [picked, setActive] = useState<string | null>(null);
+  const active =
+    picked ?? (audiences.some((a) => a.key === hash) ? hash : audiences[0].key);
   const [sentKey, setSentKey] = useState<string | null>(null);
   return (
     <>
