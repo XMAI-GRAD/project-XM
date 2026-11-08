@@ -1,8 +1,15 @@
 # TASTE · VỊ. Seeded with v01; the rest come from the content document (bản 07/11/2026).
 - slug: bun-thang-ba-duc
   code: v01
-  # Approximate hand-placed artwork pixels (top-left origin); review against the drawing.
-  mapPosition: { x: 1190, y: 350 }
+  # Business pin supplied by the user; not a surveyed entrance coordinate.
+  mapLocation:
+    latitude: 21.0323458
+    longitude: 105.852837
+    kind: venue
+    source: https://maps.app.goo.gl/gybVwccQ2BEVsKDUA
+    label:
+      vi: Ghim tại quán Bún thang Bà Đức
+      en: Pin at Bún thang Bà Đức restaurant
   name:
     vi: Bún thang Bà Đức
     en: ""

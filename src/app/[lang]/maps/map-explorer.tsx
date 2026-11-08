@@ -31,6 +31,7 @@ export interface MapGroup {
     address: string;
     hook: string;
     mapPosition?: { x: number; y: number };
+    mapNote?: string;
     cover?: MapImage;
   }[];
 }
@@ -364,6 +365,9 @@ export function MapExplorer({
                 {featured.name}
               </h2>
               <p className={s.address}>{featured.address}</p>
+              {featured.mapNote && (
+                <p className={s.address}>{featured.mapNote}</p>
+              )}
               {!featured.mapPosition && (
                 <p className={s.address}>{ui.positionUnavailable}</p>
               )}
@@ -420,6 +424,14 @@ export function MapExplorer({
             </button>
           </div>
         </div>
+        <a
+          className={s.attribution}
+          href="https://www.openstreetmap.org/copyright"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {ui.referenceData}
+        </a>
       </section>
     </div>
   );

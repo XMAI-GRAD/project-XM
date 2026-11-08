@@ -58,6 +58,7 @@
     "closeCard": "Close place details",
     "selectedPlace": "Exploring",
     "approximatePositions": "Approximate locations",
+    "referenceData": "Reference data: © OpenStreetMap",
     "positionUnavailable": "This place has not been marked on the map yet.",
     "loading": "Loading the map…",
     "loadError": "The map could not load. You can still explore the places list.",

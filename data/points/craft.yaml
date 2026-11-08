@@ -1,8 +1,14 @@
 # CRAFT · NGHỀ. Seeded with n01; the rest come from the content document (bản 07/11/2026).
 - slug: ngu-xa
   code: n01
-  # Approximate hand-placed artwork pixels (top-left origin); review against the drawing.
-  mapPosition: { x: 1090, y: 100 }
+  mapLocation:
+    latitude: 21.0463247
+    longitude: 105.8407432
+    kind: representative
+    source: https://www.openstreetmap.org/way/700671931
+    label:
+      vi: Điểm đại diện của làng nghề — Đình Ngũ Xã
+      en: Representative point for the craft village — Ngũ Xã communal house
   name:
     vi: Ngũ Xã
     en: ""

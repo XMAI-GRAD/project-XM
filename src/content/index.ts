@@ -1,7 +1,15 @@
 import "server-only";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
 import { parse } from "yaml";
+import {
+  fitArtworkTransform,
+  projectToArtwork,
+  validCoordinates,
+  type Coordinates,
+  type MapCalibration,
+} from "../features/maps/georeference.ts";
 
 export type Localized<T = string> = { vi: T; en: T };
 
@@ -24,7 +32,13 @@ interface PointBase {
   story: Localized<string[]>;
   fact: Localized;
   address: string;
-  /** Approximate position on the artwork, in original pixels from its top-left. Not GPS. */
+  /** Source-backed geographic location; an area uses a named representative point. */
+  mapLocation?: Coordinates & {
+    kind: "entrance" | "venue" | "representative";
+    source: string;
+    label: Localized;
+  };
+  /** Derived from mapLocation and the artwork calibration; not authored separately. */
   mapPosition?: { x: number; y: number };
   hours: Localized;
   nearby: { slug: string; km: number }[];
@@ -101,6 +115,12 @@ const pages = Object.fromEntries(
   ]),
 ) as unknown as Pages;
 
+export const mapCalibration = read("map-calibration.yaml") as MapCalibration;
+export const mapTransform = fitArtworkTransform(
+  mapCalibration.origin,
+  mapCalibration.controls,
+);
+
 const isEmpty = (v: unknown) => {
   const parts = Array.isArray(v) ? v : [v];
   return (
@@ -138,6 +158,47 @@ function validate(): string[] {
 
   for (const [name, page] of Object.entries(pages)) walk(name, page);
   checkFile("maps.artwork", pages.maps.artwork.src);
+  const artwork = pages.maps.artwork;
+  if (
+    mapCalibration.artwork.src !== artwork.src ||
+    mapCalibration.artwork.width !== artwork.width ||
+    mapCalibration.artwork.height !== artwork.height
+  )
+    errors.push("maps.artwork: calibration belongs to a different image");
+  const artworkPath = join(process.cwd(), "public", artwork.src);
+  if (
+    buildOrDev &&
+    existsSync(artworkPath) &&
+    createHash("sha256").update(readFileSync(artworkPath)).digest("hex") !==
+      mapCalibration.artwork.sha256
+  )
+    errors.push(
+      "maps.artwork: image changed; recalibrate before displaying geographic pins",
+    );
+  if (
+    mapCalibration.checks.length < 3 ||
+    !Number.isFinite(mapCalibration.maxCheckErrorPixels) ||
+    mapCalibration.maxCheckErrorPixels <= 0
+  )
+    errors.push(
+      "map calibration: at least three independent checks and a positive error limit are required",
+    );
+  for (const check of mapCalibration.checks) {
+    if (mapCalibration.controls.some((control) => control.id === check.id))
+      errors.push(
+        `map calibration: ${check.id} is both a control and an independent check`,
+      );
+    const projected = projectToArtwork(check.coordinates, mapTransform);
+    const distance = Math.hypot(
+      projected.x - check.image.x,
+      projected.y - check.image.y,
+    );
+    if (
+      !Number.isFinite(distance) ||
+      distance > mapCalibration.maxCheckErrorPixels
+    )
+      errors.push(`map calibration: ${check.id} exceeds the check error limit`);
+  }
 
   const slugs = new Set<string>();
   const codes = new Set<string>();
@@ -149,6 +210,33 @@ function validate(): string[] {
     if (!p.code?.startsWith(codePrefix[p.layer]))
       errors.push(`${p.slug}: code "${p.code}" doesn't match ${p.layer}`);
     walk(p.slug, p);
+    if (p.mapPosition)
+      errors.push(
+        `${p.slug}: author mapLocation instead of an unverified mapPosition`,
+      );
+    if (p.mapLocation) {
+      if (
+        !["entrance", "venue", "representative"].includes(p.mapLocation.kind) ||
+        typeof p.mapLocation.source !== "string" ||
+        !p.mapLocation.source.startsWith("https://")
+      )
+        errors.push(
+          `${p.slug}: mapLocation needs a placement kind and an HTTPS source`,
+        );
+      if (!validCoordinates(p.mapLocation))
+        errors.push(`${p.slug}: invalid mapLocation coordinates`);
+      else {
+        const position = projectToArtwork(p.mapLocation, mapTransform);
+        // A real place may be outside the drawing; keep it discoverable in the list.
+        if (
+          position.x >= 0 &&
+          position.x <= artwork.width &&
+          position.y >= 0 &&
+          position.y <= artwork.height
+        )
+          p.mapPosition = position;
+      }
+    }
     if (p.mapPosition) {
       const { x, y } = p.mapPosition;
       const { width, height } = pages.maps.artwork;

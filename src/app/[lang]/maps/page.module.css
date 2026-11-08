@@ -389,6 +389,7 @@
 .canvas {
   position: relative;
   min-width: 0;
+  min-height: 0;
   isolation: isolate;
   display: flex;
   flex-direction: column;
@@ -485,6 +486,7 @@
   position: relative;
   z-index: 2;
   pointer-events: none;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -505,6 +507,17 @@
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.attribution {
+  position: absolute;
+  right: 8px;
+  bottom: 3px;
+  z-index: 2;
+  padding: 2px 4px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  font-size: 0.625rem;
 }
 
 .registrationMark {
@@ -551,10 +564,11 @@
   z-index: 2;
   margin-top: auto;
   width: min(100%, 300px);
-  flex-shrink: 0;
+  min-height: 0;
+  flex-shrink: 1;
   border: 1px solid var(--navy-500);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-y: auto;
   background: var(--seashell);
 }
 
