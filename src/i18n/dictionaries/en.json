@@ -20,6 +20,9 @@
     "taste": "TASTE",
     "craft": "CRAFT"
   },
+  "about": {
+    "playVideo": "Play video"
+  },
   "home": {
     "listLabel": "Points of A thousand years of connections",
     "exploreMap": "Explore the map",
@@ -53,9 +56,6 @@
     "empty": "No points in this layer yet.",
     "tabsLabel": "Layers of the program",
     "viewDetail": "View detail"
-  },
-  "about": {
-    "title": "About us"
   },
   "events": {
     "title": "Events",

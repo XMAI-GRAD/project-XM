@@ -20,6 +20,9 @@
     "taste": "VỊ",
     "craft": "NGHỀ"
   },
+  "about": {
+    "playVideo": "Xem video"
+  },
   "home": {
     "listLabel": "Các điểm của Mạch nối ngàn năm",
     "exploreMap": "Khám phá bản đồ",
@@ -53,9 +56,6 @@
     "empty": "Chưa có điểm nào ở lớp này.",
     "tabsLabel": "Các lớp của Mạch nối ngàn năm",
     "viewDetail": "Xem chi tiết"
-  },
-  "about": {
-    "title": "Giới thiệu"
   },
   "events": {
     "title": "Sự kiện",

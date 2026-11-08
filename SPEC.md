@@ -60,7 +60,7 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 | Screen       | Route                    | Content                                                                                                                                                                                                                                                                               |
 | ------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Home         | `/[lang]`                | Hero (tagline, intro, [Explore the map] · Join). Block 1: intro + three overlapping circles (State · Artists · Public). Block 2: map teaser with the three layers. Block 3: next 3 events. Block 4: join (Individual · Organization).                                                 |
-| About        | `/[lang]/about`          | UNESCO intro, three roles, five fields, timeline, operators                                                                                                                                                                                                                           |
+| About        | `/[lang]/about`          | Title and lede, UNESCO intro and video, three things the Centre does, five fields, timeline (navy band), operators, join CTA                                                                                                                                                          |
 | Explore      | `/[lang]/explore`        | Title and lead, folder tabs ĐỊA · VỊ · NGHỀ over a framed list of rows, empty state                                                                                                                                                                                                   |
 | Point detail | `/[lang]/explore/[slug]` | Photo hero (name, layer, address, directions, counts, favorite), info bar per layer, audio (VI, with the story as text), name line (with the craft, on CRAFT points) pinned once the hero has scrolled away, hook, story, little-known fact, nearby points, comments in a side column |
 | Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                                                                   |
@@ -138,18 +138,18 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 
 One YAML file per page, plus one file per layer for the points.
 
-| File                     | Holds                                                                          |
-| ------------------------ | ------------------------------------------------------------------------------ |
-| `data/site.yaml`         | Brand name, full name, tagline, motto (long and short), contact block, credits |
-| `data/home.yaml`         | Home hero and block 1 (intro, the three roles); block 4 reads `join.yaml`      |
-| `data/about.yaml`        | About page                                                                     |
-| `data/explore.yaml`      | Explore title and lead                                                         |
-| `data/maps.yaml`         | Maps title, lead, and the one-line intro per layer (also used by home block 2) |
-| `data/points/place.yaml` | The 5 PLACE points                                                             |
-| `data/points/taste.yaml` | The 4 TASTE points                                                             |
-| `data/points/craft.yaml` | The 3 CRAFT points                                                             |
-| `data/events.yaml`       | Placeholder events (home block 3 and the events page)                          |
-| `data/join.yaml`         | Join title, lead, and the title and intro of each audience                     |
+| File                     | Holds                                                                           |
+| ------------------------ | ------------------------------------------------------------------------------- |
+| `data/site.yaml`         | Brand name, full name, tagline, motto (long and short), contact block, credits  |
+| `data/home.yaml`         | Home hero and block 1 (intro, the three roles); block 4 reads `join.yaml`       |
+| `data/about.yaml`        | About: lede, intro, video, three things we do, five fields, timeline, operators |
+| `data/explore.yaml`      | Explore title and lead                                                          |
+| `data/maps.yaml`         | Maps title, lead, and the one-line intro per layer (also used by home block 2)  |
+| `data/points/place.yaml` | The 5 PLACE points                                                              |
+| `data/points/taste.yaml` | The 4 TASTE points                                                              |
+| `data/points/craft.yaml` | The 3 CRAFT points                                                              |
+| `data/events.yaml`       | Placeholder events (home block 3 and the events page)                           |
+| `data/join.yaml`         | Join title, lead, and the title and intro of each audience                      |
 
 - **Content vs UI strings:** copy from the content document goes in YAML. Interface text goes in the dictionaries (Part 3, Languages): nav labels, buttons, form labels, info-bar labels ("What to order", "Price range"…), empty states, aria labels.
 - When the designer changes text or images, they edit YAML and push assets. Logic code doesn't change. Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.
