@@ -150,7 +150,7 @@ One YAML file per page, plus one file per layer for the points.
 - **Content vs UI strings:** copy from the content document goes in YAML. Interface text goes in the dictionaries (Part 3, Languages): nav labels, buttons, form labels, info-bar labels ("What to order", "Price range"…), empty states, aria labels.
 - When the designer changes text or images, they edit YAML and push assets. Logic code doesn't change. Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.
 
-**Getting data:** read content only through `src/content/`, which parses YAML with the `yaml` package at build time.
+**Getting data:** read content only through `src/content/`, which imports the YAML as text through the bundler (so `next dev` reloads an edit) and parses it with the `yaml` package.
 
 ```ts
 getPoints(layer: Layer): Point[]      // in file order
