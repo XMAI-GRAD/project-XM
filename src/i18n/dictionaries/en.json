@@ -90,8 +90,10 @@
     },
     "needs": "Collaboration needs",
     "submit": "Send",
-    "sentTitle": "Sent",
-    "sentBody": "Thank you for your interest in the Hanoi Creative City network."
+    "sentTitle": "You're registered",
+    "sentBody": "Thank you, {name}. We'll email the joining process and next steps to {email} in the next few days.",
+    "emailHint": "An email looks like name@example.com",
+    "benefits": "What you get"
   },
   "comments": {
     "title": "Comments",

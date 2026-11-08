@@ -66,11 +66,16 @@ export default async function JoinPage() {
       <Arrow />
     </button>
   );
-  const sent = (
-    <>
-      <p className={s.sentTitle}>{t.sentTitle}</p>
-      <p>{t.sentBody}</p>
-    </>
+  // type="email" accepts "a@b"; the pattern also asks for a dot in the domain.
+  const email = (
+    <input
+      name="email"
+      type="email"
+      required
+      autoComplete="email"
+      pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+      title={t.emailHint}
+    />
   );
   const audiences = [
     {
@@ -80,9 +85,7 @@ export default async function JoinPage() {
           <Field label={t.name}>
             <input name="name" required autoComplete="name" />
           </Field>
-          <Field label={t.email}>
-            <input name="email" type="email" required autoComplete="email" />
-          </Field>
+          <Field label={t.email}>{email}</Field>
           <Field label={t.field}>
             <Select name="field" placeholder={t.choose} options={t.fields} />
           </Field>
@@ -119,7 +122,7 @@ export default async function JoinPage() {
             <input name="contact" required autoComplete="name" />
           </Field>
           <Field label={t.email} wide>
-            <input name="email" type="email" required autoComplete="email" />
+            {email}
           </Field>
           <Field label={t.field}>
             <Select name="field" placeholder={t.choose} options={t.fields} />
@@ -146,11 +149,13 @@ export default async function JoinPage() {
           key,
           title: page[key].title[lang],
           intro: page[key].intro[lang],
+          benefits: page[key].benefits[lang],
           fields,
         }))}
         legend={t.as}
+        benefitsLabel={t.benefits}
         submit={submit}
-        sent={sent}
+        sent={{ title: t.sentTitle, body: t.sentBody }}
       />
     </div>
   );

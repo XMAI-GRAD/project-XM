@@ -44,6 +44,12 @@ export interface EventCard {
   image?: Photo; // absent until the event has a photo
 }
 
+interface JoinAudience {
+  title: Localized;
+  intro: Localized;
+  benefits: Localized<string[]>;
+}
+
 export interface Pages {
   site: {
     brand: Localized;
@@ -69,8 +75,8 @@ export interface Pages {
   join: {
     title: Localized;
     lead: Localized;
-    individual: { title: Localized; intro: Localized };
-    organization: { title: Localized; intro: Localized };
+    individual: JoinAudience;
+    organization: JoinAudience;
   };
 }
 

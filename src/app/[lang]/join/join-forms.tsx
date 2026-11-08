@@ -8,7 +8,27 @@ export interface Audience {
   key: string;
   title: string;
   intro: string;
+  benefits: string[];
   fields: ReactNode;
+}
+
+interface Sent {
+  key: string;
+  name: string;
+  email: string;
+}
+
+function Check() {
+  return (
+    <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+      <path
+        d="M2.5 8.5l3.5 3.5 7.5-8"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+    </svg>
+  );
 }
 
 // Stable identity, so React calls it once on mount rather than on every render.
@@ -25,24 +45,28 @@ const noHash = () => "";
 /**
  * Join (SPEC Part 1): pick Individual or Organization, then fill that one mock form.
  * Both forms stay mounted (the other is `hidden`), so switching keeps what was typed.
- * Submit runs native validation only, sends nothing and shows the "sent" message.
+ * Submit runs native validation only, sends nothing and shows the "sent" message, which
+ * names the person and the email the next steps go to.
  */
 export function JoinForms({
   audiences,
   legend,
+  benefitsLabel,
   submit,
   sent,
 }: {
   audiences: Audience[];
   legend: string;
+  benefitsLabel: string;
   submit: ReactNode;
-  sent: ReactNode;
+  /** Copy with {name} and {email} placeholders. */
+  sent: { title: string; body: string };
 }) {
   const hash = useSyncExternalStore(onHashChange, readHash, noHash);
   const [picked, setActive] = useState<string | null>(null);
   const active =
     picked ?? (audiences.some((a) => a.key === hash) ? hash : audiences[0].key);
-  const [sentKey, setSentKey] = useState<string | null>(null);
+  const [done, setDone] = useState<Sent | null>(null);
   return (
     <>
       <fieldset className={s.chooser}>
@@ -71,14 +95,41 @@ export function JoinForms({
           data-audience={a.key}
           hidden={a.key !== active}
         >
-          {sentKey === a.key ? (
+          <div className={s.benefits}>
+            <p className={s.benefitsLabel}>{benefitsLabel}</p>
+            <ul>
+              {a.benefits.map((b) => (
+                <li key={b}>
+                  <Check />
+                  {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {done?.key === a.key ? (
             <div
               className={s.sent}
               role="status"
               tabIndex={-1}
               ref={focusOnMount}
             >
-              {sent}
+              <span className={s.sentMark} aria-hidden="true">
+                <Check />
+              </span>
+              <p className={s.sentTitle}>{sent.title}</p>
+              <p className={s.sentBody}>
+                {sent.body
+                  .split(/(\{name\}|\{email\})/)
+                  .map((part, i) =>
+                    part === "{name}" ? (
+                      <strong key={i}>{done.name}</strong>
+                    ) : part === "{email}" ? (
+                      <strong key={i}>{done.email}</strong>
+                    ) : (
+                      part
+                    ),
+                  )}
+              </p>
             </div>
           ) : (
             <form
@@ -86,7 +137,12 @@ export function JoinForms({
               aria-label={a.title}
               onSubmit={(e) => {
                 e.preventDefault();
-                setSentKey(a.key);
+                const data = new FormData(e.currentTarget);
+                setDone({
+                  key: a.key,
+                  name: String(data.get("name") ?? data.get("contact")),
+                  email: String(data.get("email")),
+                });
               }}
             >
               {a.fields}

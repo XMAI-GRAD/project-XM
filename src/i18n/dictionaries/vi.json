@@ -73,7 +73,7 @@
       "architecture": "Kiến trúc",
       "fineArts": "Mỹ thuật",
       "performingArts": "Nghệ thuật biểu diễn",
-      "crafts": "Thủ công"
+      "crafts": "Thủ công mỹ nghệ"
     },
     "portfolio": "Link portfolio",
     "optional": "không bắt buộc",
@@ -90,8 +90,10 @@
     },
     "needs": "Nhu cầu hợp tác",
     "submit": "Gửi đăng ký",
-    "sentTitle": "Đã gửi",
-    "sentBody": "Cảm ơn bạn đã quan tâm tới mạng lưới Hanoi Creative City."
+    "sentTitle": "Đăng ký thành công",
+    "sentBody": "Cảm ơn {name}. Chúng tôi sẽ gửi quy trình tham gia và các bước tiếp theo tới {email} trong vài ngày tới.",
+    "emailHint": "Email có dạng ten@vidu.com",
+    "benefits": "Quyền lợi"
   },
   "comments": {
     "title": "Bình luận",

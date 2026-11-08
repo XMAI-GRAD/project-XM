@@ -1,4 +1,4 @@
-# Join page (SPEC Part 1, Join). Draft copy: benefits and steps come with the final content document.
+# Join page (SPEC Part 1, Join). Draft copy until the final content document lands.
 title:
   vi: Tham gia mạng lưới
   en: Join the network
@@ -12,6 +12,15 @@ individual:
   intro:
     vi: Dành cho nhà thiết kế, nghệ sĩ và nghệ nhân.
     en: For designers, artists and craftspeople.
+  benefits:
+    vi:
+      - Giới thiệu dự án và tác phẩm của bạn qua các kênh của Hanoi Creative City
+      - Kết nối với nhà thiết kế, nghệ sĩ, nghệ nhân và tổ chức trong mạng lưới
+      - Nhận tin sớm về triển lãm, workshop và lời mời tham gia dự án
+    en:
+      - Show your projects and work through Hanoi Creative City's channels
+      - Meet designers, artists, craftspeople and organizations in the network
+      - Hear first about exhibitions, workshops and calls for projects
 organization:
   title:
     vi: Tổ chức
@@ -19,3 +28,12 @@ organization:
   intro:
     vi: Dành cho studio, doanh nghiệp, trường học và tổ chức muốn cùng hợp tác.
     en: For studios, businesses, schools and organizations that want to work together.
+  benefits:
+    vi:
+      - Cùng Trung tâm tổ chức sự kiện, triển lãm và workshop
+      - Tiếp cận cộng đồng nhà thiết kế, nghệ sĩ và nghệ nhân Hà Nội
+      - Có tên trong danh sách đối tác của mạng lưới
+    en:
+      - Run events, exhibitions and workshops with the Centre
+      - Reach Hanoi's community of designers, artists and craftspeople
+      - Be listed among the network's partners

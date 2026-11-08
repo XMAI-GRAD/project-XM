@@ -220,6 +220,69 @@
   pointer-events: none;
 }
 
+/* Where the browser supports a stylable select (Chrome 135+), the list itself is drawn
+   in the frame: hairline navy box, accent row on hover, the chosen row filled. Other
+   browsers keep the native list. */
+@supports (appearance: base-select) {
+  .select::after {
+    display: none;
+  }
+  .select select,
+  .select select::picker(select) {
+    appearance: base-select;
+  }
+  .select select {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+  }
+  .select select::picker-icon {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin: 0 6px 4px auto;
+    border-right: 1.5px solid var(--navy-500);
+    border-bottom: 1.5px solid var(--navy-500);
+    rotate: 45deg;
+  }
+  .select select:open::picker-icon {
+    rotate: 225deg;
+    margin-bottom: -4px;
+  }
+  .select select::picker(select) {
+    margin-top: 6px;
+    padding: 0;
+    border: 1px solid var(--navy-500);
+    background: var(--seashell);
+    color: var(--navy-500);
+  }
+  .select option {
+    padding: 12px 16px;
+    border-top: 1px solid color-mix(in srgb, var(--navy-500) 20%, transparent);
+    font: inherit;
+  }
+  .select option[value=""] {
+    display: none;
+  }
+  .select option::checkmark {
+    display: none;
+  }
+  .select option:hover,
+  .select option:focus-visible {
+    background: color-mix(in srgb, var(--fill) 50%, var(--seashell));
+    outline: none;
+  }
+  .select option:checked {
+    background: var(--fill);
+    font-weight: 600;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .select select::picker-icon {
+      transition: rotate 0.2s ease-out;
+    }
+  }
+}
+
 .primary {
   grid-column: 1 / -1;
   display: inline-flex;
@@ -247,18 +310,90 @@
   }
 }
 
+/* Benefits sit at the top of the chosen panel, on a tint of its accent. */
+.benefits {
+  display: grid;
+  gap: 12px;
+  padding: clamp(20px, 3vw, 32px) clamp(24px, 3vw, 40px);
+  background: color-mix(in srgb, var(--fill) 35%, var(--seashell));
+  border-bottom: 1px solid var(--navy-500);
+}
+.benefitsLabel {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.benefits ul {
+  display: grid;
+  gap: 10px 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 56rem) {
+  .benefits ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.benefits li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.benefits svg {
+  margin-top: 0.2em;
+}
+
+/* Sent: the panel turns navy with a lime check, so success can't be missed. */
 .sent {
   display: grid;
-  gap: 8px;
-  padding: clamp(24px, 3vw, 40px);
+  justify-items: start;
+  gap: 16px;
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 3vw, 40px);
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.sent:focus-visible {
+  outline-color: var(--seashell);
+  outline-offset: -6px;
 }
 .sent p {
   margin: 0;
 }
+.sentMark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--navy-500);
+}
+.sentMark svg {
+  width: 32px;
+  height: 32px;
+}
 .sentTitle {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 900;
   text-transform: uppercase;
-  font-size: clamp(2rem, 4.4vw, 4rem);
-  line-height: 1.02;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.sentBody {
+  max-width: 40rem;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+.sentBody strong {
+  color: var(--lime);
+  font-weight: 600;
+  overflow-wrap: anywhere;
 }
