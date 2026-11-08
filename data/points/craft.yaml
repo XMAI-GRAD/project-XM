@@ -1,33 +1,91 @@
-# CRAFT · NGHỀ. Seeded with n01; the rest come from the content document (bản 07/11/2026).
+# CRAFT · NGHỀ. From data/place-taste-craft.txt. Hours were marked [GĐ] in that file. `kind` is the craft.
 - slug: ngu-xa
   code: n01
   name:
     vi: Ngũ Xã
-    en: ""
-  craft:
+    en: EN placeholder
+  kind:
     vi: Đúc đồng
-    en: ""
+    en: EN placeholder
   hours:
-    vi: 8h00–17h00, nên hẹn trước
-    en: ""
+    vi: 8H00-17H00 / (các ngày trong tuần, nên hẹn trước)
+    en: EN placeholder
   address: Bán đảo Trúc Bạch
   hook:
     vi: "Lĩnh hoa Yên Thái, đồ gốm Bát Tràng, / Thợ vàng Định Công, thợ đồng Ngũ Xã."
-    en: ""
+    en: EN placeholder
   story:
     vi:
-      - Từ thế kỷ 17, thợ đúc đồng từ các làng nghề về lập nghiệp trên bán đảo giữa hồ Trúc Bạch, dần thành trường đúc lớn nhất kinh thành. Tượng Huyền Thiên Trấn Vũ ở đền Quán Thánh và tượng A Di Đà ở chùa Thần Quang ngay trong làng đều ra lò từ đất này.
-      - Nghề đúc đòi hỏi làm khuôn đất, nấu đồng ở nhiệt độ rất cao, rồi rót một lần duy nhất — hỏng là phải đập khuôn làm lại từ đầu. Hôm nay, cả làng còn hai hộ giữ nghề.
-    en: []
+      - "Từ thế kỷ 17, thợ đúc đồng từ các làng nghề về lập nghiệp trên bán đảo giữa hồ Trúc Bạch, dần thành trường đúc lớn nhất kinh thành. Tượng Huyền Thiên Trấn Vũ ở đền Quán Thánh và tượng A Di Đà ở chùa Thần Quang ngay trong làng đều ra lò từ đất này."
+      - "Nghề đúc đòi hỏi làm khuôn đất, nấu đồng ở nhiệt độ rất cao, rồi rót một lần duy nhất — hỏng là phải đập khuôn làm lại từ đầu. Hôm nay, cả làng còn hai hộ giữ nghề."
+    en:
+      - EN placeholder
   fact:
-    vi: Nghệ nhân Nguyễn Văn Ứng, sinh năm 1949, là đời thứ mười sáu trong gia đình làm nghề này. Con trai ông vẫn đang tiếp tục.
-    en: ""
+    vi: "Nghệ nhân Nguyễn Văn Ứng, sinh năm 1949, là đời thứ mười sáu trong gia đình làm nghề này. Con trai ông vẫn đang tiếp tục."
+    en: EN placeholder
   nearby:
     - { slug: hoang-thanh-thang-long, km: 1.5 }
+    - { slug: cau-long-bien, km: 1.8 }
   images:
     - src: /points/ngu-xa/cover.png
       width: 2400
       height: 1600
       alt:
         vi: Ảnh tạm cho Ngũ Xã
-        en: ""
+        en: EN placeholder
+
+- slug: hang-trong
+  code: n02
+  name:
+    vi: Hàng Trống
+    en: EN placeholder
+  kind:
+    vi: Tranh dân gian
+    en: EN placeholder
+  hours:
+    vi: Xem theo triển lãm
+    en: EN placeholder
+  address: Phố Hàng Trống
+  hook:
+    vi: "Cả một dòng tranh, nay còn một nhà cầm bút."
+    en: EN placeholder
+  story:
+    vi:
+      - "Tranh Hàng Trống từng là tranh treo ngày Tết của người Hà Nội. Khác tranh Đông Hồ, tranh Hàng Trống chỉ in nét đen bằng ván gỗ, còn màu thì tô tay. Người thợ dùng bút lông tô từng mảng rồi vờn đậm nhạt ngay trên nét in — kỹ thuật gọi là cản màu, cho bức tranh chiều sâu mà bản khắc không làm được."
+      - "Khi tranh in công nghiệp tràn vào, nghề mai một gần hết. Vài năm gần đây, hoa văn Hàng Trống trở lại trên sản phẩm thiết kế đương đại."
+    en:
+      - EN placeholder
+  fact:
+    vi: "Phố Hàng Trống xưa bán cả trống lẫn tranh — trống treo ngoài cửa, tranh bày bên trong. Nay chỉ còn cái tên giữ lại cả hai nghề."
+    en: EN placeholder
+  nearby:
+    - { slug: pho-co, km: 0.3 }
+    - { slug: cha-ca-la-vong, km: 0.4 }
+  images: []
+
+- slug: van-phuc
+  code: n03
+  name:
+    vi: Vạn Phúc
+    en: EN placeholder
+  kind:
+    vi: Dệt lụa
+    en: EN placeholder
+  hours:
+    vi: 8H00-18H00 / (các ngày trong tuần)
+    en: EN placeholder
+  address: Vạn Phúc, Hà Đông
+  hook:
+    vi: "The La, lĩnh Bưởi, chồi Phùng, / Lụa vân Vạn Phúc, nhiễu vùng Mỗ bên."
+    en: EN placeholder
+  story:
+    vi:
+      - "Vạn Phúc dệt lụa đã hơn nghìn năm, nổi tiếng nhất với lụa vân — loại lụa có hoa văn chìm, phải nhìn nghiêng mới thấy, dệt bằng cách thay đổi lối bắt sợi chứ không phải in hay thêu."
+      - "Thời Pháp, lụa Hà Đông được mang đi dự đấu xảo và xuất sang châu Âu. Ngày nay cả làng vừa dệt vừa bán, phố lụa thành điểm du lịch, và nhiều nhà thiết kế trẻ về đây đặt vải riêng cho bộ sưu tập của mình."
+    en:
+      - EN placeholder
+  fact:
+    vi: "Lụa vân chỉ hiện hoa văn khi ánh sáng chiếu xiên. Cùng một tấm, nhìn thẳng là trơn, nghiêng đi là nổi hình."
+    en: EN placeholder
+  nearby: []
+  images: []

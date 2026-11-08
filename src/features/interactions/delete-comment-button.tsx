@@ -4,6 +4,7 @@ import { useState, useTransition } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { ActionError } from "@/lib/action-result";
 import { deleteComment } from "./actions";
+import s from "./comments.module.css";
 
 export function DeleteCommentButton({
   id,
@@ -18,6 +19,7 @@ export function DeleteCommentButton({
     <>
       <button
         type="button"
+        className={s.delete}
         disabled={pending}
         onClick={() =>
           startTransition(async () => {

@@ -34,10 +34,25 @@
     "hours": "Opening hours",
     "directions": "Directions",
     "fact": "Little-known fact",
-    "nearby": "Nearby"
+    "nearby": "Nearby",
+    "listen": "Listen to the story",
+    "year": "Year",
+    "type": "Type",
+    "ticket": "Admission",
+    "openedSince": "Open since",
+    "craft": "Craft",
+    "season": "Best season",
+    "seasons": {
+      "spring": "Spring",
+      "summer": "Summer",
+      "autumn": "Autumn",
+      "winter": "Winter"
+    }
   },
   "explore": {
-    "empty": "No points in this layer yet."
+    "empty": "No points in this layer yet.",
+    "tabsLabel": "Layers of the program",
+    "viewDetail": "View detail"
   },
   "about": {
     "title": "About us"

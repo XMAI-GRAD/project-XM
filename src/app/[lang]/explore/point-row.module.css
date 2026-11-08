@@ -1,0 +1,128 @@
+/* An explore row: name and meta, opening to a description and the primary link. */
+.item {
+  border-top: 1px solid var(--navy-500);
+}
+.summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 24px;
+  align-items: center;
+  padding: 8px var(--pad);
+  cursor: pointer;
+  list-style: none;
+}
+.summary::-webkit-details-marker {
+  display: none;
+}
+.name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.8vw, 5.25rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  padding-block: 0.05em;
+  text-wrap: balance;
+}
+/* Larger than the shared .meta: this line has to read on a projector. */
+.summary .where {
+  grid-row: 2;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+}
+
+/* plus that becomes a minus when the row is open */
+.toggle {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  position: relative;
+  width: clamp(40px, 3.2vw, 60px);
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+}
+.toggle::before,
+.bar {
+  position: absolute;
+  background: currentColor;
+}
+.toggle::before {
+  content: "";
+  inset: calc(50% - 1px) 27%;
+}
+.bar {
+  inset: 27% calc(50% - 1px);
+}
+.details[open] .bar {
+  transform: rotate(90deg);
+}
+
+/* Holds the height GSAP tweens; the padding stays inside it so nothing jumps at the ends. */
+.reveal {
+  overflow: hidden;
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px 48px;
+  padding: 12px var(--pad) 28px;
+}
+.text {
+  margin: 0;
+  max-width: 58ch;
+  font-size: clamp(1.1rem, 1.3vw, 1.5rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+.primary {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  border: 1px solid var(--navy-500);
+  background: var(--sunflower-gold);
+  color: var(--navy-500);
+  text-decoration: none;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.05rem, 1.15vw, 1.35rem);
+}
+.primary:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+@media (hover: hover) {
+  .summary:hover {
+    background: var(--navy-500);
+    color: var(--seashell);
+  }
+}
+.details[open]:where(:not([data-closing])) > .summary {
+  background: var(--sunflower-gold);
+  color: var(--navy-500);
+}
+/* Last, so a keyboard user sees it over the hover and open colors. */
+.details > .summary:focus-visible {
+  background: var(--navy-500);
+  color: var(--seashell);
+  outline: 3px solid var(--frosted-blue);
+  outline-offset: -6px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .summary,
+  .primary {
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+}

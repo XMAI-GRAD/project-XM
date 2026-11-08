@@ -1,5 +1,5 @@
 import "server-only";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { parse } from "yaml";
 
@@ -16,38 +16,25 @@ export interface Photo {
   alt: Localized;
 }
 
-interface PointBase {
+/** One shape for all three layers; the layer decides how `kind` is labelled. */
+export interface Point {
   slug: string;
   code: string;
+  layer: Layer;
   name: Localized;
+  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
+  since?: Localized;
+  season?: Season; // TASTE only
+  hours: Localized;
+  price?: Localized; // PLACE and TASTE
+  address: string;
   hook: Localized;
   story: Localized<string[]>;
   fact: Localized;
-  address: string;
-  hours: Localized;
   nearby: { slug: string; km: number }[];
   images: Photo[];
   audio?: string;
 }
-
-export interface Place extends PointBase {
-  layer: "place";
-  era: Localized;
-  kind: Localized;
-  price: Localized;
-}
-export interface Taste extends PointBase {
-  layer: "taste";
-  since?: number;
-  dish: Localized;
-  price: Localized;
-  season: Season;
-}
-export interface Craft extends PointBase {
-  layer: "craft";
-  craft: Localized;
-}
-export type Point = Place | Taste | Craft;
 
 export interface EventCard {
   title: Localized;
@@ -81,8 +68,18 @@ export interface Pages {
   maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
 }
 
-const read = (file: string): unknown =>
-  parse(readFileSync(join(process.cwd(), "data", file), "utf8"));
+// Bundled as text (next.config.ts rule), so `next dev` reloads content when a YAML file
+// changes; files read with fs at runtime are not watched. Read `.default` per module:
+// the glob's `import: "default"` option yields undefined in `next build` (Next 16.4).
+const files = import.meta.glob<{ default: string }>("/data/**/*.yaml", {
+  query: "?raw",
+  eager: true,
+});
+const read = (file: string): unknown => {
+  const text = files[`/data/${file}`]?.default;
+  if (text === undefined) throw new Error(`data/${file} is missing`);
+  return parse(text);
+};
 
 const codePrefix: Record<Layer, string> = {
   place: "d",

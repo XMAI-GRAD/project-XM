@@ -1,0 +1,111 @@
+/* Explore: folder tabs joined to a framed list of rows. */
+.page {
+  display: grid;
+}
+.head {
+  background: var(--frosted-blue);
+  padding: var(--pad) var(--pad) clamp(16px, 1.8vw, 28px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 7.4vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+  text-wrap: balance;
+}
+.lead {
+  margin: 0;
+  max-width: 30ch;
+  padding-bottom: 0.5rem;
+  font-size: clamp(1.1rem, 1.3vw, 1.5rem);
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+.root {
+  padding: clamp(16px, 1.8vw, 28px) var(--pad) clamp(48px, 8vw, 112px);
+}
+
+.tabs {
+  display: flex;
+}
+.tab {
+  position: relative;
+  flex: 0 1 clamp(8rem, 15vw, 15rem);
+  margin-right: -1px;
+  margin-bottom: -1px;
+  padding: 14px 16px 12px;
+  border: 1px solid var(--navy-500);
+  background: var(--seashell);
+  color: var(--navy-500);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.6vw, 2.5rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] {
+  z-index: 1;
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.tab[aria-selected="false"]:hover {
+  background: var(--navy-400);
+  color: var(--seashell);
+}
+.tab:focus-visible {
+  z-index: 2;
+  outline-color: var(--seashell);
+  outline-offset: -6px;
+}
+
+.panel {
+  border: 1px solid var(--navy-500);
+  overflow: hidden; /* while GSAP tweens its height */
+}
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.list > li:first-child {
+  border-top: 0;
+}
+.empty {
+  margin: 0;
+  padding: clamp(32px, 6vw, 80px) var(--pad);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Holds the rows back until the arrival motion starts, so they don't paint first.
+     The zero-length animation shows them anyway if the script never runs. */
+  .root:not([data-arrived]) .list > li {
+    clip-path: inset(0 0 100% 0);
+    animation: arrival-failsafe 0s 4s forwards;
+  }
+  .tab {
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+}
+
+@keyframes arrival-failsafe {
+  to {
+    clip-path: none;
+  }
+}
