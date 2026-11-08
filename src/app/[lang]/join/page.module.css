@@ -68,6 +68,10 @@
   border-bottom: 1px solid var(--navy-500);
   cursor: pointer;
 }
+/* The label's parts sit on the row grid, next to the benefits. */
+.option label {
+  display: contents;
+}
 .option:has(:checked) {
   padding-block: 40px;
   background: var(--fill);
@@ -116,6 +120,18 @@
   grid-row: 1;
   grid-column: 2;
   transform: scale(1.5);
+}
+@media (min-width: 56rem) {
+  .option:has(:checked) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    column-gap: clamp(32px, 4vw, 64px);
+  }
+  .option:has(:checked) .optionArrow {
+    grid-column: 3;
+  }
+  .option:has(:checked) .optionIntro {
+    grid-column: 1;
+  }
 }
 .option:has(:checked) .optionArrow {
   transform: scale(1.5) rotate(90deg);
@@ -310,13 +326,23 @@
   }
 }
 
-/* Benefits sit at the top of the chosen panel, on a tint of its accent. */
+/* Benefits show only in the chosen row, at its right on wide screens. */
 .benefits {
   display: grid;
   gap: 12px;
-  padding: clamp(20px, 3vw, 32px) clamp(24px, 3vw, 40px);
-  background: color-mix(in srgb, var(--fill) 35%, var(--seashell));
-  border-bottom: 1px solid var(--navy-500);
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  cursor: auto;
+}
+@media (min-width: 56rem) {
+  .benefits {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+    padding-left: clamp(24px, 3vw, 40px);
+    border-left: 1px solid var(--navy-500);
+  }
 }
 .benefitsLabel {
   margin: 0;
@@ -328,15 +354,10 @@
 }
 .benefits ul {
   display: grid;
-  gap: 10px 32px;
+  gap: 10px;
   margin: 0;
   padding: 0;
   list-style: none;
-}
-@media (min-width: 56rem) {
-  .benefits ul {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 .benefits li {
   display: grid;

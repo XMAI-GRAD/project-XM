@@ -72,20 +72,36 @@ export function JoinForms({
       <fieldset className={s.chooser}>
         <legend className={s.srOnly}>{legend}</legend>
         {audiences.map((a) => (
-          <label key={a.key} className={s.option} data-audience={a.key}>
-            <input
-              type="radio"
-              name="audience"
-              value={a.key}
-              checked={active === a.key}
-              onChange={() => setActive(a.key)}
-            />
-            <span className={s.optionTitle}>{a.title}</span>
-            <span className={s.optionIntro}>{a.intro}</span>
-            <span className={s.optionArrow}>
-              <Arrow />
-            </span>
-          </label>
+          <div key={a.key} className={s.option} data-audience={a.key}>
+            <label>
+              <input
+                type="radio"
+                name="audience"
+                value={a.key}
+                checked={active === a.key}
+                onChange={() => setActive(a.key)}
+              />
+              <span className={s.optionTitle}>{a.title}</span>
+              <span className={s.optionIntro}>{a.intro}</span>
+              <span className={s.optionArrow}>
+                <Arrow />
+              </span>
+            </label>
+            {/* Outside the label, so the radio's name stays short. */}
+            {active === a.key && (
+              <div className={s.benefits}>
+                <p className={s.benefitsLabel}>{benefitsLabel}</p>
+                <ul>
+                  {a.benefits.map((b) => (
+                    <li key={b}>
+                      <Check />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         ))}
       </fieldset>
       {audiences.map((a) => (
@@ -95,17 +111,6 @@ export function JoinForms({
           data-audience={a.key}
           hidden={a.key !== active}
         >
-          <div className={s.benefits}>
-            <p className={s.benefitsLabel}>{benefitsLabel}</p>
-            <ul>
-              {a.benefits.map((b) => (
-                <li key={b}>
-                  <Check />
-                  {b}
-                </li>
-              ))}
-            </ul>
-          </div>
           {done?.key === a.key ? (
             <div
               className={s.sent}
