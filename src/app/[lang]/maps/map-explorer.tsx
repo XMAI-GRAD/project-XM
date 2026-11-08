@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,6 +59,7 @@ const iconPaths = {
   minus: "M5 12h14",
   reset: "M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 12h8m-4-4v8",
   close: "m6 6 12 12M6 18 18 6",
+  locate: "M12 2v4m0 12v4M2 12h4m12 0h4M18 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0",
 };
 
 function Icon({ name }: { name: keyof typeof iconPaths }) {
@@ -74,6 +82,48 @@ function Icon({ name }: { name: keyof typeof iconPaths }) {
   );
 }
 
+function PlaceCover({
+  cover,
+  code,
+  name,
+  unavailable,
+}: {
+  cover?: MapImage;
+  code: string;
+  name: string;
+  unavailable: string;
+}) {
+  const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className={s.coverFrame}>
+      {cover && !failed && (
+        <Image
+          className={s.cover}
+          data-loaded={loaded || undefined}
+          src={cover.src}
+          alt={cover.alt}
+          width={cover.width}
+          height={cover.height}
+          sizes="(max-width: 900px) 90vw, 300px"
+          onLoad={() => setLoaded(true)}
+          onError={() => setFailed(true)}
+        />
+      )}
+      <span className={s.coverCode} aria-hidden="true">
+        {code}
+      </span>
+      <span className={s.coverLayer}>{name}</span>
+      <span className={s.coverCorner} aria-hidden="true" />
+      {failed && (
+        <span className="sr-only" role="status">
+          {unavailable}
+        </span>
+      )}
+    </div>
+  );
+}
+
 export function MapExplorer({
   lang,
   groups,
@@ -82,6 +132,15 @@ export function MapExplorer({
   ui,
   emptyLabel,
 }: MapExplorerProps) {
+  // Cached localized routes remain mounted, so every instance needs its own IDs.
+  const instanceId = useId();
+  const searchId = `${instanceId}-search`;
+  const searchHintId = `${instanceId}-search-hint`;
+  const locationsId = `${instanceId}-locations`;
+  const canvasId = `${instanceId}-canvas`;
+  const cardId = `${instanceId}-place-card`;
+  const cardTitleId = `${instanceId}-place-name`;
+  const keyboardHelpId = `${instanceId}-keyboard-help`;
   const [activeLayer, setActiveLayer] = useState<Layer>(
     groups[0]?.layer ?? "place",
   );
@@ -98,6 +157,10 @@ export function MapExplorer({
   const mapControls = useRef<MapControls>(null);
   const searchInput = useRef<HTMLInputElement>(null);
   const cardTitle = useRef<HTMLHeadingElement>(null);
+  const cardRef = useRef<HTMLElement>(null);
+  const cardScroll = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const listButtons = useRef(new Map<string, HTMLButtonElement>());
   const lastTrigger = useRef<HTMLElement | null>(null);
   const activeGroup =
     groups.find((group) => group.layer === activeLayer) ?? groups[0];
@@ -108,11 +171,8 @@ export function MapExplorer({
     [activeGroup, query],
   );
   const featured = points.find((point) => point.slug === selectedSlug);
-  const selectPlace = useCallback((slug: string) => {
-    lastTrigger.current =
-      document.activeElement instanceof HTMLElement
-        ? document.activeElement
-        : null;
+  const selectPlace = useCallback((slug: string, trigger: HTMLElement) => {
+    lastTrigger.current = trigger;
     setSelectedSlug(slug);
     setSelectionKey((value) => value + 1);
   }, []);
@@ -121,13 +181,25 @@ export function MapExplorer({
     setViewport({ ready: false, canZoomIn: false, canZoomOut: false });
   }, []);
   useEffect(() => {
-    if (selectedSlug) cardTitle.current?.focus({ preventScroll: true });
+    if (!selectedSlug) return;
+    cardScroll.current?.scrollTo({ top: 0, behavior: "instant" });
+    cardTitle.current?.focus({ preventScroll: true });
+    cardRef.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
+    const list = listRef.current;
+    const item = listButtons.current.get(selectedSlug);
+    if (list && item) {
+      const listBox = list.getBoundingClientRect();
+      const itemBox = item.getBoundingClientRect();
+      if (itemBox.top < listBox.top)
+        list.scrollTop += itemBox.top - listBox.top;
+      else if (itemBox.bottom > listBox.bottom)
+        list.scrollTop += itemBox.bottom - listBox.bottom;
+    }
   }, [selectedSlug, selectionKey]);
 
   function closeCard() {
     setSelectedSlug(null);
-    if (lastTrigger.current?.isConnected)
-      lastTrigger.current.focus({ preventScroll: true });
+    if (lastTrigger.current?.isConnected) lastTrigger.current.focus();
     else searchInput.current?.focus({ preventScroll: true });
   }
 
@@ -136,9 +208,13 @@ export function MapExplorer({
     if (featured && !matchesMapSearch(featured, value)) setSelectedSlug(null);
   }
 
+  function clearSearch() {
+    changeSearch("");
+    searchInput.current?.focus({ preventScroll: true });
+  }
+
   if (!activeGroup) return null;
   const { layer, name, intro } = activeGroup;
-  const cover = featured?.cover;
 
   return (
     <div
@@ -156,34 +232,31 @@ export function MapExplorer({
           <p className={`meta ${s.sidebarLabel}`}>{ui.layers}</p>
           <div className={s.search}>
             <Icon name="search" />
-            <label className="sr-only" htmlFor="map-search">
+            <label className="sr-only" htmlFor={searchId}>
               {ui.search}
             </label>
             <input
               ref={searchInput}
-              id="map-search"
+              id={searchId}
               type="search"
               placeholder={ui.searchPlaceholder}
               value={query}
               onChange={(event) => changeSearch(event.target.value)}
-              aria-controls="map-locations"
-              aria-describedby="map-search-hint"
+              aria-controls={locationsId}
+              aria-describedby={searchHintId}
             />
             {query && (
               <button
                 className={s.clearSearch}
                 type="button"
-                onClick={() => {
-                  changeSearch("");
-                  searchInput.current?.focus();
-                }}
+                onClick={clearSearch}
                 aria-label={ui.clearSearch}
               >
                 <Icon name="close" />
               </button>
             )}
           </div>
-          <p id="map-search-hint" className={s.searchHint}>
+          <p id={searchHintId} className={s.searchHint}>
             {ui.searchHint}
           </p>
           <div className={s.layerButtons} role="group" aria-label={ui.layers}>
@@ -193,7 +266,7 @@ export function MapExplorer({
                 type="button"
                 data-layer={group.layer}
                 aria-pressed={group.layer === layer}
-                aria-controls="map-locations map-canvas"
+                aria-controls={`${locationsId} ${canvasId}`}
                 onClick={() => {
                   if (group.layer !== layer) {
                     setActiveLayer(group.layer);
@@ -222,7 +295,7 @@ export function MapExplorer({
             {String(points.length).padStart(2, "0")}
           </span>
         </div>
-        <div id="map-locations" className={s.locations} key={layer}>
+        <div ref={listRef} id={locationsId} className={s.locations} key={layer}>
           <section className={s.group} data-layer={layer}>
             <div className={s.groupHeading}>
               <div className={s.groupLabel}>
@@ -241,12 +314,19 @@ export function MapExplorer({
                 {points.map((point) => (
                   <li key={point.slug}>
                     <button
+                      ref={(element) => {
+                        if (element)
+                          listButtons.current.set(point.slug, element);
+                        else listButtons.current.delete(point.slug);
+                      }}
                       type="button"
                       className={s.location}
                       data-featured={point.slug === featured?.slug || undefined}
                       aria-pressed={point.slug === featured?.slug}
-                      aria-controls="map-place-card"
-                      onClick={() => selectPlace(point.slug)}
+                      aria-controls={cardId}
+                      onClick={(event) =>
+                        selectPlace(point.slug, event.currentTarget)
+                      }
                     >
                       <span className={s.pointCode}>{point.code}</span>
                       <span className={s.locationText}>
@@ -259,9 +339,18 @@ export function MapExplorer({
                 ))}
               </ul>
             ) : (
-              <p className={s.empty}>
-                {query.trim() ? ui.noResults : emptyLabel}
-              </p>
+              <div className={s.empty}>
+                <p>{query.trim() ? ui.noResults : emptyLabel}</p>
+                {query.trim() && (
+                  <button
+                    type="button"
+                    className={s.textAction}
+                    onClick={clearSearch}
+                  >
+                    {ui.clearSearch}
+                  </button>
+                )}
+              </div>
             )}
           </section>
         </div>
@@ -276,43 +365,11 @@ export function MapExplorer({
       </aside>
 
       <section
-        id="map-canvas"
+        id={canvasId}
         className={s.canvas}
         data-layer={layer}
         aria-label={ui.canvas}
       >
-        <MapCanvas
-          key={mapAttempt}
-          ref={mapControls}
-          artwork={artwork}
-          points={points}
-          layer={layer}
-          selectedSlug={featured?.slug ?? null}
-          selectionKey={selectionKey}
-          onSelect={selectPlace}
-          onViewport={setViewport}
-          onError={reportMapError}
-          ui={ui}
-        />
-        <p id="map-keyboard-help" className="sr-only">
-          {ui.keyboardHelp}
-        </p>
-        {!viewport.ready && (
-          <div className={s.mapStatus} role="status">
-            <p>{mapError ? ui.loadError : ui.loading}</p>
-            {mapError && (
-              <button
-                type="button"
-                onClick={() => {
-                  setMapError(false);
-                  setMapAttempt((value) => value + 1);
-                }}
-              >
-                {ui.retry}
-              </button>
-            )}
-          </div>
-        )}
         <div className={s.canvasHeader}>
           <p className={s.canvasTitle}>
             <span className={s.registrationMark} aria-hidden="true" />
@@ -320,80 +377,134 @@ export function MapExplorer({
           </p>
           <span className={s.preview}>{ui.approximatePositions}</span>
         </div>
-
-        {featured && (
-          <article
-            id="map-place-card"
-            className={s.placeCard}
-            data-layer={layer}
-            key={featured.slug}
-            aria-labelledby="map-place-name"
+        <div className={s.mapContent}>
+          <div
+            className={s.mapViewport}
+            aria-busy={!viewport.ready && !mapError}
           >
-            <button
-              className={s.closeCard}
-              type="button"
-              onClick={closeCard}
-              aria-label={ui.closeCard}
-            >
-              <Icon name="close" />
-            </button>
-            {cover && (
-              <div className={s.coverFrame}>
-                <Image
-                  className={s.cover}
-                  src={cover.src}
-                  alt={cover.alt}
-                  width={cover.width}
-                  height={cover.height}
-                  sizes="300px"
-                />
-                <span className={s.coverCode} aria-hidden="true">
-                  {featured.code}
-                </span>
-                <span className={s.coverLayer}>{name}</span>
-                <span className={s.coverCorner} aria-hidden="true" />
+            <MapCanvas
+              key={mapAttempt}
+              ref={mapControls}
+              artwork={artwork}
+              points={points}
+              layer={layer}
+              selectedSlug={featured?.slug ?? null}
+              selectionKey={selectionKey}
+              cardRef={cardRef}
+              cardId={cardId}
+              keyboardHelpId={keyboardHelpId}
+              onSelect={selectPlace}
+              onViewport={setViewport}
+              onError={reportMapError}
+              ui={ui}
+            />
+            <p id={keyboardHelpId} className="sr-only">
+              {ui.keyboardHelp}
+            </p>
+            {!viewport.ready && (
+              <div className={s.mapStatus} role="status">
+                <p>{mapError ? ui.loadError : ui.loading}</p>
+                {mapError && (
+                  <button
+                    type="button"
+                    className={s.textAction}
+                    onClick={() => {
+                      setMapError(false);
+                      setMapAttempt((value) => value + 1);
+                    }}
+                  >
+                    {ui.retry}
+                  </button>
+                )}
               </div>
             )}
-            <div className={s.cardBody}>
-              <p className={`meta ${s.cardMeta}`}>
-                <span>
-                  {featured.code} / {name}
-                </span>
-                <span>{ui.selectedPlace}</span>
-              </p>
-              <h2 id="map-place-name" ref={cardTitle} tabIndex={-1}>
-                {featured.name}
-              </h2>
-              <p className={s.address}>{featured.address}</p>
-              {featured.mapNote && (
-                <p className={s.address}>{featured.mapNote}</p>
-              )}
-              {!featured.mapPosition && (
-                <p className={s.address}>{ui.positionUnavailable}</p>
-              )}
-              <p className={s.hook}>{featured.hook}</p>
-              <Link
-                className={s.detailLink}
-                href={`/${lang}/explore/${featured.slug}`}
-              >
-                {ui.viewDetails}
-                <Icon name="arrow" />
-              </Link>
-            </div>
-          </article>
-        )}
+          </div>
+
+          {featured && (
+            <article
+              id={cardId}
+              ref={cardRef}
+              className={s.placeCard}
+              data-layer={layer}
+              key={featured.slug}
+              aria-labelledby={cardTitleId}
+            >
+              <div className={s.cardToolbar}>
+                <p className={`meta ${s.cardMeta}`}>
+                  <span>
+                    {featured.code} / {name}
+                  </span>
+                  <span>{ui.selectedPlace}</span>
+                </p>
+                <button
+                  className={s.closeCard}
+                  type="button"
+                  onClick={closeCard}
+                  aria-label={ui.closeCard}
+                >
+                  <Icon name="close" />
+                </button>
+              </div>
+              <div className={s.cardScroll} ref={cardScroll}>
+                <PlaceCover
+                  cover={featured.cover}
+                  code={featured.code}
+                  name={name}
+                  unavailable={ui.imageUnavailable}
+                />
+                <div className={s.cardBody}>
+                  <h2 id={cardTitleId} ref={cardTitle} tabIndex={-1}>
+                    {featured.name}
+                  </h2>
+                  <p className={s.address}>{featured.address}</p>
+                  {featured.mapNote && (
+                    <p className={s.mapNote}>{featured.mapNote}</p>
+                  )}
+                  {!featured.mapPosition && (
+                    <p className={s.address}>{ui.positionUnavailable}</p>
+                  )}
+                  <p className={s.hook}>{featured.hook}</p>
+                </div>
+              </div>
+              <div className={s.cardActions}>
+                <Link
+                  className={s.detailLink}
+                  href={`/${lang}/explore/${featured.slug}`}
+                >
+                  {ui.viewDetails}
+                  <Icon name="arrow" />
+                </Link>
+                {featured.mapPosition && (
+                  <button
+                    type="button"
+                    className={s.locatePlace}
+                    disabled={!viewport.ready}
+                    onClick={() => mapControls.current?.locate()}
+                    aria-label={ui.showOnMap}
+                    title={ui.showOnMap}
+                  >
+                    <Icon name="locate" />
+                  </button>
+                )}
+              </div>
+            </article>
+          )}
+        </div>
 
         <div className={s.canvasFooter}>
-          <ul className={s.legend} aria-label={ui.layers}>
-            {groups.map((group) => (
-              <li key={group.layer} data-layer={group.layer}>
-                <span className={s.legendPin} aria-hidden="true">
-                  <i />
-                </span>
-                <span>{group.name}</span>
-              </li>
-            ))}
-          </ul>
+          <div>
+            <ul className={s.legend} aria-label={ui.layers}>
+              {groups.map((group) => (
+                <li key={group.layer} data-layer={group.layer}>
+                  <span className={s.legendPin} aria-hidden="true">
+                    <i />
+                  </span>
+                  <span>{group.name}</span>
+                </li>
+              ))}
+            </ul>
+            <p className={s.gestureHint}>{ui.gestureHint}</p>
+          </div>
           <div className={s.controls} role="group" aria-label={ui.controls}>
             <button
               type="button"
@@ -416,7 +527,10 @@ export function MapExplorer({
             <button
               type="button"
               disabled={!viewport.ready}
-              onClick={() => mapControls.current?.reset()}
+              onClick={() => {
+                setSelectedSlug(null);
+                mapControls.current?.reset();
+              }}
               aria-label={ui.resetView}
               title={ui.resetView}
             >

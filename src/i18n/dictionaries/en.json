@@ -63,6 +63,9 @@
     "loading": "Loading the map…",
     "loadError": "The map could not load. You can still explore the places list.",
     "retry": "Try again",
+    "showOnMap": "Show this place on the map",
+    "imageUnavailable": "Place image unavailable.",
+    "gestureHint": "Drag to explore · pinch or use + / − to zoom",
     "keyboardHelp": "Drag to move and pinch to zoom. Tab to the map, then use arrow keys to pan and plus or minus to zoom. Select a pin with Enter or Space. Press Escape to close place details."
   },
   "about": {

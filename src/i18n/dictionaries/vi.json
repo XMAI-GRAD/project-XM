@@ -63,6 +63,9 @@
     "loading": "Đang tải bản đồ…",
     "loadError": "Không tải được bản đồ. Bạn vẫn có thể xem danh sách địa điểm.",
     "retry": "Thử lại",
+    "showOnMap": "Xem địa điểm này trên bản đồ",
+    "imageUnavailable": "Chưa tải được ảnh địa điểm.",
+    "gestureHint": "Kéo để khám phá · chụm hai ngón hoặc dùng + / − để thu phóng",
     "keyboardHelp": "Kéo để di chuyển, chụm hai ngón để thu phóng. Dùng Tab để chọn bản đồ, phím mũi tên để di chuyển, dấu cộng hoặc trừ để thu phóng. Chọn ghim bằng Enter hoặc phím cách. Nhấn Escape để đóng thông tin địa điểm."
   },
   "about": {
