@@ -1,6 +1,8 @@
 # CRAFT · NGHỀ. Seeded with n01; the rest come from the content document (bản 07/11/2026).
 - slug: ngu-xa
   code: n01
+  # Approximate hand-placed artwork pixels (top-left origin); review against the drawing.
+  mapPosition: { x: 1090, y: 100 }
   name:
     vi: Ngũ Xã
     en: ""

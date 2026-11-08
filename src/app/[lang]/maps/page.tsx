@@ -26,6 +26,7 @@ export default async function MapsPage() {
         code: point.code,
         name: point.name[lang],
         address: point.address,
+        mapPosition: point.mapPosition,
         hook: point.hook[lang],
         cover: image ? { ...image, alt: image.alt[lang] } : undefined,
       };

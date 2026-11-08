@@ -51,7 +51,18 @@
     "controls": "Điều khiển bản đồ",
     "zoomIn": "Phóng to",
     "zoomOut": "Thu nhỏ",
-    "resetView": "Xem toàn bộ bản đồ"
+    "resetView": "Xem toàn bộ bản đồ",
+    "searchHint": "Tìm trong lớp đang chọn · theo tên, địa chỉ hoặc mã",
+    "clearSearch": "Xóa tìm kiếm",
+    "noResults": "Không có địa điểm phù hợp trong lớp này. Thử từ khóa khác hoặc đổi lớp.",
+    "closeCard": "Đóng thông tin địa điểm",
+    "selectedPlace": "Đang khám phá",
+    "approximatePositions": "Vị trí minh họa",
+    "positionUnavailable": "Địa điểm này chưa được đánh dấu trên bản đồ.",
+    "loading": "Đang tải bản đồ…",
+    "loadError": "Không tải được bản đồ. Bạn vẫn có thể xem danh sách địa điểm.",
+    "retry": "Thử lại",
+    "keyboardHelp": "Kéo để di chuyển, chụm hai ngón để thu phóng. Dùng Tab để chọn bản đồ, phím mũi tên để di chuyển, dấu cộng hoặc trừ để thu phóng. Chọn ghim bằng Enter hoặc phím cách. Nhấn Escape để đóng thông tin địa điểm."
   },
   "about": {
     "title": "Giới thiệu"

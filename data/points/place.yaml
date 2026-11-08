@@ -1,6 +1,8 @@
 # PLACE · ĐỊA. Seeded with d01; the rest come from the content document (bản 07/11/2026).
 - slug: hoang-thanh-thang-long
   code: d01
+  # Approximate hand-placed artwork pixels (top-left origin); review against the drawing.
+  mapPosition: { x: 1000, y: 230 }
   name:
     vi: Hoàng thành Thăng Long
     en: ""

@@ -51,7 +51,18 @@
     "controls": "Map controls",
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
-    "resetView": "Show the whole map"
+    "resetView": "Show the whole map",
+    "searchHint": "Search this layer · by name, address, or code",
+    "clearSearch": "Clear search",
+    "noResults": "No matching places in this layer. Try another search or switch layers.",
+    "closeCard": "Close place details",
+    "selectedPlace": "Exploring",
+    "approximatePositions": "Approximate locations",
+    "positionUnavailable": "This place has not been marked on the map yet.",
+    "loading": "Loading the map…",
+    "loadError": "The map could not load. You can still explore the places list.",
+    "retry": "Try again",
+    "keyboardHelp": "Drag to move and pinch to zoom. Tab to the map, then use arrow keys to pan and plus or minus to zoom. Select a pin with Enter or Space. Press Escape to close place details."
   },
   "about": {
     "title": "About us"

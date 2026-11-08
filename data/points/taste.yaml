@@ -1,6 +1,8 @@
 # TASTE · VỊ. Seeded with v01; the rest come from the content document (bản 07/11/2026).
 - slug: bun-thang-ba-duc
   code: v01
+  # Approximate hand-placed artwork pixels (top-left origin); review against the drawing.
+  mapPosition: { x: 1190, y: 350 }
   name:
     vi: Bún thang Bà Đức
     en: ""

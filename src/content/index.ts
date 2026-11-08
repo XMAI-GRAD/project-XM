@@ -24,6 +24,8 @@ interface PointBase {
   story: Localized<string[]>;
   fact: Localized;
   address: string;
+  /** Approximate position on the artwork, in original pixels from its top-left. Not GPS. */
+  mapPosition?: { x: number; y: number };
   hours: Localized;
   nearby: { slug: string; km: number }[];
   images: Photo[];
@@ -147,6 +149,21 @@ function validate(): string[] {
     if (!p.code?.startsWith(codePrefix[p.layer]))
       errors.push(`${p.slug}: code "${p.code}" doesn't match ${p.layer}`);
     walk(p.slug, p);
+    if (p.mapPosition) {
+      const { x, y } = p.mapPosition;
+      const { width, height } = pages.maps.artwork;
+      if (
+        !Number.isFinite(x) ||
+        !Number.isFinite(y) ||
+        x < 0 ||
+        y < 0 ||
+        x > width ||
+        y > height
+      )
+        errors.push(
+          `${p.slug}: mapPosition must be inside the artwork in original pixels`,
+        );
+    }
     p.images.forEach((img, i) => checkFile(`${p.slug} images[${i}]`, img.src));
     if (p.audio) checkFile(`${p.slug} audio`, p.audio);
   }
