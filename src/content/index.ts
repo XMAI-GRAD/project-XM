@@ -1,5 +1,5 @@
 import "server-only";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { parse } from "yaml";
 
@@ -81,8 +81,18 @@ export interface Pages {
   maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
 }
 
-const read = (file: string): unknown =>
-  parse(readFileSync(join(process.cwd(), "data", file), "utf8"));
+// Bundled as text (next.config.ts rule), so `next dev` reloads content when a YAML file
+// changes; files read with fs at runtime are not watched. Read `.default` per module:
+// the glob's `import: "default"` option yields undefined in `next build` (Next 16.4).
+const files = import.meta.glob<{ default: string }>("/data/**/*.yaml", {
+  query: "?raw",
+  eager: true,
+});
+const read = (file: string): unknown => {
+  const text = files[`/data/${file}`]?.default;
+  if (text === undefined) throw new Error(`data/${file} is missing`);
+  return parse(text);
+};
 
 const codePrefix: Record<Layer, string> = {
   place: "d",
