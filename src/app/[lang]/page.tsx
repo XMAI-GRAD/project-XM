@@ -92,7 +92,9 @@ export default async function HomePage() {
         <div className={s.venn}>
           <ul>
             {roles.map((role) => (
-              <li key={role.vi}>{role[lang]}</li>
+              <li key={role.vi}>
+                <span>{role[lang]}</span>
+              </li>
             ))}
           </ul>
           <span className={s.vennCore} aria-hidden="true">

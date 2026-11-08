@@ -242,8 +242,9 @@
 }
 
 /* Block 1: State · Artists · Public as three overlapping circles, the centre where they
-   meet is the city program. Non-layer accents (gold, red and cyan mean the three layers),
-   screened so each overlap reads lighter. */
+   meet is the city program. Ink-style (subtractive) mixing: three triadic tints at equal
+   OKLCH lightness and chroma, multiplied inside an isolated group, so each pair mixes to
+   its secondary hue and the centre deepens without clipping. */
 .venn {
   position: relative;
   justify-self: center;
@@ -258,11 +259,10 @@
 }
 .venn li {
   position: absolute;
-  display: flex;
   width: 62%;
   aspect-ratio: 1;
   border-radius: 999px;
-  mix-blend-mode: screen;
+  mix-blend-mode: multiply;
   color: var(--navy-500);
   font-family: var(--font-display);
   font-weight: 800;
@@ -270,40 +270,55 @@
   font-size: clamp(1.1rem, 1.8vw, 1.6rem);
   line-height: 1.05;
 }
+/* Each name sits at the centre of its circle's own lobe. Geometry: radius 0.31 of the
+   box, triple-overlap centroid at 50% 43.7%. */
+.venn li > span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 .venn li:nth-child(1) {
   top: 0;
   left: 0;
-  padding: 24% 0 0 16%;
-  background: var(--frosted-blue);
+  background: oklch(0.86 0.11 210);
+}
+.venn li:nth-child(1) > span {
+  left: 31%;
+  top: 37%;
 }
 .venn li:nth-child(2) {
   top: 0;
   right: 0;
-  justify-content: flex-end;
-  padding: 24% 16% 0 0;
-  background: var(--mauve);
+  background: oklch(0.86 0.11 330);
+}
+.venn li:nth-child(2) > span {
+  left: 69%;
+  top: 37%;
 }
 .venn li:nth-child(3) {
   bottom: 0;
   left: 19%;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 20%;
-  background: var(--lime);
+  background: oklch(0.86 0.11 95);
 }
+.venn li:nth-child(3) > span {
+  left: 50%;
+  top: 72%;
+}
+/* The city program, fitted inside the triple overlap. */
 .vennCore {
   position: absolute;
-  top: 46%;
+  top: 43.7%;
   left: 50%;
-  width: 22%;
+  width: 15%;
   transform: translate(-50%, -50%);
   color: var(--navy-500);
   text-align: center;
-  font-size: 0.72rem;
-  line-height: 1.3;
-  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  font-weight: 800;
   text-transform: uppercase;
-  font-weight: 600;
+  font-size: 0.8rem;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 /* map teaser */
