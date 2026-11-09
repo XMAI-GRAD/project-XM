@@ -44,6 +44,12 @@ export interface EventCard {
   image?: Photo; // absent until the event has a photo
 }
 
+interface JoinAudience {
+  title: Localized;
+  intro: Localized;
+  benefits: Localized<string[]>;
+}
+
 export interface Pages {
   site: {
     brand: Localized;
@@ -66,6 +72,12 @@ export interface Pages {
   };
   explore: { title: Localized; lead: Localized };
   maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
+  join: {
+    title: Localized;
+    lead: Localized;
+    individual: JoinAudience;
+    organization: JoinAudience;
+  };
 }
 
 // Bundled as text (next.config.ts rule), so `next dev` reloads content when a YAML file
@@ -94,7 +106,7 @@ export const points: Point[] = layers.flatMap((layer) =>
 );
 const events = (read("events.yaml") ?? []) as EventCard[];
 const pages = Object.fromEntries(
-  (["site", "home", "explore", "maps"] as const).map((name) => [
+  (["site", "home", "explore", "maps", "join"] as const).map((name) => [
     name,
     read(`${name}.yaml`),
   ]),

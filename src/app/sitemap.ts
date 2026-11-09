@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...points.map((p) => `/explore/${p.slug}`),
     "/maps",
     "/events",
+    "/join",
   ];
   const abs = (p: string) => `${siteUrl}${p}`;
   return paths.flatMap((path) =>

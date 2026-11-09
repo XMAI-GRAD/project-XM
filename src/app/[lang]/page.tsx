@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Arrow } from "@/components/arrow";
 import { crosses } from "@/components/cross";
 import { EventList } from "@/components/event-list";
 import { getEvents, getPage, layers, points } from "@/content";
@@ -10,19 +11,6 @@ import s from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata(await getLocale(), "");
-}
-
-function Arrow() {
-  return (
-    <svg viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
-      <path
-        d="M0 5h14M10 1l4 4-4 4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.5"
-      />
-    </svg>
-  );
 }
 
 /** Home on the prototype A wireframe: hero list of points, intro band, map teaser, events. */

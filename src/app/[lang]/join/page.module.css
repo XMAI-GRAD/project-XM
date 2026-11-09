@@ -1,0 +1,420 @@
+/* Join on the prototype A frame: display title, an audience chooser drawn like the home
+   list (hairline rows, big names), then the one chosen form. Each audience owns a non-layer
+   accent (gold, red and cyan mean PLACE, TASTE, CRAFT). */
+.page {
+  --pad: clamp(16px, 2.4vw, 32px);
+  display: grid;
+  gap: clamp(32px, 4vw, 56px);
+  padding: var(--pad);
+}
+.option[data-audience="individual"],
+.panel[data-audience="individual"] {
+  --fill: var(--frosted-blue);
+}
+.option[data-audience="organization"],
+.panel[data-audience="organization"] {
+  --fill: var(--mauve);
+}
+
+.head {
+  display: grid;
+  gap: 16px;
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+  text-wrap: balance;
+}
+.lead {
+  margin: 0;
+  max-width: 40rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+/* Chooser: native radios (visually hidden), so arrow keys and screen readers work as a
+   group. The chosen row grows into a tall accent band with a display-size name; the other
+   collapses to a slim row. */
+.chooser {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  border: 0;
+  border-top: 1px solid var(--navy-500);
+}
+.srOnly,
+.option input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.option {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 14px var(--pad);
+  border-bottom: 1px solid var(--navy-500);
+  cursor: pointer;
+}
+/* The label's parts sit on the row grid, next to the benefits. */
+.option label {
+  display: contents;
+}
+.option:has(:checked) {
+  padding-block: 40px;
+  background: var(--fill);
+}
+.option:has(:focus-visible) {
+  outline: 3px solid var(--navy-500);
+  outline-offset: -3px;
+}
+@media (hover: hover) {
+  .option:not(:has(:checked)):hover {
+    background: color-mix(in srgb, var(--fill) 40%, transparent);
+  }
+}
+.optionTitle {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+/* The collapsed row reads as a link, so it looks clickable without hover (projector, touch). */
+.option:not(:has(:checked)) .optionTitle {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+}
+.option:not(:has(:checked)):hover .optionTitle {
+  text-decoration-color: var(--brick-red);
+}
+.option:has(:checked) .optionTitle {
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.95;
+}
+.optionIntro {
+  display: none;
+  grid-column: 1 / -1;
+  max-width: 32rem;
+  font-size: 1.1rem;
+}
+.option:has(:checked) .optionIntro {
+  display: block;
+}
+.optionArrow {
+  display: flex;
+  grid-row: 1;
+  grid-column: 2;
+  transform: scale(1.5);
+}
+@media (min-width: 56rem) {
+  .option:has(:checked) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    column-gap: clamp(32px, 4vw, 64px);
+  }
+  .option:has(:checked) .optionArrow {
+    grid-column: 3;
+  }
+  .option:has(:checked) .optionIntro {
+    grid-column: 1;
+  }
+}
+.option:has(:checked) .optionArrow {
+  transform: scale(1.5) rotate(90deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .option {
+    transition: background-color 0.2s ease-out;
+  }
+  .optionArrow {
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* The chosen form: top rule in the audience accent ties it to the row above. */
+.panel {
+  border: 1px solid var(--navy-500);
+  border-top: 6px solid var(--fill);
+}
+.panel[hidden] {
+  display: none;
+}
+.form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px clamp(24px, 4vw, 56px);
+  padding: clamp(24px, 3vw, 40px);
+}
+@media (min-width: 48rem) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+}
+.wide {
+  grid-column: 1 / -1;
+}
+.label {
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.note {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.85rem;
+  color: var(--navy-300);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--navy-500);
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy-500);
+  font: inherit;
+  font-size: 1.1rem;
+  caret-color: var(--brick-red);
+}
+.field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--navy-500);
+  resize: vertical;
+}
+.field input:user-invalid,
+.field select:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--brick-red);
+}
+/* Native select chrome off; the chevron is drawn from borders in the navy text color. */
+.select {
+  position: relative;
+  display: block;
+}
+.select select {
+  appearance: none;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.select select:invalid {
+  color: var(--navy-300);
+}
+.select::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid var(--navy-500);
+  border-bottom: 1.5px solid var(--navy-500);
+  transform: translateY(-75%) rotate(45deg);
+  pointer-events: none;
+}
+
+/* Where the browser supports a stylable select (Chrome 135+), the list itself is drawn
+   in the frame: hairline navy box, accent row on hover, the chosen row filled. Other
+   browsers keep the native list. */
+@supports (appearance: base-select) {
+  .select::after {
+    display: none;
+  }
+  .select select,
+  .select select::picker(select) {
+    appearance: base-select;
+  }
+  .select select {
+    display: flex;
+    align-items: center;
+    padding-right: 0;
+  }
+  .select select::picker-icon {
+    content: "";
+    width: 7px;
+    height: 7px;
+    margin: 0 6px 4px auto;
+    border-right: 1.5px solid var(--navy-500);
+    border-bottom: 1.5px solid var(--navy-500);
+    rotate: 45deg;
+  }
+  .select select:open::picker-icon {
+    rotate: 225deg;
+    margin-bottom: -4px;
+  }
+  .select select::picker(select) {
+    margin-top: 6px;
+    padding: 0;
+    border: 1px solid var(--navy-500);
+    background: var(--seashell);
+    color: var(--navy-500);
+  }
+  .select option {
+    padding: 12px 16px;
+    border-top: 1px solid color-mix(in srgb, var(--navy-500) 20%, transparent);
+    font: inherit;
+  }
+  .select option[value=""] {
+    display: none;
+  }
+  .select option::checkmark {
+    display: none;
+  }
+  .select option:hover,
+  .select option:focus-visible {
+    background: color-mix(in srgb, var(--fill) 50%, var(--seashell));
+    outline: none;
+  }
+  .select option:checked {
+    background: var(--fill);
+    font-weight: 600;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .select select::picker-icon {
+      transition: rotate 0.2s ease-out;
+    }
+  }
+}
+
+.primary {
+  grid-column: 1 / -1;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  justify-self: start;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+.primary:hover {
+  background: var(--navy-500);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .primary {
+    transition: background-color 0.2s ease-out;
+  }
+}
+
+/* Benefits show only in the chosen row, at its right on wide screens. */
+.benefits {
+  display: grid;
+  gap: 12px;
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  cursor: auto;
+}
+@media (min-width: 56rem) {
+  .benefits {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    margin-top: 0;
+    padding-left: clamp(24px, 3vw, 40px);
+    border-left: 1px solid var(--navy-500);
+  }
+}
+.benefitsLabel {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.3;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.benefits ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.benefits li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.benefits svg {
+  margin-top: 0.2em;
+}
+
+/* Sent: the panel turns navy with a lime check, so success can't be missed. */
+.sent {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  padding: clamp(40px, 6vw, 80px) clamp(24px, 3vw, 40px);
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.sent:focus-visible {
+  outline-color: var(--seashell);
+  outline-offset: -6px;
+}
+.sent p {
+  margin: 0;
+}
+.sentMark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--navy-500);
+}
+.sentMark svg {
+  width: 32px;
+  height: 32px;
+}
+.sentTitle {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.sentBody {
+  max-width: 40rem;
+  font-size: 1.2rem;
+  line-height: 1.45;
+}
+.sentBody strong {
+  color: var(--lime);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
