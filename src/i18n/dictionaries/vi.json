@@ -15,6 +15,10 @@
     "switchLanguage": "EN",
     "label": "Điều hướng chính"
   },
+  "search": {
+    "label": "Tìm địa điểm",
+    "empty": "Không có địa điểm nào khớp."
+  },
   "layers": {
     "place": "ĐỊA",
     "taste": "VỊ",

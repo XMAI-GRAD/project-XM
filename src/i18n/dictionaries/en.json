@@ -15,6 +15,10 @@
     "switchLanguage": "VI",
     "label": "Main"
   },
+  "search": {
+    "label": "Search places",
+    "empty": "No places match."
+  },
   "layers": {
     "place": "PLACE",
     "taste": "TASTE",
