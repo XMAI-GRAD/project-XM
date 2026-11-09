@@ -100,6 +100,7 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 - "Field" is a select of the five fields: Design, Architecture, Fine arts, Performing arts, Crafts.
 - Native validation only (`required`, `type="email"`, `maxlength`).
 - **Submit sends nothing:** no Server Action, no DB write, no email, no login. It swaps the form for a "sent" message.
+- Home block 4 links to `/[lang]/join#individual` and `#organization`; the page opens with that form chosen.
 
 ### Flows
 
@@ -140,7 +141,7 @@ One YAML file per page, plus one file per layer for the points.
 | File                     | Holds                                                                          |
 | ------------------------ | ------------------------------------------------------------------------------ |
 | `data/site.yaml`         | Brand name, full name, tagline, motto (long and short), contact block, credits |
-| `data/home.yaml`         | Home hero and blocks 1 and 4                                                   |
+| `data/home.yaml`         | Home hero and block 1 (intro, the three roles); block 4 reads `join.yaml`      |
 | `data/about.yaml`        | About page                                                                     |
 | `data/explore.yaml`      | Explore title and lead                                                         |
 | `data/maps.yaml`         | Maps title, lead, and the one-line intro per layer (also used by home block 2) |

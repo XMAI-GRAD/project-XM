@@ -69,6 +69,7 @@ export interface Pages {
   home: {
     lead: Localized;
     intro: { title: Localized; body: Localized<string[]> };
+    roles: Localized[];
   };
   explore: { title: Localized; lead: Localized };
   maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
