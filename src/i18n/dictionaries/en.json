@@ -119,11 +119,20 @@
   "account": {
     "title": "Account",
     "displayName": "Display name",
+    "noName": "No display name yet",
+    "nameHint": "Shown in the top bar and next to your comments. Up to 50 characters.",
+    "editName": "Edit name",
     "save": "Save",
+    "cancel": "Cancel",
     "saved": "Saved.",
     "signOut": "Sign out",
     "favorites": "Saved points",
-    "noFavorites": "No saved points yet."
+    "savedCount": "{n} of {total} points on the route",
+    "unsave": "Remove",
+    "resave": "Save again",
+    "removed": "Removed",
+    "noFavorites": "No saved points yet.",
+    "noFavoritesHint": "Press the heart on any point's page to keep it here."
   },
   "login": {
     "title": "Log in",

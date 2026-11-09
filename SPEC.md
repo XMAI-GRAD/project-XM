@@ -66,7 +66,7 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 | Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                                                                   |
 | Events       | `/[lang]/events`         | Placeholder gallery (below)                                                                                                                                                                                                                                                           |
 | Join         | `/[lang]/join`           | Individual and Organization mock forms (below)                                                                                                                                                                                                                                        |
-| Profile      | `/[lang]/account`        | Login required: display name, favorites list, sign out                                                                                                                                                                                                                                |
+| Profile      | `/[lang]/account`        | Login required: avatar, display name (edited in place), saved points as framed figures with a per-card remove (the card stays, faded, with "Save again" until reload), sign out                                                                                                       |
 
 Supporting routes:
 
