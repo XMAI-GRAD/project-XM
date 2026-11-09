@@ -119,11 +119,20 @@
   "account": {
     "title": "Tài khoản",
     "displayName": "Tên hiển thị",
+    "noName": "Chưa có tên hiển thị",
+    "nameHint": "Hiện ở thanh trên cùng và cạnh bình luận của bạn. Tối đa 50 ký tự.",
+    "editName": "Sửa tên",
     "save": "Lưu",
+    "cancel": "Hủy",
     "saved": "Đã lưu.",
     "signOut": "Đăng xuất",
     "favorites": "Điểm yêu thích",
-    "noFavorites": "Chưa có điểm yêu thích."
+    "savedCount": "{n} / {total} điểm trên tuyến",
+    "unsave": "Bỏ lưu",
+    "resave": "Lưu lại",
+    "removed": "Đã bỏ lưu",
+    "noFavorites": "Chưa có điểm yêu thích.",
+    "noFavoritesHint": "Bấm nút trái tim trên trang một điểm để lưu điểm đó vào đây."
   },
   "login": {
     "title": "Đăng nhập",
