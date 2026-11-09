@@ -13,7 +13,6 @@ export interface Audience {
 }
 
 interface Sent {
-  key: string;
   name: string;
   email: string;
 }
@@ -66,7 +65,8 @@ export function JoinForms({
   const [picked, setActive] = useState<string | null>(null);
   const active =
     picked ?? (audiences.some((a) => a.key === hash) ? hash : audiences[0].key);
-  const [done, setDone] = useState<Sent | null>(null);
+  // Per audience, so sending one form never resets the other's message.
+  const [done, setDone] = useState<Record<string, Sent>>({});
   return (
     <>
       <fieldset className={s.chooser}>
@@ -111,7 +111,7 @@ export function JoinForms({
           data-audience={a.key}
           hidden={a.key !== active}
         >
-          {done?.key === a.key ? (
+          {done[a.key] ? (
             <div
               className={s.sent}
               role="status"
@@ -127,9 +127,9 @@ export function JoinForms({
                   .split(/(\{name\}|\{email\})/)
                   .map((part, i) =>
                     part === "{name}" ? (
-                      <strong key={i}>{done.name}</strong>
+                      <strong key={i}>{done[a.key].name}</strong>
                     ) : part === "{email}" ? (
-                      <strong key={i}>{done.email}</strong>
+                      <strong key={i}>{done[a.key].email}</strong>
                     ) : (
                       part
                     ),
@@ -143,11 +143,13 @@ export function JoinForms({
               onSubmit={(e) => {
                 e.preventDefault();
                 const data = new FormData(e.currentTarget);
-                setDone({
-                  key: a.key,
-                  name: String(data.get("name") ?? data.get("contact")),
-                  email: String(data.get("email")),
-                });
+                setDone((d) => ({
+                  ...d,
+                  [a.key]: {
+                    name: String(data.get("name") ?? data.get("contact")),
+                    email: String(data.get("email")),
+                  },
+                }));
               }}
             >
               {a.fields}
