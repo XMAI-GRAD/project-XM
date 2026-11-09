@@ -50,6 +50,11 @@ interface JoinAudience {
   benefits: Localized<string[]>;
 }
 
+interface Section<T> {
+  title: Localized;
+  items: T[];
+}
+
 export interface Pages {
   site: {
     brand: Localized;
@@ -70,6 +75,16 @@ export interface Pages {
     lead: Localized;
     intro: { title: Localized; body: Localized<string[]> };
     roles: Localized[];
+  };
+  about: {
+    title: Localized;
+    lede: Localized;
+    unesco: { title: Localized; body: Localized<string[]> };
+    video: { id: string; title: Localized }; // a YouTube video id
+    work: Section<{ title: Localized; body: Localized }>;
+    fields: Section<Localized> & { note: Localized };
+    timeline: Section<{ year: string; body: Localized }>;
+    operators: Section<Localized>;
   };
   explore: { title: Localized; lead: Localized };
   maps: { title: Localized; lead: Localized; layers: Record<Layer, Localized> };
@@ -107,10 +122,9 @@ export const points: Point[] = layers.flatMap((layer) =>
 );
 const events = (read("events.yaml") ?? []) as EventCard[];
 const pages = Object.fromEntries(
-  (["site", "home", "explore", "maps", "join"] as const).map((name) => [
-    name,
-    read(`${name}.yaml`),
-  ]),
+  (["site", "home", "about", "explore", "maps", "join"] as const).map(
+    (name) => [name, read(`${name}.yaml`)],
+  ),
 ) as unknown as Pages;
 
 const isEmpty = (v: unknown) => {
