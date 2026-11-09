@@ -4,14 +4,10 @@ import fs from "node:fs";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { format } from "prettier";
-import {
-  getPage,
-  points,
-  mapCalibration,
-  mapTransform,
-} from "../../src/content/index.ts";
+import { loadContent } from "./load-content.mjs";
 import { projectToArtwork } from "../../src/features/maps/georeference.ts";
 
+const { getPage, points, mapCalibration, mapTransform } = await loadContent();
 const require = createRequire(import.meta.url);
 const nextRequire = createRequire(require.resolve("next/package.json"));
 const sharp = nextRequire("sharp");
@@ -80,8 +76,7 @@ const pins = points
   .filter((p) => p.mapPosition)
   .map((p) => {
     const { x, y } = p.mapPosition;
-    const left = p.layer !== "taste";
-    return `<g><title>${esc(p.name.vi + " — " + p.mapLocation.label.vi)}</title><circle cx="${x}" cy="${y}" r="13" fill="#0d1855" stroke="#fec35a" stroke-width="4"/><text x="${x}" y="${y + 4}" fill="white" font-size="11" font-weight="700" text-anchor="middle">${p.code.toUpperCase()}</text><text x="${x + (left ? -20 : 20)}" y="${y - 17}" font-size="19" font-weight="700" text-anchor="${left ? "end" : "start"}" fill="#0d1855" paint-order="stroke" stroke="white" stroke-width="5">${esc(p.name.vi)}</text></g>`;
+    return `<g><title>${esc(p.code.toUpperCase() + " · " + p.name.vi + " — " + p.mapLocation.label.vi)}</title><circle cx="${x}" cy="${y}" r="13" fill="#0d1855" stroke="#fec35a" stroke-width="4"/><text x="${x}" y="${y + 4}" fill="white" font-size="11" font-weight="700" text-anchor="middle">${p.code.toUpperCase()}</text></g>`;
   })
   .join("");
 const overlay = `<defs><clipPath id="map-clip"><rect width="${artwork.width}" height="${artwork.height}"/></clipPath></defs><g clip-path="url(#map-clip)"><g id="roads" fill="none" stroke="#b72662" stroke-width="1" opacity=".55"><!--REFERENCE-ROADS-->${roads}<!--END-REFERENCE-ROADS--></g><g id="anchors">${anchors}</g><g id="pins">${pins}</g></g>`;
@@ -95,12 +90,12 @@ const pointTable = points
   .filter((p) => p.mapPosition)
   .map(
     (p) =>
-      `<tr><td>${esc(p.name.vi)}</td><td>${esc(p.mapLocation.label.vi)}</td><td>${p.mapPosition.x.toFixed(1)}, ${p.mapPosition.y.toFixed(1)}</td><td><a href="${esc(p.mapLocation.source)}">Source</a></td></tr>`,
+      `<tr><td>${esc(p.code.toUpperCase() + " · " + p.name.vi)}</td><td>${esc(p.mapLocation.label.vi)}</td><td>${p.mapPosition.x.toFixed(1)}, ${p.mapPosition.y.toFixed(1)}</td><td><a href="${esc(p.mapLocation.source)}">Source</a></td></tr>`,
   )
   .join("");
 const html = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hanoi map alignment review</title><style>
 *{box-sizing:border-box}body{margin:0;background:#fff6f1;color:#0d1855;font:15px/1.5 system-ui,sans-serif}main{max-width:1700px;margin:auto;padding:24px}h1{font-size:30px;margin:0 0 8px}h2{font-size:22px;margin-top:30px}p{max-width:1000px}fieldset{display:flex;align-items:center;gap:24px;flex-wrap:wrap;border:1px solid #0d1855;padding:12px;margin:20px 0}label{display:flex;align-items:center;gap:8px}input{accent-color:#273991}a{color:inherit}svg{display:block;width:100%;height:auto;background:white;border:1px solid #0d1855;font-family:Arial,sans-serif}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #b6bbd0;padding:8px}th{background:#e1e7f2}.table{overflow:auto}.note{border-left:4px solid #008b86;padding-left:14px}footer{margin-top:24px;font-size:13px}
-</style><main><h1>Hanoi map alignment review</h1><p>Measured ${mapCalibration.researchedOn}. Eight control junctions define the transformation. Four additional junctions check it: <strong>RMS ${rms.toFixed(2)} px; maximum ${maximum.toFixed(2)} px</strong> on the original ${artwork.width} × ${artwork.height} artwork.</p><p class="note">These errors measure agreement between manually identified junctions and OSM. They are not a surveyed GPS or entrance-accuracy guarantee. Blue circles: controls; teal circles: checks; crosses: calculated positions; navy/gold markers: the three current destinations.</p><fieldset><legend>Compare the drawing with the reference</legend><label><input id="show-roads" type="checkbox" checked> OSM roads</label><label>Road opacity <input id="opacity" type="range" min="0" max="100" value="55"></label><label><input id="show-anchors" type="checkbox" checked> Calibration landmarks</label><label><input id="show-pins" type="checkbox" checked> Destination pins</label></fieldset>
+</style><main><h1>Hanoi map alignment review</h1><p>Measured ${mapCalibration.researchedOn}. Eight control junctions define the transformation. Four additional junctions check it: <strong>RMS ${rms.toFixed(2)} px; maximum ${maximum.toFixed(2)} px</strong> on the original ${artwork.width} × ${artwork.height} artwork.</p><p class="note">These errors measure agreement between manually identified junctions and OSM. They are not a surveyed GPS or entrance-accuracy guarantee. Blue circles: controls; teal circles: checks; crosses: calculated positions; navy/gold markers: ${points.filter((p) => p.mapPosition).length} sourced destinations. Codes identify the places in the table below.</p><fieldset><legend>Compare the drawing with the reference</legend><label><input id="show-roads" type="checkbox" checked> OSM roads</label><label>Road opacity <input id="opacity" type="range" min="0" max="100" value="55"></label><label><input id="show-anchors" type="checkbox" checked> Calibration landmarks</label><label><input id="show-pins" type="checkbox" checked> Destination pins</label></fieldset>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${artwork.width} ${artwork.height}" role="img" aria-label="Original Hanoi artwork with measured landmarks, projected OSM roads and destination pins"><image href="../../public${artwork.src}" width="${artwork.width}" height="${artwork.height}"/>${overlay}</svg>
 <h2>Destination positions</h2><div class="table"><table><thead><tr><th>Place</th><th>What the pin represents</th><th>Artwork pixels (x, y)</th><th>Reference</th></tr></thead><tbody>${pointTable}</tbody></table></div>
 <h2>Measurements</h2><p>Click a landmark ID to inspect its OSM node. Checkpoints are excluded from the fitted transformation. Pixel coordinates start at the image's top-left.</p><div class="table"><table><thead><tr><th>ID</th><th>Junction</th><th>Role</th><th>Latitude, longitude</th><th>Measured pixels</th><th>Error (px)</th></tr></thead><tbody>${table}</tbody></table></div><footer>Reference road geometry and landmark coordinates: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, ODbL</a>. Artwork supplied by the project owner. Bà Đức's business pin comes from the owner's shared map link. No live map service is called by this review.</footer></main><script>
@@ -111,7 +106,7 @@ fs.writeFileSync(out + "review.html", await format(html, { parser: "html" }));
 const width = artwork.width,
   top = 115,
   height = artwork.height + top + 70;
-const foreground = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><g font-family="Arial,sans-serif"><text x="24" y="38" font-size="29" font-weight="700" fill="#0d1855">Hanoi map — alignment review</text><text x="24" y="68" font-size="18" fill="#0d1855">8 controls · 4 independent checks · RMS ${rms.toFixed(2)} px · maximum ${maximum.toFixed(2)} px · ${mapCalibration.researchedOn}</text><text x="24" y="94" font-size="16" fill="#0d1855">Blue: controls · teal: checks · magenta: OSM roads · navy/gold: sourced destination pins</text><g transform="translate(0,${top})">${overlay}</g><text x="24" y="${height - 38}" font-size="15" fill="#0d1855">Reference: © OpenStreetMap contributors (ODbL). Artwork supplied by project owner.</text><text x="24" y="${height - 15}" font-size="15" fill="#0d1855">Pixel fit measures drawing alignment. Hoàng thành: entrance · Ngũ Xã: communal house · Bà Đức: shared business pin.</text></g></svg>`;
+const foreground = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><g font-family="Arial,sans-serif"><text x="24" y="38" font-size="29" font-weight="700" fill="#0d1855">Hanoi map — alignment review</text><text x="24" y="68" font-size="18" fill="#0d1855">8 controls · 4 independent checks · RMS ${rms.toFixed(2)} px · maximum ${maximum.toFixed(2)} px · ${mapCalibration.researchedOn}</text><text x="24" y="94" font-size="16" fill="#0d1855">Blue: controls · teal: checks · magenta: OSM roads · navy/gold: sourced destination pins</text><g transform="translate(0,${top})">${overlay}</g><text x="24" y="${height - 38}" font-size="15" fill="#0d1855">Reference: © OpenStreetMap contributors (ODbL). Artwork supplied by project owner.</text><text x="24" y="${height - 15}" font-size="15" fill="#0d1855">Pixel fit measures drawing alignment. Entrance, business and representative points have different precision; see the HTML source table.</text></g></svg>`;
 await sharp({ create: { width, height, channels: 3, background: "#fff6f1" } })
   .composite([
     { input: "public" + artwork.src, left: 0, top },

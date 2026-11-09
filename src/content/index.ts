@@ -1,5 +1,5 @@
 import "server-only";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { parse } from "yaml";

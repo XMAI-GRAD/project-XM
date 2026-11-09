@@ -1,4 +1,4 @@
-# CRAFT · NGHỀ. Seeded with n01; the rest come from the content document (bản 07/11/2026).
+# CRAFT — complete source-document list. See docs/map-locations/README.md.
 - slug: ngu-xa
   code: n01
   mapLocation:
@@ -11,11 +11,12 @@
       en: Representative point for the craft village — Ngũ Xã communal house
   name:
     vi: Ngũ Xã
-    en: ""
+    en: "Ngu Xa — bronze casting"
   craft:
     vi: Đúc đồng
     en: ""
   hours:
+    # [GĐ] in the source PDF, p. 8; retained as editorial reference, not live operational data.
     vi: 8h00–17h00, nên hẹn trước
     en: ""
   address: Bán đảo Trúc Bạch
@@ -31,7 +32,10 @@
     vi: Nghệ nhân Nguyễn Văn Ứng, sinh năm 1949, là đời thứ mười sáu trong gia đình làm nghề này. Con trai ông vẫn đang tiếp tục.
     en: ""
   nearby:
-    - { slug: hoang-thanh-thang-long, km: 1.5 }
+    - slug: hoang-thanh-thang-long
+      km: 1.5
+    - slug: cau-long-bien
+      km: 1.8
   images:
     - src: /points/ngu-xa/cover.png
       width: 2400
@@ -39,3 +43,77 @@
       alt:
         vi: Ảnh tạm cho Ngũ Xã
         en: ""
+# Source content: PDF p. 8–9; English names/dishes: appendix p. 12.
+# Photos have not been supplied; the map uses its code/category fallback.
+- slug: hang-trong
+  code: n02
+  mapLocation:
+    latitude: 21.0290126
+    longitude: 105.8508544
+    kind: representative
+    source: https://www.openstreetmap.org/way/701882971
+    label:
+      vi: Điểm đại diện — Đình Nam Hương, 75 Hàng Trống; xem tranh theo triển lãm
+      en: Representative point — Nam Hương communal house, 75 Hàng Trống; exhibitions vary
+  name:
+    vi: Hàng Trống
+    en: Hang Trong — folk painting
+  craft:
+    vi: Tranh dân gian
+    en: ""
+  hours:
+    # [GĐ] in the source PDF, p. 8–9; retained as editorial reference, not live operational data.
+    vi: Xem theo triển lãm
+    en: ""
+  address: Phố Hàng Trống
+  hook:
+    vi: Cả một dòng tranh, nay còn một nhà cầm bút.
+    en: ""
+  story:
+    vi:
+      - Tranh Hàng Trống từng là tranh treo ngày Tết của người Hà Nội. Khác tranh Đông Hồ, tranh Hàng Trống chỉ in nét đen bằng ván gỗ, còn màu thì tô tay. Người thợ dùng bút lông tô từng mảng rồi vờn đậm nhạt ngay trên nét in — kỹ thuật gọi là cản màu, cho bức tranh chiều sâu mà bản khắc không làm được. Khi tranh in công nghiệp tràn vào, nghề mai một gần hết. Vài năm gần đây, hoa văn Hàng Trống trở lại trên sản phẩm thiết kế đương đại.
+    en: []
+  fact:
+    vi: Phố Hàng Trống xưa bán cả trống lẫn tranh — trống treo ngoài cửa, tranh bày bên trong. Nay chỉ còn cái tên giữ lại cả hai nghề.
+    en: ""
+  nearby:
+    - slug: pho-co-36-pho-phuong
+      km: 0.3
+    - slug: cha-ca-la-vong
+      km: 0.4
+  images: []
+# Source content: PDF p. 9; English names/dishes: appendix p. 12.
+# Photos have not been supplied; the map uses its code/category fallback.
+- slug: van-phuc
+  code: n03
+  mapLocation:
+    latitude: 20.9803574
+    longitude: 105.7756187
+    kind: representative
+    source: https://www.openstreetmap.org/node/5725274622
+    label:
+      vi: Điểm đại diện của làng lụa Vạn Phúc; không phải một xưởng cụ thể
+      en: Representative point for Vạn Phúc silk village; not a specific workshop
+  name:
+    vi: Vạn Phúc
+    en: Van Phuc — silk weaving
+  craft:
+    vi: Dệt lụa
+    en: ""
+  hours:
+    # [GĐ] in the source PDF, p. 9; retained as editorial reference, not live operational data.
+    vi: 8h00–18h00
+    en: ""
+  address: Vạn Phúc, Hà Đông
+  hook:
+    vi: The La, lĩnh Bưởi, chồi Phùng, Lụa vân Vạn Phúc, nhiễu vùng Mỗ bên.
+    en: ""
+  story:
+    vi:
+      - Vạn Phúc dệt lụa đã hơn nghìn năm, nổi tiếng nhất với lụa vân — loại lụa có hoa văn chìm, phải nhìn nghiêng mới thấy, dệt bằng cách thay đổi lối bắt sợi chứ không phải in hay thêu. Thời Pháp, lụa Hà Đông được mang đi dự đấu xảo và xuất sang châu Âu. Ngày nay cả làng vừa dệt vừa bán, phố lụa thành điểm du lịch, và nhiều nhà thiết kế trẻ về đây đặt vải riêng cho bộ sưu tập của mình.
+    en: []
+  fact:
+    vi: Lụa vân chỉ hiện hoa văn khi ánh sáng chiếu xiên. Cùng một tấm, nhìn thẳng là trơn, nghiêng đi là nổi hình.
+    en: ""
+  nearby: []
+  images: []

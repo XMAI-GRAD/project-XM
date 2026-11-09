@@ -1,4 +1,4 @@
-# TASTE · VỊ. Seeded with v01; the rest come from the content document (bản 07/11/2026).
+# TASTE — complete source-document list. See docs/map-locations/README.md.
 - slug: bun-thang-ba-duc
   code: v01
   # Business pin supplied by the user; not a surveyed entrance coordinate.
@@ -15,11 +15,13 @@
     en: ""
   dish:
     vi: Bún thang
-    en: ""
+    en: "Bun thang — Hanoi noodle soup"
   price:
+    # [GĐ] in the source PDF, p. 7; retained as editorial reference, not live operational data.
     vi: 50.000 – 70.000 đ
     en: ""
   hours:
+    # [GĐ] in the source PDF, p. 7; retained as editorial reference, not live operational data.
     vi: 7h00–14h00
     en: ""
   season: spring
@@ -35,7 +37,11 @@
   fact:
     vi: Nước dùng bún thang phải trong đến mức nhìn thấy đáy bát. Chỉ một chút váng mỡ là người sành ăn biết ngay nồi nước chưa đạt.
     en: ""
-  nearby: []
+  nearby:
+    - slug: ho-hoan-kiem-den-ngoc-son
+      km: 0.2
+    - slug: cha-ca-la-vong
+      km: 0.4
   images:
     - src: /points/bun-thang-ba-duc/cover.png
       width: 2400
@@ -43,3 +49,132 @@
       alt:
         vi: Ảnh tạm cho Bún thang Bà Đức
         en: ""
+# Source content: PDF p. 7; English names/dishes: appendix p. 12.
+# Photos have not been supplied; the map uses its code/category fallback.
+- slug: che-muoi-sau
+  code: v02
+  mapLocation:
+    latitude: 21.0180243
+    longitude: 105.8528281
+    kind: venue
+    source: https://www.openstreetmap.org/node/5385333722
+    label:
+      vi: Ghim tại quán Chè Mười Sáu, 16 Ngô Thì Nhậm
+      en: Pin at Chè Mười Sáu, 16 Ngô Thì Nhậm
+  name:
+    vi: Chè Mười Sáu
+    en: ""
+  dish:
+    vi: Chè sen long nhãn
+    en: Lotus seed and longan sweet soup
+  price:
+    # [GĐ] in the source PDF, p. 7; retained as editorial reference, not live operational data.
+    vi: 25.000 – 40.000 đ
+    en: ""
+  hours:
+    # [GĐ] in the source PDF, p. 7; retained as editorial reference, not live operational data.
+    vi: 9h00–22h00
+    en: ""
+  season: summer
+  address: 16 Ngô Thì Nhậm
+  hook:
+    vi: Mịt mù khói tỏa ngàn sương, Nhịp chày Yên Thái, mặt gương Tây Hồ.
+    en: ""
+  story:
+    vi:
+      - Sen Hồ Tây chỉ nở vào mùa hạ, và chè sen long nhãn là cách người Hà Nội giữ lại mùa ấy trong một bát nhỏ. Hạt sen tươi bóc vỏ, lẩy sạch tâm cho hết vị đắng, hấp vừa chín tới để không nát. Long nhãn tách hạt nhưng giữ nguyên hình. Rồi từng hạt sen được lồng vào trong quả nhãn — việc làm hoàn toàn bằng tay, không máy nào thay được. Nước đường thả vài cánh nhài, để nguội, ăn lạnh.
+    en: []
+  fact:
+    vi: Một mẻ chè sen long nhãn chuẩn mất gần nửa ngày chuẩn bị, phần lớn thời gian chỉ để lồng sen vào nhãn từng quả một.
+    en: ""
+  nearby:
+    - slug: ho-hoan-kiem-den-ngoc-son
+      km: 1.2
+    - slug: pho-co-36-pho-phuong
+      km: 1.5
+  images: []
+# Source content: PDF p. 7–8; English names/dishes: appendix p. 12.
+# Photos have not been supplied; the map uses its code/category fallback.
+- slug: com-lang-vong
+  code: v03
+  mapLocation:
+    latitude: 21.0348545
+    longitude: 105.7889664
+    kind: representative
+    source: https://www.openstreetmap.org/way/1507523027
+    label:
+      vi: Điểm đại diện — Cổng Làng Cốm Vòng; không phải một cửa hàng cụ thể
+      en: Representative point — Làng Cốm Vòng gate; not a specific shop
+  name:
+    vi: Cốm làng Vòng
+    en: Young green rice from Vong village
+  dish:
+    vi: Cốm tươi gói lá sen
+    en: ""
+  price:
+    # [GĐ] in the source PDF, p. 7–8; retained as editorial reference, not live operational data.
+    vi: 30.000 – 40.000 đ/lạng
+    en: ""
+  hours:
+    # [GĐ] in the source PDF, p. 7–8; retained as editorial reference, not live operational data.
+    vi: 7h00–18h00
+    en: ""
+  season: autumn
+  address: Làng Vòng, Dịch Vọng Hậu
+  hook:
+    vi: Cốm Vòng, gạo tám Mễ Trì, Tương Bần, húng Láng còn gì ngon hơn.
+    en: ""
+  story:
+    vi:
+      - "Cốm làm từ lúa nếp non, gặt đúng lúc hạt vừa chắc mà vẫn còn sữa. Lúa về được rang trong chảo gang, đảo liên tục bằng tay cho chín đều, rồi giã trong cối — giã nhẹ và giã nhiều lần, mỗi lần lại sàng bỏ vỏ trấu. Hạt cốm cuối cùng mỏng, dẻo, xanh màu lá mạ. Cốm gói trong lá sen buộc bằng rơm nếp: lá sen giữ ẩm và cho mùi, rơm giữ dáng gói. Mùa cốm mỗi năm chỉ kéo dài vài tuần."
+    en: []
+  fact:
+    vi: Cốm phải ăn bằng tay, nhón từng nhúm nhỏ. Dùng thìa là cốm vón lại, mất đi độ tơi vốn là thứ người ta tìm ở món này.
+    en: ""
+  nearby: []
+  images: []
+# Source content: PDF p. 8; English names/dishes: appendix p. 12.
+# Photos have not been supplied; the map uses its code/category fallback.
+- slug: cha-ca-la-vong
+  code: v04
+  mapLocation:
+    latitude: 21.0356844
+    longitude: 105.8491519
+    kind: venue
+    source: https://www.openstreetmap.org/node/11491397157
+    label:
+      vi: Ghim tại quán Chả cá Lã Vọng, 14 phố Chả Cá
+      en: Pin at Chả cá Lã Vọng, 14 Chả Cá Street
+  name:
+    vi: Chả cá Lã Vọng
+    en: ""
+  since: 1871
+  dish:
+    vi: Chả cá lăng
+    en: Turmeric grilled fish
+  price:
+    # [GĐ] in the source PDF, p. 8; retained as editorial reference, not live operational data.
+    vi: 200.000 – 250.000 đ/suất
+    en: ""
+  hours:
+    # [GĐ] in the source PDF, p. 8; retained as editorial reference, not live operational data.
+    vi: 10h00–14h00, 17h00–21h00
+    en: ""
+  season: winter
+  address: 14 phố Chả Cá
+  hook:
+    vi: Một món ăn ngon đến mức con phố phải mang tên nó.
+    en: ""
+  story:
+    vi:
+      - Năm 1871, một gia đình họ Đoàn mở hàng chả cá trên phố Hàng Sơn. Món ăn nổi tiếng đến mức người Hà Nội gọi luôn con phố là phố Chả Cá, và cái tên ấy thành tên chính thức cho đến tận bây giờ — con phố duy nhất của Hà Nội mang tên một món ăn. Cá lăng ướp nghệ và riềng, nướng trên than rồi mang lên bàn trong chảo mỡ đang sôi, ăn cùng thì là, hành hoa, bún và mắm tôm. Bếp than đặt ngay giữa bàn, nên đây là món của mùa lạnh.
+    en: []
+  fact:
+    vi: Tên quán lấy từ bức tượng ông Lã Vọng ngồi câu cá đặt trong nhà, không phải tên người sáng lập.
+    en: ""
+  nearby:
+    - slug: pho-co-36-pho-phuong
+      km: 0.3
+    - slug: hang-trong
+      km: 0.4
+  images: []

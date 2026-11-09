@@ -4,7 +4,7 @@ Measured on 8 November 2026. [Interactive comparison](review.html) · [Review im
 
 The supplied 1618 × 1020 PNG aligns closely with central Hanoi's OSM road geometry using an affine transformation. Eight manually matched junctions define the transformation; four additional junctions are excluded from the fit and used to check it. Their RMS error is **1.64 original-image pixels**, with a **2.13-pixel maximum**. This measures drawing-to-reference alignment, not surveyed accuracy or proof of a doorway's location. OSM accuracy, artwork detail, manual landmark measurement, and individual place references remain separate uncertainties.
 
-## Current destinations
+## Original calibration destinations
 
 | Destination            | Geographic reference (latitude, longitude) | Derived artwork position (x, y) | What the pin represents                                              |
 | ---------------------- | ------------------------------------------ | ------------------------------- | -------------------------------------------------------------------- |
@@ -12,7 +12,7 @@ The supplied 1618 × 1020 PNG aligns closely with central Hanoi's OSM road geome
 | Bún thang Bà Đức       | 21.0323458, 105.852837                     | 1216.5, 248.8                   | The business pin shared by the project owner; not a surveyed doorway |
 | Ngũ Xã                 | 21.0463247, 105.8407432                    | 1077.6, 76.3                    | Đình Ngũ Xã, a representative landmark for the craft village         |
 
-The previous hand-estimated pixels were removed. These three locations now live in their canonical `data/points/*.yaml` entries. `src/content/` calculates image positions from those coordinates and the calibration. The other nine planned destinations have not been added or positioned in this change.
+The previous hand-estimated pixels were removed. These three locations live in their canonical `data/points/*.yaml` entries. `src/content/` calculates image positions from those coordinates and the calibration. The follow-up dataset task added the other nine destinations; all 12 fit inside this artwork. See the [complete location/source register](../map-locations/README.md) and the regenerated [interactive review](review.html) for their placements and limitations. The original three coordinates and the fitted calibration remain unchanged.
 
 ## Place evidence
 
@@ -36,7 +36,7 @@ To regenerate the review from the repository root:
 node --conditions=react-server --experimental-strip-types docs/map-calibration/build-review.mjs
 ```
 
-The generator reads content through `src/content/` and reuses the reference road paths embedded in the existing HTML. To refresh the road reference, pass a saved Overpass JSON extract as the final argument. It uses the image renderer already installed with Next.js; no dependency was added for this task. Use the following query at `https://overpass-api.de/api/interpreter`:
+Use Node 24 for this offline tool. The generator reads content through `src/content/` and reuses the reference road paths embedded in the existing HTML. `load-content.mjs` supplies a narrowly scoped Node loader for the Turbopack raw-YAML glob, then runs the app's actual parsing, validation and projection module. The loader is only used by this documentation tool and does not change the website's live-reload path. To refresh the road reference, pass a saved Overpass JSON extract as the final argument. It uses the image renderer already installed with Next.js; no project dependency was added for this task. Use the following query at `https://overpass-api.de/api/interpreter`:
 
 ```overpass
 [out:json][timeout:45];
@@ -55,7 +55,7 @@ The HTML comparison works locally and loads the original PNG by a relative file 
 - The four checks test only sampled locations. They do not establish a uniform error bound for every street, particularly near the edges or outside the control-point footprint.
 - A representative village point, business point, and visitor entrance are different things. Their placement kinds and human-readable descriptions are recorded separately.
 - Existing artistic pins remain approximate at street scale. There is no live navigation, GPS tracking, or route calculation in this change.
-- Adding the other nine destinations requires checking their identities and choosing appropriate entrances or area landmarks. Their geographic coordinates can then use this same calibration.
+- All 12 destination references are now documented. Several are explicitly representative village/area points, and Vạn Phúc lies outside the original control-point footprint. These references still need route-access verification before use as navigation endpoints.
 - Before drawing an API route, validate additional points along that route. A small error at a few junctions does not prove that a route follows every drawn street or that the artwork reflects current access restrictions.
 
 Reference geometry and control coordinates: [© OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. The interactive and PNG reviews retain attribution. The artwork was supplied by the project owner. The Bà Đức reference was supplied by the project owner as a map link.
