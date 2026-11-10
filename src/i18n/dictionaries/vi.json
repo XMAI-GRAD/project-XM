@@ -140,7 +140,8 @@
     "error": "Đăng nhập không thành công. Vui lòng thử lại.",
     "lead": "Đăng nhập để lưu điểm yêu thích và bình luận. Xem nội dung không cần tài khoản.",
     "note": "<Ghi chú quyền riêng tư>",
-    "back": "Về trang chủ"
+    "back": "Về trang chủ",
+    "pointsLabel": "Các điểm trên tuyến"
   },
   "footer": {
     "label": "Chân trang",

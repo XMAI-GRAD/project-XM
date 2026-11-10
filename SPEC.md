@@ -70,11 +70,11 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 
 Supporting routes:
 
-| Route            | Purpose                 |
-| ---------------- | ----------------------- |
-| `/[lang]/login`  | "Continue with Google"  |
-| `/auth/callback` | OAuth return            |
-| localized 404    | Unknown paths and slugs |
+| Route            | Purpose                                                     |
+| ---------------- | ----------------------------------------------------------- |
+| `/[lang]/login`  | "Continue with Google", beside a slideshow of the 12 points |
+| `/auth/callback` | OAuth return                                                |
+| localized 404    | Unknown paths and slugs                                     |
 
 The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug]` and `/[lang]/proto/*` are removed, with no redirects: the site never launched.
 
@@ -176,6 +176,7 @@ interface Photo {
   width: number;
   height: number;
   alt: Localized;
+  temporary?: boolean; // a stand-in until the real photo; the login slideshow shows the layer fill instead
 }
 
 // One shape for all three layers.

@@ -34,6 +34,7 @@
     - { slug: ngu-xa, km: 1.5 }
   images:
     - src: /points/hoang-thanh-thang-long/cover.png
+      temporary: true
       width: 2400
       height: 1600
       alt:

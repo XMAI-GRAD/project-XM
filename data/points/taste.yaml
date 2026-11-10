@@ -32,6 +32,7 @@
     - { slug: cha-ca-la-vong, km: 0.4 }
   images:
     - src: /points/bun-thang-ba-duc/cover.png
+      temporary: true
       width: 2400
       height: 1600
       alt:

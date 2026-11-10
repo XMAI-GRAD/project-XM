@@ -28,6 +28,7 @@
     - { slug: cau-long-bien, km: 1.8 }
   images:
     - src: /points/ngu-xa/cover.png
+      temporary: true
       width: 2400
       height: 1600
       alt:
