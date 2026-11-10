@@ -11,6 +11,7 @@ export type Season = "spring" | "summer" | "autumn" | "winter";
 
 export interface Photo {
   src: string;
+  temporary?: boolean; // a stand-in until the real photo arrives
   width: number;
   height: number;
   alt: Localized;

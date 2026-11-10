@@ -140,7 +140,8 @@
     "error": "Sign-in failed. Please try again.",
     "lead": "Sign in to save points and leave comments. Browsing needs no account.",
     "note": "<Privacy note>",
-    "back": "Back to home"
+    "back": "Back to home",
+    "pointsLabel": "Points on the route"
   },
   "footer": {
     "label": "Footer",
