@@ -1,20 +1,141 @@
-lead:
-  vi: Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội. Nơi Nhà nước, nghệ sĩ và công chúng cùng làm nên thành phố.
-  en: ""
-intro:
+# Home: a graphic showcase read as you scroll (the designer's WEB-01 + WEB-02 comps).
+#
+# Text marks, read by src/features/home/rich-text.tsx:
+#   {gold:nối tiếp}   a word in an accent color: red, gold, lime, frosted, mauve, cyan, navy
+#   {glyph-hero-o:Ô}  a letter drawn by the designer; the letter after the colon is what
+#                     screen readers hear and what shows if the drawing is missing
+#   a line break      a line break on the page (use a "|" block for several lines)
+# Phudu has capitals only, so headings can be written in sentence case.
+
+# Fixed until there is a weather source; the date beside it is today's.
+weather: 30°C
+
+hero:
   title:
-    vi: Một thành phố sáng tạo không bắt đầu từ cái mới, mà từ chỗ cái cũ được nối tiếp
+    vi: "{red:T}hủ Đ{glyph-hero-o:ô} H{glyph-hero-a:à} Nội"
+    en: ""
+  tagline:
+    vi: "— Nơi những m{mauve:ạ}ch nố{gold:i} gặp nhau"
+    en: ""
+
+# "Mạch nối ——— ngàn năm", the woven pattern and who runs the city's program.
+thread:
+  title:
+    vi:
+      - "Mạch nố{glyph-thread-i:i}"
+      - "Ngàn n{glyph-thread-a:ă}m"
+    en: []
+  # Line breaks as in the comp.
+  body:
+    vi:
+      - |-
+        Trung tâm Điều phối
+        các Hoạt động Sáng tạo
+        Hà Nội.
+      - |-
+        Nơi Nhà nước, nghệ sĩ và
+        công chúng cùng làm nên
+        thành phố.
+    en: []
+
+# The band of four counts. `art` names the icon drawn above the number.
+stats:
+  - value: "83"
+    tone: navy
+    art: stat-library
+    label:
+      vi: Thư viện
+      en: ""
+  - value: "48"
+    tone: gold
+    art: stat-university
+    label:
+      vi: Trường đại học
+      en: ""
+  - value: "18"
+    tone: lime
+    art: stat-theatre
+    label:
+      vi: Nhà hát
+      en: ""
+  - value: "43"
+    tone: red
+    art: stat-cinema
+    label:
+      vi: Rạp chiếu phim
+      en: ""
+
+# The three actors, drawn as buildings linked by one line.
+roles:
+  title:
+    vi: |-
+      Một thành phố {frosted:sáng tạo}
+      không bắt đầu từ cái mới,
+      mà từ cái cũ được {gold:nối tiếp}
+    en: ""
+  # In the order of the drawing, right to left: the state, the artists, the public.
+  state:
+    vi: Nhà nước
+    en: ""
+  artists:
+    vi: Nghệ sĩ
+    en: ""
+  public:
+    vi: Công chúng
+    en: ""
+
+heritage:
+  since:
+    vi: Từ 2019
+    en: ""
+  title:
+    vi: |-
+      Hà Nội đã có đủ {red:di sản}
+      {gold:—làng nghề}
+      và hàng nghìn người
+      làm {frosted:sáng tạo} mỗi ngày
     en: ""
   body:
     vi:
-      - "Hà Nội đã có đủ: di sản nghìn năm, làng nghề còn sống, và hàng nghìn người đang làm sáng tạo mỗi ngày. Cái thiếu không phải một Hà Nội mới, mà là chỗ để những thứ đang có gặp nhau."
-      - Hanoi Creative City là chỗ đó — điểm điều phối giữa Nhà nước, nghệ sĩ và công chúng.
+      - Cái thiếu không phải một Hà Nội mới. Cái thiếu là chỗ để những sáng tạo đang có gặp được nhau.
+      - Trung tâm Điều phối là chỗ đó — nơi người làm nghề gặp nguồn lực, và di sản gặp thiết kế.
     en: []
-# Block 1: the three roles drawn as overlapping circles (SPEC Part 1, Home).
-roles:
-  - vi: Nhà nước
-    en: State
-  - vi: Nghệ sĩ
-    en: Artists
-  - vi: Công chúng
-    en: Public
+  numbers:
+    - value: "1350"
+      tone: cyan
+      label:
+        vi: Làng nghề thủ công
+        en: ""
+    - value: "5922"
+      tone: gold
+      label:
+        vi: Di tích
+        en: ""
+    - value: "1793"
+      tone: red
+      label:
+        vi: Di sản văn hóa phi vật thể
+        en: ""
+    - value: "60+"
+      tone: mauve
+      label:
+        vi: Không gian sáng tạo đang hoạt động
+        en: ""
+
+# ĐỊA · VỊ · NGHỀ; the layer names come from the dictionaries.
+layers:
+  kicker:
+    vi: Ba mạch của
+    en: ""
+  title:
+    vi: "Th{glyph-layers-a:à}nh ph{glyph-layers-o:ố}"
+    en: ""
+  place:
+    vi: Năm nơi giữ ký ức của thành phố
+    en: ""
+  taste:
+    vi: Thức quà Hà Nội đổi theo bốn mùa
+    en: ""
+  craft:
+    vi: Làng nghề vẫn sống trong lòng
+    en: ""

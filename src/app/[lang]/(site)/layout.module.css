@@ -126,46 +126,6 @@
   box-shadow: inset 0 0 0 1px var(--navy-500);
 }
 
-/* footer */
-.footer {
-  display: grid;
-  gap: 24px;
-  background: var(--navy-500);
-  color: var(--seashell);
-  border-top: 4px solid var(--mauve);
-  padding: 32px var(--pad) 48px;
-}
-.footer :focus-visible {
-  outline-color: var(--seashell);
-}
-.footNav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-}
-.footNav a {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.05rem;
-}
-.contact {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 16px 32px;
-  font-style: normal;
-  overflow-wrap: anywhere;
-}
-.contact p {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0;
-}
-.contact :global(.meta) {
-  opacity: 0.75;
-}
-
 /* mobile: rail becomes a strip (mobile design comes after 2026-11-23) */
 @media (max-width: 47.99rem) {
   .shell {

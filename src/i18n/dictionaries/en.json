@@ -21,11 +21,11 @@
     "craft": "CRAFT"
   },
   "home": {
-    "listLabel": "Points of A thousand years of connections",
-    "exploreMap": "Explore the map",
     "joinNetwork": "Join the network",
-    "openMap": "Open the full map",
-    "imagePlaceholder": "Photo"
+    "openMap": "Open the map",
+    "imagePlaceholder": "Photo",
+    "language": "Language",
+    "weather": "Hanoi temperature"
   },
   "point": {
     "favorite": "Favorite",
