@@ -8,23 +8,23 @@ export function FrameLeft(props: ArtProps) {
   return (
     <svg
       viewBox="0 180 355.38 5220"
+      data-art="frame-left"
       aria-hidden="true"
       focusable="false"
       {...props}
     >
       <g>
-        {" "}
-        <rect y="1080" width="179.65" height="1080" fill="#cbdb2b" />{" "}
-        <rect y="2160" width="179.65" height="1080" fill="#cbdb2b" />{" "}
-        <rect y="3240" width="179.65" height="1080" fill="#cbdb2b" />{" "}
+        <rect y="1080" width="179.65" height="1080" fill="#cbdb2b" />
+        <rect y="2160" width="179.65" height="1080" fill="#cbdb2b" />
+        <rect y="3240" width="179.65" height="1080" fill="#cbdb2b" />
         <path
           d="M317.43,5400H0.02l0-196.51v-0.18l0-883.31h179.65v883.43c6.34,65.7,60.55,117.21,127.61,118.41 c0.79,0.01,48.1,0,48.1,0v40.23C334.42,5362.06,317.43,5379.05,317.43,5400z"
           fill="#cbdb2b"
-        />{" "}
+        />
         <path
           d="M317.41,180H0v196.51v0.18V1080h179.65V376.57c6.34-65.7,60.55-117.21,127.61-118.41c0.79-0.01,48.1,0,48.1,0 v-40.23C334.4,217.93,317.41,200.95,317.41,180z"
           fill="#cbdb2b"
-        />{" "}
+        />
       </g>
     </svg>
   );

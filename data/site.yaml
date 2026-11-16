@@ -9,7 +9,7 @@ fullName:
   en: ""
 tagline:
   vi: Thủ đô Hà Nội — nơi những mạch nối gặp nhau
-  en: ""
+  en: Hanoi — where the capital connects
 motto:
   vi: Một thành phố sáng tạo không bắt đầu từ cái mới, mà từ cái cũ được nối tiếp.
   en: ""
@@ -31,4 +31,8 @@ contact:
   email: ttdieuphoihoatdongsangtao@gmail.com
 credits:
   vi: © 2026 Copyright by Sở Văn hóa và Thể thao Hà Nội. All rights reserved
+  en: ""
+# The footer's signature line, beside the credits.
+madeBy:
+  vi: Made with sacrifice by Minh, Son, Tu
   en: ""

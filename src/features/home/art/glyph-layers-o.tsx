@@ -8,6 +8,7 @@ export function GlyphLayersO(props: ArtProps) {
   return (
     <svg
       viewBox="636.72 4492.86 67.03 93.36"
+      data-art="glyph-layers-o"
       aria-hidden="true"
       focusable="false"
       {...props}

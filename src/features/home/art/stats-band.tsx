@@ -8,6 +8,7 @@ export function StatsBand(props: ArtProps) {
   return (
     <svg
       viewBox="179.03 2160.17 1560.97 256.42"
+      data-art="stats-band"
       aria-hidden="true"
       focusable="false"
       {...props}
