@@ -1,0 +1,243 @@
+/* About on the prototype A frame, in the home page's grammar: full-width bands, each with a
+   headline-size heading above content that runs to the same right edge. The bands alternate
+   seashell with one frosted blue band (what we do) and one navy band (timeline), and the page
+   ends on the join CTA. */
+.head,
+.section {
+  --pad: clamp(16px, 2.4vw, 32px);
+  padding-inline: var(--pad);
+}
+.section p {
+  margin: 0;
+}
+
+/* Title with the lede beside it, as on explore. */
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 48px;
+  padding-block: var(--pad) clamp(24px, 3vw, 40px);
+  border-bottom: 1px solid var(--navy-500);
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 7.4vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+}
+.lede {
+  margin: 0;
+  max-width: 34ch;
+  padding-bottom: 0.4rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.15rem, 1.6vw, 1.6rem);
+  line-height: 1.2;
+  text-wrap: pretty;
+}
+
+.section {
+  display: grid;
+  align-content: start;
+  gap: clamp(24px, 3vw, 40px);
+  padding-block: clamp(40px, 5vw, 80px);
+}
+.section + .section {
+  border-top: 1px solid var(--navy-500);
+}
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 5.4vw, 5.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.body {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  max-width: 60ch;
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  line-height: 1.5;
+}
+.name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+/* Intro: text and the framed video side by side, both ending on the content edge. */
+.intro {
+  display: grid;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+@media (min-width: 56rem) {
+  .intro {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  /* The video is shorter than the text, so it stays in view while the text scrolls. */
+  .intro .video {
+    position: sticky;
+    top: 24px;
+  }
+}
+
+/* Columns under a hairline each: three things we do, the fields, the operators. */
+.cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: 32px clamp(20px, 2.4vw, 40px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cols li {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--navy-500);
+}
+.cols p {
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  line-height: 1.4;
+}
+.operators .name {
+  font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  line-height: 1.1;
+}
+.note {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+}
+
+/* The two colored bands. Adjacent bands meet on the color change, not a hairline. */
+.work {
+  background: var(--frosted-blue);
+}
+.timeline {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.section.work,
+.section.timeline,
+.work + .section,
+.timeline + .section {
+  border-top: 0;
+}
+
+/* Timeline: hairline rows, the year in display type in frosted blue. */
+.rows {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rows li {
+  display: grid;
+  grid-template-columns: clamp(5rem, 9vw, 9rem) minmax(0, 1fr);
+  gap: 24px;
+  align-items: baseline;
+  padding-block: 18px;
+  border-top: 1px solid color-mix(in srgb, var(--seashell) 45%, transparent);
+}
+.rows li:last-child {
+  border-bottom: 1px solid color-mix(in srgb, var(--seashell) 45%, transparent);
+}
+.rows p {
+  max-width: 60ch;
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  line-height: 1.35;
+}
+.year {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--frosted-blue);
+}
+
+/* Closing CTA, as home ends. */
+.next {
+  justify-items: start;
+}
+.next p {
+  max-width: 48ch;
+  font-size: clamp(1.15rem, 1.4vw, 1.35rem);
+  line-height: 1.4;
+}
+.primary,
+.play {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.05rem;
+}
+.primary:hover,
+.video button:hover .play {
+  background: var(--navy-500);
+}
+.primary:focus-visible,
+.video button:focus-visible {
+  outline: 3px solid var(--navy-500);
+  outline-offset: 3px;
+}
+
+/* Video: a framed figure (hairline and corner crosses), thumbnail and play pill until
+   clicked. */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--navy-500);
+  background: var(--navy-500);
+}
+.video iframe,
+.video button {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.video button {
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+.video img {
+  object-fit: cover;
+}
+.play {
+  position: absolute;
+  left: clamp(12px, 1.6vw, 24px);
+  bottom: clamp(12px, 1.6vw, 24px);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .primary,
+  .play {
+    transition: background-color 0.2s ease-out;
+  }
+}

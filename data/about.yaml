@@ -1,0 +1,114 @@
+# About page (SPEC Part 1, About), from the content document, section 2.
+# English is a working translation until the team's lands.
+title:
+  vi: Giới thiệu
+  en: About us
+# Beside the title: who this page is about. Not in the content document; built from its copy.
+lede:
+  vi: Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội, đầu mối của Hanoi Creative City, Thành phố Sáng tạo của UNESCO trong lĩnh vực Thiết kế.
+  en: The Hanoi Creative Activities Coordination Center, the hub of Hanoi Creative City, a UNESCO Creative City of Design.
+# The first three paragraphs condense hanoicreativecity.com/gioi-thieu-2/ (figures from 2018).
+unesco:
+  title:
+    vi: Hà Nội gia nhập hệ thống Thành phố Sáng tạo của UNESCO
+    en: Hanoi joins the UNESCO Creative Cities Network
+  body:
+    vi:
+      - Từ Thăng Long hơn nghìn năm trước, Hà Nội lớn lên giữa 20 con sông, trên 3.329 km², và nay là nhà của 7,9 triệu người. Thành phố giữ hàng nghìn di sản, 1.350 làng nghề và một cộng đồng nhà thiết kế, nghệ sĩ, nhà đổi mới đang lớn dần.
+      - Năm 1999, UNESCO vinh danh Hà Nội là Thành phố vì Hòa bình. Hai mươi năm sau, thành phố chọn đặt thiết kế sáng tạo vào trung tâm của phát triển bền vững, với mục tiêu trở thành một trung tâm sáng tạo hàng đầu Đông Nam Á.
+      - Là thành viên Mạng lưới Thành phố Sáng tạo UNESCO, Hà Nội hợp tác với Berlin, Seoul, Kobe, Singapore và nhiều thành phố khác, dùng thiết kế để gìn giữ di sản, giải các bài toán đô thị và khuyến khích người trẻ theo đuổi thiết kế, đổi mới.
+      - Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội thành lập theo Quyết định số 5067/QĐ-UBND ngày 27/9/2024 của Ủy ban nhân dân Thành phố Hà Nội, chính thức hoạt động từ tháng 12/2024, đặt trong khuôn viên Bảo tàng Hà Nội.
+    en:
+      - From Thang Long more than a thousand years ago, Hanoi grew up among 20 rivers, over 3,329 km², and is now home to 7.9 million people. The city keeps thousands of heritage sites, 1,350 craft villages and a growing community of designers, artists and innovators.
+      - In 1999, UNESCO named Hanoi a City for Peace. Twenty years on, the city chose to put creative design at the heart of sustainable growth, aiming to become one of Southeast Asia's leading creative hubs.
+      - As a member of the UNESCO Creative Cities Network, Hanoi works with Berlin, Seoul, Kobe, Singapore and other cities, and uses design to protect its heritage, solve urban problems and draw young people into design and innovation.
+      - The Hanoi Creative Activities Coordination Center was set up by Decision No. 5067/QĐ-UBND of the Hanoi People's Committee on 27 September 2024. It opened in December 2024, on the grounds of the Hanoi Museum.
+# Shown under the intro; it plays from YouTube only after a click.
+video:
+  id: _sW01qgUFrE
+  title:
+    vi: HNCC Urban
+    en: HNCC Urban
+work:
+  title:
+    vi: Ba việc chúng tôi làm
+    en: Three things we do
+  items:
+    - title:
+        vi: Chứng nhận
+        en: Certify
+      body:
+        vi: Xác nhận và bảo chứng cho sáng tạo mang tên Hà Nội.
+        en: We vouch for creative work that carries Hanoi's name.
+    - title:
+        vi: Kết nối
+        en: Connect
+      body:
+        vi: Đưa người làm nghề gặp nguồn lực, đối tác và mạng lưới UNESCO.
+        en: We bring makers to resources, partners and the UNESCO network.
+    - title:
+        vi: Bệ phóng
+        en: Launch
+      body:
+        vi: Đồng hành từ ý tưởng đầu tiên đến lúc ra thị trường.
+        en: We stay with a project from the first idea to the market.
+fields:
+  title:
+    vi: Năm lĩnh vực
+    en: Five fields
+  items:
+    - vi: Thiết kế
+      en: Design
+    - vi: Kiến trúc
+      en: Architecture
+    - vi: Mỹ thuật
+      en: Fine arts
+    - vi: Nghệ thuật trình diễn
+      en: Performing arts
+    - vi: Thủ công mỹ nghệ
+      en: Crafts
+  note:
+    vi: Từ 2024 mở rộng thành 12 lĩnh vực.
+    en: Since 2024, widened to 12 fields.
+timeline:
+  title:
+    vi: Mốc thời gian
+    en: Timeline
+  items:
+    - year: "2019"
+      body:
+        vi: Hà Nội gia nhập Mạng lưới Thành phố Sáng tạo UNESCO, lĩnh vực Thiết kế
+        en: Hanoi joins the UNESCO Creative Cities Network in the field of Design
+    - year: "2021"
+      body:
+        vi: Tuần lễ Khơi nguồn Sáng tạo lần đầu
+        en: The first Creativity Week
+    - year: "2022"
+      body:
+        vi: Lễ hội Thiết kế Sáng tạo thành thường niên; Nghị quyết 09-NQ/TU
+        en: The Creative Design Festival becomes yearly; Resolution 09-NQ/TU
+    - year: "2023"
+      body:
+        vi: Lễ hội mở rộng ra bảy điểm di sản ven sông
+        en: The festival spreads to seven riverside heritage sites
+    - year: "2024"
+      body:
+        vi: Thành lập Trung tâm Điều phối và Mạng lưới Không gian Sáng tạo
+        en: The Coordination Centre and the Creative Spaces Network are founded
+    - year: "2025"
+      body:
+        vi: Ra mắt Quỹ Hỗ trợ và Giải thưởng Sáng tạo
+        en: The Creative Support Fund and the Creative Awards launch
+operators:
+  title:
+    vi: Đơn vị vận hành
+    en: Run by
+  items:
+    - vi: UBND Thành phố Hà Nội
+      en: Hanoi People's Committee
+    - vi: Sở Văn hóa và Thể thao
+      en: Department of Culture and Sports
+    - vi: Bảo tàng Hà Nội
+      en: Hanoi Museum
+    - vi: Tạp chí Kiến trúc
+      en: Architecture Magazine

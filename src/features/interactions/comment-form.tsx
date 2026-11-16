@@ -5,6 +5,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Result } from "@/lib/action-result";
 import { addComment } from "./actions";
 import { maxCommentLength } from "./comment-input";
+import s from "./comments.module.css";
 
 /** A new comment, or a reply when `parentId` (a top-level comment's id) is set. */
 export function CommentForm({
@@ -29,6 +30,7 @@ export function CommentForm({
     // onSubmit, not action={…}: React resets an action form even on error, losing the text.
     <form
       ref={form}
+      className={s.form}
       onSubmit={(e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
@@ -39,16 +41,18 @@ export function CommentForm({
       {parentId !== undefined && (
         <input type="hidden" name="parentId" value={parentId} />
       )}
-      <label>
+      <label className={`meta ${s.field}`}>
         {parentId === undefined
           ? dict.comments.label
           : dict.comments.replyLabel}
         <textarea name="body" required maxLength={maxCommentLength} />
       </label>
-      <button type="submit" disabled={pending}>
+      <button type="submit" disabled={pending} className={s.submit}>
         {dict.comments.submit}
       </button>
-      <p role="status">{state && !state.ok && dict.errors[state.error]}</p>
+      <p role="status" className={s.status}>
+        {state && !state.ok && dict.errors[state.error]}
+      </p>
     </form>
   );
 }

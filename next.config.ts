@@ -7,8 +7,11 @@ const nextConfig: NextConfig = {
   // Images are served from the CDN; the content check that reads public/ only runs at build.
   outputFileTracingExcludes: { "/**": ["./public/**/*"] },
   images: {
-    // Google profile photos.
-    remotePatterns: [new URL("https://lh3.googleusercontent.com/**")],
+    // Google profile photos, YouTube thumbnails (the About video).
+    remotePatterns: [
+      new URL("https://lh3.googleusercontent.com/**"),
+      new URL("https://i.ytimg.com/vi/**"),
+    ],
   },
   turbopack: {
     rules: {

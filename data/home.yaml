@@ -10,3 +10,11 @@ intro:
       - "Hà Nội đã có đủ: di sản nghìn năm, làng nghề còn sống, và hàng nghìn người đang làm sáng tạo mỗi ngày. Cái thiếu không phải một Hà Nội mới, mà là chỗ để những thứ đang có gặp nhau."
       - Hanoi Creative City là chỗ đó — điểm điều phối giữa Nhà nước, nghệ sĩ và công chúng.
     en: []
+# Block 1: the three roles drawn as overlapping circles (SPEC Part 1, Home).
+roles:
+  - vi: Nhà nước
+    en: State
+  - vi: Nghệ sĩ
+    en: Artists
+  - vi: Công chúng
+    en: Public

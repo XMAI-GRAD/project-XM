@@ -1,0 +1,94 @@
+/* A hairline pill in the nav; the results drop below it as a framed list. Selectors
+   start at .search so they outrank the nav's pill links (layout.module.css). */
+.search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  height: 34px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+}
+.search:has(> input:focus-visible) {
+  outline: 3px solid var(--navy-500);
+  outline-offset: 3px;
+}
+.search input {
+  width: 11rem;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 0.9rem;
+  outline: none;
+}
+.search input::placeholder {
+  color: var(--navy-300);
+}
+
+.search .panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 30;
+  width: min(24rem, calc(100vw - 32px));
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--seashell);
+  border: 1px solid var(--navy-500);
+}
+.search .panel[hidden] {
+  display: none;
+}
+.search ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.search li + li {
+  border-top: 1px solid var(--navy-500);
+}
+.search .panel a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 0;
+  font-size: 1rem;
+  letter-spacing: 0;
+}
+.search .panel a:hover,
+.search .panel a:focus-visible {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.search .panel a:focus-visible {
+  outline: 3px solid var(--frosted-blue);
+  outline-offset: -3px;
+}
+.search .panel p {
+  margin: 0;
+  padding: 12px 16px;
+}
+
+/* The layer as a swatch in its color plus its name, so the label never sits on the color. */
+.layer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  width: 4.5rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+.layer::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--layer-bg);
+}

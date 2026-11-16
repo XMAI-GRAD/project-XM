@@ -3,8 +3,9 @@ import { Inter, Phudu } from "next/font/google";
 import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
+import { HeaderSearch } from "@/components/header-search";
 import { LangSwitch } from "@/components/lang-switch";
-import { getPage } from "@/content";
+import { getPage, points } from "@/content";
 import { AccountStatus, LoginLink } from "@/features/auth/account-status";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -39,7 +40,7 @@ export function generateStaticParams() {
 /** The frame from the former prototype A: navy side rail, top bar, full-width bands, footer. */
 export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   const lang = await getLocale();
-  const { nav, footer } = getDictionary(lang);
+  const { nav, footer, search, layers: layerNames } = getDictionary(lang);
   const site = getPage("site");
   const other = locales.find((l) => l !== lang)!;
   const links = (["about", "explore", "maps", "events", "join"] as const).map(
@@ -87,6 +88,16 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
                     {n.label}
                   </Link>
                 ))}
+                <HeaderSearch
+                  items={points.map((p) => ({
+                    href: `/${lang}/explore/${p.slug}`,
+                    name: p.name[lang],
+                    layer: p.layer,
+                    layerName: layerNames[p.layer],
+                  }))}
+                  label={search.label}
+                  empty={search.empty}
+                />
                 <ErrorBoundary fallback={<LoginLink lang={lang} />}>
                   <Suspense fallback={<LoginLink lang={lang} />}>
                     <AccountStatus lang={lang} />

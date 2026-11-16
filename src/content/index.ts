@@ -20,19 +20,27 @@ export type Season = "spring" | "summer" | "autumn" | "winter";
 
 export interface Photo {
   src: string;
+  temporary?: boolean; // a stand-in until the real photo arrives
   width: number;
   height: number;
   alt: Localized;
 }
 
-interface PointBase {
+/** One shape for all three layers; the layer decides how `kind` is labelled. */
+export interface Point {
   slug: string;
   code: string;
+  layer: Layer;
   name: Localized;
+  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
+  since?: Localized;
+  season?: Season; // TASTE only
+  hours: Localized;
+  price?: Localized; // PLACE and TASTE
+  address: string;
   hook: Localized;
   story: Localized<string[]>;
   fact: Localized;
-  address: string;
   /** Source-backed geographic location; an area uses a named representative point. */
   mapLocation?: Coordinates & {
     kind: "entrance" | "venue" | "representative";
@@ -41,30 +49,10 @@ interface PointBase {
   };
   /** Derived from mapLocation and the artwork calibration; not authored separately. */
   mapPosition?: { x: number; y: number };
-  hours: Localized;
   nearby: { slug: string; km: number }[];
   images: Photo[];
   audio?: string;
 }
-
-export interface Place extends PointBase {
-  layer: "place";
-  era: Localized;
-  kind: Localized;
-  price: Localized;
-}
-export interface Taste extends PointBase {
-  layer: "taste";
-  since?: number;
-  dish: Localized;
-  price: Localized;
-  season: Season;
-}
-export interface Craft extends PointBase {
-  layer: "craft";
-  craft: Localized;
-}
-export type Point = Place | Taste | Craft;
 
 export interface EventCard {
   title: Localized;
@@ -72,6 +60,17 @@ export interface EventCard {
   endDate?: string; // YYYY-MM-DD
   place: Localized;
   image?: Photo; // absent until the event has a photo
+}
+
+interface JoinAudience {
+  title: Localized;
+  intro: Localized;
+  benefits: Localized<string[]>;
+}
+
+interface Section<T> {
+  title: Localized;
+  items: T[];
 }
 
 export interface Pages {
@@ -93,6 +92,17 @@ export interface Pages {
   home: {
     lead: Localized;
     intro: { title: Localized; body: Localized<string[]> };
+    roles: Localized[];
+  };
+  about: {
+    title: Localized;
+    lede: Localized;
+    unesco: { title: Localized; body: Localized<string[]> };
+    video: { id: string; title: Localized }; // a YouTube video id
+    work: Section<{ title: Localized; body: Localized }>;
+    fields: Section<Localized> & { note: Localized };
+    timeline: Section<{ year: string; body: Localized }>;
+    operators: Section<Localized>;
   };
   explore: { title: Localized; lead: Localized };
   maps: {
@@ -100,6 +110,12 @@ export interface Pages {
     lead: Localized;
     artwork: Photo;
     layers: Record<Layer, Localized>;
+  };
+  join: {
+    title: Localized;
+    lead: Localized;
+    individual: JoinAudience;
+    organization: JoinAudience;
   };
 }
 
@@ -129,10 +145,9 @@ export const points: Point[] = layers.flatMap((layer) =>
 );
 const events = (read("events.yaml") ?? []) as EventCard[];
 const pages = Object.fromEntries(
-  (["site", "home", "explore", "maps"] as const).map((name) => [
-    name,
-    read(`${name}.yaml`),
-  ]),
+  (["site", "home", "about", "explore", "maps", "join"] as const).map(
+    (name) => [name, read(`${name}.yaml`)],
+  ),
 ) as unknown as Pages;
 
 export const mapCalibration = read("map-calibration.yaml") as MapCalibration;

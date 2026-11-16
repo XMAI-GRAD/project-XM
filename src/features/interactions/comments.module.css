@@ -1,0 +1,149 @@
+/* The comment thread: fills its column, and the list scrolls when the thread is long. */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  min-height: 0;
+  padding: clamp(12px, 1.2vw, 18px) var(--pad) clamp(24px, 3vw, 44px);
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  line-height: 1.05;
+}
+.note {
+  margin: 0;
+}
+.login {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 12px 20px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.login:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid var(--navy-500);
+}
+.thread {
+  display: grid;
+  gap: 10px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--navy-500);
+}
+.item {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+.byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+.byline img {
+  border-radius: 999px;
+}
+.body {
+  margin: 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.replies {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0 0 0 14px;
+  list-style: none;
+  border-left: 1px solid var(--navy-500);
+}
+.reply summary {
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+.reply form {
+  margin-top: 10px;
+}
+.delete {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.form {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.field {
+  display: grid;
+  gap: 6px;
+  width: 100%;
+}
+.field textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 10px 12px;
+  border: 1px solid var(--navy-500);
+  background: transparent;
+  resize: vertical;
+}
+.submit {
+  padding: 10px 22px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+  background: var(--sunflower-gold);
+  color: var(--navy-500);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.submit:hover:not(:disabled) {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.status {
+  margin: 0;
+}
+.status:empty {
+  display: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .login,
+  .submit {
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+}

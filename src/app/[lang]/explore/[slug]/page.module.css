@@ -1,0 +1,408 @@
+/* Point detail: a full-width photo hero, an info bar, then the story with comments in its margin. */
+
+/* hero */
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+  min-height: clamp(420px, 68dvh, 760px);
+  padding: var(--pad);
+  color: var(--seashell);
+  overflow: hidden;
+}
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--navy-400);
+}
+.media img {
+  object-fit: cover;
+}
+/* Keeps the name and its line readable over any photo. */
+.media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--navy-500) 92%, transparent) 0%,
+    color-mix(in srgb, var(--navy-500) 62%, transparent) 38%,
+    transparent 72%
+  );
+}
+/* The chip sits above the scrim's reach, clear of the name. */
+.skeleton {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: start center;
+  padding-top: clamp(32px, 3vw, 48px);
+}
+.chip {
+  padding: 6px 10px;
+  background: var(--seashell);
+  color: var(--navy-500);
+}
+
+.heroTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 1vw, 1.25rem);
+  letter-spacing: 0.03em;
+}
+.back:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+.heroText {
+  display: grid;
+  gap: clamp(16px, 1.6vw, 24px);
+}
+.name {
+  max-width: 16ch;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 7.4vw, 8rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+  text-wrap: balance;
+}
+.heroFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+}
+.heroFoot .tag {
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  font-weight: 700;
+}
+.address {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
+}
+.directions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 22px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+  background: var(--sunflower-gold);
+  color: var(--navy-500);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.05rem, 1.15vw, 1.35rem);
+}
+.directions:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.stats {
+  margin-left: auto;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+}
+
+/* info bar */
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  border-bottom: 1px solid var(--navy-500);
+}
+.cell,
+.cellLead {
+  flex: 1 1 13rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(16px, 1.6vw, 24px) var(--pad);
+  border-left: 1px solid var(--navy-500);
+}
+.cellLead {
+  flex: 2 1 20rem;
+  border-left: 0;
+}
+.info dt {
+  font-size: clamp(0.8rem, 0.9vw, 1.05rem);
+}
+.info dd {
+  margin: 0;
+}
+.value {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 1.7vw, 2rem);
+  line-height: 1.15;
+}
+/* Phudu has no lowercase, so times and prices read wrong in it ("7H00"). */
+.line {
+  display: block;
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+.range {
+  white-space: nowrap;
+}
+.note {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 0.95vw, 1.1rem);
+  line-height: 1.3;
+}
+.valueLead {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.2vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.seasons {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.seasons li {
+  padding: 4px 12px;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+}
+.seasons .seasonOn {
+  background: var(--sunflower-gold);
+}
+
+/* story, with comments in its margin */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+.main {
+  display: grid;
+  gap: clamp(32px, 4vw, 64px);
+  position: relative;
+  padding: clamp(8px, 1vw, 16px) var(--pad) clamp(48px, 6vw, 96px);
+}
+.sentinel {
+  position: absolute;
+  top: 0;
+  height: 1px;
+}
+/* Takes no space, so nothing shifts when the bar appears. */
+.stickyName {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  height: 0;
+}
+/* Same top padding and type as the comment title, so the two line up. */
+.stickyBar {
+  position: absolute;
+  top: 0;
+  right: calc(var(--pad) * -1);
+  left: calc(var(--pad) * -1);
+  margin: 0;
+  padding: clamp(12px, 1.2vw, 18px) var(--pad);
+  border-bottom: 1px solid var(--navy-500);
+  background: var(--seashell);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  line-height: 1.05;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  opacity: 0;
+  visibility: hidden;
+}
+.listen {
+  display: grid;
+  gap: 8px;
+}
+.listen h2 {
+  margin: 0;
+}
+.listen audio {
+  width: 100%;
+  max-width: 34rem;
+}
+.hook {
+  display: grid;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.75rem, 3.2vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+.story {
+  display: grid;
+  gap: 1em;
+  max-width: 58ch;
+  font-size: clamp(1.1rem, 1.3vw, 1.5rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.story p {
+  margin: 0;
+}
+.fact {
+  display: grid;
+  gap: 12px;
+  padding: clamp(24px, 3vw, 44px);
+  background: var(--frosted-blue);
+}
+.fact p {
+  margin: 0;
+  max-width: 44ch;
+  font-size: clamp(1.25rem, 1.8vw, 2rem);
+  line-height: 1.3;
+  text-wrap: pretty;
+}
+.factTitle,
+.sectionTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2vw, 2.25rem);
+  line-height: 1.05;
+}
+.nearby {
+  display: grid;
+  gap: 16px;
+}
+.nearbyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--navy-500);
+}
+.nearbyList li {
+  border-top: 1px solid var(--navy-500);
+}
+.nearbyLink {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 24px;
+  align-items: center;
+  padding: 10px 0;
+  text-decoration: none;
+}
+.nearbyLink :global(.meta) {
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+}
+.nearbyName {
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 2.6vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.km {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
+}
+.nearbyLink:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+  box-shadow:
+    -12px 0 0 var(--navy-500),
+    12px 0 0 var(--navy-500);
+}
+.aside {
+  border-top: 1px solid var(--navy-500);
+}
+
+@media (min-width: 56rem) {
+  .body {
+    grid-template-columns: minmax(0, 1fr) clamp(340px, 30vw, 480px);
+  }
+  /* Stays beside the story while it scrolls; a long thread scrolls inside. */
+  .aside {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    display: flex;
+    max-height: 100dvh;
+    margin-top: clamp(
+      12px,
+      1.8vw,
+      26px
+    ); /* at rest only: sticking ignores it */
+    border-top: 0;
+  }
+  /* On the story, so the line runs the full height even beside a short thread. */
+  .main {
+    border-right: 1px solid var(--navy-500);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Holds content back until the motion starts, so it doesn't paint first.
+     The zero-length animation shows it anyway if the script never runs. */
+  .page:not([data-arrived])
+    :is([data-reveal], [data-cell], [data-unroll], [data-wipe]) {
+    clip-path: inset(0 0 100% 0);
+    animation: arrival-failsafe 0s 4s forwards;
+  }
+  .back,
+  .directions,
+  .nearbyLink {
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      box-shadow 0.15s;
+  }
+}
+
+@keyframes arrival-failsafe {
+  to {
+    clip-path: none;
+  }
+}
