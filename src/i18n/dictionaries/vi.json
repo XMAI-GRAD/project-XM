@@ -15,17 +15,10 @@
     "switchLanguage": "EN",
     "label": "Điều hướng chính"
   },
-  "search": {
-    "label": "Tìm địa điểm",
-    "empty": "Không có địa điểm nào khớp."
-  },
   "layers": {
     "place": "ĐỊA",
     "taste": "VỊ",
     "craft": "NGHỀ"
-  },
-  "about": {
-    "playVideo": "Xem video"
   },
   "home": {
     "listLabel": "Các điểm của Mạch nối ngàn năm",
@@ -61,10 +54,140 @@
     "tabsLabel": "Các lớp của Mạch nối ngàn năm",
     "viewDetail": "Xem chi tiết"
   },
+  "maps": {
+    "browse": "Khám phá địa điểm",
+    "directions": "Lộ trình đi bộ",
+    "mapMode": "Chế độ bản đồ",
+    "directionsIntro": "Nối hai địa điểm trên bản đồ Hà Nội.",
+    "from": "Điểm bắt đầu",
+    "to": "Điểm đến",
+    "choosePlace": "Chọn địa điểm",
+    "chooseEndpoints": "Chọn hai địa điểm hoặc mở một lộ trình có sẵn bên dưới.",
+    "samePlace": "Chọn điểm đến khác để xem lộ trình.",
+    "routeUnavailable": "Chưa có lộ trình đi bộ được lưu theo chiều này. Hãy chọn một lộ trình có sẵn bên dưới.",
+    "swap": "Đổi điểm đầu và điểm đến",
+    "clearRoute": "Xóa lộ trình",
+    "fitRoute": "Xem toàn bộ lộ trình",
+    "walking": "Đi bộ · lộ trình đã lưu",
+    "minutes": "phút",
+    "hours": "giờ",
+    "savedRoutes": "Lộ trình có sẵn",
+    "savedRoutesHint": "Các lộ trình đã lưu chỉ có theo chiều hiển thị.",
+    "routeNotice": "Lộ trình và thời gian đi bộ mang tính tham khảo. Kiểm tra lối vào, chỗ qua đường và giờ mở cửa trước khi đi.",
+    "routeDetails": "Lối vào và nguồn dữ liệu",
+    "endpointNote": "A và B đánh dấu hai đầu đường đi đã lưu. Lối vào địa điểm có thể cách đó một đoạn ngắn; bản vẽ có thể không thể hiện các lối nhỏ.",
+    "savedOn": "Ngày lưu lộ trình:",
+    "routeSource": "Nguồn: FOSSGIS / OSRM",
+    "directionsTo": "Lộ trình đến đây",
+    "showNames": "Tên đường & địa danh",
+    "contextHint": "Một số tên đường hiện khi phóng to khu vực trung tâm.",
+    "panLeft": "Dịch sang trái",
+    "panRight": "Dịch sang phải",
+    "panUp": "Dịch lên trên",
+    "panDown": "Dịch xuống dưới",
+    "fixMap": "Góp ý dữ liệu bản đồ",
+    "preview": "Xem trước bố cục",
+    "search": "Tìm địa điểm",
+    "searchPlaceholder": "Bạn muốn khám phá đâu?",
+    "layers": "Ba lớp khám phá",
+    "places": "Danh sách địa điểm",
+    "canvas": "Bản đồ Hà Nội",
+    "sampleCard": "Xem trước địa điểm",
+    "viewDetails": "Khám phá địa điểm",
+    "controls": "Điều khiển bản đồ",
+    "zoomIn": "Phóng to",
+    "zoomOut": "Thu nhỏ",
+    "resetView": "Xem toàn bộ bản đồ",
+    "searchHint": "Tìm trong lớp đang chọn · theo tên, địa chỉ hoặc mã",
+    "clearSearch": "Xóa tìm kiếm",
+    "noResults": "Không có địa điểm phù hợp trong lớp này. Thử từ khóa khác hoặc đổi lớp.",
+    "closeCard": "Đóng thông tin địa điểm",
+    "selectedPlace": "Đang khám phá",
+    "approximatePositions": "Vị trí tham khảo",
+    "referenceData": "Dữ liệu đối chiếu: © OpenStreetMap",
+    "positionUnavailable": "Địa điểm này chưa được đánh dấu trên bản đồ.",
+    "loading": "Đang tải bản đồ…",
+    "loadError": "Không tải được bản đồ. Bạn vẫn có thể xem danh sách địa điểm.",
+    "retry": "Thử lại",
+    "showOnMap": "Xem địa điểm này trên bản đồ",
+    "imageUnavailable": "Chưa tải được ảnh địa điểm.",
+    "gestureHint": "Kéo để khám phá · chụm hai ngón hoặc dùng + / − để thu phóng",
+    "keyboardHelp": "Kéo để di chuyển, chụm hai ngón để thu phóng. Dùng Tab để chọn bản đồ, phím mũi tên để di chuyển, dấu cộng hoặc trừ để thu phóng. Chọn ghim bằng Enter hoặc phím cách. Nhấn Escape để đóng thông tin địa điểm."
+  },
+  "about": {
+    "playVideo": "Xem video"
+  },
   "events": {
     "title": "Sự kiện",
     "empty": "Chưa có sự kiện nào.",
     "seeAll": "Xem tất cả sự kiện"
+  },
+  "comments": {
+    "title": "Bình luận",
+    "loading": "Đang tải bình luận…",
+    "loadError": "Không tải được bình luận. Vui lòng thử lại sau.",
+    "empty": "Chưa có bình luận nào.",
+    "label": "Bình luận của bạn",
+    "submit": "Gửi",
+    "delete": "Xoá",
+    "login": "Đăng nhập để bình luận",
+    "anonymous": "Ẩn danh",
+    "reply": "Trả lời",
+    "replyLabel": "Câu trả lời của bạn"
+  },
+  "stats": {
+    "favorites": "lượt thích",
+    "comments": "bình luận"
+  },
+  "account": {
+    "title": "Tài khoản",
+    "displayName": "Tên hiển thị",
+    "save": "Lưu",
+    "saved": "Đã lưu.",
+    "signOut": "Đăng xuất",
+    "favorites": "Điểm yêu thích",
+    "noFavorites": "Chưa có điểm yêu thích.",
+    "noName": "Chưa có tên hiển thị",
+    "nameHint": "Hiện ở thanh trên cùng và cạnh bình luận của bạn. Tối đa 50 ký tự.",
+    "editName": "Sửa tên",
+    "cancel": "Hủy",
+    "savedCount": "{n} / {total} điểm trên tuyến",
+    "unsave": "Bỏ lưu",
+    "resave": "Lưu lại",
+    "removed": "Đã bỏ lưu",
+    "noFavoritesHint": "Bấm nút trái tim trên trang một điểm để lưu điểm đó vào đây."
+  },
+  "login": {
+    "title": "Đăng nhập",
+    "continueWithGoogle": "Tiếp tục với Google",
+    "error": "Đăng nhập không thành công. Vui lòng thử lại.",
+    "lead": "Đăng nhập để lưu điểm yêu thích và bình luận. Xem nội dung không cần tài khoản.",
+    "note": "<Ghi chú quyền riêng tư>",
+    "back": "Về trang chủ",
+    "pointsLabel": "Các điểm trên tuyến"
+  },
+  "footer": {
+    "label": "Chân trang",
+    "contact": "Liên hệ",
+    "hours": "Mở cửa",
+    "phone": "Điện thoại",
+    "email": "Email"
+  },
+  "errors": {
+    "unauthenticated": "Bạn cần đăng nhập.",
+    "invalid_input": "Dữ liệu không hợp lệ.",
+    "not_found": "Không tìm thấy.",
+    "rate_limited": "Bạn thao tác quá nhanh, thử lại sau ít giây.",
+    "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại."
+  },
+  "notFound": {
+    "title": "Không tìm thấy trang",
+    "body": "Trang bạn tìm không tồn tại.",
+    "backHome": "Về trang chủ"
+  },
+  "search": {
+    "label": "Tìm địa điểm",
+    "empty": "Không có địa điểm nào khớp."
   },
   "join": {
     "as": "Đăng ký với tư cách",
@@ -98,68 +221,5 @@
     "sentBody": "Cảm ơn {name}. Chúng tôi sẽ gửi quy trình tham gia và các bước tiếp theo tới {email} trong vài ngày tới.",
     "emailHint": "Email có dạng ten@vidu.com",
     "benefits": "Quyền lợi"
-  },
-  "comments": {
-    "title": "Bình luận",
-    "loading": "Đang tải bình luận…",
-    "loadError": "Không tải được bình luận. Vui lòng thử lại sau.",
-    "empty": "Chưa có bình luận nào.",
-    "label": "Bình luận của bạn",
-    "submit": "Gửi",
-    "delete": "Xoá",
-    "login": "Đăng nhập để bình luận",
-    "anonymous": "Ẩn danh",
-    "reply": "Trả lời",
-    "replyLabel": "Câu trả lời của bạn"
-  },
-  "stats": {
-    "favorites": "lượt thích",
-    "comments": "bình luận"
-  },
-  "account": {
-    "title": "Tài khoản",
-    "displayName": "Tên hiển thị",
-    "noName": "Chưa có tên hiển thị",
-    "nameHint": "Hiện ở thanh trên cùng và cạnh bình luận của bạn. Tối đa 50 ký tự.",
-    "editName": "Sửa tên",
-    "save": "Lưu",
-    "cancel": "Hủy",
-    "saved": "Đã lưu.",
-    "signOut": "Đăng xuất",
-    "favorites": "Điểm yêu thích",
-    "savedCount": "{n} / {total} điểm trên tuyến",
-    "unsave": "Bỏ lưu",
-    "resave": "Lưu lại",
-    "removed": "Đã bỏ lưu",
-    "noFavorites": "Chưa có điểm yêu thích.",
-    "noFavoritesHint": "Bấm nút trái tim trên trang một điểm để lưu điểm đó vào đây."
-  },
-  "login": {
-    "title": "Đăng nhập",
-    "continueWithGoogle": "Tiếp tục với Google",
-    "error": "Đăng nhập không thành công. Vui lòng thử lại.",
-    "lead": "Đăng nhập để lưu điểm yêu thích và bình luận. Xem nội dung không cần tài khoản.",
-    "note": "<Ghi chú quyền riêng tư>",
-    "back": "Về trang chủ",
-    "pointsLabel": "Các điểm trên tuyến"
-  },
-  "footer": {
-    "label": "Chân trang",
-    "contact": "Liên hệ",
-    "hours": "Mở cửa",
-    "phone": "Điện thoại",
-    "email": "Email"
-  },
-  "errors": {
-    "unauthenticated": "Bạn cần đăng nhập.",
-    "invalid_input": "Dữ liệu không hợp lệ.",
-    "not_found": "Không tìm thấy.",
-    "rate_limited": "Bạn thao tác quá nhanh, thử lại sau ít giây.",
-    "unknown": "Đã có lỗi xảy ra. Vui lòng thử lại."
-  },
-  "notFound": {
-    "title": "Không tìm thấy trang",
-    "body": "Trang bạn tìm không tồn tại.",
-    "backHome": "Về trang chủ"
   }
 }

@@ -15,17 +15,10 @@
     "switchLanguage": "VI",
     "label": "Main"
   },
-  "search": {
-    "label": "Search places",
-    "empty": "No places match."
-  },
   "layers": {
     "place": "PLACE",
     "taste": "TASTE",
     "craft": "CRAFT"
-  },
-  "about": {
-    "playVideo": "Play video"
   },
   "home": {
     "listLabel": "Points of A thousand years of connections",
@@ -61,10 +54,140 @@
     "tabsLabel": "Layers of the program",
     "viewDetail": "View detail"
   },
+  "maps": {
+    "browse": "Explore places",
+    "directions": "Walking routes",
+    "mapMode": "Map view",
+    "directionsIntro": "Connect two places on the Hanoi drawing.",
+    "from": "Starting place",
+    "to": "Destination",
+    "choosePlace": "Choose a place",
+    "chooseEndpoints": "Choose two places or open a saved route below.",
+    "samePlace": "Choose a different destination to see a route.",
+    "routeUnavailable": "No saved walking route for this direction yet. Choose one of the available routes below.",
+    "swap": "Swap start and destination",
+    "clearRoute": "Clear route",
+    "fitRoute": "Show entire route",
+    "walking": "Walking · saved route",
+    "minutes": "min",
+    "hours": "hr",
+    "savedRoutes": "Available routes",
+    "savedRoutesHint": "Saved routes are available in the direction shown.",
+    "routeNotice": "Approximate walking route and time. Check local access, crossings and opening hours before setting out.",
+    "routeDetails": "Access and source details",
+    "endpointNote": "A and B mark the ends of the saved path. Venue entrances can be a short distance away; the drawing may omit small paths.",
+    "savedOn": "Route saved on",
+    "routeSource": "Source: FOSSGIS / OSRM",
+    "directionsTo": "Route to this place",
+    "showNames": "Roads & landmarks",
+    "contextHint": "Selected names appear as you zoom into the central area.",
+    "panLeft": "Pan left",
+    "panRight": "Pan right",
+    "panUp": "Pan up",
+    "panDown": "Pan down",
+    "fixMap": "Improve map data",
+    "preview": "Layout preview",
+    "search": "Search places",
+    "searchPlaceholder": "Where would you like to explore?",
+    "layers": "Three layers to explore",
+    "places": "Places to explore",
+    "canvas": "Hanoi map",
+    "sampleCard": "Place preview",
+    "viewDetails": "Explore this place",
+    "controls": "Map controls",
+    "zoomIn": "Zoom in",
+    "zoomOut": "Zoom out",
+    "resetView": "Show the whole map",
+    "searchHint": "Search this layer · by name, address, or code",
+    "clearSearch": "Clear search",
+    "noResults": "No matching places in this layer. Try another search or switch layers.",
+    "closeCard": "Close place details",
+    "selectedPlace": "Exploring",
+    "approximatePositions": "Approximate locations",
+    "referenceData": "Reference data: © OpenStreetMap",
+    "positionUnavailable": "This place has not been marked on the map yet.",
+    "loading": "Loading the map…",
+    "loadError": "The map could not load. You can still explore the places list.",
+    "retry": "Try again",
+    "showOnMap": "Show this place on the map",
+    "imageUnavailable": "Place image unavailable.",
+    "gestureHint": "Drag to explore · pinch or use + / − to zoom",
+    "keyboardHelp": "Drag to move and pinch to zoom. Tab to the map, then use arrow keys to pan and plus or minus to zoom. Select a pin with Enter or Space. Press Escape to close place details."
+  },
+  "about": {
+    "playVideo": "Play video"
+  },
   "events": {
     "title": "Events",
     "empty": "No events yet.",
     "seeAll": "See all events"
+  },
+  "comments": {
+    "title": "Comments",
+    "loading": "Loading comments…",
+    "loadError": "Comments couldn’t load. Please try again later.",
+    "empty": "No comments yet.",
+    "label": "Your comment",
+    "submit": "Post",
+    "delete": "Delete",
+    "login": "Log in to comment",
+    "anonymous": "Anonymous",
+    "reply": "Reply",
+    "replyLabel": "Your reply"
+  },
+  "stats": {
+    "favorites": "favorites",
+    "comments": "comments"
+  },
+  "account": {
+    "title": "Account",
+    "displayName": "Display name",
+    "save": "Save",
+    "saved": "Saved.",
+    "signOut": "Sign out",
+    "favorites": "Saved points",
+    "noFavorites": "No saved points yet.",
+    "noName": "No display name yet",
+    "nameHint": "Shown in the top bar and next to your comments. Up to 50 characters.",
+    "editName": "Edit name",
+    "cancel": "Cancel",
+    "savedCount": "{n} of {total} points on the route",
+    "unsave": "Remove",
+    "resave": "Save again",
+    "removed": "Removed",
+    "noFavoritesHint": "Press the heart on any point's page to keep it here."
+  },
+  "login": {
+    "title": "Log in",
+    "continueWithGoogle": "Continue with Google",
+    "error": "Sign-in failed. Please try again.",
+    "lead": "Sign in to save points and leave comments. Browsing needs no account.",
+    "note": "<Privacy note>",
+    "back": "Back to home",
+    "pointsLabel": "Points on the route"
+  },
+  "footer": {
+    "label": "Footer",
+    "contact": "Contact",
+    "hours": "Opening hours",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "errors": {
+    "unauthenticated": "You need to log in.",
+    "invalid_input": "That input is not valid.",
+    "not_found": "Not found.",
+    "rate_limited": "Too fast. Try again in a few seconds.",
+    "unknown": "Something went wrong. Please try again."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "The page you are looking for does not exist.",
+    "backHome": "Back to home"
+  },
+  "search": {
+    "label": "Search places",
+    "empty": "No places match."
   },
   "join": {
     "as": "Join as",
@@ -98,68 +221,5 @@
     "sentBody": "Thank you, {name}. We'll email the joining process and next steps to {email} in the next few days.",
     "emailHint": "An email looks like name@example.com",
     "benefits": "What you get"
-  },
-  "comments": {
-    "title": "Comments",
-    "loading": "Loading comments…",
-    "loadError": "Comments couldn’t load. Please try again later.",
-    "empty": "No comments yet.",
-    "label": "Your comment",
-    "submit": "Post",
-    "delete": "Delete",
-    "login": "Log in to comment",
-    "anonymous": "Anonymous",
-    "reply": "Reply",
-    "replyLabel": "Your reply"
-  },
-  "stats": {
-    "favorites": "favorites",
-    "comments": "comments"
-  },
-  "account": {
-    "title": "Account",
-    "displayName": "Display name",
-    "noName": "No display name yet",
-    "nameHint": "Shown in the top bar and next to your comments. Up to 50 characters.",
-    "editName": "Edit name",
-    "save": "Save",
-    "cancel": "Cancel",
-    "saved": "Saved.",
-    "signOut": "Sign out",
-    "favorites": "Saved points",
-    "savedCount": "{n} of {total} points on the route",
-    "unsave": "Remove",
-    "resave": "Save again",
-    "removed": "Removed",
-    "noFavorites": "No saved points yet.",
-    "noFavoritesHint": "Press the heart on any point's page to keep it here."
-  },
-  "login": {
-    "title": "Log in",
-    "continueWithGoogle": "Continue with Google",
-    "error": "Sign-in failed. Please try again.",
-    "lead": "Sign in to save points and leave comments. Browsing needs no account.",
-    "note": "<Privacy note>",
-    "back": "Back to home",
-    "pointsLabel": "Points on the route"
-  },
-  "footer": {
-    "label": "Footer",
-    "contact": "Contact",
-    "hours": "Opening hours",
-    "phone": "Phone",
-    "email": "Email"
-  },
-  "errors": {
-    "unauthenticated": "You need to log in.",
-    "invalid_input": "That input is not valid.",
-    "not_found": "Not found.",
-    "rate_limited": "Too fast. Try again in a few seconds.",
-    "unknown": "Something went wrong. Please try again."
-  },
-  "notFound": {
-    "title": "Page not found",
-    "body": "The page you are looking for does not exist.",
-    "backHome": "Back to home"
   }
 }

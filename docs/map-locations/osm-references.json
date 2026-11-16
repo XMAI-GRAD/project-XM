@@ -1,0 +1,191 @@
+{
+  "researchedOn": "2026-11-08",
+  "copyright": "OpenStreetMap contributors, ODbL",
+  "license": "https://www.openstreetmap.org/copyright",
+  "method": "Direct node coordinates; way bounding-box centres from Overpass out center. Not a doorway survey.",
+  "extracts": [
+    {
+      "timestamp": "2026-11-08T15:43:05Z",
+      "elements": [
+        {
+          "type": "node",
+          "id": 5725274622,
+          "lat": 20.9803574,
+          "lon": 105.7756187,
+          "tags": {
+            "name": "Vạn Phúc",
+            "place": "neighbourhood",
+            "source": "Hanoï. Echelle 1/50 000e. Dressé, héliogravé et publié par le Service géographique de l'Indochine, d'après la carte au 25 000e."
+          }
+        },
+        {
+          "type": "node",
+          "id": 11491397157,
+          "lat": 21.0356844,
+          "lon": 105.8491519,
+          "tags": {
+            "addr:city": "Hà Nội",
+            "addr:district": "Phường Hoàn Kiếm",
+            "addr:housenumber": "14",
+            "addr:province": "Thành phố Hà Nội",
+            "addr:street": "Phố Chả Cá",
+            "amenity": "restaurant",
+            "cuisine": "fish",
+            "name": "Chả Cá Lã Vọng",
+            "name:en": "Cha Ca La Vong",
+            "source": "survey"
+          }
+        },
+        {
+          "type": "way",
+          "id": 178995262,
+          "center": {
+            "lat": 21.0307296,
+            "lon": 105.8523763
+          },
+          "tags": {
+            "addr:city": "Hà Nội",
+            "addr:country": "VN",
+            "amenity": "place_of_worship",
+            "building": "temple",
+            "height": "12",
+            "name": "Đền Ngọc Sơn",
+            "name:de": "Jadeberg-Tempel",
+            "name:en": "Ngoc Son Temple",
+            "name:es": "Templo Ngoc Son",
+            "name:fr": "Temple Ngoc Son",
+            "name:id": "Kuil Ngoc Son",
+            "name:ja": "玉山祠",
+            "name:ko": "응옥선 사당",
+            "name:ru": "Храм Нефритовой горы",
+            "name:vi": "Đền Ngọc Sơn",
+            "name:zh": "玉山祠",
+            "opening_hours": "Mo-Fr 07:00-18:00",
+            "religion": "vietnamese_folk",
+            "roof:colour": "red",
+            "roof:shape": "pyramidal",
+            "wheelchair": "no",
+            "wikidata": "Q3517494",
+            "wikimedia_commons": "Category:Temple of the Jade Mountain",
+            "wikipedia": "vi:Đền Ngọc Sơn"
+          }
+        },
+        {
+          "type": "way",
+          "id": 701882971,
+          "center": {
+            "lat": 21.0290126,
+            "lon": 105.8508544
+          },
+          "tags": {
+            "addr:housenumber": "75",
+            "addr:street": "Phố Hàng Trống",
+            "amenity": "place_of_worship",
+            "building": "yes",
+            "name": "Đình Nam Hương",
+            "name:id": "Kuil Nam Huong",
+            "name:zh": "南香亭",
+            "religion": "vietnamese_folk"
+          }
+        },
+        {
+          "type": "way",
+          "id": 874082896,
+          "center": {
+            "lat": 21.0430926,
+            "lon": 105.8580294
+          },
+          "tags": {
+            "addr:city": "Hà Nội",
+            "bridge:structure": "truss",
+            "layer": "1",
+            "man_made": "bridge",
+            "material": "steel",
+            "name": "Cầu Long Biên",
+            "name:de": "Long Bien Brücke",
+            "name:en": "Long Biên Bridge",
+            "name:es": "Puente Long Bien",
+            "name:th": "สะพานลองเบียน",
+            "name:vi": "Cầu Long Biên",
+            "start_date": "1902",
+            "wikidata": "Q2670019",
+            "wikimedia_commons": "Category:Long Bien Bridge",
+            "wikipedia": "vi:Cầu Long Biên"
+          }
+        },
+        {
+          "type": "way",
+          "id": 1212230635,
+          "center": {
+            "lat": 21.0382416,
+            "lon": 105.8496735
+          },
+          "tags": {
+            "amenity": "marketplace",
+            "landuse": "retail",
+            "name": "Chợ Đồng Xuân",
+            "name:en": "Dong Xuan Market",
+            "name:es": "Mercado Dong Xuan",
+            "name:fr": "Le marché de Dong Xuan",
+            "name:id": "Pasar Dong Xuan",
+            "name:ja": "ドンスアン市場",
+            "name:ko": "동 쑤언 시장",
+            "name:ms": "Pasar Dong Xuan",
+            "name:th": "ตลาดด่งซวน",
+            "name:tr": "Dong Xuan Pazarı",
+            "name:vi": "Chợ Đồng Xuân",
+            "name:vi-Hani": "𢄂同春",
+            "name:zh": "同春市场",
+            "name:zh-Hans": "同春市场",
+            "name:zh-Hant": "同春市場",
+            "opening_hours": "Mo-Su 06:00-19:00",
+            "wikidata": "Q1094375",
+            "wikipedia": "vi:Chợ Đồng Xuân"
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-11-08T15:45:06Z",
+      "elements": [
+        {
+          "type": "node",
+          "id": 5385333722,
+          "lat": 21.0180243,
+          "lon": 105.8528281,
+          "tags": {
+            "addr:housenumber": "16",
+            "addr:street": "Ngô Thì Nhậm",
+            "amenity": "fast_food",
+            "name": "Quán Chè Mười Sáu",
+            "name:en": "Cafe 16"
+          }
+        },
+        {
+          "type": "node",
+          "id": 7202796990,
+          "lat": 21.0274253,
+          "lon": 105.835421,
+          "tags": {
+            "entrance": "main"
+          }
+        },
+        {
+          "type": "way",
+          "id": 1507523027,
+          "center": {
+            "lat": 21.0348545,
+            "lon": 105.7889664
+          },
+          "tags": {
+            "building": "yes",
+            "historic": "city_gate",
+            "historic:civilization": "modern",
+            "layer": "1",
+            "name": "Làng Cốm Vòng"
+          }
+        }
+      ]
+    }
+  ]
+}

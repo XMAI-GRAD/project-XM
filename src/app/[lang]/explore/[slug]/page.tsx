@@ -123,10 +123,8 @@ export default async function PointPage({
               </svg>
               {point.address}
             </span>
-            <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(point.address)}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href={`/${lang}/maps?to=${encodeURIComponent(point.slug)}`}
               className={s.directions}
             >
               {t.directions}
@@ -143,7 +141,7 @@ export default async function PointPage({
                   strokeWidth="1.5"
                 />
               </svg>
-            </a>
+            </Link>
             <StatCounts
               lang={lang}
               slug={slug}

@@ -57,32 +57,29 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 
 ### Screens
 
-| Screen       | Route                    | Content                                                                                                                                                                                                                                                                               |
-| ------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Home         | `/[lang]`                | Hero (tagline, intro, [Explore the map] · Join). Block 1: intro + three overlapping circles (State · Artists · Public). Block 2: map teaser with the three layers. Block 3: next 3 events. Block 4: join (Individual · Organization).                                                 |
-| About        | `/[lang]/about`          | Title and lede, UNESCO intro and video, three things the Centre does, five fields, timeline (navy band), operators, join CTA                                                                                                                                                          |
-| Explore      | `/[lang]/explore`        | Title and lead, folder tabs ĐỊA · VỊ · NGHỀ over a framed list of rows, empty state                                                                                                                                                                                                   |
-| Point detail | `/[lang]/explore/[slug]` | Photo hero (name, layer, address, directions, counts, favorite), info bar per layer, audio (VI, with the story as text), name line (with the craft, on CRAFT points) pinned once the hero has scrolled away, hook, story, little-known fact, nearby points, comments in a side column |
-| Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                                                                   |
-| Events       | `/[lang]/events`         | Placeholder gallery (below)                                                                                                                                                                                                                                                           |
-| Join         | `/[lang]/join`           | Individual and Organization mock forms (below)                                                                                                                                                                                                                                        |
-| Profile      | `/[lang]/account`        | Login required: avatar, display name (edited in place), saved points as framed figures with a per-card remove (the card stays, faded, with "Save again" until reload), sign out                                                                                                       |
+| Screen       | Route                    | Content                                                                                                                                                                                                                               |
+| ------------ | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Home         | `/[lang]`                | Hero (tagline, intro, [Explore the map] · Join). Block 1: intro + three overlapping circles (State · Artists · Public). Block 2: map teaser with the three layers. Block 3: next 3 events. Block 4: join (Individual · Organization). |
+| About        | `/[lang]/about`          | UNESCO intro, three roles, five fields, timeline, operators                                                                                                                                                                           |
+| Explore      | `/[lang]/explore`        | Tabs PLACE · TASTE · CRAFT, [List view], empty state                                                                                                                                                                                  |
+| Point detail | `/[lang]/explore/[slug]` | Photo, name + code, info bar, audio (VI, with the story as text), hook, story, little-known fact, nearby points, directions, hours & price, favorite button, comments                                                                 |
+| Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                   |
+| Events       | `/[lang]/events`         | Placeholder gallery (below)                                                                                                                                                                                                           |
+| Join         | `/[lang]/join`           | Individual and Organization mock forms (below)                                                                                                                                                                                        |
+| Profile      | `/[lang]/account`        | Login required: display name, favorites list, sign out                                                                                                                                                                                |
 
 Supporting routes:
 
-| Route            | Purpose                                                     |
-| ---------------- | ----------------------------------------------------------- |
-| `/[lang]/login`  | "Continue with Google", beside a slideshow of the 12 points |
-| `/auth/callback` | OAuth return                                                |
-| localized 404    | Unknown paths and slugs                                     |
+| Route            | Purpose                 |
+| ---------------- | ----------------------- |
+| `/[lang]/login`  | "Continue with Google"  |
+| `/auth/callback` | OAuth return            |
+| localized 404    | Unknown paths and slugs |
 
 The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug]` and `/[lang]/proto/*` are removed, with no redirects: the site never launched.
 
 **Explore behavior:**
 
-- **Rows:** a row shows the name and a meta line, with no code. The meta line is the kind alone. Clicking it opens the first story paragraph and a [View detail] link to the point page; one row is open at a time.
-- **Motion:** the first layer's rows unroll one by one, from top to bottom, on arrival. Selecting a tab rolls the current rows up and unrolls the new ones. A row opens and closes with a height tween, and opening one collapses the row already open. On a point page the hero and info bar animate on arrival, and the content below reveals once as it scrolls into view. Under reduced motion everything changes at once.
-- **Point info bar:** PLACE shows year, type, hours and admission; TASTE shows dish, year opened (when known), price range, hours and the best season; CRAFT shows craft and hours. Any field without data is left out. A point without a photo shows a placeholder in the hero.
 - **[Directions]** opens `https://www.google.com/maps/search/?api=1&query=<encoded address>` in a new tab. No API key.
 - **Search (header)** matches point names in the current language, ignoring case and diacritics. Results link to the point detail.
 
@@ -100,7 +97,6 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 - "Field" is a select of the five fields: Design, Architecture, Fine arts, Performing arts, Crafts.
 - Native validation only (`required`, `type="email"`, `maxlength`).
 - **Submit sends nothing:** no Server Action, no DB write, no email, no login. It swaps the form for a "sent" message.
-- Home block 4 links to `/[lang]/join#individual` and `#organization`; the page opens with that form chosen.
 
 ### Flows
 
@@ -138,18 +134,18 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 
 One YAML file per page, plus one file per layer for the points.
 
-| File                     | Holds                                                                           |
-| ------------------------ | ------------------------------------------------------------------------------- |
-| `data/site.yaml`         | Brand name, full name, tagline, motto (long and short), contact block, credits  |
-| `data/home.yaml`         | Home hero and block 1 (intro, the three roles); block 4 reads `join.yaml`       |
-| `data/about.yaml`        | About: lede, intro, video, three things we do, five fields, timeline, operators |
-| `data/explore.yaml`      | Explore title and lead                                                          |
-| `data/maps.yaml`         | Maps title, lead, and the one-line intro per layer (also used by home block 2)  |
-| `data/points/place.yaml` | The 5 PLACE points                                                              |
-| `data/points/taste.yaml` | The 4 TASTE points                                                              |
-| `data/points/craft.yaml` | The 3 CRAFT points                                                              |
-| `data/events.yaml`       | Placeholder events (home block 3 and the events page)                           |
-| `data/join.yaml`         | Join title, lead, and the title and intro of each audience                      |
+| File                     | Holds                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------ |
+| `data/site.yaml`         | Brand name, full name, tagline, motto (long and short), contact block, credits |
+| `data/home.yaml`         | Home hero and blocks 1 and 4                                                   |
+| `data/about.yaml`        | About page                                                                     |
+| `data/explore.yaml`      | Explore title and lead                                                         |
+| `data/maps.yaml`         | Maps title, lead, and the one-line intro per layer (also used by home block 2) |
+| `data/points/place.yaml` | The 5 PLACE points                                                             |
+| `data/points/taste.yaml` | The 4 TASTE points                                                             |
+| `data/points/craft.yaml` | The 3 CRAFT points                                                             |
+| `data/events.yaml`       | Placeholder events (home block 3 and the events page)                          |
+| `data/join.yaml`         | Join intro, audiences, benefits, steps                                         |
 
 - **Content vs UI strings:** copy from the content document goes in YAML. Interface text goes in the dictionaries (Part 3, Languages): nav labels, buttons, form labels, info-bar labels ("What to order", "Price range"…), empty states, aria labels.
 - When the designer changes text or images, they edit YAML and push assets. Logic code doesn't change. Editing on the GitHub web UI → PR → Vercel preview → merge works without installing anything.
@@ -176,28 +172,40 @@ interface Photo {
   width: number;
   height: number;
   alt: Localized;
-  temporary?: boolean; // a stand-in until the real photo; the login slideshow shows the layer fill instead
 }
 
-// One shape for all three layers.
-interface Point {
+interface PointBase {
   slug: string; // kebab-case, no diacritics, e.g. "hoang-thanh-thang-long"
   code: string; // d01…, v01…, n01…; the prefix matches the layer
-  layer: Layer;
   name: Localized;
-  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
-  since?: Localized; // PLACE: era or year · TASTE: year opened, when known
-  season?: Season; // TASTE only
-  hours: Localized; // like 8H00-17H00 or 24/7; " / " separates entries, shown one per line; a line in parentheses is a small note
-  price?: Localized; // PLACE and TASTE; " / " as in hours
-  address: string; // also the [Directions] query
-  hook: Localized; // the opening verse or line; " / " separates verse lines
+  hook: Localized; // the opening verse or line
   story: Localized<string[]>; // paragraphs; also the audio transcript
   fact: Localized; // "Little-known fact"
+  address: string; // also the [Directions] query
+  hours: Localized;
   nearby: { slug: string; km: number }[];
-  images: Photo[]; // the first is the cover; empty until there is a photo
+  images: Photo[]; // the first is the cover
   audio?: string; // "/points/<slug>/audio-vi.mp3"; Vietnamese only
 }
+
+interface Place extends PointBase {
+  layer: "place";
+  era: Localized;
+  kind: Localized;
+  price: Localized;
+}
+interface Taste extends PointBase {
+  layer: "taste";
+  since?: number;
+  dish: Localized;
+  price: Localized;
+  season: Season;
+}
+interface Craft extends PointBase {
+  layer: "craft";
+  craft: Localized;
+}
+type Point = Place | Taste | Craft;
 ```
 
 **Events:**

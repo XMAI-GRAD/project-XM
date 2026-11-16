@@ -1,37 +1,74 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { getPage, getPoints, layers } from "@/content";
+﻿import type { Metadata } from "next";
+import {
+  getPage,
+  getPoints,
+  layers,
+  mapContextLabels,
+  savedMapRoutes,
+} from "@/content";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
+import { MapExplorer, type MapGroup } from "./map-explorer";
+import s from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   const lang = await getLocale();
   return pageMetadata(lang, "/maps", getPage("maps").title[lang]);
 }
 
-// Placeholder: points per layer. The map itself is free-form (SPEC Part 3, Map).
 export default async function MapsPage() {
   const lang = await getLocale();
   const maps = getPage("maps");
-  const { layers: layerNames } = getDictionary(lang);
+  const site = getPage("site");
+  const { maps: ui, layers: layerNames, nav, explore } = getDictionary(lang);
+  const groups: MapGroup[] = layers.map((layer) => ({
+    layer,
+    name: layerNames[layer],
+    intro: maps.layers[layer][lang],
+    points: getPoints(layer).map((point) => {
+      const image = point.images[0];
+      return {
+        slug: point.slug,
+        code: point.code,
+        name: point.name[lang],
+        address: point.address,
+        mapPosition: point.mapPosition,
+        mapNote: point.mapLocation?.label[lang],
+        hook: point.hook[lang],
+        cover: image ? { ...image, alt: image.alt[lang] } : undefined,
+      };
+    }),
+  }));
+
   return (
-    <>
-      <h1>{maps.title[lang]}</h1>
-      <p>{maps.lead[lang]}</p>
-      {layers.map((layer) => (
-        <section key={layer}>
-          <h2>
-            {layerNames[layer]} · {maps.layers[layer][lang]}
-          </h2>
-          <ul>
-            {getPoints(layer).map((p) => (
-              <li key={p.slug}>
-                <Link href={`/${lang}/explore/${p.slug}`}>{p.name[lang]}</Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </>
+    <div className={s.page}>
+      <header className={s.heading}>
+        <div>
+          <p className={`meta ${s.eyebrow}`}>
+            <span className={s.connectionMark} aria-hidden="true">
+              {layers.map((layer) => (
+                <i key={layer} data-layer={layer} />
+              ))}
+            </span>
+            {nav.maps}
+          </p>
+          <h1>{maps.title[lang]}</h1>
+        </div>
+        <p className={s.lead}>{maps.lead[lang]}</p>
+      </header>
+      <MapExplorer
+        lang={lang}
+        groups={groups}
+        artwork={{ ...maps.artwork, alt: maps.artwork.alt[lang] }}
+        brand={site.brand[lang]}
+        ui={ui}
+        emptyLabel={explore.empty}
+        routes={savedMapRoutes}
+        contextLabels={mapContextLabels.map((label) => ({
+          ...label,
+          name: label.name[lang],
+        }))}
+      />
+    </div>
   );
 }

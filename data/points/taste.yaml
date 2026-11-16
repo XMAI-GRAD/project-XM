@@ -1,35 +1,44 @@
 # TASTE · VỊ. From data/place-taste-craft.txt. Hours and prices were marked [GĐ] in that file. `kind` is the dish to order.
 - slug: bun-thang-ba-duc
   code: v01
+  mapLocation:
+    latitude: 21.0323458
+    longitude: 105.852837
+    kind: venue
+    source: https://maps.app.goo.gl/gybVwccQ2BEVsKDUA
+    label:
+      vi: Ghim tại quán Bún thang Bà Đức
+      en: Pin at Bún thang Bà Đức restaurant
   name:
     vi: Bún thang Bà Đức
-    en: EN placeholder
+    en: ""
   kind:
     vi: Bún thang
-    en: EN placeholder
+    en: Bun thang — Hanoi noodle soup
   season: spring
   hours:
     vi: 7H00-14H00 / (các ngày trong tuần)
-    en: EN placeholder
+    en: ""
   price:
     vi: 50.000–70.000 đ
-    en: EN placeholder
+    en: ""
   address: 48 Cầu Gỗ
   hook:
-    vi: "Mâm cỗ Tết vừa tan, bát bún thang mới bắt đầu."
-    en: EN placeholder
+    vi: Mâm cỗ Tết vừa tan, bát bún thang mới bắt đầu.
+    en: ""
   story:
     vi:
-      - "Bún thang là món của những ngày sau Tết. Khi mâm cỗ đã vãn, người Hà Nội gom những thứ còn lại — giò lụa, thịt gà, trứng tráng, tôm khô — thái chỉ rồi bày lên bát bún, chan nước dùng trong veo."
-      - "Một bát đầy đủ cần hơn hai mươi nguyên liệu, và gần như thứ gì cũng phải thái nhỏ như sợi chỉ, xếp thành từng ô màu riêng trên mặt bát. Món sinh ra từ việc tiếc của, nhưng lại thành món cầu kỳ bậc nhất của bếp Hà Nội."
-    en:
-      - EN placeholder
+      - Bún thang là món của những ngày sau Tết. Khi mâm cỗ đã vãn, người Hà Nội gom những thứ còn lại — giò lụa, thịt gà, trứng tráng, tôm khô — thái chỉ rồi bày lên bát bún, chan nước dùng trong veo.
+      - Một bát đầy đủ cần hơn hai mươi nguyên liệu, và gần như thứ gì cũng phải thái nhỏ như sợi chỉ, xếp thành từng ô màu riêng trên mặt bát. Món sinh ra từ việc tiếc của, nhưng lại thành món cầu kỳ bậc nhất của bếp Hà Nội.
+    en: []
   fact:
-    vi: "Nước dùng bún thang phải trong đến mức nhìn thấy đáy bát. Chỉ một chút váng mỡ là người sành ăn biết ngay nồi nước chưa đạt."
-    en: EN placeholder
+    vi: Nước dùng bún thang phải trong đến mức nhìn thấy đáy bát. Chỉ một chút váng mỡ là người sành ăn biết ngay nồi nước chưa đạt.
+    en: ""
   nearby:
-    - { slug: ho-hoan-kiem, km: 0.2 }
-    - { slug: cha-ca-la-vong, km: 0.4 }
+    - slug: ho-hoan-kiem-den-ngoc-son
+      km: 0.2
+    - slug: cha-ca-la-vong
+      km: 0.4
   images:
     - src: /points/bun-thang-ba-duc/cover.png
       temporary: true
@@ -37,104 +46,126 @@
       height: 1600
       alt:
         vi: Ảnh tạm cho Bún thang Bà Đức
-        en: EN placeholder
-
+        en: ""
 - slug: che-muoi-sau
   code: v02
+  mapLocation:
+    latitude: 21.0180243
+    longitude: 105.8528281
+    kind: venue
+    source: https://www.openstreetmap.org/node/5385333722
+    label:
+      vi: Ghim tại quán Chè Mười Sáu, 16 Ngô Thì Nhậm
+      en: Pin at Chè Mười Sáu, 16 Ngô Thì Nhậm
   name:
     vi: Chè Mười Sáu
-    en: EN placeholder
+    en: ""
   kind:
     vi: Chè sen long nhãn
-    en: EN placeholder
+    en: Lotus seed and longan sweet soup
   season: summer
   hours:
     vi: 9H00-22H00 / (các ngày trong tuần)
-    en: EN placeholder
+    en: ""
   price:
     vi: 25.000–40.000 đ
-    en: EN placeholder
+    en: ""
   address: 16 Ngô Thì Nhậm
   hook:
-    vi: "Mịt mù khói tỏa ngàn sương, / Nhịp chày Yên Thái, mặt gương Tây Hồ."
-    en: EN placeholder
+    vi: Mịt mù khói tỏa ngàn sương, / Nhịp chày Yên Thái, mặt gương Tây Hồ.
+    en: ""
   story:
     vi:
-      - "Sen Hồ Tây chỉ nở vào mùa hạ, và chè sen long nhãn là cách người Hà Nội giữ lại mùa ấy trong một bát nhỏ."
-      - "Hạt sen tươi bóc vỏ, lẩy sạch tâm cho hết vị đắng, hấp vừa chín tới để không nát. Long nhãn tách hạt nhưng giữ nguyên hình. Rồi từng hạt sen được lồng vào trong quả nhãn — việc làm hoàn toàn bằng tay, không máy nào thay được. Nước đường thả vài cánh nhài, để nguội, ăn lạnh."
-    en:
-      - EN placeholder
+      - Sen Hồ Tây chỉ nở vào mùa hạ, và chè sen long nhãn là cách người Hà Nội giữ lại mùa ấy trong một bát nhỏ.
+      - Hạt sen tươi bóc vỏ, lẩy sạch tâm cho hết vị đắng, hấp vừa chín tới để không nát. Long nhãn tách hạt nhưng giữ nguyên hình. Rồi từng hạt sen được lồng vào trong quả nhãn — việc làm hoàn toàn bằng tay, không máy nào thay được. Nước đường thả vài cánh nhài, để nguội, ăn lạnh.
+    en: []
   fact:
-    vi: "Một mẻ chè sen long nhãn chuẩn mất gần nửa ngày chuẩn bị, phần lớn thời gian chỉ để lồng sen vào nhãn từng quả một."
-    en: EN placeholder
+    vi: Một mẻ chè sen long nhãn chuẩn mất gần nửa ngày chuẩn bị, phần lớn thời gian chỉ để lồng sen vào nhãn từng quả một.
+    en: ""
   nearby:
-    - { slug: ho-hoan-kiem, km: 1.2 }
-    - { slug: pho-co, km: 1.5 }
+    - slug: ho-hoan-kiem-den-ngoc-son
+      km: 1.2
+    - slug: pho-co-36-pho-phuong
+      km: 1.5
   images: []
-
 - slug: com-lang-vong
   code: v03
+  mapLocation:
+    latitude: 21.0348545
+    longitude: 105.7889664
+    kind: representative
+    source: https://www.openstreetmap.org/way/1507523027
+    label:
+      vi: Điểm đại diện — Cổng Làng Cốm Vòng; không phải một cửa hàng cụ thể
+      en: Representative point — Làng Cốm Vòng gate; not a specific shop
   name:
     vi: Cốm làng Vòng
-    en: EN placeholder
+    en: Young green rice from Vong village
   kind:
     vi: Cốm tươi gói lá sen
-    en: EN placeholder
+    en: ""
   season: autumn
   hours:
     vi: 7H00-18H00 / (các ngày trong tuần)
-    en: EN placeholder
+    en: ""
   price:
     vi: 30.000–40.000 đ/lạng
-    en: EN placeholder
+    en: ""
   address: Làng Vòng, Dịch Vọng Hậu
   hook:
-    vi: "Cốm Vòng, gạo tám Mễ Trì, / Tương Bần, húng Láng còn gì ngon hơn."
-    en: EN placeholder
+    vi: Cốm Vòng, gạo tám Mễ Trì, / Tương Bần, húng Láng còn gì ngon hơn.
+    en: ""
   story:
     vi:
-      - "Cốm làm từ lúa nếp non, gặt đúng lúc hạt vừa chắc mà vẫn còn sữa. Lúa về được rang trong chảo gang, đảo liên tục bằng tay cho chín đều, rồi giã trong cối — giã nhẹ và giã nhiều lần, mỗi lần lại sàng bỏ vỏ trấu. Hạt cốm cuối cùng mỏng, dẻo, xanh màu lá mạ."
+      - Cốm làm từ lúa nếp non, gặt đúng lúc hạt vừa chắc mà vẫn còn sữa. Lúa về được rang trong chảo gang, đảo liên tục bằng tay cho chín đều, rồi giã trong cối — giã nhẹ và giã nhiều lần, mỗi lần lại sàng bỏ vỏ trấu. Hạt cốm cuối cùng mỏng, dẻo, xanh màu lá mạ.
       - "Cốm gói trong lá sen buộc bằng rơm nếp: lá sen giữ ẩm và cho mùi, rơm giữ dáng gói. Mùa cốm mỗi năm chỉ kéo dài vài tuần."
-    en:
-      - EN placeholder
+    en: []
   fact:
-    vi: "Cốm phải ăn bằng tay, nhón từng nhúm nhỏ. Dùng thìa là cốm vón lại, mất đi độ tơi vốn là thứ người ta tìm ở món này."
-    en: EN placeholder
+    vi: Cốm phải ăn bằng tay, nhón từng nhúm nhỏ. Dùng thìa là cốm vón lại, mất đi độ tơi vốn là thứ người ta tìm ở món này.
+    en: ""
   nearby: []
   images: []
-
 - slug: cha-ca-la-vong
   code: v04
+  mapLocation:
+    latitude: 21.0356844
+    longitude: 105.8491519
+    kind: venue
+    source: https://www.openstreetmap.org/node/11491397157
+    label:
+      vi: Ghim tại quán Chả cá Lã Vọng, 14 phố Chả Cá
+      en: Pin at Chả cá Lã Vọng, 14 Chả Cá Street
   name:
     vi: Chả cá Lã Vọng
-    en: EN placeholder
+    en: ""
   kind:
     vi: Chả cá lăng
-    en: EN placeholder
+    en: Turmeric grilled fish
   since:
     vi: "1871"
-    en: EN placeholder
+    en: "1871"
   season: winter
   hours:
     vi: 10H00-14H00 / 17H00-21H00 / (các ngày trong tuần)
-    en: EN placeholder
+    en: ""
   price:
     vi: 200.000–250.000 đ/suất
-    en: EN placeholder
+    en: ""
   address: 14 phố Chả Cá
   hook:
-    vi: "Một món ăn ngon đến mức con phố phải mang tên nó."
-    en: EN placeholder
+    vi: Một món ăn ngon đến mức con phố phải mang tên nó.
+    en: ""
   story:
     vi:
-      - "Năm 1871, một gia đình họ Đoàn mở hàng chả cá trên phố Hàng Sơn. Món ăn nổi tiếng đến mức người Hà Nội gọi luôn con phố là phố Chả Cá, và cái tên ấy thành tên chính thức cho đến tận bây giờ — con phố duy nhất của Hà Nội mang tên một món ăn."
-      - "Cá lăng ướp nghệ và riềng, nướng trên than rồi mang lên bàn trong chảo mỡ đang sôi, ăn cùng thì là, hành hoa, bún và mắm tôm. Bếp than đặt ngay giữa bàn, nên đây là món của mùa lạnh."
-    en:
-      - EN placeholder
+      - Năm 1871, một gia đình họ Đoàn mở hàng chả cá trên phố Hàng Sơn. Món ăn nổi tiếng đến mức người Hà Nội gọi luôn con phố là phố Chả Cá, và cái tên ấy thành tên chính thức cho đến tận bây giờ — con phố duy nhất của Hà Nội mang tên một món ăn.
+      - Cá lăng ướp nghệ và riềng, nướng trên than rồi mang lên bàn trong chảo mỡ đang sôi, ăn cùng thì là, hành hoa, bún và mắm tôm. Bếp than đặt ngay giữa bàn, nên đây là món của mùa lạnh.
+    en: []
   fact:
-    vi: "Tên quán lấy từ bức tượng ông Lã Vọng ngồi câu cá đặt trong nhà, không phải tên người sáng lập."
-    en: EN placeholder
+    vi: Tên quán lấy từ bức tượng ông Lã Vọng ngồi câu cá đặt trong nhà, không phải tên người sáng lập.
+    en: ""
   nearby:
-    - { slug: pho-co, km: 0.3 }
-    - { slug: hang-trong, km: 0.4 }
+    - slug: pho-co-36-pho-phuong
+      km: 0.3
+    - slug: hang-trong
+      km: 0.4
   images: []

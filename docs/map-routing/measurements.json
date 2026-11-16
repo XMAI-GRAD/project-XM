@@ -1,0 +1,201 @@
+{
+  "reviewedOn": "2026-11-09",
+  "provider": "FOSSGIS OSRM",
+  "mode": "walking",
+  "artwork": {
+    "src": "/maps/hanoi-map.png",
+    "width": 1618,
+    "height": 1020,
+    "sha256": "2ebf7ebdcbf7cc5893fdb1b35ae4696d7b32fa8a8551b805231521f6820f627a"
+  },
+  "samples": [
+    {
+      "id": "central",
+      "fetchedAt": "2026-11-09T13:51:08.393Z",
+      "sourceSha256": "0dddd9c21cb7d7a38661e80e018f24f6eca6b28330ec70c68b130f86251e58d4",
+      "distanceMeters": 968.3,
+      "durationSeconds": 778.4,
+      "endpoints": [
+        {
+          "slug": "hoang-thanh-thang-long",
+          "code": "d01",
+          "name": "Hoàng thành Thăng Long",
+          "latitude": 21.0336597,
+          "longitude": 105.8391421,
+          "kind": "entrance",
+          "source": "https://www.openstreetmap.org/node/6539666886",
+          "label": {
+            "vi": "Ghim tại cổng tham quan 19C Hoàng Diệu",
+            "en": "Pin at the visitor entrance on 19C Hoàng Diệu"
+          },
+          "pixel": { "x": 1059.168115332584, "y": 232.68781776782447 }
+        },
+        {
+          "slug": "van-mieu-quoc-tu-giam",
+          "code": "d02",
+          "name": "Văn Miếu – Quốc Tử Giám",
+          "latitude": 21.0274253,
+          "longitude": 105.835421,
+          "kind": "entrance",
+          "source": "https://www.openstreetmap.org/node/7202796990",
+          "label": {
+            "vi": "Ghim tại cổng chính phía đường Quốc Tử Giám",
+            "en": "Pin at the main entrance on Quốc Tử Giám Street"
+          },
+          "pixel": { "x": 1016.423766501081, "y": 309.71326498814807 }
+        }
+      ],
+      "bounds": {
+        "minX": 1016.4237664370601,
+        "minY": 232.6596125908623,
+        "maxX": 1059.166966730302,
+        "maxY": 309.7169697685005
+      },
+      "outsideVertexCount": 0,
+      "endpointGapsMeters": [0.0349357515671155, 0.03335852406484655],
+      "vertices": 81,
+      "leafletVertices": 81
+    },
+    {
+      "id": "lake",
+      "fetchedAt": "2026-11-09T13:51:32.764Z",
+      "sourceSha256": "75c18b709dabb226f437f08c9894e2dbb7afe4df12c8a129d6b605676f123b0e",
+      "distanceMeters": 314.8,
+      "durationSeconds": 251.9,
+      "endpoints": [
+        {
+          "slug": "bun-thang-ba-duc",
+          "code": "v01",
+          "name": "Bún thang Bà Đức",
+          "latitude": 21.0323458,
+          "longitude": 105.852837,
+          "kind": "venue",
+          "source": "https://maps.app.goo.gl/gybVwccQ2BEVsKDUA",
+          "label": {
+            "vi": "Ghim tại quán Bún thang Bà Đức",
+            "en": "Pin at Bún thang Bà Đức restaurant"
+          },
+          "pixel": { "x": 1216.4765238077098, "y": 248.79060902341195 }
+        },
+        {
+          "slug": "ho-hoan-kiem-den-ngoc-son",
+          "code": "d03",
+          "name": "Hồ Hoàn Kiếm – Đền Ngọc Sơn",
+          "latitude": 21.0307296,
+          "longitude": 105.8523763,
+          "kind": "representative",
+          "source": "https://www.openstreetmap.org/way/178995262",
+          "label": {
+            "vi": "Điểm đại diện cho cụm hồ và đền — Đền Ngọc Sơn",
+            "en": "Representative point for the lake and temple — Ngọc Sơn Temple"
+          },
+          "pixel": { "x": 1211.184273663826, "y": 268.7542015579359 }
+        }
+      ],
+      "bounds": {
+        "minX": 1210.801795857525,
+        "minY": 248.91064371226656,
+        "maxX": 1223.6324721228325,
+        "maxY": 268.5089589969138
+      },
+      "outsideVertexCount": 0,
+      "endpointGapsMeters": [11.46846308269502, 15.01423440304117],
+      "vertices": 47,
+      "leafletVertices": 47
+    },
+    {
+      "id": "outer",
+      "fetchedAt": "2026-11-09T13:51:38.498Z",
+      "sourceSha256": "54a608125424018f24cd2057ed4c5b5232263050b6f07761e25e7ffab6f9333a",
+      "distanceMeters": 9823.8,
+      "durationSeconds": 7877.9,
+      "endpoints": [
+        {
+          "slug": "van-mieu-quoc-tu-giam",
+          "code": "d02",
+          "name": "Văn Miếu – Quốc Tử Giám",
+          "latitude": 21.0274253,
+          "longitude": 105.835421,
+          "kind": "entrance",
+          "source": "https://www.openstreetmap.org/node/7202796990",
+          "label": {
+            "vi": "Ghim tại cổng chính phía đường Quốc Tử Giám",
+            "en": "Pin at the main entrance on Quốc Tử Giám Street"
+          },
+          "pixel": { "x": 1016.423766501081, "y": 309.71326498814807 }
+        },
+        {
+          "slug": "van-phuc",
+          "code": "n03",
+          "name": "Vạn Phúc",
+          "latitude": 20.9803574,
+          "longitude": 105.7756187,
+          "kind": "representative",
+          "source": "https://www.openstreetmap.org/node/5725274622",
+          "label": {
+            "vi": "Điểm đại diện của làng lụa Vạn Phúc; không phải một xưởng cụ thể",
+            "en": "Representative point for Vạn Phúc silk village; not a specific workshop"
+          },
+          "pixel": { "x": 329.4849103814657, "y": 891.4150496574241 }
+        }
+      ],
+      "bounds": {
+        "minX": 327.8227702359023,
+        "minY": 305.5022641132606,
+        "maxX": 1016.4237664370601,
+        "maxY": 894.3831970181261
+      },
+      "outsideVertexCount": 0,
+      "endpointGapsMeters": [0.03335852406484655, 18.32703888615993],
+      "vertices": 479,
+      "leafletVertices": 479
+    },
+    {
+      "id": "bridge",
+      "fetchedAt": "2026-11-09T13:51:43.126Z",
+      "sourceSha256": "bc05440a5a9c88017852746edb539386c3c0f2cc86c7e7088283b3c62d14b5c6",
+      "distanceMeters": 1246.8,
+      "durationSeconds": 999.3,
+      "endpoints": [
+        {
+          "slug": "pho-co-36-pho-phuong",
+          "code": "d04",
+          "name": "Phố cổ 36 phố phường",
+          "latitude": 21.0382416,
+          "longitude": 105.8496735,
+          "kind": "representative",
+          "source": "https://www.openstreetmap.org/way/1212230635",
+          "label": {
+            "vi": "Điểm đại diện của khu phố cổ — Chợ Đồng Xuân",
+            "en": "Representative point for the Old Quarter — Đồng Xuân Market"
+          },
+          "pixel": { "x": 1180.1397264841085, "y": 176.00648419103663 }
+        },
+        {
+          "slug": "cau-long-bien",
+          "code": "d05",
+          "name": "Cầu Long Biên",
+          "latitude": 21.0430926,
+          "longitude": 105.8580294,
+          "kind": "representative",
+          "source": "https://www.openstreetmap.org/way/874082896",
+          "label": {
+            "vi": "Điểm đại diện trên cầu Long Biên; không phải lối lên cầu",
+            "en": "Representative point on Long Biên Bridge; not a bridge entrance"
+          },
+          "pixel": { "x": 1276.1221616870234, "y": 116.01949720740231 }
+        }
+      ],
+      "bounds": {
+        "minX": 1179.3991798293612,
+        "minY": 116.32322551260654,
+        "maxX": 1276.2439150550317,
+        "maxY": 174.14869836574803
+      },
+      "outsideVertexCount": 0,
+      "endpointGapsMeters": [17.124762500145962, 2.9483125455703663],
+      "vertices": 41,
+      "leafletVertices": 41
+    }
+  ]
+}
