@@ -93,6 +93,35 @@ export interface Pages {
     lead: Localized;
     intro: { title: Localized; body: Localized<string[]> };
     roles: Localized[];
+    artwork: Record<string, Photo>;
+    design: {
+      heroTitle: Localized;
+      heroTagline: Localized;
+      connectionsTitle: Localized;
+      introParagraphs: Localized<string[]>;
+      temperature: string;
+      infrastructure: {
+        artwork: string;
+        count: string;
+        label: Localized;
+        tone: "navy" | "gold" | "lime" | "red";
+      }[];
+      thesis: {
+        text: Localized;
+        accent?: Localized;
+        tone?: "blue" | "gold";
+      }[];
+      heritageTitle: Localized;
+      since: Localized;
+      heritageParagraphs: Localized[];
+      heritageStats: {
+        count: string;
+        label: Localized;
+        tone: "cyan" | "gold" | "red" | "mauve";
+      }[];
+      threadsTitle: Localized;
+      threads: Record<Layer, { label: Localized; description: Localized }>;
+    };
   };
   about: {
     title: Localized;
@@ -192,6 +221,8 @@ function validate(): string[] {
   };
 
   for (const [name, page] of Object.entries(pages)) walk(name, page);
+  for (const [name, image] of Object.entries(pages.home.artwork))
+    checkFile(`home.artwork.${name}`, image.src);
   checkFile("maps.artwork", pages.maps.artwork.src);
   const artwork = pages.maps.artwork;
   if (

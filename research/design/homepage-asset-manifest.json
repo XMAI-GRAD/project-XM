@@ -1,0 +1,208 @@
+{
+  "source": "WEB-02.svg",
+  "sourceSha256": "5c6622fd682e1803419d0d19efe73295a9f2504bd529dc2130bdbb43cdaa7e6c",
+  "artboard": [1920, 5400],
+  "assets": {
+    "logo": {
+      "src": "/home/logo.svg",
+      "width": 198.87,
+      "height": 85.83,
+      "sourceBounds": [860.22, 45.73, 198.87, 85.83],
+      "sourceNodes": [758]
+    },
+    "menu-mark": {
+      "src": "/home/menu-mark.svg",
+      "width": 84.3,
+      "height": 84.31,
+      "sourceBounds": [47.82, 361.72, 84.3, 84.31],
+      "sourceNodes": [957]
+    },
+    "frame": {
+      "src": "/home/frame.svg",
+      "width": 1920,
+      "height": 5220,
+      "sourceBounds": [0, 180, 1920, 5220],
+      "sourceNodes": [889, 938]
+    },
+    "search-outline": {
+      "src": "/home/search-outline.svg",
+      "width": 339.97,
+      "height": 47.23,
+      "sourceBounds": [1401.03, 67.06, 339.97, 47.23],
+      "sourceNodes": [80]
+    },
+    "hero-art": {
+      "src": "/home/hero-art.svg",
+      "width": 1560.35,
+      "height": 880.54,
+      "sourceBounds": [179.65, 257.96, 1560.35, 880.54],
+      "sourceNodes": [
+        806, 935, 944, 945, 946, 947, 948, 949, 950, 951, 952, 953, 954, 955,
+        956
+      ]
+    },
+    "hanoi-title": {
+      "src": "/home/hanoi-title.svg",
+      "width": 948.78,
+      "height": 158.7,
+      "sourceBounds": [477.02, 380.52, 948.78, 158.7],
+      "sourceNodes": [
+        967, 968, 969, 970, 971, 972, 973, 974, 975, 976, 1001, 1002
+      ]
+    },
+    "hero-tagline": {
+      "src": "/home/hero-tagline.svg",
+      "width": 491.58,
+      "height": 37.95,
+      "sourceBounds": [933.65, 613.36, 491.58, 37.95],
+      "sourceNodes": [977]
+    },
+    "connections-title": {
+      "src": "/home/connections-title.svg",
+      "width": 1483.31,
+      "height": 78.5,
+      "sourceBounds": [222.93, 1189.28, 1483.31, 78.5],
+      "sourceNodes": [1048, 1174]
+    },
+    "connections-art": {
+      "src": "/home/connections-art.svg",
+      "width": 785.1,
+      "height": 783.97,
+      "sourceBounds": [567.24, 1319.87, 785.1, 783.97],
+      "sourceNodes": [1015]
+    },
+    "join-mark": {
+      "src": "/home/join-mark.svg",
+      "width": 113.58,
+      "height": 56.51,
+      "sourceBounds": [303.42, 1977.72, 113.58, 56.51],
+      "sourceNodes": [634]
+    },
+    "infrastructure-ribbon": {
+      "src": "/home/infrastructure-ribbon.svg",
+      "width": 1560.97,
+      "height": 256.42,
+      "sourceBounds": [179.03, 2160.17, 1560.97, 256.42],
+      "sourceNodes": [79]
+    },
+    "libraries": {
+      "src": "/home/libraries.svg",
+      "width": 133.13,
+      "height": 92.06,
+      "sourceBounds": [375.65, 2199.84, 133.13, 92.06],
+      "sourceNodes": [222]
+    },
+    "universities": {
+      "src": "/home/universities.svg",
+      "width": 133.16,
+      "height": 72.49,
+      "sourceBounds": [705.04, 2219.4, 133.16, 72.49],
+      "sourceNodes": [185]
+    },
+    "theatres": {
+      "src": "/home/theatres.svg",
+      "width": 133.73,
+      "height": 91.531,
+      "sourceBounds": [1062.81, 2200.459, 133.73, 91.531],
+      "sourceNodes": [201]
+    },
+    "cinemas": {
+      "src": "/home/cinemas.svg",
+      "width": 133.18,
+      "height": 73.07,
+      "sourceBounds": [1395.08, 2218, 133.18, 73.07],
+      "sourceNodes": [211]
+    },
+    "roles-art": {
+      "src": "/home/roles-art.svg",
+      "width": 1567.23,
+      "height": 786.911,
+      "sourceBounds": [179.65, 2557.46, 1567.23, 786.911],
+      "sourceNodes": [1078, 1169, 1172, 300, 1202]
+    },
+    "heritage-title": {
+      "src": "/home/heritage-title.svg",
+      "width": 1022.43,
+      "height": 325.7,
+      "sourceBounds": [632.22, 3402.19, 1022.43, 325.7],
+      "sourceNodes": [301]
+    },
+    "wave-mark": {
+      "src": "/home/wave-mark.svg",
+      "width": 328.71,
+      "height": 72.94,
+      "sourceBounds": [180.07, 3399.87, 328.71, 72.94],
+      "sourceNodes": [1173]
+    },
+    "threads-title": {
+      "src": "/home/threads-title.svg",
+      "width": 480.01,
+      "height": 134.6,
+      "sourceBounds": [223.74, 4457.3, 480.01, 134.6],
+      "sourceNodes": [65, 714, 715, 716, 717, 718, 719, 720, 721, 722, 1201]
+    },
+    "place": {
+      "src": "/home/place.svg",
+      "width": 446.73,
+      "height": 282.95,
+      "sourceBounds": [1206.9, 4466.57, 446.73, 282.95],
+      "sourceNodes": [613]
+    },
+    "taste": {
+      "src": "/home/taste.svg",
+      "width": 371.77,
+      "height": 282.95,
+      "sourceBounds": [826.09, 4717.23, 371.77, 282.95],
+      "sourceNodes": [616]
+    },
+    "craft": {
+      "src": "/home/craft.svg",
+      "width": 448.59,
+      "height": 283.89,
+      "sourceBounds": [1206.9, 4967.88, 448.59, 283.89],
+      "sourceNodes": [619]
+    },
+    "map-mark": {
+      "src": "/home/map-mark.svg",
+      "width": 113.64,
+      "height": 77.271,
+      "sourceBounds": [228.12, 4999.89, 113.64, 77.271],
+      "sourceNodes": [629]
+    },
+    "place-connector": {
+      "src": "/home/place-connector.svg",
+      "width": 376.72,
+      "height": 19.89,
+      "sourceBounds": [821.44, 4481, 376.72, 19.89],
+      "sourceNodes": [643]
+    },
+    "taste-connector": {
+      "src": "/home/taste-connector.svg",
+      "width": 381.41,
+      "height": 19.95,
+      "sourceBounds": [1279.73, 4855.66, 381.41, 19.95],
+      "sourceNodes": [645]
+    },
+    "craft-connector": {
+      "src": "/home/craft-connector.svg",
+      "width": 375.22,
+      "height": 19.95,
+      "sourceBounds": [822.31, 5144.82, 375.22, 19.95],
+      "sourceNodes": [644]
+    },
+    "opening-logo": {
+      "src": "/home/opening-logo.svg",
+      "width": 370.737,
+      "height": 274.228,
+      "source": "WEB-01.svg",
+      "sourceBounds": [774.624, 402.881, 370.737, 274.228],
+      "sourceNodes": [6]
+    }
+  },
+  "additionalSources": {
+    "WEB-01.svg": {
+      "sha256": "7ce0d495bff45626f7ba0e278082d18321b486d4700ccc499bfda18fe4c20097",
+      "artboard": [1922.42, 1080]
+    }
+  }
+}

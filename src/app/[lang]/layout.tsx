@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { HeaderSearch } from "@/components/header-search";
+import { SiteFrame } from "@/components/site-frame";
 import { LangSwitch } from "@/components/lang-switch";
 import { getPage, points } from "@/content";
 import { AccountStatus, LoginLink } from "@/features/auth/account-status";
@@ -51,102 +52,106 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   return (
     <html lang={lang} className={`${display.variable} ${body.variable}`}>
       <body>
-        <div className={s.shell}>
-          <aside className={s.rail}>
-            <Link href={`/${lang}`} className={s.logo}>
-              {site.brand[lang]}
-            </Link>
-            <Link href={`/${lang}/explore`} className={s.cta}>
-              <span>{nav.explore}</span>
-              <svg
-                viewBox="0 0 10 16"
-                width="10"
-                height="16"
-                aria-hidden="true"
-              >
-                <path
-                  d="M5 0v14M1 10l4 4 4-4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                />
-              </svg>
-            </Link>
-          </aside>
-
-          <div className={s.content}>
-            <header className={s.topbar}>
-              <p className={`meta ${s.route}`}>
-                <span>{site.brand[lang]}</span>
-                <span className={s.sep} aria-hidden="true" />
-                <span>{site.designation[lang]}</span>
-              </p>
-              <nav className={s.nav} aria-label={nav.label}>
-                <Link href={`/${lang}`}>{nav.home}</Link>
-                {links.map((n) => (
-                  <Link key={n.href} href={n.href}>
-                    {n.label}
-                  </Link>
-                ))}
-                <HeaderSearch
-                  items={points.map((p) => ({
-                    href: `/${lang}/explore/${p.slug}`,
-                    name: p.name[lang],
-                    layer: p.layer,
-                    layerName: layerNames[p.layer],
-                  }))}
-                  label={search.label}
-                  empty={search.empty}
-                />
-                <ErrorBoundary fallback={<LoginLink lang={lang} />}>
-                  <Suspense fallback={<LoginLink lang={lang} />}>
-                    <AccountStatus lang={lang} />
-                  </Suspense>
-                </ErrorBoundary>
-                <LangSwitch
-                  to={other}
-                  label={nav.switchLanguage}
-                  className={s.lang}
-                />
-              </nav>
-            </header>
-
-            <main className={s.main}>{children}</main>
-
-            <footer className={s.footer}>
-              <nav className={s.footNav} aria-label={footer.label}>
-                {links.map((n) => (
-                  <Link key={n.href} href={n.href}>
-                    {n.label}
-                  </Link>
-                ))}
-              </nav>
-              <address className={s.contact}>
-                <p>
-                  <strong>{site.fullName[lang]}</strong>
-                  {contact.address[lang].map((line) => (
-                    <span key={line}>{line}</span>
+        <Suspense fallback={<main>{children}</main>}>
+          <SiteFrame
+            rail={
+              <aside className={s.rail}>
+                <Link href={`/${lang}`} className={s.logo}>
+                  {site.brand[lang]}
+                </Link>
+                <Link href={`/${lang}/explore`} className={s.cta}>
+                  <span>{nav.explore}</span>
+                  <svg
+                    viewBox="0 0 10 16"
+                    width="10"
+                    height="16"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M5 0v14M1 10l4 4 4-4"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                </Link>
+              </aside>
+            }
+            header={
+              <header className={s.topbar}>
+                <p className={`meta ${s.route}`}>
+                  <span>{site.brand[lang]}</span>
+                  <span className={s.sep} aria-hidden="true" />
+                  <span>{site.designation[lang]}</span>
+                </p>
+                <nav className={s.nav} aria-label={nav.label}>
+                  <Link href={`/${lang}`}>{nav.home}</Link>
+                  {links.map((n) => (
+                    <Link key={n.href} href={n.href}>
+                      {n.label}
+                    </Link>
                   ))}
-                </p>
-                <p>
-                  <span className="meta">{footer.hours}</span>
-                  {contact.hours[lang].map((line) => (
-                    <span key={line}>{line}</span>
+                  <HeaderSearch
+                    items={points.map((p) => ({
+                      href: `/${lang}/explore/${p.slug}`,
+                      name: p.name[lang],
+                      layer: p.layer,
+                      layerName: layerNames[p.layer],
+                    }))}
+                    label={search.label}
+                    empty={search.empty}
+                  />
+                  <ErrorBoundary fallback={<LoginLink lang={lang} />}>
+                    <Suspense fallback={<LoginLink lang={lang} />}>
+                      <AccountStatus lang={lang} />
+                    </Suspense>
+                  </ErrorBoundary>
+                  <LangSwitch
+                    to={other}
+                    label={nav.switchLanguage}
+                    className={s.lang}
+                  />
+                </nav>
+              </header>
+            }
+            footer={
+              <footer className={s.footer}>
+                <nav className={s.footNav} aria-label={footer.label}>
+                  {links.map((n) => (
+                    <Link key={n.href} href={n.href}>
+                      {n.label}
+                    </Link>
                   ))}
-                </p>
-                <p>
-                  <span className="meta">{footer.phone}</span>
-                  <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
-                    {contact.phone}
-                  </a>
-                  <span className="meta">{footer.email}</span>
-                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                </p>
-              </address>
-              <p className="meta">{site.credits[lang]}</p>
-            </footer>
-          </div>
-        </div>
+                </nav>
+                <address className={s.contact}>
+                  <p>
+                    <strong>{site.fullName[lang]}</strong>
+                    {contact.address[lang].map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="meta">{footer.hours}</span>
+                    {contact.hours[lang].map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </p>
+                  <p>
+                    <span className="meta">{footer.phone}</span>
+                    <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>
+                      {contact.phone}
+                    </a>
+                    <span className="meta">{footer.email}</span>
+                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                  </p>
+                </address>
+                <p className="meta">{site.credits[lang]}</p>
+              </footer>
+            }
+          >
+            {children}
+          </SiteFrame>
+        </Suspense>
       </body>
     </html>
   );

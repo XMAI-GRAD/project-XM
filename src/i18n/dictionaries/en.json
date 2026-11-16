@@ -25,7 +25,16 @@
     "exploreMap": "Explore the map",
     "joinNetwork": "Join the network",
     "openMap": "Open the full map",
-    "imagePlaceholder": "Photo"
+    "imagePlaceholder": "Photo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content",
+    "sampleTemperature": "Sample temperature from the design, not live weather",
+    "datePlaceholder": "Monday, dd / mm / yy",
+    "mapLink": "Open the map",
+    "infrastructureLabel": "Spaces for culture and knowledge",
+    "heritageLabel": "Heritage and creativity",
+    "enterHomepage": "Enter the Hanoi Creative City homepage"
   },
   "point": {
     "favorite": "Favorite",

@@ -25,7 +25,16 @@
     "exploreMap": "Khám phá bản đồ",
     "joinNetwork": "Tham gia mạng lưới",
     "openMap": "Mở bản đồ đầy đủ",
-    "imagePlaceholder": "Ảnh"
+    "imagePlaceholder": "Ảnh",
+    "openMenu": "Mở trình đơn",
+    "closeMenu": "Đóng trình đơn",
+    "skipToContent": "Đến nội dung chính",
+    "sampleTemperature": "Nhiệt độ minh họa từ thiết kế, không phải thời tiết trực tiếp",
+    "datePlaceholder": "Thứ hai, dd / mm / yy",
+    "mapLink": "Mở bản đồ",
+    "infrastructureLabel": "Không gian văn hóa và tri thức",
+    "heritageLabel": "Di sản và sáng tạo",
+    "enterHomepage": "Vào trang chủ Hanoi Creative City"
   },
   "point": {
     "favorite": "Yêu thích",

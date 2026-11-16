@@ -71,6 +71,8 @@ components:
 
 # Design System: project-xm
 
+> **Homepage update, 16 November 2026:** the owner supplied a new Illustrator design and requested a faithful homepage implementation. For `/vi` and `/en`, use [the source study](research/design/2026-11-16-homepage-source-study.md) and [asset measurements](research/design/homepage-asset-manifest.json). Its lime frame, original vector motifs and additional shades supersede the older homepage presentation below. Other routes retain the existing frame. SPEC reconciliation is deferred under the owner's instruction; SPEC itself remains unchanged.
+
 Colors, ratio and fonts are set in [SPEC.md](SPEC.md) Part 3. This file describes how they are used. When the two disagree, SPEC wins.
 
 ## Overview

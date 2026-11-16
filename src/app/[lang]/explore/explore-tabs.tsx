@@ -2,12 +2,15 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useSearchParams } from "next/navigation";
 import {
   type KeyboardEvent,
   type MouseEvent,
   type ReactNode,
   useRef,
   useState,
+  useId,
+  Suspense,
 } from "react";
 import { flushSync } from "react-dom";
 import type { Layer } from "@/content";
@@ -16,20 +19,38 @@ import s from "./page.module.css";
 
 gsap.registerPlugin(useGSAP);
 
-const tabId = (layer: Layer) => `explore-tab-${layer}`;
-const panelId = (layer: Layer) => `explore-panel-${layer}`;
-const panelOf = (layer: Layer) => document.getElementById(panelId(layer))!;
-
-/** Folder tabs over the layer lists. The first list unrolls on arrival; selecting a tab rolls one list up and unrolls the next. */
-export function ExploreTabs({
-  tabs,
-  label,
-}: {
+interface ExploreTabsProps {
   tabs: { layer: Layer; name: string; content: ReactNode }[];
   label: string;
-}) {
+}
+
+export function ExploreTabs(props: ExploreTabsProps) {
+  return (
+    <Suspense fallback={<LayerTabs {...props} />}>
+      <LinkedTabs {...props} />
+    </Suspense>
+  );
+}
+
+function LinkedTabs(props: ExploreTabsProps) {
+  const query = useSearchParams().get("layer");
+  const initial =
+    props.tabs.find((tab) => tab.layer === query)?.layer ?? props.tabs[0].layer;
+  return <LayerTabs key={initial} {...props} initial={initial} />;
+}
+
+/** Folder tabs over the layer lists. The first list unrolls on arrival; selecting a tab rolls one list up and unrolls the next. */
+function LayerTabs({
+  tabs,
+  label,
+  initial = tabs[0].layer,
+}: ExploreTabsProps & { initial?: Layer }) {
+  const id = useId();
+  const tabId = (layer: Layer) => `${id}-tab-${layer}`;
+  const panelId = (layer: Layer) => `${id}-panel-${layer}`;
+  const panelOf = (layer: Layer) => document.getElementById(panelId(layer))!;
   // `active` is the highlighted tab; `shown` is the list on screen, which waits for the old one to leave.
-  const [active, setActive] = useState(tabs[0].layer);
+  const [active, setActive] = useState(initial);
   const [shown, setShown] = useState(active);
   const root = useRef<HTMLDivElement>(null);
   const target = useRef(active);
@@ -43,7 +64,7 @@ export function ExploreTabs({
   useGSAP(
     () => {
       if (!arrived.current && motionAllowed()) {
-        entering.current = unroll(panelOf(tabs[0].layer)).eventCallback(
+        entering.current = unroll(panelOf(initial)).eventCallback(
           "onComplete",
           () => {
             arrived.current = true;
