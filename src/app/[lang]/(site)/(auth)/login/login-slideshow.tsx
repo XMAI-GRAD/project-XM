@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import { type CSSProperties, useRef, useState } from "react";
-import { motionAllowed } from "@/app/[lang]/explore/explore-motion";
+import { motionAllowed } from "@/app/[lang]/(site)/explore/explore-motion";
 import { crosses } from "@/components/cross";
 import type { Layer } from "@/content";
 import s from "./page.module.css";

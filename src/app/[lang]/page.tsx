@@ -1,173 +1,48 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { Arrow } from "@/components/arrow";
-import { crosses } from "@/components/cross";
-import { EventList } from "@/components/event-list";
-import { getEvents, getPage, layers, points } from "@/content";
-import { getDictionary } from "@/i18n/dictionaries";
+import { SiteFooter } from "@/components/site-footer";
+import { HomeHeader } from "@/features/home/home-header";
+import s from "@/features/home/home.module.css";
+import { Opening } from "@/features/home/opening";
+import {
+  Frame,
+  Heritage,
+  Hero,
+  Layers,
+  Roles,
+  Stats,
+  Thread,
+} from "@/features/home/sections";
 import { getLocale, pageMetadata } from "@/i18n/server";
-import s from "./page.module.css";
 
 export async function generateMetadata(): Promise<Metadata> {
   return pageMetadata(await getLocale(), "");
 }
 
-/** Home on the prototype A wireframe: hero list of points, intro band, map teaser, events. */
+/**
+ * Home: a graphic showcase read as you scroll. The opening slide (WEB-01) runs straight
+ * into the page (WEB-02); both are the designer's comps, laid out in comp units
+ * (src/features/home/home.module.css). Motion comes later.
+ */
 export default async function HomePage() {
   const lang = await getLocale();
-  const { home, layers: layerNames, nav, events } = getDictionary(lang);
-  const site = getPage("site");
-  const { lead, intro, roles } = getPage("home");
-  const join = getPage("join");
-  const maps = getPage("maps");
-
   return (
     <>
-      <section className={s.hero}>
-        <div className={s.heroHead}>
-          <h1 className={s.title}>{site.brand[lang]}</h1>
-          <div className={s.heroText}>
-            <p className={s.tagline}>{site.tagline[lang]}</p>
-            <p>{lead[lang]}</p>
-            <p className={s.actions}>
-              <Link href={`/${lang}/maps`} className={s.primary}>
-                {home.exploreMap}
-                <Arrow />
-              </Link>
-              <Link href={`/${lang}/join`}>{home.joinNetwork}</Link>
-            </p>
-          </div>
+      <div className={s.home}>
+        <Opening />
+        <div className={s.board}>
+          <HomeHeader lang={lang} />
+          <main>
+            <Hero lang={lang} />
+            <Thread lang={lang} />
+            <Stats lang={lang} />
+            <Roles lang={lang} />
+            <Heritage lang={lang} />
+            <Layers lang={lang} />
+          </main>
+          <Frame />
         </div>
-        <ol className={s.list} aria-label={home.listLabel}>
-          {points.map((p) => {
-            const cover = p.images[0];
-            return (
-              <li key={p.slug} className={s.item} data-layer={p.layer}>
-                <Link href={`/${lang}/explore/${p.slug}`} className={s.link}>
-                  <span className={`meta ${s.num}`}>
-                    {p.code.toUpperCase()}
-                  </span>
-                  <span className={s.name}>{p.name[lang]}</span>
-                  <span className={`meta ${s.where}`}>
-                    {layerNames[p.layer]} · {p.address}
-                  </span>
-                  <span className={s.panel} aria-hidden="true">
-                    <span className={s.figure}>
-                      {crosses}
-                      {cover ? (
-                        <Image src={cover.src} alt="" fill sizes="320px" />
-                      ) : (
-                        <span className={s.label}>
-                          {home.imagePlaceholder} · {p.name[lang]}
-                        </span>
-                      )}
-                    </span>
-                    <span className={`meta ${s.cap} ${s.capTop}`}>
-                      <span>{p.code.toUpperCase()}</span>
-                      <span>{layerNames[p.layer]}</span>
-                    </span>
-                    <span className={`meta ${s.cap} ${s.capBottom}`}>
-                      <span>{p.name[lang]}</span>
-                      <span>{p.address}</span>
-                    </span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ol>
-      </section>
-
-      <section className={s.intro}>
-        <p className={`meta ${s.introMeta}`}>{site.designation[lang]}</p>
-        <div className={s.introText}>
-          <h2 className={s.statement}>{intro.title[lang]}</h2>
-          <div className={s.introBody}>
-            {intro.body[lang].map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-          </div>
-        </div>
-        <div className={s.venn}>
-          <ul>
-            {roles.map((role) => (
-              <li key={role.vi}>
-                <span>{role[lang]}</span>
-              </li>
-            ))}
-          </ul>
-          <span className={s.vennCore} aria-hidden="true">
-            {site.brand[lang]}
-          </span>
-        </div>
-      </section>
-
-      <section className={s.mapSection}>
-        <div className={s.card}>
-          {crosses}
-          <div className={s.cardText}>
-            <h2 className={s.teaser}>{maps.title[lang]}</h2>
-            <p>{maps.lead[lang]}</p>
-            <ol className={s.key}>
-              {layers.map((layer) => (
-                <li key={layer} className="meta" data-layer={layer}>
-                  <span className={s.swatch} aria-hidden="true" />
-                  <span className={s.layerName}>{layerNames[layer]}</span>
-                  <span>{maps.layers[layer][lang]}</span>
-                </li>
-              ))}
-            </ol>
-            <Link href={`/${lang}/maps`} className={s.primary}>
-              {home.openMap}
-              <Arrow />
-            </Link>
-          </div>
-          <div className={s.map} aria-hidden="true">
-            {layers.map((layer) => (
-              <span key={layer} className={s.mapLayer} data-layer={layer}>
-                <span className="meta">{layerNames[layer]}</span>
-              </span>
-            ))}
-            <span className={`meta ${s.mapNote}`}>{nav.maps}</span>
-          </div>
-        </div>
-      </section>
-
-      <section className={s.events}>
-        <div className={s.eventsHead}>
-          <h2 className={s.teaser}>{events.title}</h2>
-          <Link href={`/${lang}/events`} className={s.primary}>
-            {events.seeAll}
-            <Arrow />
-          </Link>
-        </div>
-        <EventList
-          events={getEvents().slice(0, 3)}
-          lang={lang}
-          empty={events.empty}
-          imageLabel={home.imagePlaceholder}
-          heading="h3"
-        />
-      </section>
-
-      <section className={s.join}>
-        <div className={s.joinHead}>
-          <h2 className={s.teaser}>{join.title[lang]}</h2>
-          <p>{join.lead[lang]}</p>
-        </div>
-        <ul className={s.joinList}>
-          {(["individual", "organization"] as const).map((key) => (
-            <li key={key} data-audience={key}>
-              <Link href={`/${lang}/join#${key}`} className={s.joinLink}>
-                <span className={s.joinName}>{join[key].title[lang]}</span>
-                <span>{join[key].intro[lang]}</span>
-                <Arrow />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
+      </div>
+      <SiteFooter lang={lang} />
     </>
   );
 }

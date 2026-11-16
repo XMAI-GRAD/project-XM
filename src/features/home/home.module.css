@@ -1,0 +1,571 @@
+/* Home: the designer's comps (WEB-01 opening, WEB-02 page) as one long slide, scaled
+   to the window. Desktop only for now (SPEC Part 1).
+
+   Units. The comp is 1920 wide; 1 comp unit = var(--u), so the page keeps the comp's
+   proportions at any width. Numbers below are comp units, read straight off the comp.
+
+   Placement. A section sets --sy and --sh, its band of the 5400-tall board. Inside, an
+   `.at` element sits at --x, --y (comp coordinates, not section ones) and is --w wide.
+   Text is trimmed to its cap height and baseline (text-box), so a text block's --y is
+   the top of its capitals, as measured in the comp.
+
+   Fonts. Sizes come from the comp's cap heights: Phudu's capitals are 0.703 em,
+   Inter's 0.727 em. */
+
+.home {
+  container-type: inline-size;
+  --u: calc(100cqw / 1920);
+  background: var(--seashell);
+  color: var(--navy-500);
+  overflow-x: clip;
+}
+
+.board {
+  position: relative;
+  isolation: isolate;
+  height: calc(5400 * var(--u));
+}
+
+.section {
+  position: absolute;
+  inset-inline: 0;
+  top: calc(var(--sy) * var(--u));
+  height: calc(var(--sh) * var(--u));
+}
+
+.at {
+  position: absolute;
+  left: calc(var(--x) * var(--u));
+  top: calc((var(--y) - var(--sy, 0)) * var(--u));
+  width: calc(var(--w) * var(--u));
+  margin: 0;
+}
+svg.at,
+.at > svg {
+  display: block;
+  height: auto;
+}
+.at > svg {
+  width: 100%;
+}
+
+/* Text blocks trimmed to cap top and baseline. */
+.text {
+  text-box: cap alphabetic;
+}
+.display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.right {
+  left: auto;
+  right: calc((1920 - var(--r)) * var(--u));
+  width: max-content;
+  text-align: right;
+}
+
+/* A pale hairline across the card at the top of a section, behind the drawings. */
+.rule::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  inset-inline: calc(180 * var(--u));
+  z-index: -1;
+  border-top: 1px solid var(--navy-100);
+}
+
+/* ---------- Opening (WEB-01) ---------- */
+
+.opening {
+  position: relative;
+  height: 100svh;
+  min-height: calc(540 * var(--u));
+  overflow: clip;
+  background: var(--navy-500);
+}
+.wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(371 * var(--u));
+  height: auto;
+  translate: -50% -50%;
+}
+/* The hero's left petal, peeking in at the bottom edge as in the comp. */
+.openingPetal {
+  position: absolute;
+  left: calc(54 * var(--u));
+  bottom: calc((1080 - 1060 - 669) * var(--u));
+  width: calc(302 * var(--u));
+  height: auto;
+}
+
+/* ---------- Frame: the lime border and its mark, above the drawings ---------- */
+
+.frame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  --sy: 0;
+}
+
+/* ---------- Header: weather and date, logo, language, search, nav tab ---------- */
+
+.header {
+  --sy: 0;
+  --sh: 258;
+}
+.weather {
+  --x: 181;
+  --y: 84;
+  --w: 400;
+  font-size: calc(24 * var(--u));
+  line-height: calc(28 * var(--u));
+}
+.weather span {
+  display: block;
+  min-height: 1lh;
+}
+.logo {
+  display: block;
+}
+.logo:focus-visible,
+.mapLink:focus-visible,
+.joinLink:focus-visible {
+  outline-offset: calc(8 * var(--u));
+}
+
+/* VI | EN: the current language filled navy, the other a link. Same height and stroke
+   as the search box beside it. */
+.lang {
+  --x: 1250;
+  --y: 68;
+  --w: 120;
+  display: flex;
+  height: calc(45 * var(--u));
+  border: calc(1.5 * var(--u)) solid var(--navy-400);
+  border-radius: 999px;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(20 * var(--u));
+  letter-spacing: 0.04em;
+}
+.lang > * {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+.lang > [aria-current] {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.lang a {
+  color: var(--navy-400);
+}
+.lang a:hover {
+  background: var(--frosted-blue);
+  color: var(--navy-500);
+}
+.lang a:focus-visible {
+  outline-offset: -3px;
+}
+
+/* The tag-shaped search box: the designer's outline behind the shared search field. */
+.search {
+  height: calc(45 * var(--u));
+}
+.search > svg {
+  position: absolute;
+  inset: 0;
+}
+.searchField.searchField {
+  position: absolute;
+  inset: 0 calc(34 * var(--u));
+  height: auto;
+  padding: 0;
+  gap: calc(12 * var(--u));
+  border: 0;
+  border-radius: 0;
+  color: var(--navy-400);
+  font-size: calc(20 * var(--u));
+}
+.searchField svg {
+  width: calc(20 * var(--u));
+  height: calc(20 * var(--u));
+}
+.searchField input {
+  width: 100%;
+  font-size: inherit;
+}
+
+.tab {
+  position: absolute;
+  top: calc(180 * var(--u));
+  left: calc(180 * var(--u));
+  width: calc(1553 * var(--u));
+  height: calc(78 * var(--u));
+  background: var(--frosted-blue);
+}
+.nav {
+  position: absolute;
+  top: calc(180 * var(--u));
+  left: calc(180 * var(--u));
+  right: calc(198 * var(--u));
+  height: calc(78 * var(--u));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: calc(64 * var(--u));
+}
+.nav a {
+  padding: calc(10 * var(--u)) calc(20 * var(--u));
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(19 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 999px;
+}
+.nav a:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  --sy: 258;
+  --sh: 882;
+}
+.heroTitle {
+  --x: 477;
+  --y: 412;
+  --w: 1100;
+  font-size: calc(111 / 0.703 * var(--u));
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+}
+.tagline {
+  --r: 1426;
+  --y: 623;
+  font-size: calc(25 / 0.703 * var(--u));
+}
+
+/* ---------- Mạch nối ngàn năm ---------- */
+
+.thread {
+  --sy: 1140;
+  --sh: 1020;
+}
+.threadStart {
+  --x: 223;
+  --y: 1209;
+  --w: 400;
+  font-size: calc(51 / 0.703 * var(--u));
+}
+.threadEnd {
+  --r: 1707;
+  --y: 1209;
+  font-size: calc(51 / 0.703 * var(--u));
+}
+.threadBody {
+  --x: 1396;
+  --y: 1646;
+  --w: 320;
+  font-size: calc(24 * var(--u));
+  line-height: calc(28.5 * var(--u));
+}
+.threadBody p {
+  margin: 0;
+}
+.threadBody p + p {
+  margin-top: calc(58.5 * var(--u));
+}
+.joinLink {
+  --x: 250;
+  --y: 1978;
+  --w: 224;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(33 * var(--u));
+  color: var(--navy-400);
+  font-weight: 500;
+  font-size: calc(24 * var(--u));
+  text-decoration: none;
+}
+.joinLink svg {
+  width: calc(114 * var(--u));
+  height: auto;
+}
+.joinLink span {
+  text-box: cap alphabetic;
+  white-space: nowrap;
+}
+.joinLink:hover span,
+.mapLink:hover span {
+  text-decoration: underline;
+}
+
+/* ---------- Stats band ---------- */
+
+.stats {
+  --sy: 2160;
+  --sh: 256;
+}
+.statList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.statValue,
+.statLabel {
+  position: absolute;
+  left: calc(var(--cx) * var(--u));
+  translate: -50% 0;
+  white-space: nowrap;
+  font-weight: 600;
+  text-box: cap alphabetic;
+}
+.statValue {
+  top: calc((2312 - 2160) * var(--u));
+  font-size: calc(33 / 0.727 * var(--u));
+  letter-spacing: -0.01em;
+}
+.statLabel {
+  top: calc((2375 - 2160) * var(--u));
+  font-size: calc(24 * var(--u));
+  text-transform: uppercase;
+}
+
+/* ---------- Roles: Nhà nước · Nghệ sĩ · Công chúng ---------- */
+
+.roles {
+  --sy: 2416;
+  --sh: 824;
+}
+.rolesTitle {
+  --x: 224;
+  --y: 2555;
+  --w: 700;
+  font-size: calc(25 / 0.703 * var(--u));
+  line-height: calc(43.5 * var(--u));
+}
+.roleList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.roleList li {
+  font-size: calc(19 / 0.703 * var(--u));
+  white-space: nowrap;
+}
+.state {
+  --x: 1163;
+  --y: 2668;
+  color: var(--brick-red);
+}
+.artists {
+  --x: 806;
+  --y: 2810;
+  color: var(--sunflower-gold);
+}
+.public {
+  --x: 528;
+  --y: 2930;
+  color: var(--dark-cyan);
+}
+.roleList .state,
+.roleList .artists,
+.roleList .public {
+  width: max-content;
+}
+
+/* ---------- Heritage: Từ 2019 … and four numbers ---------- */
+
+.heritage {
+  --sy: 3240;
+  --sh: 1080;
+}
+.since {
+  --x: 637;
+  --y: 3437;
+  --w: 200;
+  font-size: calc(18 * var(--u));
+}
+.heritageTitle {
+  --x: 632;
+  --y: 3419;
+  --w: 1030;
+  font-size: calc(60 / 0.703 * var(--u));
+  line-height: calc(80 * var(--u));
+  text-indent: calc(195 * var(--u));
+  white-space: nowrap;
+}
+.heritageBody {
+  margin: 0;
+  font-size: calc(18 * var(--u));
+  line-height: calc(21.7 * var(--u));
+}
+.heritageLeft {
+  --x: 824;
+  --y: 3800;
+  --w: 224;
+  text-align: justify;
+}
+.heritageRight {
+  --x: 1430;
+  --y: 3800;
+  --w: 224;
+  text-align: right;
+}
+.numbers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.number {
+  --w: 600;
+  display: flex;
+  flex-direction: column;
+  gap: calc(23 * var(--u));
+}
+.number:nth-child(odd) {
+  --x: 824;
+  align-items: flex-start;
+}
+.number:nth-child(even) {
+  --x: 1055;
+  align-items: flex-end;
+  text-align: right;
+}
+.number:nth-child(-n + 2) {
+  --y: 3939;
+}
+.number:nth-child(n + 3) {
+  --y: 4132;
+}
+.numberValue {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(88 / 0.703 * var(--u));
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-box: cap alphabetic;
+}
+.plus {
+  font-weight: 300;
+}
+.numberLabel {
+  max-width: calc(220 * var(--u));
+  font-weight: 500;
+  font-size: calc(18 * var(--u));
+  line-height: calc(21 * var(--u));
+  text-transform: uppercase;
+  text-box: cap alphabetic;
+}
+.number:nth-child(odd) .numberLabel {
+  max-width: none;
+}
+
+/* ---------- Layers: Ba mạch của thành phố · ĐỊA · VỊ · NGHỀ ---------- */
+
+.layers {
+  --sy: 4320;
+  --sh: 1080;
+}
+.layersKicker {
+  --x: 225;
+  --y: 4467;
+  --w: 600;
+  font-size: calc(33 / 0.703 * var(--u));
+}
+.layersTitle {
+  --x: 224;
+  --y: 4520;
+  --w: 800;
+  font-size: calc(72 / 0.703 * var(--u));
+  white-space: nowrap;
+}
+.layerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.layerName {
+  font-size: calc(33 / 0.703 * var(--u));
+  width: max-content;
+}
+.layerCaption {
+  font-weight: 500;
+  font-size: calc(12 / 0.727 * var(--u));
+  width: max-content;
+}
+[data-layer="place"] .layerName {
+  --x: 1111;
+  --y: 4451;
+  color: var(--lime-600);
+}
+[data-layer="place"] .layerCaption {
+  --x: 824;
+  --y: 4454;
+  color: var(--navy-400);
+}
+[data-layer="taste"] .layerName {
+  --x: 1312;
+  --y: 4826;
+  color: var(--sunflower-gold-600);
+}
+[data-layer="taste"] .layerCaption {
+  --x: 1396;
+  --y: 4829;
+  color: var(--brick-red);
+}
+[data-layer="craft"] .layerName {
+  --x: 1097;
+  --y: 5115;
+  color: var(--mauve-600);
+}
+[data-layer="craft"] .layerCaption {
+  --x: 824;
+  --y: 5112;
+  color: var(--dark-cyan);
+}
+.mapLink {
+  --x: 224;
+  --y: 5000;
+  --w: 160;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(32 * var(--u));
+  color: var(--dark-cyan);
+  font-weight: 500;
+  font-size: calc(24 * var(--u));
+  text-decoration: none;
+}
+.mapLink svg {
+  width: calc(114 * var(--u));
+  height: auto;
+  margin-left: calc(4 * var(--u));
+}
+.mapLink span {
+  text-box: cap alphabetic;
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav a,
+  .lang a {
+    transition:
+      background-color 0.15s,
+      color 0.15s;
+  }
+}

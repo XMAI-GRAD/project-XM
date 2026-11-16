@@ -43,3 +43,6 @@ next-env.d.ts
 
 # agents
 .agent
+.claude
+.data/place-taste-craft.txt
+.docs/lttem

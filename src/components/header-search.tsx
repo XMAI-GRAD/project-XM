@@ -22,10 +22,12 @@ export function HeaderSearch({
   items,
   label,
   empty,
+  className,
 }: {
   items: SearchItem[];
   label: string;
   empty: string;
+  className?: string;
 }) {
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
@@ -54,7 +56,7 @@ export function HeaderSearch({
     <div
       ref={box}
       role="search"
-      className={s.search}
+      className={className ? `${s.search} ${className}` : s.search}
       onKeyDown={onKeyDown}
       onFocus={() => setOpen(true)}
       onBlur={(e) => {

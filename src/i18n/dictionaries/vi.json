@@ -21,11 +21,11 @@
     "craft": "NGHỀ"
   },
   "home": {
-    "listLabel": "Các điểm của Mạch nối ngàn năm",
-    "exploreMap": "Khám phá bản đồ",
     "joinNetwork": "Tham gia mạng lưới",
-    "openMap": "Mở bản đồ đầy đủ",
-    "imagePlaceholder": "Ảnh"
+    "openMap": "Mở bản đồ",
+    "imagePlaceholder": "Ảnh",
+    "language": "Ngôn ngữ",
+    "weather": "Nhiệt độ Hà Nội"
   },
   "point": {
     "favorite": "Yêu thích",
