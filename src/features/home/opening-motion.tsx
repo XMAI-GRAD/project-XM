@@ -152,18 +152,18 @@ export function HomeOpeningMotion({
         const rebuild = () => {
           const origin = host.getBoundingClientRect();
           const sourceBox = source.getBoundingClientRect();
-          // Measure the final layout, independent of the board's current reveal offset.
-          const boardOffset =
-            board.getBoundingClientRect().top - origin.top - board.offsetTop;
+          // Measure the final logo relative to its header. The header may now be
+          // sticky, independently of the board's opening-reveal translation.
+          const headerRect = header.getBoundingClientRect();
           const targetRect = target.getBoundingClientRect();
           const targetBox = new DOMRect(
             targetRect.x,
-            targetRect.y - boardOffset,
+            origin.top + board.offsetTop + targetRect.y - headerRect.top,
             targetRect.width,
             targetRect.height,
           );
           const edge = opening.getBoundingClientRect().bottom - origin.top;
-          const headerHeight = header.getBoundingClientRect().height;
+          const headerHeight = headerRect.height;
           const height = board.offsetTop + headerHeight;
           if (!origin.width || !sourceBox.width || !targetBox.width) return;
           const size = [

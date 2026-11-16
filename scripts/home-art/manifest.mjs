@@ -57,6 +57,10 @@ export const pieces = [
       ]),
     ),
     markDetails: true,
+    brandParts: {
+      symbol: ["/0", "/1", "/6"],
+      copy: ["/2", "/3", "/4", "/5"],
+    },
     note: "The header logo, wordmark included.",
   },
   {

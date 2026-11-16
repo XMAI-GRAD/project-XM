@@ -1,5 +1,28 @@
 # Homepage design QA — SVG migration, 17 November 2026
 
+## Latest header brand interaction
+
+The homepage SVG brand now collapses to its original roof symbol after the opening
+and expands again near the top. The sticky header keeps its size and navigation;
+the symbol keeps its proportions. Source SVG outlines, fills and viewBox remain
+unchanged. Reduced motion and no JavaScript retain the expanded brand.
+
+- [Personally inspected transition frames](research/design/evidence/header-brand-collapse/brand-sequence.png)
+- [Compact header in the page](research/design/evidence/header-brand-collapse/compact-page.png)
+- [Implementation, evidence and tuning](research/design/2026-11-17-header-brand-collapse.md)
+- [Validation record and limitations](docs/plans/2026-11-17-header-brand-collapse.md)
+
+Seven new brand-animation groups and all 24 existing browser regression groups
+pass in production Edge. All 38 tests, lint, TypeScript and build pass; formatting
+is checked for changed files. The opening still waits until its lettering settles
+before showing the page. Header endpoints match the static SVG pixel-for-pixel;
+opening endpoint differences average less than 0.014/255 per channel, with no
+pixels differing by more than 16/255. SPEC and dependencies are unchanged.
+
+This latest evidence supersedes earlier motion results below. Physical devices,
+other browsers, a readable mobile redesign and external data flows remain outside
+this validation. No commit or push was requested for the brand interaction.
+
 ## Latest opening transition
 
 The lettering now finishes moving into the brand logo before any header, content,
