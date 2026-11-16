@@ -1,4 +1,101 @@
-# Homepage design QA — 16 November 2026
+# Homepage design QA — SVG migration, 17 November 2026
+
+## Latest opening transition
+
+The header now enters from above while the navy opening dissolves, with the
+existing letter morph preserved. Artwork and navigation reveal in stages so the
+wordmark stays clear. The homepage reaches its original layout at the endpoint.
+
+- [Current transition frames](research/design/evidence/opening-header-reveal/morph-contact-sheet.png)
+- [Current endpoint comparison](research/design/evidence/opening-header-reveal/comparison-morph-endpoints.png)
+- [New transition measurements and focus checks](research/design/evidence/opening-header-reveal/transition-results.json)
+- [Implementation and full validation record](docs/plans/2026-11-17-opening-header-reveal.md)
+
+All 23 current browser groups pass: the prior eleven motion, four lifecycle/touch
+and four integration groups, plus four transition/focus/cleanup groups. Lint,
+types, 38 existing tests and production build pass. Static endpoint comparisons
+have mean channel error 0–0.0001/255. Physical-device and cross-browser limitations
+below still apply. No artwork was redrawn and SPEC.md remains unchanged.
+
+The migration report below records the earlier transition and its evidence;
+follow the links above for the current motion.
+
+## SVG migration report
+
+Current result: **passed for the SVG migration and preserved scroll/morph**.
+This report verifies integration with the team's `dev` homepage. It does not
+claim a new complete PDF fidelity audit or mobile usability approval.
+
+The active implementation uses the remote homepage composition, content schema
+and inline SVG components. Only the opening interaction and its entry/skip
+accessibility behavior were carried over. The former image-based homepage,
+custom menu/mobile layout and duplicate brand path dataset are removed.
+See [the implementation record](research/design/2026-11-17-svg-homepage-migration.md).
+
+## Current visual evidence
+
+- [Full SVG homepage at 1920px](research/design/evidence/svg-homepage/homepage-svg-1920.png)
+- [Six scroll/morph frames](research/design/evidence/svg-homepage/morph-contact-sheet.png)
+- [Endpoint comparison](research/design/evidence/svg-homepage/comparison-morph-endpoints.png)
+- [Endpoint pixel measurements](research/design/evidence/svg-homepage/morph-pixel-comparison.json)
+- [Emulated touch scroll](research/design/evidence/svg-homepage/morph-touch-scroll.png)
+
+| Surface        | Migration result                                                                                                                                                 |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Typography     | The remote HTML typography and extracted glyph components are active; the old alternative heading/layout treatment is removed.                                   |
+| Spacing/layout | The remote desktop artboard remains 1920×5400 at a 1920px viewport, starting at x=0. Motion measures the real opening/header rather than replacing their layout. |
+| Colors         | Remote SVG fills and page styles are retained. Both wordmarks' outlines, fills and viewBoxes were compared with `origin/dev` and are unchanged.                  |
+| Image quality  | The page uses inline SVG artwork, with no old `/home/` image requests. Regenerating all 38 art files twice produced identical bytes.                             |
+| Copy/content   | The remote YAML schema and content are active; VI/EN entry and skip labels remain localized. Existing English editorial fallback remains.                        |
+
+Both endpoints match the static generated SVGs with zero changed pixels at
+1920×1080, 2560×1440, 390×844 and 320×700. Intermediate frames were also visually
+inspected: letter identity, color boundary, scale and header handoff are preserved.
+
+## Current behavior and checks
+
+- [Eleven motion groups](research/design/evidence/svg-homepage/morph-results.json)
+  pass: endpoints/reversal, resize, moving link, fast scroll, reduced motion,
+  entry/skip keyboard focus, hash reload and no-JavaScript fallback.
+- [Four lifecycle/touch groups](research/design/evidence/svg-homepage/morph-lifecycle-results.json)
+  pass: repeated locales, one active morph/observer, unique local SVG references,
+  cleanup on map navigation, preference changes, touch swipe and moving-logo tap.
+- [Four integration groups](research/design/evidence/svg-homepage/integration-results.json)
+  pass: unchanged source geometry, active SVG artboard, search and Back/Forward/Back
+  restoration, Escape, shared route navigation and return. These runs recorded
+  no JavaScript page errors.
+- A plain hash anchor created a history entry without Next's router state, leaving
+  the previous page visible after Back. `HomeSectionLink` now uses Next Link and
+  explicitly focuses the anchor destination without an extra scroll. Both history
+  restoration and keyboard focus were retested successfully.
+- Production build passes: 61 pages, 110 existing English field fallbacks.
+  TypeScript, lint and all 38 existing tests pass. Windows tests use explicitly
+  expanded filenames; the package script's quoted glob is incompatible with this
+  shell. Changed-file formatting is checked; the previously reported repository-wide
+  formatting debt is outside this migration.
+
+The remote desktop artboard scales at narrow widths; motion works there, but a
+readable mobile layout remains future work. Physical devices, Safari/Firefox,
+screen-reader audio, authenticated flows and frame-rate profiling across hardware
+are unverified. Initial sandboxed previews could not fetch some external route
+data; the final preview was rerun with network access, where existing server data
+requests reported `Invalid API key`. Route navigation and the homepage work, but
+those data-backed areas were not validated. This was not a full audit of external
+services. Source contrast/editorial concerns from the earlier
+study remain open design/content questions.
+
+SPEC.md is unchanged. The owner requested a local checkpoint commit after the
+opening transition update; no push was requested.
+
+---
+
+## Historical QA — superseded image-based homepage
+
+Everything below describes the earlier implementation and its original evidence.
+Its menu/mobile behavior and twelve-group regression results are **not** claims
+about the current SVG homepage.
+
+### Homepage design QA — 16 November 2026
 
 final result: passed
 
@@ -28,6 +125,42 @@ Source: `workspace/File/SVG/WEB-02.svg`, 1920 × 5400, cross-checked against pag
 - [Viewport measurements](research/design/evidence/visual-results.json) and [interaction results](research/design/evidence/behavior-results.json)
 
 The combined comparisons were inspected directly, including all five enlarged regions and the new opening comparison. They are not separate screenshots claimed to be side-by-side. WEB-02 remains 5400px tall at 1920px, below the opening screen. Section tops relative to WEB-02 differ from its reference by less than 0.06px due to CSS fractional layout. Initial measurements also cover 1440 × 1080, 768 × 844, 390 × 844 and 320 × 844; the new opening measurements verify the corrected page sequence and add 2560 × 1440. No horizontal overflow or failed images in normal loading.
+
+## Opening scroll morph
+
+Final result: **passed** for the implemented interaction and tested environments.
+
+The opening now recedes with native scrolling while all 17 original letter paths
+move and morph into the measured header wordmark. Both endpoints display the
+original SVGs; the moving opening link follows its artwork. No source colors,
+text, homepage section dimensions or outer gutters changed.
+
+- [Six-stage desktop sequence](research/design/evidence/morph-contact-sheet.png)
+- [Original versus implemented endpoints](research/design/evidence/comparison-morph-endpoints.png)
+- [Emulated touch mid-scroll](research/design/evidence/morph-touch-scroll.png)
+- [Motion measurements](research/design/evidence/morph-results.json),
+  [lifecycle/touch results](research/design/evidence/morph-lifecycle-results.json),
+  [endpoint pixel comparisons](research/design/evidence/morph-pixel-comparison.json)
+- [Implementation and source notes](research/design/2026-11-16-opening-scroll-morph.md)
+
+Inspected start, 25%, 50%, 75%, 90% and completion. Corrected an early A/N pairing
+that caused crossing at intermediate progress; fixed the moving link's hit area;
+restored the original static SVG rasterization at completion. Final endpoint
+captures match the original static images pixel-for-pixel at 1920, 2560, 390 and
+320px widths. This verifies the endpoint handoff; the contact sheet separately
+shows the actual morph. Original typography, spacing, colors, vector quality and
+copy remain as assessed in the five-surface review below.
+
+Eleven motion check groups, four lifecycle/touch groups and all twelve existing
+homepage interaction groups pass in production Edge without JavaScript page errors.
+Reduced motion works both on initial load and when switched live; no-JavaScript
+entry works. Resize during the transition, reverse/fast scrolling, keyboard anchors,
+locale retention/unique SVG references, observer cleanup and native touch swipe/tap
+were checked. Physical devices, Safari/Firefox, screen-reader audio and performance
+across hardware remain unverified. Lint, types, 38 tests and production build pass.
+SPEC remains unchanged; no commit or push for this interaction.
+Changed-file formatting passes; repository-wide `pnpm format:check` reports 157
+existing unchanged files. No broad formatting rewrite was included.
 
 ## Five fidelity surfaces
 

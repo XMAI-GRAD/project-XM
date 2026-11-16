@@ -1,356 +1,15 @@
-# Homepage content transcribed from WEB-01.svg and WEB-02.svg. See research/design/ for provenance.
-lead:
-  vi:
-    Trung tâm Điều phối các Hoạt động Sáng tạo Hà Nội. Nơi Nhà nước, nghệ sĩ và
-    công chúng cùng làm nên thành phố.
-  en: ""
-intro:
-  title:
-    vi:
-      Một thành phố sáng tạo không bắt đầu từ cái mới, mà từ chỗ cái cũ được nối
-      tiếp
-    en: ""
-  body:
-    vi:
-      - "Hà Nội đã có đủ: di sản nghìn năm, làng nghề còn sống, và hàng nghìn
-        người đang làm sáng tạo mỗi ngày. Cái thiếu không phải một Hà Nội mới,
-        mà là chỗ để những thứ đang có gặp nhau."
-      - Hanoi Creative City là chỗ đó — điểm điều phối giữa Nhà nước, nghệ sĩ và
-        công chúng.
-    en: []
-roles:
-  title:
-    vi: |-
-      Một thành phố {frosted:sáng tạo}
-      không bắt đầu từ cái mới,
-      mà từ cái cũ được {gold:nối tiếp}
-    en: ""
-  # In the order of the drawing, right to left: the state, the artists, the public.
-  state:
-    vi: Nhà nước
-    en: State
-  artists:
-    vi: Nghệ sĩ
-    en: Artists
-  public:
-    vi: Công chúng
-    en: Public
-artwork:
-  logo:
-    src: /home/logo.svg
-    width: 198.87
-    height: 85.83
-    alt:
-      vi: Hanoi Creative City — UNESCO City of Design
-      en: Hanoi Creative City — UNESCO City of Design
-  menu-mark:
-    src: /home/menu-mark.svg
-    width: 84.3
-    height: 84.31
-    alt:
-      vi: Biểu tượng mái nhà
-      en: Biểu tượng mái nhà
-  frame:
-    src: /home/frame.svg
-    width: 1920
-    height: 5220
-    alt:
-      vi: Khung trang màu xanh cốm
-      en: Khung trang màu xanh cốm
-  search-outline:
-    src: /home/search-outline.svg
-    width: 339.97
-    height: 47.23
-    alt:
-      vi: Khung tìm kiếm
-      en: Khung tìm kiếm
-  hero-art:
-    src: /home/hero-art.svg
-    width: 1560.35
-    height: 880.54
-    alt:
-      vi: Những mái nhà, vòm cầu và sóng nước Hà Nội
-      en: Những mái nhà, vòm cầu và sóng nước Hà Nội
-  hanoi-title:
-    src: /home/hanoi-title.svg
-    width: 948.78
-    height: 158.7
-    alt:
-      vi: Thủ đô Hà Nội
-      en: Thủ đô Hà Nội
-  hero-tagline:
-    src: /home/hero-tagline.svg
-    width: 491.58
-    height: 37.95
-    alt:
-      vi: Nơi những mạch nối gặp nhau
-      en: Nơi những mạch nối gặp nhau
-  connections-title:
-    src: /home/connections-title.svg
-    width: 1483.31
-    height: 78.5
-    alt:
-      vi: Mạch nối — ngàn năm
-      en: Mạch nối — ngàn năm
-  connections-art:
-    src: /home/connections-art.svg
-    width: 785.1
-    height: 783.97
-    alt:
-      vi: Những vòm cầu kết nối
-      en: Những vòm cầu kết nối
-  join-mark:
-    src: /home/join-mark.svg
-    width: 113.58
-    height: 56.51
-    alt:
-      vi: Biểu tượng giao thoa
-      en: Biểu tượng giao thoa
-  infrastructure-ribbon:
-    src: /home/infrastructure-ribbon.svg
-    width: 1560.97
-    height: 256.42
-    alt:
-      vi: Dải thống kê
-      en: Dải thống kê
-  libraries:
-    src: /home/libraries.svg
-    width: 133.13
-    height: 92.06
-    alt:
-      vi: Biểu tượng thư viện
-      en: Biểu tượng thư viện
-  universities:
-    src: /home/universities.svg
-    width: 133.16
-    height: 72.49
-    alt:
-      vi: Biểu tượng trường đại học
-      en: Biểu tượng trường đại học
-  theatres:
-    src: /home/theatres.svg
-    width: 133.73
-    height: 91.531
-    alt:
-      vi: Biểu tượng nhà hát
-      en: Biểu tượng nhà hát
-  cinemas:
-    src: /home/cinemas.svg
-    width: 133.18
-    height: 73.07
-    alt:
-      vi: Biểu tượng rạp chiếu phim
-      en: Biểu tượng rạp chiếu phim
-  roles-art:
-    src: /home/roles-art.svg
-    width: 1567.23
-    height: 786.911
-    alt:
-      vi: Những mái nhà kết nối công chúng, nghệ sĩ và Nhà nước
-      en: Những mái nhà kết nối công chúng, nghệ sĩ và Nhà nước
-  heritage-title:
-    src: /home/heritage-title.svg
-    width: 1022.43
-    height: 325.7
-    alt:
-      vi: Hà Nội đã có đủ di sản, làng nghề và hàng nghìn người làm sáng tạo mỗi ngày
-      en: Hà Nội đã có đủ di sản, làng nghề và hàng nghìn người làm sáng tạo mỗi ngày
-  wave-mark:
-    src: /home/wave-mark.svg
-    width: 328.71
-    height: 72.94
-    alt:
-      vi: Biểu tượng sóng nước
-      en: Biểu tượng sóng nước
-  threads-title:
-    src: /home/threads-title.svg
-    width: 480.01
-    height: 134.6
-    alt:
-      vi: Ba mạch của thành phố
-      en: Ba mạch của thành phố
-  place:
-    src: /home/place.svg
-    width: 446.73
-    height: 282.95
-    alt:
-      vi: Địa — những nơi giữ ký ức
-      en: Địa — những nơi giữ ký ức
-  taste:
-    src: /home/taste.svg
-    width: 371.77
-    height: 282.95
-    alt:
-      vi: Vị — thức quà Hà Nội
-      en: Vị — thức quà Hà Nội
-  craft:
-    src: /home/craft.svg
-    width: 448.59
-    height: 283.89
-    alt:
-      vi: Nghề — làng nghề Hà Nội
-      en: Nghề — làng nghề Hà Nội
-  map-mark:
-    src: /home/map-mark.svg
-    width: 113.64
-    height: 77.271
-    alt:
-      vi: Biểu tượng bản đồ
-      en: Biểu tượng bản đồ
-  place-connector:
-    src: /home/place-connector.svg
-    width: 376.72
-    height: 19.89
-    alt:
-      vi: Mạch Địa
-      en: Mạch Địa
-  taste-connector:
-    src: /home/taste-connector.svg
-    width: 381.41
-    height: 19.95
-    alt:
-      vi: Mạch Vị
-      en: Mạch Vị
-  craft-connector:
-    src: /home/craft-connector.svg
-    width: 375.22
-    height: 19.95
-    alt:
-      vi: Mạch Nghề
-      en: Mạch Nghề
-  opening-logo:
-    src: /home/opening-logo.svg
-    width: 370.737
-    height: 274.228
-    alt:
-      vi: Hanoi Creative City
-      en: Hanoi Creative City
-design:
-  heroTitle:
-    vi: Thủ đô Hà Nội
-    en: ""
-  heroTagline:
-    vi: — Nơi những mạch nối gặp nhau
-    en: ""
-  connectionsTitle:
-    vi: Mạch nối — ngàn năm
-    en: ""
-  introParagraphs:
-    vi:
-      - |-
-        Trung tâm Điều phối
-        các Hoạt động Sáng tạo
-        Hà Nội.
-      - Nơi Nhà nước, nghệ sĩ và công chúng cùng làm nên thành phố.
-    en: []
-  temperature: 30°C
-  infrastructure:
-    - artwork: libraries
-      count: "83"
-      label:
-        vi: Thư viện
-        en: Libraries
-      tone: navy
-    - artwork: universities
-      count: "48"
-      label:
-        vi: Trường đại học
-        en: Universities
-      tone: gold
-    - artwork: theatres
-      count: "18"
-      label:
-        vi: Nhà hát
-        en: Theatres
-      tone: lime
-    - artwork: cinemas
-      count: "43"
-      label:
-        vi: Rạp chiếu phim
-        en: Cinemas
-      tone: red
-  thesis:
-    - text:
-        vi: "Một thành phố "
-        en: ""
-      accent:
-        vi: sáng tạo
-        en: ""
-      tone: blue
-    - text:
-        vi: không bắt đầu từ cái mới,
-        en: ""
-    - text:
-        vi: "mà từ cái cũ được "
-        en: ""
-      accent:
-        vi: nối tiếp
-        en: ""
-      tone: gold
-  heritageTitle:
-    vi: Hà Nội đã có đủ di sản — làng nghề và hàng nghìn người làm sáng tạo mỗi ngày
-    en: ""
-  since:
-    vi: Từ 2019
-    en: Since 2019
-  heritageParagraphs:
-    - vi:
-        Cái thiếu không phải một Hà Nội mới. Cái thiếu là chỗ để những sáng tạo đang
-        có gặp được nhau.
-      en: ""
-    - vi:
-        Trung tâm Điều phối là chỗ đó — nơi người làm nghề gặp nguồn lực, và di sản
-        gặp thiết kế.
-      en: ""
-  heritageStats:
-    - count: "1350"
-      label:
-        vi: Làng nghề thủ công
-        en: Craft villages
-      tone: cyan
-    - count: "5922"
-      label:
-        vi: Di tích
-        en: Heritage sites
-      tone: gold
-    - count: "1793"
-      label:
-        vi: Di sản văn hóa phi vật thể
-        en: Intangible cultural heritage
-      tone: red
-    - count: 60+
-      label:
-        vi: |-
-          Không gian sáng tạo
-          đang hoạt động
-        en: Active creative spaces
-      tone: mauve
-  threadsTitle:
-    vi: Ba mạch của thành phố
-    en: ""
-  threads:
-    place:
-      label:
-        vi: Địa
-        en: Place
-      description:
-        vi: Năm nơi giữ ký ức của thành phố
-        en: ""
-    taste:
-      label:
-        vi: Vị
-        en: Taste
-      description:
-        vi: Thức quà Hà Nội đổi theo bốn mùa
-        en: ""
-    craft:
-      label:
-        vi: Nghề
-        en: Craft
-      description:
-        vi: Làng nghề vẫn sống trong lòng
-        en: ""
+# Home: a graphic showcase read as you scroll (the designer's WEB-01 + WEB-02 comps).
+#
+# Text marks, read by src/features/home/rich-text.tsx:
+#   {gold:nối tiếp}   a word in an accent color: red, gold, lime, frosted, mauve, cyan, navy
+#   {glyph-hero-o:Ô}  a letter drawn by the designer; the letter after the colon is what
+#                     screen readers hear and what shows if the drawing is missing
+#   a line break      a line break on the page (use a "|" block for several lines)
+# Phudu has capitals only, so headings can be written in sentence case.
+
+# Fixed until there is a weather source; the date beside it is today's.
 weather: 30°C
+
 hero:
   title:
     vi: "{red:T}hủ Đ{glyph-hero-o:ô} H{glyph-hero-a:à} Nội"
@@ -358,6 +17,8 @@ hero:
   tagline:
     vi: "— Nơi những m{mauve:ạ}ch nố{gold:i} gặp nhau"
     en: ""
+
+# "Mạch nối ——— ngàn năm", the woven pattern and who runs the city's program.
 thread:
   title:
     vi:
@@ -376,6 +37,8 @@ thread:
         công chúng cùng làm nên
         thành phố.
     en: []
+
+# The band of four counts. `art` names the icon drawn above the number.
 stats:
   - value: "83"
     tone: navy
@@ -401,6 +64,26 @@ stats:
     label:
       vi: Rạp chiếu phim
       en: ""
+
+# The three actors, drawn as buildings linked by one line.
+roles:
+  title:
+    vi: |-
+      Một thành phố {frosted:sáng tạo}
+      không bắt đầu từ cái mới,
+      mà từ cái cũ được {gold:nối tiếp}
+    en: ""
+  # In the order of the drawing, right to left: the state, the artists, the public.
+  state:
+    vi: Nhà nước
+    en: ""
+  artists:
+    vi: Nghệ sĩ
+    en: ""
+  public:
+    vi: Công chúng
+    en: ""
+
 heritage:
   since:
     vi: Từ 2019
@@ -414,10 +97,8 @@ heritage:
     en: ""
   body:
     vi:
-      - Cái thiếu không phải một Hà Nội mới. Cái thiếu là chỗ để những sáng tạo
-        đang có gặp được nhau.
-      - Trung tâm Điều phối là chỗ đó — nơi người làm nghề gặp nguồn lực, và di
-        sản gặp thiết kế.
+      - Cái thiếu không phải một Hà Nội mới. Cái thiếu là chỗ để những sáng tạo đang có gặp được nhau.
+      - Trung tâm Điều phối là chỗ đó — nơi người làm nghề gặp nguồn lực, và di sản gặp thiết kế.
     en: []
   numbers:
     - value: "1350"
@@ -440,6 +121,8 @@ heritage:
       label:
         vi: Không gian sáng tạo đang hoạt động
         en: ""
+
+# ĐỊA · VỊ · NGHỀ; the layer names come from the dictionaries.
 layers:
   kicker:
     vi: Ba mạch của

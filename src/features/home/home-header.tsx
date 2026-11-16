@@ -19,7 +19,11 @@ export function HomeHeader({ lang }: { lang: Locale }) {
   );
 
   return (
-    <header className={`${s.section} ${s.header}`}>
+    <header
+      id={`home-entry-${lang}`}
+      tabIndex={-1}
+      className={`${s.section} ${s.header}`}
+    >
       <p className={`${s.at} ${s.weather}`}>
         <span aria-label={`${home.weather}: ${weather}`}>{weather}</span>
         <span>
@@ -32,6 +36,7 @@ export function HomeHeader({ lang }: { lang: Locale }) {
         className={`${s.at} ${s.logo}`}
         style={at(logoBox)}
         aria-label={site.brand[lang]}
+        data-header-logo
       >
         <Logo />
       </Link>

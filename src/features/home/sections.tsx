@@ -58,7 +58,7 @@ const display = `${text} ${s.display}`;
 /** The lime frame around the card, painted above the drawings it crops. */
 export function Frame() {
   return (
-    <div className={s.frame} aria-hidden="true">
+    <div className={s.frame} data-home-frame aria-hidden="true">
       <FrameLeft className={s.at} style={at(frameLeftBox)} />
       <FrameRight className={s.at} style={at(frameRightBox)} />
       <RailMark className={s.at} style={at(railMarkBox)} />
@@ -69,7 +69,11 @@ export function Frame() {
 export function Hero({ lang }: { lang: Locale }) {
   const { hero } = getPage("home");
   return (
-    <section className={`${s.section} ${s.hero}`}>
+    <section
+      id={`home-content-${lang}`}
+      tabIndex={-1}
+      className={`${s.section} ${s.hero}`}
+    >
       <HeroSkyline className={s.at} style={at(heroSkylineBox)} />
       <HeroWave className={s.at} style={at(heroWaveBox)} />
       <h1 className={`${display} ${s.heroTitle}`}>

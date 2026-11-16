@@ -1,0 +1,47 @@
+.root {
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  overflow: visible;
+  pointer-events: none;
+  visibility: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .root {
+    /* Keep hash restoration from following the transforming entry link. */
+    overflow-anchor: none;
+  }
+  .root[data-opening-motion="active"] [data-opening] {
+    z-index: 2;
+    background: transparent;
+    pointer-events: none;
+  }
+  .root[data-opening-motion="active"] [data-opening-backdrop] {
+    background: var(--navy-500);
+  }
+  .root[data-opening-motion="active"] [data-home-design="web-02"] {
+    z-index: 1;
+  }
+  .root[data-opening-phase="start"] [data-home-design="web-02"] {
+    pointer-events: none;
+  }
+  .root[data-opening-motion="active"] [data-opening-logo] {
+    pointer-events: auto;
+  }
+  .root[data-opening-phase="morph"] .overlay {
+    visibility: visible;
+  }
+  .root[data-opening-phase="morph"] [data-opening-logo] > svg,
+  .root[data-opening-phase="end"] [data-opening-logo] > svg,
+  .root[data-opening-phase="morph"] [data-header-logo] > svg {
+    opacity: 0;
+  }
+  .root[data-opening-phase="end"] [data-opening-logo] {
+    pointer-events: none;
+  }
+}

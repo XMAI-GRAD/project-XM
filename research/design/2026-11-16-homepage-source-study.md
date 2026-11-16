@@ -1,5 +1,11 @@
 # Homepage source study — 16 November 2026
 
+> **Implementation status, 17 November:** source measurements and design findings
+> remain historical references. The image-based homepage and its Python extractor
+> have been replaced by the team's inline SVG homepage. See [current architecture
+> and animation guidance](2026-11-17-svg-homepage-migration.md). The asset manifest
+> below describes the former export pipeline, not the active asset inventory.
+
 Read alongside [the implementation plan](../../docs/plans/2026-11-16-homepage-design.md), [asset manifest](homepage-asset-manifest.json), and [visual/interaction QA](../../design-qa.md). All source reading, measurements and visual review were performed by the primary agent; no reading was delegated.
 
 ## What was supplied and what each file means

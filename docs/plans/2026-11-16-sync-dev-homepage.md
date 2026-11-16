@@ -1,5 +1,11 @@
 # Sync dev into the homepage branch
 
+> **Superseded implementation decision, 17 November:** the owner requested that
+> the remote SVG homepage be active, preserving only our opening scroll/morph.
+> That correction is implemented. See [the current migration record](../../research/design/2026-11-17-svg-homepage-migration.md).
+> The merge and validation details below describe the earlier state, not the
+> current homepage architecture.
+
 Requested: update local dev from the remote and merge it into feat/homepage-design.
 Remote commit: `edc7847` — `chore: svg --> tsx (#61)`.
 
@@ -29,3 +35,28 @@ remaining uncommitted. The stash is retained as a backup.
 Local dev fast-forwarded from `fcccc52` to `edc7847`. Initial lint and TypeScript
 checks pass for the resolved merge. Final validation after restoring the scroll
 morph is recorded below. No push or PR is requested. SPEC.md is preserved.
+
+## Final validation
+
+Merge commit: `46a83e7`. Local dev and origin/dev both point to `edc7847`, which is
+an ancestor of the feature branch. All merge/stash conflicts are resolved; the
+original scroll-morph work is restored and remains unstaged/uncommitted.
+
+- Lint, TypeScript, all 38 existing tests, and production build pass. The build
+  generates 61 pages and reports 126 existing/combined English content fallbacks.
+- Twelve homepage interaction groups, eleven motion groups and four lifecycle/
+  touch groups pass in production Edge with no JavaScript page errors. These cover
+  map navigation across the new route group, search, category links, menus,
+  repeated locales, resizing, reverse scroll, reduced motion and emulated touch.
+- A header-hash reload regression surfaced under the new root layout: browser
+  scroll anchoring followed the transforming entry link. Scoped
+  `overflow-anchor: none` to the motion-enabled homepage; the reload test now passes.
+  This small integration fix remains part of the uncommitted scroll-morph work.
+- Changed/resolved code formatting passes. Upstream Illustrator SVG exports retain
+  their original whitespace; five trailing-whitespace warnings in those raw source
+  files were not rewritten. The earlier repository-wide formatting debt remains.
+- SPEC.md still has SHA256
+  `5477896223E52137BD3B547DEF84C15EA471330E9FD9751AC883E15B3C4C2DC6`.
+
+The Git stash and external file backup remain available. No remote branch was
+pushed, and no PR was opened.
