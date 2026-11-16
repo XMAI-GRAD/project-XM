@@ -8,6 +8,7 @@ export function GlyphThreadI(props: ArtProps) {
   return (
     <svg
       viewBox="496.35 1208.72 11.59 51.37"
+      data-art="glyph-thread-i"
       aria-hidden="true"
       focusable="false"
       {...props}

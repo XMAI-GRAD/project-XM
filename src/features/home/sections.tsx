@@ -50,11 +50,19 @@ import {
 } from "./art";
 import s from "./home.module.css";
 import { at } from "./place";
+import { CountUp } from "./motion/count-up";
+import { HeritageMotion } from "./motion/heritage-motion";
+import { HeroMotion } from "./motion/hero-motion";
+import { LayersMotion } from "./motion/layers-motion";
+import { RolesMotion } from "./motion/roles-motion";
+import { ThreadMotion } from "./motion/thread-motion";
 import { RichText, toneClass } from "./rich-text";
 import { HomeSectionLink } from "./section-link";
 
 const text = `${s.at} ${s.text}`;
 const display = `${text} ${s.display}`;
+/** A display heading whose words move: placed by cap top without text-box trim. */
+const movingDisplay = `${s.at} ${s.display} ${s.capTop}`;
 
 /** The lime frame around the card, painted above the drawings it crops. */
 export function Frame({ lang }: { lang: Locale }) {
@@ -79,20 +87,19 @@ export function Frame({ lang }: { lang: Locale }) {
 export function Hero({ lang }: { lang: Locale }) {
   const { hero } = getPage("home");
   return (
-    <section
+    <HeroMotion
       id={`home-content-${lang}`}
-      tabIndex={-1}
       className={`${s.section} ${s.hero}`}
     >
       <HeroSkyline className={s.at} style={at(heroSkylineBox)} />
       <HeroWave className={s.at} style={at(heroWaveBox)} />
       <h1 className={`${display} ${s.heroTitle}`}>
-        <RichText text={hero.title[lang]} />
+        <RichText text={hero.title[lang]} split />
       </h1>
-      <p className={`${display} ${s.right} ${s.tagline}`}>
+      <p className={`${display} ${s.right} ${s.tagline}`} data-motion="tagline">
         <RichText text={hero.tagline[lang]} />
       </p>
-    </section>
+    </HeroMotion>
   );
 }
 
@@ -102,7 +109,7 @@ export function Thread({ lang }: { lang: Locale }) {
   const { home } = getDictionary(lang);
   const [start, end] = thread.title[lang];
   return (
-    <section className={`${s.section} ${s.thread}`}>
+    <ThreadMotion className={`${s.section} ${s.thread}`}>
       <h2>
         <span className={`${display} ${s.threadStart}`}>
           <RichText text={start} />
@@ -113,18 +120,22 @@ export function Thread({ lang }: { lang: Locale }) {
       </h2>
       <ThreadLine className={s.at} style={at(threadLineBox)} />
       <ThreadPattern className={s.at} style={at(threadPatternBox)} />
-      <div className={`${text} ${s.threadBody}`}>
+      <div className={`${text} ${s.threadBody}`} data-motion="thread-body">
         {thread.body[lang].map((p) => (
           <p key={p}>
             <RichText text={p} />
           </p>
         ))}
       </div>
-      <Link href={`/${lang}/join`} className={`${s.at} ${s.joinLink}`}>
+      <Link
+        href={`/${lang}/join`}
+        className={`${s.at} ${s.joinLink}`}
+        data-motion="join"
+      >
         <JoinMark />
         <span>{home.joinNetwork}</span>
       </Link>
-    </section>
+    </ThreadMotion>
   );
 }
 
@@ -144,7 +155,9 @@ export function Stats({ lang }: { lang: Locale }) {
           return (
             <li key={count.art} style={style} className={toneClass(count.tone)}>
               <Art className={s.at} style={at(box)} />
-              <span className={s.statValue}>{count.value}</span>{" "}
+              <span className={s.statValue}>
+                <CountUp to={count.value} />
+              </span>{" "}
               <span className={s.statLabel}>{count.label[lang]}</span>
             </li>
           );
@@ -158,9 +171,9 @@ export function Stats({ lang }: { lang: Locale }) {
 export function Roles({ lang }: { lang: Locale }) {
   const { roles } = getPage("home");
   return (
-    <section className={`${s.section} ${s.roles}`}>
-      <h2 className={`${display} ${s.rolesTitle}`}>
-        <RichText text={roles.title[lang]} />
+    <RolesMotion className={`${s.section} ${s.roles}`}>
+      <h2 className={`${movingDisplay} ${s.rolesTitle}`}>
+        <RichText text={roles.title[lang]} split />
       </h2>
       <RolesPetal className={s.at} style={at(rolesPetalBox)} />
       <RolesCluster className={s.at} style={at(rolesClusterBox)} />
@@ -168,11 +181,17 @@ export function Roles({ lang }: { lang: Locale }) {
       <RolesWave className={s.at} style={at(rolesWaveBox)} />
       <RolesLine className={s.at} style={at(rolesLineBox)} />
       <ul className={s.roleList}>
-        <li className={`${display} ${s.state}`}>{roles.state[lang]}</li>
-        <li className={`${display} ${s.artists}`}>{roles.artists[lang]}</li>
-        <li className={`${display} ${s.public}`}>{roles.public[lang]}</li>
+        <li className={`${display} ${s.state}`} data-role="state">
+          {roles.state[lang]}
+        </li>
+        <li className={`${display} ${s.artists}`} data-role="artists">
+          {roles.artists[lang]}
+        </li>
+        <li className={`${display} ${s.public}`} data-role="public">
+          {roles.public[lang]}
+        </li>
       </ul>
-    </section>
+    </RolesMotion>
   );
 }
 
@@ -181,25 +200,34 @@ export function Heritage({ lang }: { lang: Locale }) {
   const { heritage } = getPage("home");
   const [left, right] = heritage.body[lang];
   return (
-    <section className={`${s.section} ${s.heritage} ${s.rule}`}>
+    <HeritageMotion className={`${s.section} ${s.heritage} ${s.rule}`}>
       <HeritageWave className={s.at} style={at(heritageWaveBox)} />
-      <p className={`${text} ${s.since}`}>{heritage.since[lang]}</p>
-      <h2 className={`${display} ${s.heritageTitle}`}>
-        <RichText text={heritage.title[lang]} />
+      <p className={`${text} ${s.since}`} data-motion="since">
+        {heritage.since[lang]}
+      </p>
+      <h2 className={`${movingDisplay} ${s.heritageTitle}`}>
+        <RichText text={heritage.title[lang]} split />
       </h2>
-      <p className={`${text} ${s.heritageBody} ${s.heritageLeft}`}>
+      <p
+        className={`${text} ${s.heritageBody} ${s.heritageLeft}`}
+        data-motion="heritage-body"
+      >
         <RichText text={left} />
       </p>
-      <p className={`${text} ${s.heritageBody} ${s.heritageRight}`}>
+      <p
+        className={`${text} ${s.heritageBody} ${s.heritageRight}`}
+        data-motion="heritage-body"
+      >
         <RichText text={right} />
       </p>
-      <ul className={s.numbers}>
+      <ul className={s.numbers} data-motion="numbers">
         {heritage.numbers.map((n) => {
           const [, digits, plus] = n.value.match(/^(.*?)(\+?)$/)!;
           return (
             <li
               key={n.value}
               className={`${s.at} ${s.number} ${toneClass(n.tone)}`}
+              data-motion="number"
             >
               <span className={s.numberValue}>
                 {digits}
@@ -210,7 +238,7 @@ export function Heritage({ lang }: { lang: Locale }) {
           );
         })}
       </ul>
-    </section>
+    </HeritageMotion>
   );
 }
 
@@ -240,7 +268,7 @@ export function Layers({ lang }: { lang: Locale }) {
   const { layers: copy } = getPage("home");
   const { layers: names, home } = getDictionary(lang);
   return (
-    <section className={`${s.section} ${s.layers} ${s.rule}`}>
+    <LayersMotion className={`${s.section} ${s.layers} ${s.rule}`}>
       <h2>
         <span className={`${display} ${s.layersKicker}`}>
           {copy.kicker[lang]}
@@ -256,10 +284,16 @@ export function Layers({ lang }: { lang: Locale }) {
             <li key={layer} data-layer={layer}>
               <Line className={s.at} style={at(line)} />
               <Shapes className={s.at} style={at(shapes)} />
-              <span className={`${display} ${s.layerName}`}>
+              <span
+                className={`${display} ${s.layerName}`}
+                data-motion="layer-name"
+              >
                 {names[layer]}
               </span>{" "}
-              <span className={`${text} ${s.layerCaption}`}>
+              <span
+                className={`${text} ${s.layerCaption}`}
+                data-motion="layer-caption"
+              >
                 {copy[layer][lang]}
               </span>
             </li>
@@ -270,6 +304,6 @@ export function Layers({ lang }: { lang: Locale }) {
         <MapMark />
         <span>{home.openMap}</span>
       </Link>
-    </section>
+    </LayersMotion>
   );
 }

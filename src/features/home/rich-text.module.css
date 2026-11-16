@@ -32,3 +32,10 @@
   margin-inline: 0.03em;
   overflow: visible;
 }
+
+/* A word of split text: its own box, so motion can move it. As a block of its own
+   it would inherit the heading's first-line indent; it mustn't. */
+.word {
+  display: inline-block;
+  text-indent: 0;
+}

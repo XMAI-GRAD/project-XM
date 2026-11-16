@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import s from "./opening-motion.module.css";
+import { takeHomeEntry } from "./section-link";
 
 gsap.registerPlugin(useGSAP, MorphSVGPlugin, ScrollTrigger);
 
@@ -382,7 +383,26 @@ export function HomeOpeningMotion({
           entry.removeAttribute("tabindex");
         };
       });
-      return () => media.revert();
+      // The shared About/Explore header can navigate here while the retained home
+      // DOM is hidden. Finish the requested entry after the motion is initialized;
+      // otherwise Next sees the translated header at y=0 and skips anchor scrolling.
+      const entryFrame = requestAnimationFrame(() => {
+        // Consume after scheduling so React's development effect replay can cancel
+        // the first frame without losing the navigation request.
+        if (!takeHomeEntry(header.id)) return;
+        window.scrollTo({
+          top: Math.ceil(
+            opening.getBoundingClientRect().bottom + window.scrollY,
+          ),
+          behavior: "instant",
+        });
+        ScrollTrigger.update();
+        header.focus({ preventScroll: true });
+      });
+      return () => {
+        cancelAnimationFrame(entryFrame);
+        media.revert();
+      };
     },
     { scope: root, dependencies: [id], revertOnUpdate: true },
   );

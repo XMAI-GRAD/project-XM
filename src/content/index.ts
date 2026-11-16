@@ -108,6 +108,7 @@ export interface Pages {
       email: string;
     };
     credits: Localized;
+    madeBy: Localized;
   };
   home: {
     weather: string;
@@ -130,11 +131,14 @@ export interface Pages {
   };
   about: {
     title: Localized;
+    heading: Localized;
+    decision: { number: string; date: string };
+    intro: Localized;
     lede: Localized;
     unesco: { title: Localized; body: Localized<string[]> };
     video: { id: string; title: Localized }; // a YouTube video id
-    work: Section<{ title: Localized; body: Localized }>;
-    fields: Section<Localized> & { note: Localized };
+    work: Section<{ art: string; title: Localized; body: Localized }>;
+    fields: Section<Localized> & { display: Localized; note: Localized };
     timeline: Section<{ year: string; body: Localized }>;
     operators: Section<Localized>;
   };

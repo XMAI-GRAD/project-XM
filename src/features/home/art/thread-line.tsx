@@ -8,6 +8,7 @@ export function ThreadLine(props: ArtProps) {
   return (
     <svg
       viewBox="536.32 1216.57 837.05 19.95"
+      data-art="thread-line"
       aria-hidden="true"
       focusable="false"
       {...props}

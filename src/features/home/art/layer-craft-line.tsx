@@ -8,6 +8,7 @@ export function LayerCraftLine(props: ArtProps) {
   return (
     <svg
       viewBox="822.31 5144.82 375.22 19.95"
+      data-art="layer-craft-line"
       aria-hidden="true"
       focusable="false"
       {...props}

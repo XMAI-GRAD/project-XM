@@ -20,18 +20,28 @@ import { Today } from "./today";
 import { HomeHeaderMotion } from "./header-motion";
 import { HomeSectionLink } from "./section-link";
 
-/** Home's own header: weather and date, the logo, VI | EN, search, then the nav tab. */
-export function HomeHeader({ lang }: { lang: Locale }) {
+/**
+ * The showcase header (home, about): weather and date, the logo, VI | EN, search,
+ * then the nav tab, with the current page marked.
+ */
+export function HomeHeader({
+  lang,
+  current,
+}: {
+  lang: Locale;
+  /** The page this header sits on, marked on the nav tab. */
+  current?: "about" | "explore" | "maps" | "events" | "join";
+}) {
   const { nav, search, home, layers } = getDictionary(lang);
   const site = getPage("site");
   const { weather } = getPage("home");
   const links = (["about", "explore", "maps", "events", "join"] as const).map(
-    (key) => ({ href: `/${lang}/${key}`, label: nav[key] }),
+    (key) => ({ key, href: `/${lang}/${key}`, label: nav[key] }),
   );
 
   return (
     <HomeHeaderMotion
-      id={`home-entry-${lang}`}
+      id={current ? `${current}-header-${lang}` : `home-entry-${lang}`}
       className={`${s.section} ${s.header}`}
     >
       <p className={`${s.at} ${s.weather}`} data-header-weather>
@@ -90,7 +100,11 @@ export function HomeHeader({ lang }: { lang: Locale }) {
       </div>
       <nav className={s.nav} aria-label={nav.label}>
         {links.map((n) => (
-          <Link key={n.href} href={n.href}>
+          <Link
+            key={n.href}
+            href={n.href}
+            aria-current={n.key === current ? "page" : undefined}
+          >
             {n.label}
           </Link>
         ))}

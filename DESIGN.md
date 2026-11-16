@@ -174,6 +174,13 @@ at its original header height while browsing; clicking it returns to the header
 without replaying the opening. Reduced motion switches states and returns instantly.
 Morph a temporary SVG copy and keep original extracted paths pristine for the opening.
 
+The [dev motion integration](docs/plans/2026-11-17-dev-motion-merge.md) retains the
+incoming section choreography. `homeEnter` measures entrance thresholds without
+the current board/main transforms and accounts for the full logo hold. The hero
+starts at opening completion; later drawings and text play when visible. Explicit
+cross-page header links finish their entry after motion initialization, while
+Back/Forward preserves its saved scroll position.
+
 Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. GSAP drives explore, the point page and the login slideshow. On a point page the photo settles and the name slides in, the info bar unrolls after it, and the content below reveals once on scroll with ScrollTrigger. Rows slide out from under their top hairline with a matching `clip-path`, staggered, on arrival and on a tab change; the old rows leave faster, and the panel height moves in the same timeline. Opening a row tweens its height, collapses the open row and keeps the clicked header in place. On login every 2.5s the name wheel turns one step and the figure stack shifts, the next figure moving to the center as the old one tilts away (0.9s, `power2.inOut`), then the name and hook slide out from under their hairline with a `clip-path`; a click on a name jumps there; hovering the carousel or focusing a pill pauses it; under reduced motion nothing plays or tweens, and a click still changes the point. Everything else is short CSS color and opacity transitions, wrapped in `prefers-reduced-motion: no-preference`.
 
 ## Do's and Don'ts

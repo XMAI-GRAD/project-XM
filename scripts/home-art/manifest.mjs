@@ -1,9 +1,14 @@
 // The home artwork pieces: which nodes of the designer's export make up each piece.
 // `paths` are child-index paths from the root <svg> (`/61` = its 62nd child), in
 // paint order. Pieces are listed in the order they are painted on the page.
+// `parts` names groups inside a piece: each gets data-part="<name>", the hook the
+// motion code uses (src/features/home/motion/). The root <svg> gets data-art="<name>".
 
 const opening = "WEB-01-Opening.svg";
 const home = "WEB-02-HomePage.svg";
+const footer = "WEB-07-Footer.svg";
+const about = "WEB-05-Introduction.svg";
+const earth = "WEB-06-EARTH.svg";
 
 // Stable animation hooks, paired by letter rather than the export's paint order.
 const wordmarkLetters = [
@@ -94,6 +99,18 @@ export const pieces = [
     source: home,
     paths: ["/61"],
     note: "Roofs, petals and stars of the hero, clipped to the card.",
+    parts: {
+      star: "/61/2/0",
+      "left-house": "/61/2/1",
+      "left-petal-low": "/61/2/2",
+      "left-petal-high": "/61/2/3",
+      "right-hill": "/61/2/4",
+      "center-crown": "/61/2/5",
+      "right-roof": "/61/2/6",
+      "left-roof": "/61/2/7",
+      "center-roof": "/61/2/8",
+      "center-gate": "/61/2/9",
+    },
   },
   {
     name: "hero-wave",
@@ -153,6 +170,7 @@ export const pieces = [
     source: home,
     paths: ["/81"],
     note: "The woven brick-red pattern.",
+    parts: { top: "/81/1", bottom: "/81/0" },
   },
   {
     name: "join-mark",
@@ -174,6 +192,15 @@ export const pieces = [
     source: home,
     paths: ["/83"],
     note: "The three actors as buildings, with the line that links them; clipped to the card.",
+    parts: {
+      "artists-crown": "/83/2/0",
+      star: "/83/2/1/0",
+      "state-house": "/83/2/1/1",
+      "state-roof": "/83/2/1/2",
+      artists: "/83/2/1/3",
+      public: "/83/2/1/4",
+      line: "/83/2/1/5",
+    },
   },
   {
     name: "roles-line",
@@ -212,5 +239,111 @@ export const pieces = [
     source: home,
     paths: ["/37"],
     note: "The icon above the map link.",
+  },
+
+  // Footer (SVG-07)
+  {
+    name: "footer-logo",
+    source: footer,
+    paths: ["/16"],
+    note: "The logo in seashell, for the navy footer.",
+  },
+
+  // About (SVG-05)
+  {
+    name: "about-petal",
+    source: about,
+    paths: ["/28", "/68"],
+    note: "The big frosted petal the title sits around.",
+  },
+  {
+    name: "about-intro-line",
+    source: about,
+    paths: ["/67"],
+    note: "The violet line under GIỚI THIỆU.",
+  },
+  {
+    name: "glyph-about-i",
+    source: about,
+    paths: ["/76"],
+    note: "The I of GIA.",
+  },
+  {
+    name: "glyph-about-e",
+    source: about,
+    paths: ["/31/1", "/77"],
+    note: "The Ệ of HỆ: its marks in navy, the letter in lime.",
+  },
+  {
+    name: "glyph-about-a",
+    source: about,
+    paths: ["/78", "/33/0/5"],
+    note: "The Ạ of TẠO.",
+  },
+  {
+    name: "about-work-certify",
+    source: about,
+    paths: ["/51"],
+    note: "The mark of Chứng nhận.",
+  },
+  {
+    name: "about-work-launch",
+    source: about,
+    paths: ["/53"],
+    note: "The mark of Bệ phóng.",
+  },
+  {
+    name: "about-work-connect",
+    source: about,
+    paths: ["/52"],
+    note: "The mark of Kết nối.",
+  },
+  {
+    name: "about-work-hook-1",
+    source: about,
+    paths: ["/63"],
+    note: "The hook from the first role to its line.",
+  },
+  { name: "about-work-hook-2", source: about, paths: ["/64"] },
+  { name: "about-work-hook-3", source: about, paths: ["/65"] },
+  {
+    name: "about-work-line",
+    source: about,
+    paths: ["/79"],
+    note: "The line from the roles down to the fields.",
+  },
+  { name: "field-roof", source: about, paths: ["/88"] },
+  { name: "field-weave", source: about, paths: ["/89"] },
+  { name: "field-star", source: about, paths: ["/91"] },
+  { name: "field-tiers", source: about, paths: ["/92"] },
+  { name: "field-arch", source: about, paths: ["/93"] },
+  { name: "field-spark", source: about, paths: ["/95"] },
+  { name: "field-line", source: about, paths: ["/90"] },
+  { name: "field-gate", source: about, paths: ["/94"] },
+  { name: "field-tiers-2", source: about, paths: ["/96"] },
+  { name: "field-wave", source: about, paths: ["/97"] },
+  {
+    name: "about-timeline-line",
+    source: about,
+    paths: ["/45"],
+    note: "The winding line through the years.",
+  },
+  { name: "about-year-2019", source: about, paths: ["/46"] },
+  { name: "about-year-2022", source: about, paths: ["/47"] },
+  { name: "about-year-2023", source: about, paths: ["/48"] },
+  { name: "about-year-2025", source: about, paths: ["/49"] },
+
+  // Explore · ĐỊA (SVG-06)
+  {
+    name: "explore-gate",
+    source: earth,
+    paths: ["/21/0"],
+    note: "A point's card: the lime gate its photo is cut to.",
+  },
+  {
+    name: "explore-place-line",
+    source: earth,
+    paths: ["/16"],
+    note: "The line from ĐỊA to its caption.",
   },
 ];

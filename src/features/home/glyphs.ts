@@ -1,24 +1,10 @@
-import {
-  GlyphHeroA,
-  glyphHeroABox,
-  GlyphHeroO,
-  glyphHeroOBox,
-  GlyphLayersA,
-  glyphLayersABox,
-  GlyphLayersO,
-  glyphLayersOBox,
-  GlyphThreadA,
-  glyphThreadABox,
-  GlyphThreadI,
-  glyphThreadIBox,
-  type ArtBox,
-  type ArtComponent,
-} from "./art";
+import { pieces, type ArtBox, type ArtComponent } from "./art";
 
 /**
- * A letter the designer drew, set inline in a heading. `baseline` and `cap` are the
- * heading's baseline and cap height in the comp, so the drawing keeps its size and
- * height against the font's capitals at any font size.
+ * A drawing set inline in a line of text: a letter the designer drew, or an icon
+ * between words. `baseline` and `cap` are that line's baseline and cap height in the
+ * comp, so the drawing keeps its size and height against the font's capitals at any
+ * font size.
  */
 export interface Glyph {
   Art: ArtComponent;
@@ -27,15 +13,28 @@ export interface Glyph {
   cap: number;
 }
 
-const hero = { baseline: 523, cap: 111 };
-const thread = { baseline: 1260, cap: 51 };
-const layers = { baseline: 4592, cap: 72 };
+/** Each drawing's line in the comp: its baseline and cap height. */
+const lines: Record<string, { baseline: number; cap: number }> = {};
+const on = (baseline: number, cap: number, names: string[]) =>
+  names.forEach((name) => (lines[name] = { baseline, cap }));
 
-export const glyphs: Record<string, Glyph> = {
-  "glyph-hero-o": { Art: GlyphHeroO, box: glyphHeroOBox, ...hero },
-  "glyph-hero-a": { Art: GlyphHeroA, box: glyphHeroABox, ...hero },
-  "glyph-thread-i": { Art: GlyphThreadI, box: glyphThreadIBox, ...thread },
-  "glyph-thread-a": { Art: GlyphThreadA, box: glyphThreadABox, ...thread },
-  "glyph-layers-a": { Art: GlyphLayersA, box: glyphLayersABox, ...layers },
-  "glyph-layers-o": { Art: GlyphLayersO, box: glyphLayersOBox, ...layers },
-};
+// Home (WEB-02)
+on(523, 111, ["glyph-hero-o", "glyph-hero-a"]);
+on(1260, 51, ["glyph-thread-i", "glyph-thread-a"]);
+on(4592, 72, ["glyph-layers-a", "glyph-layers-o"]);
+// About (WEB-05): the heading, then the four lines of fields.
+on(532, 67, ["glyph-about-i"]);
+on(599, 67, ["glyph-about-e"]);
+on(918, 67, ["glyph-about-a"]);
+on(2465, 87, ["field-roof", "field-weave", "field-star"]);
+on(2590, 87, ["field-tiers", "field-arch"]);
+on(2715, 87, ["field-spark", "field-line"]);
+on(2840, 87, ["field-gate", "field-tiers-2", "field-wave"]);
+
+export const glyphs: Record<string, Glyph> = Object.fromEntries(
+  Object.entries(lines).map(([name, line]) => {
+    const piece = pieces[name];
+    if (!piece) throw new Error(`glyphs: no art piece "${name}"`);
+    return [name, { ...piece, ...line }];
+  }),
+);

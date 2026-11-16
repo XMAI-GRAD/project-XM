@@ -1,5 +1,31 @@
 # Homepage design QA — SVG migration, 17 November 2026
 
+## Current dev merge
+
+**Final result: passed** for the combined design and motion in tested production Edge.
+Dev `c76afd2` supplies the section choreography, new About/Explore layouts, footer,
+cursor and extracted artwork. Our opening morph, horizontal floating brand and
+composition hold remain active. Only entrance timing is adapted to the additional
+opening/hold distance; the incoming easing, durations and hover behaviors remain.
+
+Resolved two integration findings: hero playback now begins on exact opening-link
+entry, and shared About/Explore header links return to the homepage header after
+motion initialization. Ordinary Back still restores the previous deep scroll.
+All generated art except the two brand components matches dev byte-for-byte; those
+two retain the same outlines/fills/viewBoxes with combined animation hooks.
+
+- [Personally inspected combined motion/design captures](research/design/evidence/dev-motion-merge/merge-contact-sheet.png)
+- [Conflict resolutions, validation and limitations](docs/plans/2026-11-17-dev-motion-merge.md)
+- [Combined section checks](research/design/evidence/dev-motion-merge/merge-results.json)
+- [History, resize and reduced-motion return](research/design/evidence/dev-motion-merge/history-results.json)
+
+Lint, 38 tests, TypeScript, production build, resolution-file formatting and browser
+checks pass. New section entrances, drawings, counters, hover interactions and
+shared-page navigation were checked alongside the earlier opening/rail regression
+checks. SPEC remains unchanged. Physical devices, other browser engines and external
+authenticated data flows remain outside this verification. Dev's Explore currently
+shows the place layer only; its taste/craft designs remain an upstream follow-up.
+
 ## Current floating rail brand
 
 **Final result: passed** for the requested homepage interaction in tested Edge.

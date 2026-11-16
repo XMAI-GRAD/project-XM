@@ -56,6 +56,34 @@ body {
   color: var(--seashell);
 }
 
+/* The site's cursor: the lime petal (public/cursor.svg), outlined in navy so it
+   reads on the lime frame too. Its point, the hotspot, is 2 px in from the top left.
+   Text fields keep the text cursor. */
+html {
+  cursor:
+    url("/cursor.svg") 2 2,
+    auto;
+}
+a,
+button,
+summary,
+label[for],
+select {
+  cursor:
+    url("/cursor.svg") 2 2,
+    pointer;
+}
+input:not(
+  [type="checkbox"],
+  [type="radio"],
+  [type="submit"],
+  [type="button"],
+  [type="range"]
+),
+textarea {
+  cursor: text;
+}
+
 a {
   color: inherit;
   text-underline-offset: 0.22em;

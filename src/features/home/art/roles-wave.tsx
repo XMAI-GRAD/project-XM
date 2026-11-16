@@ -8,6 +8,7 @@ export function RolesWave(props: ArtProps) {
   return (
     <svg
       viewBox="738.03 3098.92 623.18 138.3"
+      data-art="roles-wave"
       aria-hidden="true"
       focusable="false"
       {...props}

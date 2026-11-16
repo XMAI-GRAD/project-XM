@@ -85,10 +85,17 @@ function inPage(spec) {
     letters,
     markDetails,
     brandParts,
+    parts = {},
   } of spec) {
     if (source !== document.title) continue;
     let box = null;
     let clip = null;
+    // Named parts become data-part hooks for motion; a named group is never unwrapped.
+    for (const [part, p] of Object.entries(parts)) {
+      const el = at(p);
+      if (!el) throw new Error(`${name}: part "${part}" has nothing at ${p}`);
+      el.setAttribute("data-part", part);
+    }
     const nodes = paths.map((p) => {
       const el = at(p);
       if (!el) throw new Error(`${name}: nothing at ${p}`);
@@ -242,7 +249,12 @@ function inPage(spec) {
 function extract(source) {
   const raw = readFileSync(join(svgDir, source), "utf8")
     .replace(/<\?xml[^>]*>/, "")
-    .replace(/<!--[\s\S]*?-->/g, "");
+    .replace(/<!--[\s\S]*?-->/g, "")
+    // Embedded photos are never extracted (they're content, in public/), and can be
+    // tens of MB: drop their data before the browser sees the file.
+    .replace(/(xlink:)?href="data:[^"]*"/g, "");
+  // The script goes in <head>-order after the SVG; the HTML parser closes whatever an
+  // incomplete export leaves open.
   const html = `<!doctype html><title>${source}</title><body>${raw}<script>(${inPage})(${JSON.stringify(pieces)})</script>`;
   const tmp = join(tmpdir(), `home-art-${process.pid}.html`);
   writeFileSync(tmp, html);
@@ -286,7 +298,8 @@ const toJsx = (markup) =>
     .replace(/\s+xmlns(:\w+)?="[^"]*"/g, "")
     .replace(/\s([a-z-]+)=/g, (m, a) => (jsxAttr[a] ? ` ${jsxAttr[a]}=` : m))
     .replace(/\s+/g, " ")
-    .replace(/></g, ">\n<");
+    // Whitespace between tags would become {" "} text nodes in JSX.
+    .replace(/>\s*</g, ">\n<");
 
 const pascal = (name) =>
   name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase());
@@ -308,7 +321,7 @@ export const box: ArtBox = ${JSON.stringify(box)};
 
 export function ${pascal(name)}(props: ArtProps) {
   return (
-    <svg viewBox="${box.x} ${box.y} ${box.w} ${box.h}" aria-hidden="true" focusable="false" {...props}>
+    <svg viewBox="${box.x} ${box.y} ${box.w} ${box.h}" data-art="${name}" aria-hidden="true" focusable="false" {...props}>
 ${markup.map(toJsx).join("\n")}
     </svg>
   );

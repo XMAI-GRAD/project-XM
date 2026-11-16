@@ -1,5 +1,9 @@
 # Header brand to floating rail mark
 
+The later [dev motion merge](../../docs/plans/2026-11-17-dev-motion-merge.md)
+preserves this interaction alongside dev's section animations, new About/Explore
+layouts and footer. It adds shared entrance timing and cross-page header entry.
+
 Owner request, 17 November 2026: first commit the prior collapse implementation,
 then make the header brand collapse, move left, become the pale mark in the supplied
 rail screenshot and remain available as a return-to-header control. The checkpoint

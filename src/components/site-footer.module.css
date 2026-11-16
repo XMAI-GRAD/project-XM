@@ -1,39 +1,129 @@
-/* The navy footer (DESIGN.md, Layout): nav, contact block, credits. */
+/* The navy footer, after the designer's WEB-07 (a 1920-wide comp). Across, it keeps
+   the comp's columns, scaled like home: 1 comp unit = var(--u). Down, it is laid out
+   by its content rather than the comp's full 1080 slide. Text blocks are trimmed to
+   cap top and baseline (text-box), so the gaps below are the comp's: baseline to the
+   next capitals. Body text is Inter, 20 on 24. */
+
+/* The footer is the container its units are measured against; the grid inside
+   lays out in them. */
 .footer {
-  display: grid;
-  gap: 24px;
+  container-type: inline-size;
   background: var(--navy-500);
   color: var(--seashell);
-  border-top: 4px solid var(--mauve);
-  padding: 32px var(--pad, clamp(16px, 2.4vw, 32px)) 48px;
+}
+.grid {
+  --u: calc(100cqw / 1920);
+  display: grid;
+  /* The comp's columns: tagline 179, nav 705, visit 1048, contact 1428. */
+  grid-template-columns:
+    calc(526 * var(--u)) calc(343 * var(--u)) calc(380 * var(--u))
+    1fr;
+  grid-template-areas:
+    "logo   home  visit  contact"
+    "tag    nav   where  reach"
+    "credit credit credit made";
+  align-items: start;
+  padding: calc(80 * var(--u)) calc(100 * var(--u)) calc(64 * var(--u))
+    calc(179 * var(--u));
+  font-size: calc(20 * var(--u));
+  line-height: calc(24 * var(--u));
 }
 .footer :focus-visible {
   outline-color: var(--seashell);
 }
-.nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 28px;
-}
-.nav a {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.05rem;
-}
-.contact {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  gap: 16px 32px;
-  font-style: normal;
-  overflow-wrap: anywhere;
-}
-.contact p {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+/* Zero-specificity reset, so the gaps set below win. */
+:where(.footer) :where(p, ul, h2) {
   margin: 0;
 }
-.contact :global(.meta) {
-  opacity: 0.75;
+.footer a {
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Row 1: the logo, and the column titles sitting on the logo's baseline. */
+.logo {
+  grid-area: logo;
+  display: block;
+  width: calc(233 * var(--u));
+  margin-left: calc(42 * var(--u));
+}
+.logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.title {
+  align-self: end;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(33 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  text-box: cap alphabetic;
+}
+.title:nth-of-type(1) {
+  grid-area: home;
+}
+.title:nth-of-type(2) {
+  grid-area: visit;
+}
+.title:nth-of-type(3) {
+  grid-area: contact;
+}
+
+/* Row 2: 78 units below the titles' baseline. */
+.tagline,
+.nav,
+.visit,
+.contact {
+  margin-top: calc(78 * var(--u));
+  font-style: normal;
+}
+.tagline {
+  grid-area: tag;
+  text-box: cap alphabetic;
+}
+.nav {
+  grid-area: nav;
+}
+.nav ul {
+  display: grid;
+  gap: calc(37 * var(--u));
+  padding: 0;
+  list-style: none;
+}
+.nav li {
+  text-box: cap alphabetic;
+}
+.visit {
+  grid-area: where;
+  display: grid;
+  gap: calc(33 * var(--u));
+  max-width: calc(290 * var(--u));
+}
+.visit p,
+.contact p {
+  text-box: cap alphabetic;
+}
+.contact {
+  grid-area: reach;
+  overflow-wrap: anywhere;
+}
+
+/* Row 3: the credits, and the signature in the quieter navy. */
+.credits,
+.madeBy {
+  margin-top: calc(80 * var(--u));
+  text-box: cap alphabetic;
+}
+.credits {
+  grid-area: credit;
+  font-weight: 600;
+}
+.madeBy {
+  grid-area: made;
+  color: var(--navy-200);
+  opacity: 0.6;
 }

@@ -45,6 +45,51 @@ import {
   box as layerCraftShapesBox,
 } from "./layer-craft-shapes";
 import { MapMark, box as mapMarkBox } from "./map-mark";
+import { FooterLogo, box as footerLogoBox } from "./footer-logo";
+import { AboutPetal, box as aboutPetalBox } from "./about-petal";
+import { AboutIntroLine, box as aboutIntroLineBox } from "./about-intro-line";
+import { GlyphAboutI, box as glyphAboutIBox } from "./glyph-about-i";
+import { GlyphAboutE, box as glyphAboutEBox } from "./glyph-about-e";
+import { GlyphAboutA, box as glyphAboutABox } from "./glyph-about-a";
+import {
+  AboutWorkCertify,
+  box as aboutWorkCertifyBox,
+} from "./about-work-certify";
+import {
+  AboutWorkLaunch,
+  box as aboutWorkLaunchBox,
+} from "./about-work-launch";
+import {
+  AboutWorkConnect,
+  box as aboutWorkConnectBox,
+} from "./about-work-connect";
+import { AboutWorkHook1, box as aboutWorkHook1Box } from "./about-work-hook-1";
+import { AboutWorkHook2, box as aboutWorkHook2Box } from "./about-work-hook-2";
+import { AboutWorkHook3, box as aboutWorkHook3Box } from "./about-work-hook-3";
+import { AboutWorkLine, box as aboutWorkLineBox } from "./about-work-line";
+import { FieldRoof, box as fieldRoofBox } from "./field-roof";
+import { FieldWeave, box as fieldWeaveBox } from "./field-weave";
+import { FieldStar, box as fieldStarBox } from "./field-star";
+import { FieldTiers, box as fieldTiersBox } from "./field-tiers";
+import { FieldArch, box as fieldArchBox } from "./field-arch";
+import { FieldSpark, box as fieldSparkBox } from "./field-spark";
+import { FieldLine, box as fieldLineBox } from "./field-line";
+import { FieldGate, box as fieldGateBox } from "./field-gate";
+import { FieldTiers2, box as fieldTiers2Box } from "./field-tiers-2";
+import { FieldWave, box as fieldWaveBox } from "./field-wave";
+import {
+  AboutTimelineLine,
+  box as aboutTimelineLineBox,
+} from "./about-timeline-line";
+import { AboutYear2019, box as aboutYear2019Box } from "./about-year-2019";
+import { AboutYear2022, box as aboutYear2022Box } from "./about-year-2022";
+import { AboutYear2023, box as aboutYear2023Box } from "./about-year-2023";
+import { AboutYear2025, box as aboutYear2025Box } from "./about-year-2025";
+import { ExploreGate, box as exploreGateBox } from "./explore-gate";
+import {
+  ExplorePlaceLine,
+  box as explorePlaceLineBox,
+} from "./explore-place-line";
 
 export type { ArtBox, ArtComponent, ArtProps } from "./types";
 export {
@@ -120,6 +165,66 @@ export {
   layerCraftShapesBox,
   MapMark,
   mapMarkBox,
+  FooterLogo,
+  footerLogoBox,
+  AboutPetal,
+  aboutPetalBox,
+  AboutIntroLine,
+  aboutIntroLineBox,
+  GlyphAboutI,
+  glyphAboutIBox,
+  GlyphAboutE,
+  glyphAboutEBox,
+  GlyphAboutA,
+  glyphAboutABox,
+  AboutWorkCertify,
+  aboutWorkCertifyBox,
+  AboutWorkLaunch,
+  aboutWorkLaunchBox,
+  AboutWorkConnect,
+  aboutWorkConnectBox,
+  AboutWorkHook1,
+  aboutWorkHook1Box,
+  AboutWorkHook2,
+  aboutWorkHook2Box,
+  AboutWorkHook3,
+  aboutWorkHook3Box,
+  AboutWorkLine,
+  aboutWorkLineBox,
+  FieldRoof,
+  fieldRoofBox,
+  FieldWeave,
+  fieldWeaveBox,
+  FieldStar,
+  fieldStarBox,
+  FieldTiers,
+  fieldTiersBox,
+  FieldArch,
+  fieldArchBox,
+  FieldSpark,
+  fieldSparkBox,
+  FieldLine,
+  fieldLineBox,
+  FieldGate,
+  fieldGateBox,
+  FieldTiers2,
+  fieldTiers2Box,
+  FieldWave,
+  fieldWaveBox,
+  AboutTimelineLine,
+  aboutTimelineLineBox,
+  AboutYear2019,
+  aboutYear2019Box,
+  AboutYear2022,
+  aboutYear2022Box,
+  AboutYear2023,
+  aboutYear2023Box,
+  AboutYear2025,
+  aboutYear2025Box,
+  ExploreGate,
+  exploreGateBox,
+  ExplorePlaceLine,
+  explorePlaceLineBox,
 };
 
 /** Every piece by name, for pieces picked in data/ (e.g. a stat's icon). */
@@ -160,4 +265,34 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "layer-craft-line": { Art: LayerCraftLine, box: layerCraftLineBox },
   "layer-craft-shapes": { Art: LayerCraftShapes, box: layerCraftShapesBox },
   "map-mark": { Art: MapMark, box: mapMarkBox },
+  "footer-logo": { Art: FooterLogo, box: footerLogoBox },
+  "about-petal": { Art: AboutPetal, box: aboutPetalBox },
+  "about-intro-line": { Art: AboutIntroLine, box: aboutIntroLineBox },
+  "glyph-about-i": { Art: GlyphAboutI, box: glyphAboutIBox },
+  "glyph-about-e": { Art: GlyphAboutE, box: glyphAboutEBox },
+  "glyph-about-a": { Art: GlyphAboutA, box: glyphAboutABox },
+  "about-work-certify": { Art: AboutWorkCertify, box: aboutWorkCertifyBox },
+  "about-work-launch": { Art: AboutWorkLaunch, box: aboutWorkLaunchBox },
+  "about-work-connect": { Art: AboutWorkConnect, box: aboutWorkConnectBox },
+  "about-work-hook-1": { Art: AboutWorkHook1, box: aboutWorkHook1Box },
+  "about-work-hook-2": { Art: AboutWorkHook2, box: aboutWorkHook2Box },
+  "about-work-hook-3": { Art: AboutWorkHook3, box: aboutWorkHook3Box },
+  "about-work-line": { Art: AboutWorkLine, box: aboutWorkLineBox },
+  "field-roof": { Art: FieldRoof, box: fieldRoofBox },
+  "field-weave": { Art: FieldWeave, box: fieldWeaveBox },
+  "field-star": { Art: FieldStar, box: fieldStarBox },
+  "field-tiers": { Art: FieldTiers, box: fieldTiersBox },
+  "field-arch": { Art: FieldArch, box: fieldArchBox },
+  "field-spark": { Art: FieldSpark, box: fieldSparkBox },
+  "field-line": { Art: FieldLine, box: fieldLineBox },
+  "field-gate": { Art: FieldGate, box: fieldGateBox },
+  "field-tiers-2": { Art: FieldTiers2, box: fieldTiers2Box },
+  "field-wave": { Art: FieldWave, box: fieldWaveBox },
+  "about-timeline-line": { Art: AboutTimelineLine, box: aboutTimelineLineBox },
+  "about-year-2019": { Art: AboutYear2019, box: aboutYear2019Box },
+  "about-year-2022": { Art: AboutYear2022, box: aboutYear2022Box },
+  "about-year-2023": { Art: AboutYear2023, box: aboutYear2023Box },
+  "about-year-2025": { Art: AboutYear2025, box: aboutYear2025Box },
+  "explore-gate": { Art: ExploreGate, box: exploreGateBox },
+  "explore-place-line": { Art: ExplorePlaceLine, box: explorePlaceLineBox },
 };

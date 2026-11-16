@@ -8,29 +8,23 @@ export function FrameRight(props: ArtProps) {
   return (
     <svg
       viewBox="1564.64 180 355.38 5220"
+      data-art="frame-right"
       aria-hidden="true"
       focusable="false"
       {...props}
     >
       <g>
-        {" "}
-        <rect
-          x="1740"
-          y="1080"
-          width="179.65"
-          height="1080"
-          fill="#cbdb2b"
-        />{" "}
-        <rect x="1740" y="2160" width="179.65" height="1080" fill="#cbdb2b" />{" "}
-        <rect x="1740" y="3240" width="179.65" height="1080" fill="#cbdb2b" />{" "}
+        <rect x="1740" y="1080" width="179.65" height="1080" fill="#cbdb2b" />
+        <rect x="1740" y="2160" width="179.65" height="1080" fill="#cbdb2b" />
+        <rect x="1740" y="3240" width="179.65" height="1080" fill="#cbdb2b" />
         <path
           d="M1602.61,5400h317.41v-196.51v-0.18V4320h-179.65v883.43c-6.34,65.7-60.55,117.21-127.61,118.41 c-0.79,0.01-48.1,0-48.1,0v40.23C1585.62,5362.06,1602.61,5379.05,1602.61,5400z"
           fill="#cbdb2b"
-        />{" "}
+        />
         <path
           d="M1602.59,180H1920v196.51v0.18V1080h-179.65V376.57c-6.34-65.7-60.55-117.21-127.61-118.41 c-0.79-0.01-48.1,0-48.1,0v-40.23C1585.6,217.93,1602.59,200.95,1602.59,180z"
           fill="#cbdb2b"
-        />{" "}
+        />
       </g>
     </svg>
   );
