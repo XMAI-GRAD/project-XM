@@ -8,6 +8,7 @@ export function RolesPetal(props: ArtProps) {
   return (
     <svg
       viewBox="1256.39 3082.75 261.5 261.62"
+      data-art="roles-petal"
       aria-hidden="true"
       focusable="false"
       {...props}

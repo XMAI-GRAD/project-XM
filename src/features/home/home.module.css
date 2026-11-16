@@ -23,7 +23,8 @@
 .board {
   position: relative;
   isolation: isolate;
-  height: calc(5400 * var(--u));
+  /* The comp's height: home is 5400; another page sets --board to its own. */
+  height: calc(var(--board, 5400) * var(--u));
 }
 
 .section {
@@ -52,6 +53,14 @@ svg.at,
 /* Text blocks trimmed to cap top and baseline. */
 .text {
   text-box: cap alphabetic;
+}
+/* The same cap-top placement for display headings that split into moving words,
+   without text-box: Chrome lays out a trimmed multi-line block wrongly, and keeps it
+   wrong, while inline-block words inside it move. Instead the block moves up by what
+   the trim would cut above the capitals, from Phudu's metrics (ascent 1.025 em,
+   descent 0.2 em, capitals 0.703 em): the half-leading plus ascent minus cap height. */
+.capTop {
+  margin-top: calc((1.225em - 1lh) / 2 - 0.322em);
 }
 .display {
   font-family: var(--font-display);
@@ -109,6 +118,8 @@ svg.at,
   inset: 0;
   z-index: 1;
   pointer-events: none;
+  /* Drawn for home's 5400-tall comp; a shorter page crops it to its own height. */
+  overflow: clip;
   --sy: 0;
 }
 
@@ -234,6 +245,13 @@ svg.at,
 }
 .nav a:hover {
   background: var(--navy-500);
+  color: var(--seashell);
+}
+/* The page you're on, in seashell on the tab (WEB-05). */
+.nav a[aria-current="page"] {
+  color: var(--seashell);
+}
+.nav a[aria-current="page"]:hover {
   color: var(--seashell);
 }
 
@@ -498,6 +516,11 @@ svg.at,
   margin: 0;
   padding: 0;
   list-style: none;
+}
+/* A layer's pair of shapes is pushed past its own box when hovered (the magnet,
+   src/features/home/motion/layers-motion.tsx): let it show. */
+.layerList [data-art$="-shapes"] {
+  overflow: visible;
 }
 .layerName {
   font-size: calc(33 / 0.703 * var(--u));

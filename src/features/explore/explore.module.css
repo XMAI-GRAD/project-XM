@@ -1,0 +1,88 @@
+/* Explore, after the designer's WEB-06 (one 1920 × 1080 slide per layer; ĐỊA first).
+   Same system as home (src/features/home/home.module.css): comp units, a section's
+   --sy/--sh, pieces at --x/--y with text placed by its cap top. */
+
+.slide {
+  --sy: 258;
+  --sh: 822;
+}
+
+.layerName {
+  --x: 473;
+  --y: 305;
+  --w: 400;
+  font-size: calc(56 / 0.703 * var(--u));
+  width: max-content;
+}
+[data-layer="place"] .layerName {
+  color: var(--lime-600);
+}
+.caption {
+  --x: 1145;
+  --y: 347;
+  --w: 500;
+  font-weight: 500;
+  font-size: calc(14 / 0.727 * var(--u));
+  color: var(--navy-400);
+}
+
+/* The points: a gate and a name each, set where the comp sets them. */
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.points > li {
+  --w: 355;
+}
+.points > li:nth-child(1) {
+  --x: 350;
+  --y: 397;
+}
+.points > li:nth-child(2) {
+  --x: 1197;
+  --y: 397;
+}
+.points > li:nth-child(3) {
+  --x: 773;
+  --y: 554;
+}
+.points > li:nth-child(4) {
+  --x: 350;
+  --y: 773;
+}
+.points > li:nth-child(5) {
+  --x: 1197;
+  --y: 773;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(22 * var(--u));
+  color: var(--navy-400);
+  text-decoration: none;
+}
+.card:focus-visible {
+  outline-offset: calc(8 * var(--u));
+}
+.gate {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.name {
+  font-weight: 600;
+  font-size: calc(13 / 0.727 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  text-box: cap alphabetic;
+}
+.card:hover .name {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}

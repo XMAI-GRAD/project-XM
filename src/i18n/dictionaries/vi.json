@@ -114,9 +114,6 @@
     "gestureHint": "Kéo để khám phá · chụm hai ngón hoặc dùng + / − để thu phóng",
     "keyboardHelp": "Kéo để di chuyển, chụm hai ngón để thu phóng. Dùng Tab để chọn bản đồ, phím mũi tên để di chuyển, dấu cộng hoặc trừ để thu phóng. Chọn ghim bằng Enter hoặc phím cách. Nhấn Escape để đóng thông tin địa điểm."
   },
-  "about": {
-    "playVideo": "Xem video"
-  },
   "events": {
     "title": "Sự kiện",
     "empty": "Chưa có sự kiện nào.",
@@ -171,7 +168,12 @@
     "contact": "Liên hệ",
     "hours": "Mở cửa",
     "phone": "Điện thoại",
-    "email": "Email"
+    "email": "Email",
+    "titles": {
+      "home": "Home",
+      "visit": "Visit us",
+      "contact": "Contact"
+    }
   },
   "errors": {
     "unauthenticated": "Bạn cần đăng nhập.",

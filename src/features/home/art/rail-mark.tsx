@@ -8,30 +8,30 @@ export function RailMark(props: ArtProps) {
   return (
     <svg
       viewBox="47.32 361.22 85.3 85.31"
+      data-art="rail-mark"
       aria-hidden="true"
       focusable="false"
       {...props}
     >
       <g>
-        {" "}
         <path
           d="M95.44,422.74H84.69c-11,6.8-23.47,11.63-36.87,13.96v9.33h84.3v-9.36 C118.78,434.32,106.38,429.51,95.44,422.74z"
           fill="#fff8f5"
           stroke="#cce0f4"
           strokeMiterlimit="10"
-        />{" "}
+        />
         <path
           d="M95.44,361.72H84.69c-11,6.8-23.47,11.63-36.87,13.96v15.3h84.3v-15.34 C118.78,373.3,106.38,368.49,95.44,361.72z"
           fill="#fff8f5"
           stroke="#cce0f4"
           strokeMiterlimit="10"
-        />{" "}
+        />
         <path
           d="M54.27,397.43v31.45c11-2.63,21.29-6.93,30.52-12.66v0.03h10.55v-0.03c9.18,5.69,19.4,9.98,30.32,12.61v-31.4 H54.27z"
           fill="#fff8f5"
           stroke="#cce0f4"
           strokeMiterlimit="10"
-        />{" "}
+        />
       </g>
     </svg>
   );

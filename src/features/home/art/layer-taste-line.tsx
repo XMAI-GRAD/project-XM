@@ -8,6 +8,7 @@ export function LayerTasteLine(props: ArtProps) {
   return (
     <svg
       viewBox="1279.73 4855.66 381.41 19.95"
+      data-art="layer-taste-line"
       aria-hidden="true"
       focusable="false"
       {...props}

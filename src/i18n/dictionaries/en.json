@@ -114,9 +114,6 @@
     "gestureHint": "Drag to explore · pinch or use + / − to zoom",
     "keyboardHelp": "Drag to move and pinch to zoom. Tab to the map, then use arrow keys to pan and plus or minus to zoom. Select a pin with Enter or Space. Press Escape to close place details."
   },
-  "about": {
-    "playVideo": "Play video"
-  },
   "events": {
     "title": "Events",
     "empty": "No events yet.",
@@ -171,7 +168,12 @@
     "contact": "Contact",
     "hours": "Opening hours",
     "phone": "Phone",
-    "email": "Email"
+    "email": "Email",
+    "titles": {
+      "home": "Home",
+      "visit": "Visit us",
+      "contact": "Contact"
+    }
   },
   "errors": {
     "unauthenticated": "You need to log in.",

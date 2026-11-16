@@ -8,6 +8,7 @@ export function SearchFrame(props: ArtProps) {
   return (
     <svg
       viewBox="1401.53 67.56 338.97 46.23"
+      data-art="search-frame"
       aria-hidden="true"
       focusable="false"
       {...props}

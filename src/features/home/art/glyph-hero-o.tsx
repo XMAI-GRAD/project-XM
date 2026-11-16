@@ -8,6 +8,7 @@ export function GlyphHeroO(props: ArtProps) {
   return (
     <svg
       viewBox="855.27 385.73 92.82 125.33"
+      data-art="glyph-hero-o"
       aria-hidden="true"
       focusable="false"
       {...props}

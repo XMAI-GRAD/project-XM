@@ -8,6 +8,7 @@ export function LayerPlaceLine(props: ArtProps) {
   return (
     <svg
       viewBox="821.44 4481 376.72 19.89"
+      data-art="layer-place-line"
       aria-hidden="true"
       focusable="false"
       {...props}

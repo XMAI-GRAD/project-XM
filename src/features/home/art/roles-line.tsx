@@ -8,6 +8,7 @@ export function RolesLine(props: ArtProps) {
   return (
     <svg
       viewBox="178.65 3142.91 300.25 2"
+      data-art="roles-line"
       aria-hidden="true"
       focusable="false"
       {...props}

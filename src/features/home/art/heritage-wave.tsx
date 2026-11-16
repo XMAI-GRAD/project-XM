@@ -8,6 +8,7 @@ export function HeritageWave(props: ArtProps) {
   return (
     <svg
       viewBox="180.07 3399.87 328.71 72.94"
+      data-art="heritage-wave"
       aria-hidden="true"
       focusable="false"
       {...props}
