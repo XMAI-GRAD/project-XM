@@ -2,19 +2,21 @@
 
 ## Latest opening transition
 
-The header now enters from above while the navy opening dissolves, with the
-existing letter morph preserved. Artwork and navigation reveal in stages so the
-wordmark stays clear. The homepage reaches its original layout at the endpoint.
+The lettering now finishes moving into the brand logo before any header, content,
+frame or other logo detail appears. It settles at 72% of the opening scroll and
+holds its exact viewport position while the page reveals over the remaining 28%.
+The header controls enter from above during this second phase. The homepage
+reaches its original layout at the endpoint.
 
-- [Current transition frames](research/design/evidence/opening-header-reveal/morph-contact-sheet.png)
-- [Current endpoint comparison](research/design/evidence/opening-header-reveal/comparison-morph-endpoints.png)
-- [New transition measurements and focus checks](research/design/evidence/opening-header-reveal/transition-results.json)
+- [Current transition frames](research/design/evidence/settled-wordmark-reveal/morph-contact-sheet.png)
+- [Current endpoint comparison](research/design/evidence/settled-wordmark-reveal/comparison-morph-endpoints.png)
+- [Sequence measurements and focus checks](research/design/evidence/settled-wordmark-reveal/sequence-results.json)
 - [Implementation and full validation record](docs/plans/2026-11-17-opening-header-reveal.md)
 
-All 23 current browser groups pass: the prior eleven motion, four lifecycle/touch
-and four integration groups, plus four transition/focus/cleanup groups. Lint,
+All 24 current browser groups pass: eleven motion, four lifecycle/touch
+and four integration groups, plus five sequence/focus/cleanup groups. Lint,
 types, 38 existing tests and production build pass. Static endpoint comparisons
-have mean channel error 0–0.0001/255. Physical-device and cross-browser limitations
+have zero pixel difference at all four tested sizes. Physical-device and cross-browser limitations
 below still apply. No artwork was redrawn and SPEC.md remains unchanged.
 
 The migration report below records the earlier transition and its evidence;

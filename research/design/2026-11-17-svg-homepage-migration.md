@@ -1,8 +1,8 @@
 # Extracted SVG homepage with opening scroll/morph
 
-> **Later motion update:** the header now enters from above while the opening
-> dissolves. See [the current transition record](../../docs/plans/2026-11-17-opening-header-reveal.md)
-> for timing, geometry, accessibility and the latest 23 browser check groups.
+> **Later motion update:** the lettering now settles before the header and content
+> appear. See [the current transition record](../../docs/plans/2026-11-17-opening-header-reveal.md)
+> for timing, geometry, accessibility and the latest 24 browser check groups.
 > The SVG extraction architecture below is unchanged.
 
 Owner correction: use the team's SVG extraction and homepage from `origin/dev`
@@ -67,11 +67,12 @@ Each Bezier point is projected from its SVG viewBox into the measured homepage
 coordinate system. GSAP MorphSVG interpolates those projected source/target paths;
 ScrollTrigger samples a reversible timeline from opening top to opening bottom.
 The section retains its layout height. During the opening, the incoming board is
-counter-translated so its header enters from above while the viewport-aligned navy
-backdrop fades out. The board reaches zero translation at the end of the opening;
+counter-translated while the viewport-aligned navy backdrop fades out. The letter
+morph finishes at 72% and holds still; only then does the board reveal, with its
+header controls entering from above. The board reaches zero translation at the end;
 normal page scrolling continues from there. There is no pin spacer or wheel
 interception. An opaque color wipe keeps the wordmark readable during the dissolve;
-header details appear in the last 22% of progress.
+header details appear only during the final 28% reveal.
 
 At both endpoints, the overlay hides and the original inline SVG is displayed.
 This preserves exact endpoint rendering. The original entry link's hit area

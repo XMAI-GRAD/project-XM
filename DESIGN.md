@@ -161,8 +161,9 @@ header logo. See [current implementation and extraction notes](research/design/2
 for path pairing, coordinate spaces, native scroll behavior, endpoint handoff,
 reduced motion and lifecycle cleanup. Keep the original SVGs at both endpoints.
 The [current opening transition](docs/plans/2026-11-17-opening-header-reveal.md)
-brings the header in from above while the opening dissolves; its staged reveal
-keeps the moving wordmark readable and leaves the final extracted layout intact.
+keeps the header and content hidden until the lettering settles in the brand logo.
+The page then reveals, with header controls entering from above; the final extracted
+layout stays intact.
 
 Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. GSAP drives explore, the point page and the login slideshow. On a point page the photo settles and the name slides in, the info bar unrolls after it, and the content below reveals once on scroll with ScrollTrigger. Rows slide out from under their top hairline with a matching `clip-path`, staggered, on arrival and on a tab change; the old rows leave faster, and the panel height moves in the same timeline. Opening a row tweens its height, collapses the open row and keeps the clicked header in place. On login every 2.5s the name wheel turns one step and the figure stack shifts, the next figure moving to the center as the old one tilts away (0.9s, `power2.inOut`), then the name and hook slide out from under their hairline with a `clip-path`; a click on a name jumps there; hovering the carousel or focusing a pill pauses it; under reduced motion nothing plays or tweens, and a click still changes the point. Everything else is short CSS color and opacity transitions, wrapped in `prefers-reduced-motion: no-preference`.
 

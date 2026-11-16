@@ -9,6 +9,9 @@ import s from "./opening-motion.module.css";
 
 gsap.registerPlugin(useGSAP, MorphSVGPlugin, ScrollTrigger);
 
+const WORDMARK_END = 0.72;
+const REVEAL_DURATION = 1 - WORDMARK_END;
+
 function svgNode<K extends keyof SVGElementTagNameMap>(name: K) {
   return document.createElementNS("http://www.w3.org/2000/svg", name);
 }
@@ -107,6 +110,7 @@ export function HomeOpeningMotion({
         const definitions = svg.querySelector("[data-morph-definitions]")!;
         const blueLetters = svg.querySelector("[data-blue-letters]")!;
         const paperLetters = svg.querySelector("[data-paper-letters]")!;
+        const movingLetters = svg.querySelector("[data-morph-movement]")!;
         const detailGroup = svg.querySelector("[data-brand-details]")!;
         const blueClip = svg.querySelector("[data-blue-clip]");
         const paperClip = svg.querySelector("[data-paper-clip]");
@@ -242,28 +246,14 @@ export function HomeOpeningMotion({
                 scrub: true,
               },
             });
-            // Cancel native scroll for the incoming board during the opening.
-            // Its header enters from above, then meets its untouched document position.
-            const enter = gsap.parseEase("power2.inOut");
-            const travel = edge + headerHeight;
-            timeline.fromTo(
-              [board, detailGroup],
-              { y: -travel },
-              {
-                y: 0,
-                ease: (progress: number) =>
-                  (edge * progress +
-                    headerHeight * enter(Math.min(1, progress / 0.55))) /
-                  travel,
-              },
-              0,
-            );
+            // Hold the destination in the viewport while the wordmark arrives.
+            timeline.fromTo([board, detailGroup], { y: -edge }, { y: 0 }, 0);
             // Keep the navy backdrop in the viewport while it dissolves.
             timeline.fromTo(backdrop, { y: 0 }, { y: edge }, 0);
             timeline.fromTo(
               backdrop,
               { opacity: 1 },
-              { opacity: 0, duration: 0.9, ease: "power1.inOut" },
+              { opacity: 0, duration: WORDMARK_END, ease: "power1.inOut" },
               0,
             );
             // An opaque ink wipe avoids blending the wordmark into the fading ground.
@@ -274,45 +264,77 @@ export function HomeOpeningMotion({
             );
             timeline.to(paperClip, { attr: { height }, duration: 0.24 }, 0.32);
             timeline.fromTo(
-              board.querySelectorAll("main, [data-home-frame]"),
+              board,
               { opacity: 0 },
-              { opacity: 1, duration: 0.5, ease: "power1.inOut" },
-              0.38,
+              { opacity: 1, duration: REVEAL_DURATION, ease: "power1.inOut" },
+              WORDMARK_END,
             );
             timeline.fromTo(
-              header.querySelector("nav"),
-              { opacity: 0 },
-              { opacity: 1, duration: 0.18 },
-              0.72,
+              [...header.children].filter((child) => !child.contains(target)),
+              { y: -headerHeight },
+              { y: 0, duration: REVEAL_DURATION, ease: "power2.out" },
+              WORDMARK_END,
+            );
+            // Finish the shape early, then cancel the remaining native scroll so
+            // the settled lettering stays still while the header/content reveal.
+            const remainingScroll = edge * REVEAL_DURATION;
+            timeline.fromTo(
+              movingLetters,
+              { y: 0 },
+              { y: -remainingScroll, duration: WORDMARK_END },
+              0,
+            );
+            timeline.to(
+              movingLetters,
+              { y: 0, duration: REVEAL_DURATION },
+              WORDMARK_END,
             );
             timeline.to(
               entry,
               {
                 x: left - (sourceBox.left - origin.left),
-                y: top - (sourceBox.top - origin.top),
+                y: top - (sourceBox.top - origin.top) - remainingScroll,
                 scaleX: (right - left) / sourceBox.width,
                 scaleY: (bottom - top) / sourceBox.height,
                 transformOrigin: "0 0",
+                duration: WORDMARK_END,
               },
               0,
+            );
+            timeline.to(
+              entry,
+              {
+                y: top - (sourceBox.top - origin.top),
+                duration: REVEAL_DURATION,
+              },
+              WORDMARK_END,
             );
             letters.forEach((letter, index) =>
               timeline.to(
                 letter.path,
-                { morphSVG: { shape: targets[index], type: "linear" } },
+                {
+                  morphSVG: { shape: targets[index], type: "linear" },
+                  duration: WORDMARK_END,
+                },
                 0,
               ),
             );
             timeline.fromTo(
               detailGroup,
               { opacity: 0 },
-              { opacity: 1, duration: 0.22 },
-              0.78,
+              { opacity: 1, duration: REVEAL_DURATION },
+              WORDMARK_END,
             );
             const syncPhase = () => {
               const progress = timeline.progress();
               const phase =
-                progress === 0 ? "start" : progress === 1 ? "end" : "morph";
+                progress === 0
+                  ? "start"
+                  : progress === 1
+                    ? "end"
+                    : progress < WORDMARK_END
+                      ? "morph"
+                      : "reveal";
               if (host.dataset.openingPhase !== phase) {
                 host.dataset.openingPhase = phase;
                 entry.tabIndex = phase === "end" ? -1 : 0;
@@ -381,8 +403,10 @@ export function HomeOpeningMotion({
             <rect data-paper-clip />
           </clipPath>
         </defs>
-        <g clipPath={`url(#${id}-blue)`} data-blue-letters />
-        <g clipPath={`url(#${id}-paper)`} data-paper-letters />
+        <g data-morph-movement>
+          <g clipPath={`url(#${id}-blue)`} data-blue-letters />
+          <g clipPath={`url(#${id}-paper)`} data-paper-letters />
+        </g>
         <g data-brand-details />
       </svg>
     </div>

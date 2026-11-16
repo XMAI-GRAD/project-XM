@@ -27,18 +27,22 @@
   .root[data-opening-motion="active"] [data-home-design="web-02"] {
     z-index: 1;
   }
-  .root[data-opening-phase="start"] [data-home-design="web-02"] {
+  .root[data-opening-phase="start"] [data-home-design="web-02"],
+  .root[data-opening-phase="morph"] [data-home-design="web-02"] {
     pointer-events: none;
   }
   .root[data-opening-motion="active"] [data-opening-logo] {
     pointer-events: auto;
   }
-  .root[data-opening-phase="morph"] .overlay {
+  .root[data-opening-phase="morph"] .overlay,
+  .root[data-opening-phase="reveal"] .overlay {
     visibility: visible;
   }
   .root[data-opening-phase="morph"] [data-opening-logo] > svg,
+  .root[data-opening-phase="reveal"] [data-opening-logo] > svg,
   .root[data-opening-phase="end"] [data-opening-logo] > svg,
-  .root[data-opening-phase="morph"] [data-header-logo] > svg {
+  .root[data-opening-phase="morph"] [data-header-logo] > svg,
+  .root[data-opening-phase="reveal"] [data-header-logo] > svg {
     opacity: 0;
   }
   .root[data-opening-phase="end"] [data-opening-logo] {
