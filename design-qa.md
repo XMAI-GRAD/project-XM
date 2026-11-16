@@ -1,5 +1,72 @@
 # Homepage design QA — SVG migration, 17 November 2026
 
+## Current floating rail brand
+
+**Final result: passed** for the requested homepage interaction in tested Edge.
+This supersedes the sticky-header collapse described below.
+
+The owner subsequently corrected the direction: the logo now moves horizontally
+left and floats at its original header height. Vertical translation only cancels
+page scrolling. Current travel/full-page captures show this correction; the
+normalized crop below compares artwork, not its current viewport y position.
+The header, main content and original frame now stay together throughout travel
+and begin scrolling away only after docking. The logo remains at the same height
+through both phases. Updated checks assert the held composition and its release.
+
+Source: the supplied pale-logo rail screenshot, identified as the original
+`RailMark` in `docs/lttem/svg/WEB-02-HomePage.svg` (`/79`). The source crop's unknown
+zoom is not treated as a full-page sizing specification. Comparison uses that
+canonical asset rendered in the project at 1920x1080 CSS px, DPR 1. Both focused
+rail crops are 180x240 px, x=0/y=280, displayed at equal scale.
+
+- [Combined source/implementation crop](research/design/evidence/floating-rail-brand/rail-comparison.png)
+- [Frame correction before/after](research/design/evidence/floating-rail-brand/frame-fix-comparison.png)
+- [Corrected frame at the reported viewport](research/design/evidence/floating-rail-brand/frame-user-viewport.png)
+- [Full docked page](research/design/evidence/floating-rail-brand/rail-page.png)
+- [Travel sequence after the layering fix](research/design/evidence/floating-rail-brand/rail-travel-sequence.png)
+- [Implementation, evidence and checks](research/design/2026-11-17-floating-rail-brand.md)
+
+| Fidelity surface | Result                                                                                                                                                                                                 |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Typography       | Original extracted header lettering and surrounding type retained; lettering retracts during travel.                                                                                                   |
+| Spacing/layout   | Rail dimensions and x alignment preserved; logo y stays at header height. Header, hero and frame hold together until docking, then scroll away. Extra hold distance is reserved below the artwork.     |
+| Colors           | Source colors stay visible over paper. Complementary clips reveal the canonical pale mark where the original lime rail passes behind it; no extra lime panel.                                          |
+| Asset quality    | Original SVG at both endpoints, temporary clone during travel. Mean rail raster channel difference 0.60/255, confined to small edge-rendering differences; no claimed pixel-perfect rail raster match. |
+| Copy/content     | Existing editorial content unchanged; localized return labels added in VI/EN.                                                                                                                          |
+
+First visual review found a P2: the navigation tab covered the lower part of the
+moving logo. The logo now sits above the header controls. Revised travel captures
+were inspected and the full symbol remains visible.
+
+The owner's later screenshot identified another P2: holding only the header cut
+off the hero's rounded frame, and the extra lime panel looked detached. Holding
+header, main content and original frame together fixes that composition. Removed
+the extra panel and synthetic header background; color masks follow the actual
+rail edge. Personally inspected docking, release and the reported 2477x673 viewport.
+Travel inspection also caught a weather-text collision; the weather/date now fades
+only while the symbol crosses its slot and returns after it passes.
+No actionable P0/P1/P2 findings remain in this tested interaction scope. Minor
+raster edge differences are P3 follow-up.
+
+Before the frame correction, 34 browser groups/cases passed: ten rail/return cases and the 24 opening,
+lifecycle/touch and integration groups. Verified pointer, Enter and emulated-touch
+return to the header; cancellation; reversibility; deep/bottom scrolling; resize;
+reload; four locale switches; reduced motion; no JavaScript; search and map cleanup.
+No captured JavaScript page errors. Lint, TypeScript, 38 tests and production build
+pass; formatting checked for changed files. Opening/header endpoint pixel comparisons
+are identical at four sizes. These test and pixel results are historical.
+
+The latest frame correction passed 26 browser groups: four frame checks, six rail,
+five opening sequence, four lifecycle/touch, four integration, and three extra
+page-bottom/touch/navigation checks. No captured JavaScript page errors. Production
+build including TypeScript and targeted lint passed; changed-file formatting is
+checked. SPEC, generated source art and dependencies are unchanged.
+
+Physical-device/cross-browser/performance validation and a readable mobile redesign
+remain future work. External data requests were blocked by the local sandbox;
+navigation and map mounting passed. The in-app browser host was unavailable, so
+the established local Edge setup supplied the screenshots and interaction checks.
+
 ## Latest header brand interaction
 
 The homepage SVG brand now collapses to its original roof symbol after the opening

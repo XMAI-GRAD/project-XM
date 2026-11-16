@@ -18,6 +18,7 @@ import s from "./home.module.css";
 import { at } from "./place";
 import { Today } from "./today";
 import { HomeHeaderMotion } from "./header-motion";
+import { HomeSectionLink } from "./section-link";
 
 /** Home's own header: weather and date, the logo, VI | EN, search, then the nav tab. */
 export function HomeHeader({ lang }: { lang: Locale }) {
@@ -33,22 +34,23 @@ export function HomeHeader({ lang }: { lang: Locale }) {
       id={`home-entry-${lang}`}
       className={`${s.section} ${s.header}`}
     >
-      <p className={`${s.at} ${s.weather}`}>
+      <p className={`${s.at} ${s.weather}`} data-header-weather>
         <span aria-label={`${home.weather}: ${weather}`}>{weather}</span>
         <span>
           <Today lang={lang} />
         </span>
       </p>
 
-      <Link
-        href={`/${lang}`}
+      <HomeSectionLink
+        href={`/${lang}#home-entry-${lang}`}
         className={`${s.at} ${s.logo}`}
         style={at(logoBox)}
         aria-label={site.brand[lang]}
         data-header-logo
+        data-brand-return-label={home.backToHeader}
       >
         <Logo />
-      </Link>
+      </HomeSectionLink>
 
       <div
         role="group"

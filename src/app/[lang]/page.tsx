@@ -49,7 +49,7 @@ export default async function HomePage() {
             <Heritage lang={lang} />
             <Layers lang={lang} />
           </main>
-          <Frame />
+          <Frame lang={lang} />
         </div>
       </HomeOpeningMotion>
       <SiteFooter lang={lang} />

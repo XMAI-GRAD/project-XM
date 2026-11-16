@@ -51,17 +51,27 @@ import {
 import s from "./home.module.css";
 import { at } from "./place";
 import { RichText, toneClass } from "./rich-text";
+import { HomeSectionLink } from "./section-link";
 
 const text = `${s.at} ${s.text}`;
 const display = `${text} ${s.display}`;
 
 /** The lime frame around the card, painted above the drawings it crops. */
-export function Frame() {
+export function Frame({ lang }: { lang: Locale }) {
+  const { home } = getDictionary(lang);
   return (
-    <div className={s.frame} data-home-frame aria-hidden="true">
+    <div className={s.frame} data-home-frame>
       <FrameLeft className={s.at} style={at(frameLeftBox)} />
       <FrameRight className={s.at} style={at(frameRightBox)} />
-      <RailMark className={s.at} style={at(railMarkBox)} />
+      <HomeSectionLink
+        href={`/${lang}#home-entry-${lang}`}
+        className={`${s.at} ${s.railLink}`}
+        style={at(railMarkBox)}
+        aria-label={home.backToHeader}
+        data-rail-logo
+      >
+        <RailMark />
+      </HomeSectionLink>
     </div>
   );
 }

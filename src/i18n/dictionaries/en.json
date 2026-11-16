@@ -27,7 +27,8 @@
     "language": "Language",
     "weather": "Hanoi temperature",
     "skipToContent": "Skip to content",
-    "enterHomepage": "Enter the Hanoi Creative City homepage"
+    "enterHomepage": "Enter the Hanoi Creative City homepage",
+    "backToHeader": "Back to the homepage header"
   },
   "point": {
     "favorite": "Favorite",

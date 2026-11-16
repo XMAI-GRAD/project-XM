@@ -152,19 +152,21 @@ export function HomeOpeningMotion({
         const rebuild = () => {
           const origin = host.getBoundingClientRect();
           const sourceBox = source.getBoundingClientRect();
-          // Measure the final logo relative to its header. The header may now be
-          // sticky, independently of the board's opening-reveal translation.
+          // Measure the untransformed header slot, even while the brand travels
+          // to the rail. Its original SVG dimensions remain unchanged.
           const headerRect = header.getBoundingClientRect();
           const targetRect = target.getBoundingClientRect();
+          const targetLink = target.parentElement!;
+          const targetStyle = getComputedStyle(targetLink);
+          const edge = opening.getBoundingClientRect().bottom - origin.top;
           const targetBox = new DOMRect(
-            targetRect.x,
-            origin.top + board.offsetTop + targetRect.y - headerRect.top,
+            headerRect.left + parseFloat(targetStyle.left),
+            origin.top + edge + parseFloat(targetStyle.top),
             targetRect.width,
             targetRect.height,
           );
-          const edge = opening.getBoundingClientRect().bottom - origin.top;
           const headerHeight = headerRect.height;
-          const height = board.offsetTop + headerHeight;
+          const height = edge + headerHeight;
           if (!origin.width || !sourceBox.width || !targetBox.width) return;
           const size = [
             origin.width,

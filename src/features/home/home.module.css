@@ -23,7 +23,7 @@
 .board {
   position: relative;
   isolation: isolate;
-  height: calc(5400 * var(--u));
+  height: calc(5400 * var(--u) + var(--brand-hold, 0px));
 }
 
 .section {
@@ -147,14 +147,14 @@ svg.at,
 .header {
   --sy: 0;
   --sh: 258;
-  position: sticky;
-  top: 0;
   z-index: 20;
-  background: linear-gradient(
-    to bottom,
-    var(--seashell) 0 calc(180 * var(--u)),
-    var(--lime) calc(180 * var(--u)) 100%
-  );
+}
+.headerFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
 }
 .weather {
   --x: 181;
@@ -163,12 +163,50 @@ svg.at,
   font-size: calc(24 * var(--u));
   line-height: calc(28 * var(--u));
 }
-.headerFrame {
+.logo {
+  z-index: 4;
+}
+.logo > svg:first-child,
+.logo > [data-brand-flight] {
+  /* The link narrows during travel; source SVG coordinates stay stable. */
+  width: calc(var(--w) * var(--u));
+}
+.logo > [data-brand-flight],
+.logo > [data-brand-docked] {
+  display: none;
   position: absolute;
-  inset: 0;
-  z-index: 1;
-  overflow: clip;
+  top: 0;
+  left: 0;
   pointer-events: none;
+}
+.logo > [data-brand-docked] {
+  width: 100%;
+}
+.logo[data-brand-state="travel"] > svg:first-child,
+.logo[data-brand-state="rail"] > svg:first-child {
+  visibility: hidden;
+}
+.logo[data-brand-state="travel"] > [data-brand-flight],
+.logo[data-brand-state="rail"] > [data-brand-flight],
+.logo[data-brand-state="rail"] > [data-brand-docked] {
+  display: block;
+}
+.board[data-rail-motion="active"] [data-rail-logo] {
+  visibility: hidden;
+  pointer-events: none;
+}
+.railLink {
+  pointer-events: auto;
+}
+.logo[data-brand-state="rail"]::after,
+.railLink::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  translate: -50% -50%;
 }
 .weather span {
   display: block;
@@ -287,7 +325,6 @@ svg.at,
 /* ---------- Hero ---------- */
 
 .hero {
-  scroll-margin-top: calc(258 * var(--u));
   --sy: 258;
   --sh: 882;
 }
