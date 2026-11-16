@@ -24,7 +24,7 @@
     "listLabel": "Points of A thousand years of connections",
     "exploreMap": "Explore the map",
     "joinNetwork": "Join the network",
-    "openMap": "Open the full map",
+    "openMap": "Open the map",
     "imagePlaceholder": "Photo",
     "openMenu": "Open menu",
     "closeMenu": "Close menu",
@@ -34,7 +34,9 @@
     "mapLink": "Open the map",
     "infrastructureLabel": "Spaces for culture and knowledge",
     "heritageLabel": "Heritage and creativity",
-    "enterHomepage": "Enter the Hanoi Creative City homepage"
+    "enterHomepage": "Enter the Hanoi Creative City homepage",
+    "language": "Language",
+    "weather": "Hanoi temperature"
   },
   "point": {
     "favorite": "Favorite",

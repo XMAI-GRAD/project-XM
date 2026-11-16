@@ -19,11 +19,21 @@ intro:
         công chúng.
     en: []
 roles:
-  - vi: Nhà nước
+  title:
+    vi: |-
+      Một thành phố {frosted:sáng tạo}
+      không bắt đầu từ cái mới,
+      mà từ cái cũ được {gold:nối tiếp}
+    en: ""
+  # In the order of the drawing, right to left: the state, the artists, the public.
+  state:
+    vi: Nhà nước
     en: State
-  - vi: Nghệ sĩ
+  artists:
+    vi: Nghệ sĩ
     en: Artists
-  - vi: Công chúng
+  public:
+    vi: Công chúng
     en: Public
 artwork:
   logo:
@@ -340,3 +350,109 @@ design:
       description:
         vi: Làng nghề vẫn sống trong lòng
         en: ""
+weather: 30°C
+hero:
+  title:
+    vi: "{red:T}hủ Đ{glyph-hero-o:ô} H{glyph-hero-a:à} Nội"
+    en: ""
+  tagline:
+    vi: "— Nơi những m{mauve:ạ}ch nố{gold:i} gặp nhau"
+    en: ""
+thread:
+  title:
+    vi:
+      - "Mạch nố{glyph-thread-i:i}"
+      - "Ngàn n{glyph-thread-a:ă}m"
+    en: []
+  # Line breaks as in the comp.
+  body:
+    vi:
+      - |-
+        Trung tâm Điều phối
+        các Hoạt động Sáng tạo
+        Hà Nội.
+      - |-
+        Nơi Nhà nước, nghệ sĩ và
+        công chúng cùng làm nên
+        thành phố.
+    en: []
+stats:
+  - value: "83"
+    tone: navy
+    art: stat-library
+    label:
+      vi: Thư viện
+      en: ""
+  - value: "48"
+    tone: gold
+    art: stat-university
+    label:
+      vi: Trường đại học
+      en: ""
+  - value: "18"
+    tone: lime
+    art: stat-theatre
+    label:
+      vi: Nhà hát
+      en: ""
+  - value: "43"
+    tone: red
+    art: stat-cinema
+    label:
+      vi: Rạp chiếu phim
+      en: ""
+heritage:
+  since:
+    vi: Từ 2019
+    en: ""
+  title:
+    vi: |-
+      Hà Nội đã có đủ {red:di sản}
+      {gold:—làng nghề}
+      và hàng nghìn người
+      làm {frosted:sáng tạo} mỗi ngày
+    en: ""
+  body:
+    vi:
+      - Cái thiếu không phải một Hà Nội mới. Cái thiếu là chỗ để những sáng tạo
+        đang có gặp được nhau.
+      - Trung tâm Điều phối là chỗ đó — nơi người làm nghề gặp nguồn lực, và di
+        sản gặp thiết kế.
+    en: []
+  numbers:
+    - value: "1350"
+      tone: cyan
+      label:
+        vi: Làng nghề thủ công
+        en: ""
+    - value: "5922"
+      tone: gold
+      label:
+        vi: Di tích
+        en: ""
+    - value: "1793"
+      tone: red
+      label:
+        vi: Di sản văn hóa phi vật thể
+        en: ""
+    - value: "60+"
+      tone: mauve
+      label:
+        vi: Không gian sáng tạo đang hoạt động
+        en: ""
+layers:
+  kicker:
+    vi: Ba mạch của
+    en: ""
+  title:
+    vi: "Th{glyph-layers-a:à}nh ph{glyph-layers-o:ố}"
+    en: ""
+  place:
+    vi: Năm nơi giữ ký ức của thành phố
+    en: ""
+  taste:
+    vi: Thức quà Hà Nội đổi theo bốn mùa
+    en: ""
+  craft:
+    vi: Làng nghề vẫn sống trong lòng
+    en: ""

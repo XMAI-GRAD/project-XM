@@ -68,6 +68,26 @@ interface JoinAudience {
   benefits: Localized<string[]>;
 }
 
+/** An accent color for a word or a number on home (data/home.yaml). */
+export const tones = [
+  "navy",
+  "red",
+  "gold",
+  "lime",
+  "frosted",
+  "mauve",
+  "cyan",
+] as const;
+export type Tone = (typeof tones)[number];
+
+/** A count on home: the number, its label, its color and the icon above it. */
+export interface HomeCount {
+  value: string;
+  tone: Tone;
+  art: string; // a piece in src/features/home/art, e.g. "stat-library"
+  label: Localized;
+}
+
 interface Section<T> {
   title: Localized;
   items: T[];
@@ -92,7 +112,6 @@ export interface Pages {
   home: {
     lead: Localized;
     intro: { title: Localized; body: Localized<string[]> };
-    roles: Localized[];
     artwork: Record<string, Photo>;
     design: {
       heroTitle: Localized;
@@ -122,6 +141,23 @@ export interface Pages {
       threadsTitle: Localized;
       threads: Record<Layer, { label: Localized; description: Localized }>;
     };
+    weather: string;
+    hero: { title: Localized; tagline: Localized };
+    thread: { title: Localized<string[]>; body: Localized<string[]> };
+    stats: HomeCount[];
+    roles: {
+      title: Localized;
+      state: Localized;
+      artists: Localized;
+      public: Localized;
+    };
+    heritage: {
+      since: Localized;
+      title: Localized;
+      body: Localized<string[]>;
+      numbers: Omit<HomeCount, "art">[];
+    };
+    layers: { kicker: Localized; title: Localized } & Record<Layer, Localized>;
   };
   about: {
     title: Localized;
@@ -223,6 +259,13 @@ function validate(): string[] {
   for (const [name, page] of Object.entries(pages)) walk(name, page);
   for (const [name, image] of Object.entries(pages.home.artwork))
     checkFile(`home.artwork.${name}`, image.src);
+  const { stats, heritage } = pages.home;
+  [...stats, ...heritage.numbers].forEach((count, i) => {
+    if (!(tones as readonly string[]).includes(count.tone))
+      errors.push(`home count ${i}: tone must be one of ${tones.join(", ")}`);
+    if (typeof count.value !== "string" || !count.value.trim())
+      errors.push(`home count ${i}: value must be a quoted string`);
+  });
   checkFile("maps.artwork", pages.maps.artwork.src);
   const artwork = pages.maps.artwork;
   if (

@@ -13,6 +13,13 @@
   --sunflower-gold: #fec35a;
   --lime: #cbdb2b;
   --mauve: #dbb8ff;
+  /* Deeper accents the home comp uses for words and numbers on seashell, and its pale
+     hairline. Large or bold text only: they sit near the base accents in contrast. */
+  --frosted-blue-600: #69dfff;
+  --sunflower-gold-600: #ffb126;
+  --lime-600: #c1d300;
+  --mauve-600: #c68fff;
+  --navy-100: #cce0f4;
   color-scheme: light;
 }
 
@@ -28,6 +35,11 @@
   --color-sunflower-gold: var(--sunflower-gold);
   --color-lime: var(--lime);
   --color-mauve: var(--mauve);
+  --color-frosted-blue-600: var(--frosted-blue-600);
+  --color-sunflower-gold-600: var(--sunflower-gold-600);
+  --color-lime-600: var(--lime-600);
+  --color-mauve-600: var(--mauve-600);
+  --color-navy-100: var(--navy-100);
   /* --font-display (Phudu) and --font-body (Inter) come from next/font in the layout. */
   --font-sans: var(--font-body), system-ui, sans-serif;
 }

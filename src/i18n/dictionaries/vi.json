@@ -24,7 +24,7 @@
     "listLabel": "Các điểm của Mạch nối ngàn năm",
     "exploreMap": "Khám phá bản đồ",
     "joinNetwork": "Tham gia mạng lưới",
-    "openMap": "Mở bản đồ đầy đủ",
+    "openMap": "Mở bản đồ",
     "imagePlaceholder": "Ảnh",
     "openMenu": "Mở trình đơn",
     "closeMenu": "Đóng trình đơn",
@@ -34,7 +34,9 @@
     "mapLink": "Mở bản đồ",
     "infrastructureLabel": "Không gian văn hóa và tri thức",
     "heritageLabel": "Di sản và sáng tạo",
-    "enterHomepage": "Vào trang chủ Hanoi Creative City"
+    "enterHomepage": "Vào trang chủ Hanoi Creative City",
+    "language": "Ngôn ngữ",
+    "weather": "Nhiệt độ Hà Nội"
   },
   "point": {
     "favorite": "Yêu thích",

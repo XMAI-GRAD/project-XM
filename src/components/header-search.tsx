@@ -56,7 +56,7 @@ export function HeaderSearch({
     <div
       ref={box}
       role="search"
-      className={`${s.search} ${className ?? ""}`}
+      className={className ? `${s.search} ${className}` : s.search}
       onKeyDown={onKeyDown}
       onFocus={() => setOpen(true)}
       onBlur={(e) => {
