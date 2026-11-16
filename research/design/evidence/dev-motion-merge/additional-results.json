@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "end-of-page floating position and stable document height",
+    "emulated touch tap returns to header without opening",
+    "English return label, search and map-route cleanup"
+  ],
+  "heights": [7689, 7689, 7689],
+  "bottom": {
+    "x": 47.3187255859375,
+    "y": 45.71875,
+    "width": 85.296875,
+    "height": 85.296875
+  },
+  "errors": []
+}

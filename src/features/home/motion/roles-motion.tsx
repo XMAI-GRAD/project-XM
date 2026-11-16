@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { CLEAR_WORD, ENTER, gsap, MOTION, useGSAP } from "./gsap";
+import { CLEAR_WORD, homeEnter, gsap, MOTION, useGSAP } from "./gsap";
 
 /** How fast the line runs, in comp units a second. Calm, and even: each name rises
  *  as the line reaches it, so its pace sets when the names show. */
@@ -90,7 +90,11 @@ export function RolesMotion({
 
         const tl = gsap
           .timeline({
-            scrollTrigger: { trigger: root.current, start: ENTER, once: true },
+            scrollTrigger: {
+              trigger: root.current,
+              start: homeEnter(root.current),
+              once: true,
+            },
             defaults: { ease: SOFT },
           })
           .timeScale(PACE);

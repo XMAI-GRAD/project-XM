@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { CLEAR_WORD, ENTER, gsap, MOTION, useGSAP } from "./gsap";
+import { CLEAR_WORD, homeEnter, gsap, MOTION, useGSAP } from "./gsap";
 
 /** Hidden to the right of the left edge → fully shown; the vertical slack keeps
  *  accents and the thin "+" uncut, since the text box is trimmed to its capitals. */
@@ -89,7 +89,11 @@ export function HeritageMotion({
         const navy = getComputedStyle(title).color;
         const words = q<HTMLElement>("h2 [data-word]");
         const intro = gsap.timeline({
-          scrollTrigger: { trigger: root.current, start: ENTER, once: true },
+          scrollTrigger: {
+            trigger: root.current,
+            start: homeEnter(root.current),
+            once: true,
+          },
           defaults: { duration: 1.1, ease: "power2.out" },
         });
         intro.from(q('[data-motion="since"]'), { opacity: 0, x: -16 }, 0);
@@ -137,7 +141,7 @@ export function HeritageMotion({
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: q('[data-motion="numbers"]')[0],
-            start: "top 80%",
+            start: homeEnter(q('[data-motion="numbers"]')[0], 0.8),
             once: true,
           },
           defaults: { duration: 1.4, ease: "power2.out" },

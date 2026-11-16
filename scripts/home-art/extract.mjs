@@ -78,7 +78,15 @@ function inPage(spec) {
   const shapes = "path,rect,polygon,polyline,circle,ellipse,line";
   const out = [];
 
-  for (const { name, source, paths, parts = {} } of spec) {
+  for (const {
+    name,
+    source,
+    paths,
+    letters,
+    markDetails,
+    brandParts,
+    parts = {},
+  } of spec) {
     if (source !== document.title) continue;
     let box = null;
     let clip = null;
@@ -117,6 +125,29 @@ function inPage(spec) {
         : { x0: b.x, y0: b.y, x1: b.x + b.width, y1: b.y + b.height };
 
       const copy = el.cloneNode(true);
+      // Annotate before pruning wrappers: these paths belong to the source export.
+      // Regeneration keeps animation hooks alongside the designer's actual paths.
+      if (letters) {
+        const marked = new Set();
+        for (const [key, childPath] of Object.entries(letters)) {
+          const letter = childPath
+            .split("/")
+            .filter(Boolean)
+            .reduce((node, index) => node?.children[Number(index)], copy);
+          if (!letter?.matches("path") || marked.has(letter))
+            throw new Error(
+              `${name}: invalid or duplicate letter path ${key}: ${childPath}`,
+            );
+          letter.setAttribute("data-brand-letter", key);
+          marked.add(letter);
+        }
+        if (marked.size !== 17)
+          throw new Error(`${name}: expected 17 wordmark letters`);
+        if (markDetails)
+          copy
+            .querySelectorAll("path:not([data-brand-letter])")
+            .forEach((path) => path.setAttribute("data-brand-detail", ""));
+      }
       const originals = [el, ...el.querySelectorAll("*")];
       const copies = [copy, ...copy.querySelectorAll("*")];
       copies.forEach((c, i) => {
@@ -144,6 +175,31 @@ function inPage(spec) {
           }
         } else if (cs.opacity !== "1") c.setAttribute("opacity", cs.opacity);
       });
+      // Animate wrappers rather than original paths, which also feed the opening morph.
+      // Resolve source indices before pruning; wrappers preserve the original paint order.
+      if (brandParts) {
+        const marked = new Set();
+        for (const [part, childPaths] of Object.entries(brandParts)) {
+          for (const childPath of childPaths) {
+            const node = childPath
+              .split("/")
+              .filter(Boolean)
+              .reduce((parent, index) => parent?.children[Number(index)], copy);
+            if (!node || node === copy || marked.has(node))
+              throw new Error(
+                `${name}: invalid brand part ${part}: ${childPath}`,
+              );
+            const group = document.createElementNS(
+              "http://www.w3.org/2000/svg",
+              "g",
+            );
+            group.setAttribute("data-brand-part", part);
+            node.replaceWith(group);
+            group.append(node);
+            marked.add(group);
+          }
+        }
+      }
       // Clip definitions (now the viewBox), invisible helpers, then groups left empty.
       copy.querySelectorAll("defs, clipPath, use").forEach((c) => c.remove());
       copy.querySelectorAll(shapes).forEach((c) => {

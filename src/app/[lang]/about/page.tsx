@@ -31,7 +31,7 @@ export default async function AboutPage() {
             <Fields lang={lang} />
             <Timeline lang={lang} />
           </main>
-          <Frame />
+          <Frame lang={lang} />
         </div>
       </div>
       <SiteFooter lang={lang} />

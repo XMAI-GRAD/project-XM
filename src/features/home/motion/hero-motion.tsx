@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { ENTER, gsap, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, MOTION, useGSAP } from "./gsap";
 
 /*
  * Tempo. Hà Nội không vội: long, soft eases that settle slowly, short travels, no
@@ -70,9 +70,11 @@ const fromBelow = ["center-roof", "center-gate", "center-crown"];
  * same time the skyline comes into the frame — from the sides, and up from below.
  */
 export function HeroMotion({
+  id,
   className,
   children,
 }: {
+  id: string;
   className: string;
   children: ReactNode;
 }) {
@@ -87,7 +89,11 @@ export function HeroMotion({
             q(`[data-art="hero-skyline"] [data-part="${n}"]`),
           );
         const tl = gsap.timeline({
-          scrollTrigger: { trigger: root.current, start: ENTER, once: true },
+          scrollTrigger: {
+            trigger: root.current,
+            start: homeEnter(root.current, 0.7, true),
+            once: true,
+          },
           defaults: { duration: WORD, ease: SOFT },
         });
 
@@ -168,7 +174,7 @@ export function HeroMotion({
   );
 
   return (
-    <section ref={root} className={className}>
+    <section ref={root} id={id} tabIndex={-1} className={className}>
       {children}
     </section>
   );

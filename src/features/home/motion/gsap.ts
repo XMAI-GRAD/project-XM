@@ -13,8 +13,37 @@ export const MOTION = "(prefers-reduced-motion: no-preference)";
 export const HOVER =
   "(prefers-reduced-motion: no-preference) and (hover: hover)";
 
-/** A section's motion plays once, when its top passes this line of the window. */
-export const ENTER = "top 70%";
+/** Keep dev's entrance thresholds in the visible scene, after the opening/hold. */
+export function homeEnter(
+  target: Element | null,
+  viewport = 0.7,
+  hero = false,
+) {
+  return () => {
+    if (!target) return 0;
+    const board = target.closest<HTMLElement>('[data-home-design="web-02"]');
+    const main = board?.querySelector("main");
+    const opening = board?.parentElement?.querySelector("[data-opening]");
+    let top = target.getBoundingClientRect().top + window.scrollY;
+    if (board && main && opening) {
+      // The opening translates the board; the logo hold translates main. Their
+      // current values must not move the trigger each time ScrollTrigger refreshes.
+      top -= Number(gsap.getProperty(board, "y")) || 0;
+      top -= Number(gsap.getProperty(main, "y")) || 0;
+      if (!hero)
+        top +=
+          parseFloat(
+            getComputedStyle(board).getPropertyValue("--brand-hold"),
+          ) || 0;
+      const openingEnd =
+        opening.getBoundingClientRect().bottom + window.scrollY;
+      // Native anchor entry can land exactly on the boundary. Start one pixel
+      // before it so the hero also plays after click/keyboard entry without a wheel.
+      return Math.max(openingEnd - 1, top - window.innerHeight * viewport);
+    }
+    return top - window.innerHeight * viewport;
+  };
+}
 
 /**
  * What a word's tween must clear when it ends. A split word is an inline-block in a

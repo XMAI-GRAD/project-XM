@@ -1,0 +1,121 @@
+{
+  "samples": [
+    {
+      "name": "expanded",
+      "state": "expanded",
+      "copy": ["1", "1", "1", "1"],
+      "symbol": ["none", "none", "none"]
+    },
+    {
+      "name": "collapse-early",
+      "state": "compact",
+      "copy": ["0.3112", "0.3112", "0.3112", "0.3112"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 0.0613, 0)",
+        "matrix(1, 0, 0, 1, 0.0613, 0)",
+        "matrix(1, 0, 0, 1, 0.0613, 0)"
+      ]
+    },
+    {
+      "name": "collapse-middle",
+      "state": "compact",
+      "copy": ["0", "0", "0", "0"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 9.0061, 0)",
+        "matrix(1, 0, 0, 1, 9.0061, 0)",
+        "matrix(1, 0, 0, 1, 9.0061, 0)"
+      ]
+    },
+    {
+      "name": "compact",
+      "state": "compact",
+      "copy": ["0", "0", "0", "0"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 57.2849, 0)",
+        "matrix(1, 0, 0, 1, 57.2849, 0)",
+        "matrix(1, 0, 0, 1, 57.2849, 0)"
+      ]
+    },
+    {
+      "name": "expand-early",
+      "state": "expanded",
+      "copy": ["0", "0", "0", "0"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 54.9183, 0)",
+        "matrix(1, 0, 0, 1, 54.9183, 0)",
+        "matrix(1, 0, 0, 1, 54.9183, 0)"
+      ]
+    },
+    {
+      "name": "expand-middle",
+      "state": "expanded",
+      "copy": ["0", "0", "0", "0"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 10.494, 0)",
+        "matrix(1, 0, 0, 1, 10.494, 0)",
+        "matrix(1, 0, 0, 1, 10.494, 0)"
+      ]
+    },
+    {
+      "name": "expanded-again",
+      "state": "expanded",
+      "copy": ["1", "1", "1", "1"],
+      "symbol": [
+        "matrix(1, 0, 0, 1, 0, 0)",
+        "matrix(1, 0, 0, 1, 0, 0)",
+        "matrix(1, 0, 0, 1, 0, 0)"
+      ]
+    }
+  ],
+  "fallback": [
+    {
+      "part": "symbol",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "symbol",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "copy",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "copy",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "copy",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "copy",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    },
+    {
+      "part": "symbol",
+      "style": "",
+      "transform": "matrix(1,0,0,1,0,0)",
+      "computed": "matrix(1, 0, 0, 1, 0, 0)",
+      "opacity": "1"
+    }
+  ]
+}

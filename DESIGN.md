@@ -71,6 +71,8 @@ components:
 
 # Design System: project-xm
 
+> **Homepage update, 17 November 2026:** `/vi` and `/en` now use the team's extracted inline SVG components and homepage composition from `dev`, with our opening scroll/morph carried over. The canonical pipeline is `docs/lttem/svg/` → `scripts/home-art/` → `src/features/home/art/`. Read [the current implementation notes](research/design/2026-11-17-svg-homepage-migration.md) before changing artwork or animation. The earlier [source study](research/design/2026-11-16-homepage-source-study.md) remains useful design history; its image-based implementation and asset manifest are historical. Other routes retain their existing frame. SPEC reconciliation remains deferred under the owner's instruction; SPEC itself is unchanged.
+
 Colors, ratio and fonts are set in [SPEC.md](SPEC.md) Part 3. This file describes how they are used. When the two disagree, SPEC wins.
 
 ## Overview
@@ -153,6 +155,31 @@ Phudu has no width axis, so don't use `font-stretch`.
 - **Focus:** a 3px navy outline with a 3px offset. Inside navy areas it is seashell. Explore tabs and rows sit inside a frame that clips, so their outline is inset by 6px, and a focused row fills navy with a frosted blue outline.
 
 ## Motion
+
+The new homepage opening uses a reversible SVG letter morph into the measured
+header logo. See [current implementation and extraction notes](research/design/2026-11-17-svg-homepage-migration.md)
+for path pairing, coordinate spaces, native scroll behavior, endpoint handoff,
+reduced motion and lifecycle cleanup. Keep the original SVGs at both endpoints.
+The [current opening transition](docs/plans/2026-11-17-opening-header-reveal.md)
+keeps the header and content hidden until the lettering settles in the brand logo.
+The page then reveals, with header controls entering from above; the final extracted
+layout stays intact.
+
+After that opening, the header, content and original frame stay together while the full brand
+[collapses and travels into the floating rail mark](research/design/2026-11-17-floating-rail-brand.md).
+Once the logo arrives, the composition scrolls away together. Keep the symbol
+colored over the paper background; reveal its pale version where the original
+lime rail passes behind it, without adding a separate lime panel. The mark stays
+at its original header height while browsing; clicking it returns to the header
+without replaying the opening. Reduced motion switches states and returns instantly.
+Morph a temporary SVG copy and keep original extracted paths pristine for the opening.
+
+The [dev motion integration](docs/plans/2026-11-17-dev-motion-merge.md) retains the
+incoming section choreography. `homeEnter` measures entrance thresholds without
+the current board/main transforms and accounts for the full logo hold. The hero
+starts at opening completion; later drawings and text play when visible. Explicit
+cross-page header links finish their entry after motion initialization, while
+Back/Forward preserves its saved scroll position.
 
 Use GSAP + ScrollTrigger + Lenis through `useGSAP`, with `gsap.matchMedia` for reduced motion. GSAP drives explore, the point page and the login slideshow. On a point page the photo settles and the name slides in, the info bar unrolls after it, and the content below reveals once on scroll with ScrollTrigger. Rows slide out from under their top hairline with a matching `clip-path`, staggered, on arrival and on a tab change; the old rows leave faster, and the panel height moves in the same timeline. Opening a row tweens its height, collapses the open row and keeps the clicked header in place. On login every 2.5s the name wheel turns one step and the figure stack shifts, the next figure moving to the center as the old one tilts away (0.9s, `power2.inOut`), then the name and hook slide out from under their hairline with a `clip-path`; a click on a name jumps there; hovering the carousel or focusing a pill pauses it; under reduced motion nothing plays or tweens, and a click still changes the point. Everything else is short CSS color and opacity transitions, wrapped in `prefers-reduced-motion: no-preference`.
 

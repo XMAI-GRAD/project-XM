@@ -29,7 +29,7 @@ export default async function ExplorePage() {
             <h1 className="sr-only">{explore.title[lang]}</h1>
             <LayerSlide layer="place" lang={lang} />
           </main>
-          <Frame />
+          <Frame lang={lang} />
         </div>
       </div>
       <SiteFooter lang={lang} />

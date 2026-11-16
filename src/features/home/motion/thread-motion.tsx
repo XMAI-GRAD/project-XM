@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { ENTER, gsap, HOVER, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
 
 /** How far a hovered shape of the pattern rises, in comp units (it is 785 tall). */
 const LIFT = 22;
@@ -71,7 +71,11 @@ export function ThreadMotion({
 
         gsap
           .timeline({
-            scrollTrigger: { trigger: root.current, start: ENTER, once: true },
+            scrollTrigger: {
+              trigger: root.current,
+              start: homeEnter(root.current),
+              once: true,
+            },
             defaults: { duration: 1, ease: "power3.out" },
           })
           .from(start, { x: -120, opacity: 0 }, 0)

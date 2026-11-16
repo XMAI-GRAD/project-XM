@@ -24,7 +24,7 @@
   position: relative;
   isolation: isolate;
   /* The comp's height: home is 5400; another page sets --board to its own. */
-  height: calc(var(--board, 5400) * var(--u));
+  height: calc(var(--board, 5400) * var(--u) + var(--brand-hold, 0px));
 }
 
 .section {
@@ -91,16 +91,46 @@ svg.at,
   position: relative;
   height: 100svh;
   min-height: calc(540 * var(--u));
-  overflow: clip;
   background: var(--navy-500);
 }
 .wordmark {
   position: absolute;
+  z-index: 11;
   top: 50%;
   left: 50%;
   width: calc(371 * var(--u));
   height: auto;
   translate: -50% -50%;
+}
+.wordmark a,
+.wordmark svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.wordmark a:focus-visible {
+  outline-color: var(--frosted-blue);
+  outline-offset: 16px;
+}
+.openingArtwork {
+  position: absolute;
+  inset: 0;
+  overflow: clip;
+  pointer-events: none;
+}
+.skipLink {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 50;
+  padding: 12px 20px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  transform: translateY(-180%);
+}
+.skipLink:focus {
+  transform: none;
+  outline-color: var(--frosted-blue);
 }
 /* The hero's left petal, peeking in at the bottom edge as in the comp. */
 .openingPetal {
@@ -128,6 +158,14 @@ svg.at,
 .header {
   --sy: 0;
   --sh: 258;
+  z-index: 20;
+}
+.headerFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: clip;
+  pointer-events: none;
 }
 .weather {
   --x: 181;
@@ -135,6 +173,51 @@ svg.at,
   --w: 400;
   font-size: calc(24 * var(--u));
   line-height: calc(28 * var(--u));
+}
+.logo {
+  z-index: 4;
+}
+.logo > svg:first-child,
+.logo > [data-brand-flight] {
+  /* The link narrows during travel; source SVG coordinates stay stable. */
+  width: calc(var(--w) * var(--u));
+}
+.logo > [data-brand-flight],
+.logo > [data-brand-docked] {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+.logo > [data-brand-docked] {
+  width: 100%;
+}
+.logo[data-brand-state="travel"] > svg:first-child,
+.logo[data-brand-state="rail"] > svg:first-child {
+  visibility: hidden;
+}
+.logo[data-brand-state="travel"] > [data-brand-flight],
+.logo[data-brand-state="rail"] > [data-brand-flight],
+.logo[data-brand-state="rail"] > [data-brand-docked] {
+  display: block;
+}
+.board[data-rail-motion="active"] [data-rail-logo] {
+  visibility: hidden;
+  pointer-events: none;
+}
+.railLink {
+  pointer-events: auto;
+}
+.logo[data-brand-state="rail"]::after,
+.railLink::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 44px);
+  height: max(100%, 44px);
+  translate: -50% -50%;
 }
 .weather span {
   display: block;
@@ -188,6 +271,7 @@ svg.at,
 
 /* The tag-shaped search box: the designer's outline behind the shared search field. */
 .search {
+  z-index: 3;
   height: calc(45 * var(--u));
 }
 .search > svg {
@@ -223,6 +307,7 @@ svg.at,
   background: var(--frosted-blue);
 }
 .nav {
+  z-index: 2;
   position: absolute;
   top: calc(180 * var(--u));
   left: calc(180 * var(--u));

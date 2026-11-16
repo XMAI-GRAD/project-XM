@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { gsap, HOVER, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
 
 /** How long each part of a layer takes; all three play together. */
 const DURATION = 1.5;
@@ -83,7 +83,11 @@ export function LayersMotion({
 
           gsap
             .timeline({
-              scrollTrigger: { trigger: svg, start: "top 80%", once: true },
+              scrollTrigger: {
+                trigger: svg,
+                start: homeEnter(svg, 0.8),
+                once: true,
+              },
               defaults: { duration: DURATION, ease: SOFT },
             })
             // The name rises out of its baseline, accents included.
@@ -127,7 +131,11 @@ export function LayersMotion({
             duration: 1.4,
             ease: "power1.out",
             clearProps: "opacity",
-            scrollTrigger: { trigger: shapes, start: "top 85%", once: true },
+            scrollTrigger: {
+              trigger: shapes,
+              start: homeEnter(shapes, 0.85),
+              once: true,
+            },
           }),
         );
       });

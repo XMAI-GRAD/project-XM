@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "Back restores deep homepage scroll after visiting the new About page",
+    "resizing at the bottom preserves the floating mark and return target",
+    "cross-page header entry also works with reduced motion"
+  ],
+  "before": 4958,
+  "after": 4958,
+  "errors": []
+}

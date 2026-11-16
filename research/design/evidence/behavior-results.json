@@ -1,0 +1,54 @@
+{
+  "base": "http://localhost:3101",
+  "checks": [
+    {
+      "name": "semantic home and primary links",
+      "passed": true
+    },
+    {
+      "name": "skip link moves focus to content",
+      "passed": true
+    },
+    {
+      "name": "menu focus containment, Escape, focus restoration",
+      "passed": true
+    },
+    {
+      "name": "search accent folding, keyboard selection and Escape",
+      "passed": true
+    },
+    {
+      "name": "VI → EN → VI repeated; labels and IDs remain unique",
+      "passed": true
+    },
+    {
+      "name": "three thread links select correct Explore categories",
+      "passed": true
+    },
+    {
+      "name": "invalid Explore category falls back to place",
+      "passed": true
+    },
+    {
+      "name": "homepage → map → homepage retains appropriate frame",
+      "passed": true
+    },
+    {
+      "name": "join and map CTAs navigate",
+      "passed": true
+    },
+    {
+      "name": "mobile touch navigation and menu",
+      "passed": true
+    },
+    {
+      "name": "reduced motion, English narrow layout and search",
+      "passed": true
+    },
+    {
+      "name": "image failure retains heading and navigation",
+      "passed": true
+    }
+  ],
+  "errors": []
+}

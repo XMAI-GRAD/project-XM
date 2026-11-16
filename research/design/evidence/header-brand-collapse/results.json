@@ -1,0 +1,230 @@
+{
+  "checks": [
+    "generated logo path geometry, fills and viewBox match committed artwork",
+    "four viewport sizes: collapse/expand, centered unscaled symbol, stable sticky header, accessible link and threshold hysteresis",
+    "interrupted reversals settle correctly; fast return resets brand before opening morph",
+    "resize and restored page retain compact alignment",
+    "repeated locale navigation leaves one active brand animation",
+    "search remains usable while compact; map navigation cleans up brand motion",
+    "reduced motion and no JavaScript preserve the expanded accessible logo"
+  ],
+  "measurements": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "expanded": {
+        "state": "expanded",
+        "copy": [1, 1, 1, 1],
+        "symbol": {
+          "left": 860.2337646484375,
+          "right": 944.5166015625,
+          "top": 45.71875,
+          "bottom": 130.0115509033203,
+          "width": 84.2828369140625,
+          "height": 84.29280090332031,
+          "center": 902.3751831054688
+        },
+        "logo": {
+          "left": 860.21875,
+          "top": 45.71875,
+          "width": 198.859375,
+          "height": 85.8125,
+          "center": 959.6484375
+        },
+        "headerTop": 0,
+        "headerHeight": 258,
+        "start": 1080,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      },
+      "compact": {
+        "state": "compact",
+        "copy": [0, 0, 0, 0],
+        "symbol": {
+          "left": 917.5070190429688,
+          "right": 1001.789794921875,
+          "top": 45.71875,
+          "bottom": 130.0115509033203,
+          "width": 84.28277587890625,
+          "height": 84.29280090332031,
+          "center": 959.6484069824219
+        },
+        "logo": {
+          "left": 860.21875,
+          "top": 45.71875,
+          "width": 198.859375,
+          "height": 85.8125,
+          "center": 959.6484375
+        },
+        "headerTop": 0,
+        "headerHeight": 258,
+        "start": 1080,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      }
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "expanded": {
+        "state": "expanded",
+        "copy": [1, 1, 1, 1],
+        "symbol": {
+          "left": 645.1655883789062,
+          "right": 708.377685546875,
+          "top": 34.296875,
+          "bottom": 97.5164794921875,
+          "width": 63.21209716796875,
+          "height": 63.2196044921875,
+          "center": 676.7716369628906
+        },
+        "logo": {
+          "left": 645.15625,
+          "top": 34.296875,
+          "width": 149.140625,
+          "height": 64.359375,
+          "center": 719.7265625
+        },
+        "headerTop": 0,
+        "headerHeight": 194,
+        "start": 900,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      },
+      "compact": {
+        "state": "compact",
+        "copy": [0, 0, 0, 0],
+        "symbol": {
+          "left": 688.1204833984375,
+          "right": 751.3325805664062,
+          "top": 34.296875,
+          "bottom": 97.5164794921875,
+          "width": 63.21209716796875,
+          "height": 63.2196044921875,
+          "center": 719.7265319824219
+        },
+        "logo": {
+          "left": 645.15625,
+          "top": 34.296875,
+          "width": 149.140625,
+          "height": 64.359375,
+          "center": 719.7265625
+        },
+        "headerTop": 0,
+        "headerHeight": 194,
+        "start": 900,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "expanded": {
+        "state": "expanded",
+        "copy": [1, 1, 1, 1],
+        "symbol": {
+          "left": 174.7306365966797,
+          "right": 191.84194946289062,
+          "top": 9.28125,
+          "bottom": 26.39459228515625,
+          "width": 17.111312866210938,
+          "height": 17.11334228515625,
+          "center": 183.28629302978516
+        },
+        "logo": {
+          "left": 174.71875,
+          "top": 9.28125,
+          "width": 40.390625,
+          "height": 17.421875,
+          "center": 194.9140625
+        },
+        "headerTop": 0,
+        "headerHeight": 52,
+        "start": 844,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      },
+      "compact": {
+        "state": "compact",
+        "copy": [0, 0, 0, 0],
+        "symbol": {
+          "left": 186.3583984375,
+          "right": 203.46971130371094,
+          "top": 9.28125,
+          "bottom": 26.39459228515625,
+          "width": 17.111312866210938,
+          "height": 17.11334228515625,
+          "center": 194.91405487060547
+        },
+        "logo": {
+          "left": 174.71875,
+          "top": 9.28125,
+          "width": 40.390625,
+          "height": 17.421875,
+          "center": 194.9140625
+        },
+        "headerTop": 0,
+        "headerHeight": 52,
+        "start": 844,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      }
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "expanded": {
+        "state": "expanded",
+        "copy": [1, 1, 1, 1],
+        "symbol": {
+          "left": 143.36660766601562,
+          "right": 157.40863037109375,
+          "top": 7.609375,
+          "bottom": 21.653059005737305,
+          "width": 14.042022705078125,
+          "height": 14.043684005737305,
+          "center": 150.3876190185547
+        },
+        "logo": {
+          "left": 143.359375,
+          "top": 7.609375,
+          "width": 33.140625,
+          "height": 14.296875,
+          "center": 159.9296875
+        },
+        "headerTop": 0,
+        "headerHeight": 43,
+        "start": 700,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      },
+      "compact": {
+        "state": "compact",
+        "copy": [0, 0, 0, 0],
+        "symbol": {
+          "left": 152.90867614746094,
+          "right": 166.95068359375,
+          "top": 7.609375,
+          "bottom": 21.653059005737305,
+          "width": 14.042007446289062,
+          "height": 14.043684005737305,
+          "center": 159.92967987060547
+        },
+        "logo": {
+          "left": 143.359375,
+          "top": 7.609375,
+          "width": 33.140625,
+          "height": 14.296875,
+          "center": 159.9296875
+        },
+        "headerTop": 0,
+        "headerHeight": 43,
+        "start": 700,
+        "href": "/vi",
+        "label": "Hanoi Creative City"
+      }
+    }
+  ],
+  "errors": []
+}

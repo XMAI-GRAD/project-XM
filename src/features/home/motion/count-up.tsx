@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { gsap, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, MOTION, useGSAP } from "./gsap";
 
 /**
  * A number that counts up from 0 to `to` the first time it scrolls into view. Its box
@@ -26,7 +26,7 @@ export function CountUp({ to }: { to: string }) {
         onUpdate: () => {
           el.textContent = String(count.value);
         },
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
+        scrollTrigger: { trigger: el, start: homeEnter(el, 0.85), once: true },
       });
       return () => {
         el.textContent = to;

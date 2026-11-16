@@ -10,12 +10,37 @@ const footer = "WEB-07-Footer.svg";
 const about = "WEB-05-Introduction.svg";
 const earth = "WEB-06-EARTH.svg";
 
+// Stable animation hooks, paired by letter rather than the export's paint order.
+const wordmarkLetters = [
+  "hanoi-h",
+  "hanoi-a",
+  "hanoi-n",
+  "hanoi-o",
+  "hanoi-i",
+  "creative-c",
+  "creative-r",
+  "creative-e1",
+  "creative-a",
+  "creative-t",
+  "creative-i",
+  "creative-v",
+  "creative-e2",
+  "city-c",
+  "city-i",
+  "city-t",
+  "city-y",
+];
+const openingOrder = [13, 7, 14, 16, 15, 4, 5, 12, 6, 8, 9, 10, 11, 0, 3, 1, 2];
+
 export const pieces = [
   // Opening (SVG-01)
   {
     name: "opening-wordmark",
     source: opening,
     paths: ["/3"],
+    letters: Object.fromEntries(
+      wordmarkLetters.map((key, i) => [key, `/${openingOrder[i]}`]),
+    ),
     note: "The HANOI CREATIVE CITY wordmark.",
   },
   {
@@ -30,6 +55,17 @@ export const pieces = [
     name: "logo",
     source: home,
     paths: ["/60"],
+    letters: Object.fromEntries(
+      wordmarkLetters.map((key, i) => [
+        key,
+        i < 5 ? `/3/${i}` : i < 13 ? `/4/${i - 5}` : `/5/${i - 13}`,
+      ]),
+    ),
+    markDetails: true,
+    brandParts: {
+      symbol: ["/0", "/1", "/6"],
+      copy: ["/2", "/3", "/4", "/5"],
+    },
     note: "The header logo, wordmark included.",
   },
   {

@@ -3,6 +3,9 @@ import { SiteFooter } from "@/components/site-footer";
 import { HomeHeader } from "@/features/home/home-header";
 import s from "@/features/home/home.module.css";
 import { Opening } from "@/features/home/opening";
+import { HomeOpeningMotion } from "@/features/home/opening-motion";
+import { HomeSectionLink } from "@/features/home/section-link";
+import { getDictionary } from "@/i18n/dictionaries";
 import {
   Frame,
   Heritage,
@@ -21,15 +24,22 @@ export async function generateMetadata(): Promise<Metadata> {
 /**
  * Home: a graphic showcase read as you scroll. The opening slide (WEB-01) runs straight
  * into the page (WEB-02); both are the designer's comps, laid out in comp units
- * (src/features/home/home.module.css). Motion comes later.
+ * (src/features/home/home.module.css). The opening morph uses the extracted SVG paths.
  */
 export default async function HomePage() {
   const lang = await getLocale();
+  const { home } = getDictionary(lang);
   return (
     <>
-      <div className={s.home}>
-        <Opening />
-        <div className={s.board}>
+      <HomeOpeningMotion className={s.home}>
+        <HomeSectionLink
+          href={`/${lang}#home-content-${lang}`}
+          className={s.skipLink}
+        >
+          {home.skipToContent}
+        </HomeSectionLink>
+        <Opening lang={lang} />
+        <div className={s.board} data-home-design="web-02">
           <HomeHeader lang={lang} />
           <main>
             <Hero lang={lang} />
@@ -39,9 +49,9 @@ export default async function HomePage() {
             <Heritage lang={lang} />
             <Layers lang={lang} />
           </main>
-          <Frame />
+          <Frame lang={lang} />
         </div>
-      </div>
+      </HomeOpeningMotion>
       <SiteFooter lang={lang} />
     </>
   );

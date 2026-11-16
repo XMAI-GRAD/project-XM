@@ -57,6 +57,7 @@ import { LayersMotion } from "./motion/layers-motion";
 import { RolesMotion } from "./motion/roles-motion";
 import { ThreadMotion } from "./motion/thread-motion";
 import { RichText, toneClass } from "./rich-text";
+import { HomeSectionLink } from "./section-link";
 
 const text = `${s.at} ${s.text}`;
 const display = `${text} ${s.display}`;
@@ -64,12 +65,21 @@ const display = `${text} ${s.display}`;
 const movingDisplay = `${s.at} ${s.display} ${s.capTop}`;
 
 /** The lime frame around the card, painted above the drawings it crops. */
-export function Frame() {
+export function Frame({ lang }: { lang: Locale }) {
+  const { home } = getDictionary(lang);
   return (
-    <div className={s.frame} aria-hidden="true">
+    <div className={s.frame} data-home-frame>
       <FrameLeft className={s.at} style={at(frameLeftBox)} />
       <FrameRight className={s.at} style={at(frameRightBox)} />
-      <RailMark className={s.at} style={at(railMarkBox)} />
+      <HomeSectionLink
+        href={`/${lang}#home-entry-${lang}`}
+        className={`${s.at} ${s.railLink}`}
+        style={at(railMarkBox)}
+        aria-label={home.backToHeader}
+        data-rail-logo
+      >
+        <RailMark />
+      </HomeSectionLink>
     </div>
   );
 }
@@ -77,7 +87,10 @@ export function Frame() {
 export function Hero({ lang }: { lang: Locale }) {
   const { hero } = getPage("home");
   return (
-    <HeroMotion className={`${s.section} ${s.hero}`}>
+    <HeroMotion
+      id={`home-content-${lang}`}
+      className={`${s.section} ${s.hero}`}
+    >
       <HeroSkyline className={s.at} style={at(heroSkylineBox)} />
       <HeroWave className={s.at} style={at(heroWaveBox)} />
       <h1 className={`${display} ${s.heroTitle}`}>
