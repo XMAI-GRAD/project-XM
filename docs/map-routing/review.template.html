@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Hanoi · Route alignment prototype</title>
+    <link rel="stylesheet" href="../../node_modules/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="review.css" />
+    <script src="../../node_modules/leaflet/dist/leaflet.js" defer></script>
+    <script src="review.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">
+          Hanoi Creative City / Engineering review / 09 Nov 2026
+        </p>
+        <h1>A route on our own drawing.</h1>
+        <p>
+          Four saved walking routes, projected through the existing calibration.
+          This is an alignment prototype, not live directions. Opening it makes
+          no routing or tile requests.
+        </p>
+      </header>
+      <section aria-label="Route review">
+        <div class="toolbar">
+          <label class="route-label" for="route"
+            >Sample route
+            <select id="route"></select
+          ></label>
+          <button id="fit" type="button">Fit route</button>
+          <button id="overview" type="button">Whole artwork</button>
+          <label
+            ><input type="checkbox" id="show-route" checked /> Route line</label
+          >
+          <label for="opacity"
+            >Line opacity
+            <input id="opacity" type="range" min="0" max="100" value="75"
+          /></label>
+        </div>
+        <div
+          class="summary"
+          aria-live="polite"
+          aria-atomic="true"
+          id="summary"
+        ></div>
+        <div
+          id="map"
+          tabindex="0"
+          aria-label="Route alignment map"
+          aria-describedby="map-help"
+        ></div>
+        <div class="toolbar map-actions" aria-label="Map controls">
+          <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+          <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+          <button data-pan="-120,0" type="button" aria-label="Pan left">
+            ←
+          </button>
+          <button data-pan="0,-120" type="button" aria-label="Pan up">↑</button>
+          <button data-pan="0,120" type="button" aria-label="Pan down">
+            ↓
+          </button>
+          <button data-pan="120,0" type="button" aria-label="Pan right">
+            →
+          </button>
+          <p id="map-help">
+            Pan with arrows or drag. Zoom with +/−. Toggle the line to compare
+            with the drawn roads.
+          </p>
+        </div>
+        <p class="legend">
+          <span class="swatch"></span> Navy line: returned walking route. A/B:
+          requested place pins. Teal dots: route endpoints. Dashed gaps show
+          snapping only; they are not verified walking paths.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <caption>
+              Endpoint checks
+            </caption>
+            <thead>
+              <tr>
+                <th>Point</th>
+                <th>What our pin means</th>
+                <th>Pin to route endpoint</th>
+              </tr>
+            </thead>
+            <tbody id="endpoints"></tbody>
+          </table>
+        </div>
+        <p id="caution" class="note"></p>
+        <p>
+          Provider distances and times are estimates from the saved walking
+          graph, not live traffic. Small snapping gaps do not establish entrance
+          access, opening hours or pedestrian safety. Vạn Phúc is outside the
+          original calibration-control footprint.
+        </p>
+        <p>
+          <a id="raw" href="samples/central.json">Saved provider response</a> ·
+          <a href="measurements.json">Projection measurements</a> ·
+          <a href="../../research/map-routing/README.md"
+            >Research and service decision</a
+          >
+        </p>
+      </section>
+      <footer>
+        Routing: <a href="https://project-osrm.org/">OSRM</a> /
+        <a href="https://routing.openstreetmap.de/about.html">FOSSGIS</a>. Data:
+        <a href="https://www.openstreetmap.org/copyright"
+          >© OpenStreetMap contributors, ODbL</a
+        >
+        · <a href="https://www.openstreetmap.org/fixthemap">Fix the map</a>.
+        Artwork supplied by the project owner. Review renderer: Leaflet 1.9.4
+        from the existing project dependency.
+      </footer>
+    </main>
+    <script id="review-data" type="application/json">
+      __REVIEW_DATA__
+    </script>
+  </body>
+</html>

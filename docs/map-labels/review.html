@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Hanoi · Source map alignment proof</title>
+    <link rel="stylesheet" href="/leaflet.css" />
+    <link rel="stylesheet" href="review.css" />
+    <script src="/leaflet.js" defer></script>
+    <script src="review.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <p class="eyebrow">Hanoi Creative City / Map research / 09 Nov 2026</p>
+        <h1>Real geography. Our own drawing.</h1>
+        <p class="intro">
+          The same sourced roads and coordinates in two views. The drawing uses
+          our existing calibration; the reference uses geographic coordinates
+          directly.
+        </p>
+      </header>
+      <section class="controls" aria-label="Comparison controls">
+        <label class="feature-label" for="feature"
+          >Inspect a road or landmark
+          <select id="feature"></select
+        ></label>
+        <button id="fit" type="button">Reset both views</button>
+        <label
+          ><input id="show-roads" type="checkbox" checked /> Source roads on
+          drawing</label
+        >
+        <label><input id="show-labels" type="checkbox" checked /> Names</label>
+        <label
+          ><input id="show-route" type="checkbox" checked /> Saved walking
+          route</label
+        >
+        <label class="opacity-label" for="opacity"
+          >Source road opacity
+          <input id="opacity" type="range" min="0" max="100" value="65"
+        /></label>
+      </section>
+      <div class="legend">
+        <span class="teal">━ Sourced roads</span
+        ><span class="red">━ Selected road</span
+        ><span class="navy">━ Saved route A → B · 968 m</span
+        ><span>● Landmark / A, B = visitor entrances</span>
+      </div>
+      <section class="comparison" aria-label="Map comparison">
+        <article>
+          <div class="map-heading">
+            <h2>01 / Your original drawing</h2>
+            <span>Fixed calibration · image pixels</span>
+          </div>
+          <div
+            id="art-map"
+            class="map"
+            tabindex="0"
+            role="region"
+            aria-label="Hand-drawn map with projected source geometry"
+            aria-describedby="map-help"
+          ></div>
+          <div class="map-actions" data-map="art">
+            <button data-pan="-100,0" aria-label="Pan drawing left">←</button
+            ><button data-pan="100,0" aria-label="Pan drawing right">→</button
+            ><button data-pan="0,-100" aria-label="Pan drawing up">↑</button
+            ><button data-pan="0,100" aria-label="Pan drawing down">↓</button
+            ><span id="art-count"></span>
+          </div>
+        </article>
+        <article>
+          <div class="map-heading">
+            <h2>02 / Geographic reference</h2>
+            <span>OSM-derived vector geometry · EPSG:3857</span>
+          </div>
+          <div
+            id="geo-map"
+            class="map"
+            tabindex="0"
+            role="region"
+            aria-label="Geographic source reference map"
+            aria-describedby="map-help"
+          ></div>
+          <div class="map-actions" data-map="geo">
+            <button data-pan="-100,0" aria-label="Pan reference left">←</button
+            ><button data-pan="100,0" aria-label="Pan reference right">→</button
+            ><button data-pan="0,-100" aria-label="Pan reference up">↑</button
+            ><button data-pan="0,100" aria-label="Pan reference down">↓</button
+            ><span id="geo-count"></span>
+          </div>
+        </article>
+      </section>
+      <p id="map-help" class="help">
+        Pan and zoom each view independently. Tab to a map, then use arrow keys
+        and + / −. Selecting a feature centres both views. Toggle source roads
+        off to inspect the untouched drawing underneath.
+      </p>
+      <section class="evidence" aria-labelledby="evidence-title">
+        <div>
+          <p class="eyebrow">Trace the evidence</p>
+          <h2 id="evidence-title">Loading reference…</h2>
+          <p id="feature-note"></p>
+        </div>
+        <dl>
+          <div>
+            <dt>Source longitude, latitude</dt>
+            <dd id="coordinates"></dd>
+          </div>
+          <div>
+            <dt>Projected image x, y</dt>
+            <dd id="pixels"></dd>
+          </div>
+          <div>
+            <dt>Source reference</dt>
+            <dd id="source-ref"></dd>
+          </div>
+        </dl>
+        <p>
+          <a id="source-link" target="_blank" rel="noreferrer"
+            >Inspect source</a
+          >
+          ·
+          <a id="osm-link" target="_blank" rel="noreferrer"
+            >Geographic context on OSM</a
+          >
+        </p>
+      </section>
+      <section class="limits">
+        <h2>What this proves—and what still needs checking</h2>
+        <p>
+          Road names and positions come from recorded geographic data, not
+          guessed pixel placements. OSM is community-maintained, not a
+          government survey. This reference view is rendered from saved vector
+          features, not a screenshot or a live basemap.
+        </p>
+        <p>
+          Local offsets and missing detail remain visible at close zoom. The
+          drawing is a 1618 × 1020 raster; enlarging it cannot add street
+          detail. Existing checkpoint error is not a route-wide accuracy
+          guarantee. The saved route does not establish current pedestrian
+          access or turn-by-turn instructions.
+        </p>
+      </section>
+      <footer>
+        <a href="https://openfreemap.org/">OpenFreeMap</a> · ©
+        <a href="https://openmaptiles.org/">OpenMapTiles</a> · Data from ©
+        <a href="https://www.openstreetmap.org/copyright"
+          >OpenStreetMap contributors (ODbL)</a
+        >. Route: OSRM / FOSSGIS.
+        <a href="reference.json">Derived reference data</a> ·
+        <a href="source-tiles/manifest.json">Raw tile provenance</a> ·
+        <a href="README.md">Research notes</a>. No live service requests.
+      </footer>
+      <p id="error" role="alert" hidden></p>
+    </main>
+  </body>
+</html>

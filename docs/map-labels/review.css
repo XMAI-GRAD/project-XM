@@ -1,0 +1,279 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, sans-serif;
+  color: #0d1855;
+  background: #fff6f1;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1700px;
+  margin: auto;
+  padding: 32px;
+}
+h1 {
+  font-size: clamp(30px, 3vw, 46px);
+  letter-spacing: -0.045em;
+  margin: 10px 0 14px;
+}
+h2 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+p {
+  line-height: 1.55;
+}
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 11px;
+  font-weight: bold;
+}
+.intro {
+  max-width: 850px;
+  color: #39466f;
+  margin-bottom: 24px;
+}
+.controls {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 16px 22px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #d6d9e2;
+  border-radius: 12px;
+}
+label {
+  font-size: 13px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 36px;
+}
+.feature-label {
+  display: grid;
+  gap: 8px;
+  font-weight: bold;
+}
+select,
+button {
+  font: inherit;
+  color: inherit;
+  background: white;
+  border: 1px solid #97a0bd;
+  border-radius: 6px;
+  min-height: 40px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+select {
+  max-width: 100%;
+  width: 270px;
+  font-size: 14px;
+}
+button:hover {
+  background: #eef1fc;
+}
+input {
+  accent-color: #0d1855;
+}
+input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+}
+input[type="range"] {
+  width: 100px;
+}
+:focus-visible {
+  outline: 3px solid #b7262a;
+  outline-offset: 3px;
+}
+.legend {
+  display: flex;
+  gap: 12px 22px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  padding: 18px 0;
+}
+.teal {
+  color: #00726f;
+}
+.red {
+  color: #b7262a;
+}
+.navy {
+  color: #0d1855;
+}
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+article {
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #d6d9e2;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.map-heading {
+  padding: 18px;
+}
+.map-heading span {
+  font-size: 12px;
+  color: #52607c;
+}
+.map {
+  height: 560px;
+  background: #f8f8f5;
+  width: 100%;
+}
+.map-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid #e4e5eb;
+}
+.map-actions span {
+  margin-left: auto;
+  font-size: 11px;
+  color: #52607c;
+}
+.help {
+  color: #52607c;
+  font-size: 12px;
+}
+.evidence {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 0 35px;
+  padding: 24px;
+  background: #0d1855;
+  color: #fff6f1;
+  border-radius: 12px;
+  margin: 22px 0;
+}
+.evidence p {
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+.evidence a {
+  color: #9ceaff;
+}
+.evidence dl {
+  margin: 0;
+}
+dt {
+  color: #c4cbe8;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+dd {
+  margin: 5px 0 14px;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.limits {
+  max-width: 1050px;
+}
+.limits p,
+footer {
+  font-size: 13px;
+  color: #52607c;
+}
+footer {
+  line-height: 1.8;
+  padding: 20px 0 0;
+  border-top: 1px solid #d6d9e2;
+  margin-top: 24px;
+}
+a {
+  color: #273991;
+}
+.label-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 650;
+  overflow: hidden;
+}
+.map-label {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  color: #28344c;
+  text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff,
+    0 0 4px #fff,
+    0 0 4px #fff;
+  transform-origin: center;
+  padding: 3px 5px;
+}
+.map-label.selected {
+  color: #a71b20;
+  font-weight: 700;
+}
+.map-label.landmark {
+  background: #fff6f1ee;
+  border: 1px solid #d8d4d1;
+  border-radius: 4px;
+  font-size: 10px;
+}
+.entrance-icon {
+  background: #0d1855;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 23px;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 1px 5px #0005;
+}
+.leaflet-control-attribution {
+  font-size: 9px !important;
+}
+#error {
+  padding: 20px;
+  border: 2px solid #b7262a;
+}
+@media (max-width: 850px) {
+  main {
+    padding: 18px;
+  }
+  .comparison {
+    grid-template-columns: 1fr;
+  }
+  .map {
+    height: 430px;
+  }
+  .evidence {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .controls {
+    padding: 14px;
+    gap: 10px 16px;
+  }
+  .feature-label {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+  .map-actions span {
+    font-size: 10px;
+  }
+}

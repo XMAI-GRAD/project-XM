@@ -3,6 +3,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { parse } from "yaml";
+import { readMapContext, readSavedRoutes } from "../features/maps/catalogue.ts";
 import {
   fitArtworkTransform,
   projectToArtwork,
@@ -301,6 +302,18 @@ function validate(): string[] {
 const errors = validate();
 if (errors.length)
   throw new Error(`data/ content is invalid:\n- ${errors.join("\n- ")}`);
+
+export const savedMapRoutes = readSavedRoutes(
+  read("map-routes.yaml"),
+  points,
+  mapTransform,
+  pages.maps.artwork,
+);
+export const mapContextLabels = readMapContext(
+  read("map-context.yaml"),
+  mapTransform,
+  pages.maps.artwork,
+);
 
 /** Every point slug. Validates user-supplied slugs (favorites, comments). */
 export const pointSlugs: ReadonlySet<string> = new Set(

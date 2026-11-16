@@ -1,0 +1,455 @@
+{
+  "date": "2026-11-16",
+  "base": "http://localhost:3000",
+  "mode": "headless installed Microsoft Edge; isolated browser contexts",
+  "results": [
+    {
+      "name": "Repeated VI/EN navigation, unique IDs, labels, ARIA ownership and focus restoration",
+      "status": "passed",
+      "evidence": [
+        {
+          "lang": "vi",
+          "category": "ĐỊA",
+          "href": "/vi/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "VỊ",
+          "href": "/vi/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "NGHỀ",
+          "href": "/vi/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "PLACE",
+          "href": "/en/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "TASTE",
+          "href": "/en/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "CRAFT",
+          "href": "/en/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "ĐỊA",
+          "href": "/vi/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "VỊ",
+          "href": "/vi/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "NGHỀ",
+          "href": "/vi/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "PLACE",
+          "href": "/en/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "TASTE",
+          "href": "/en/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "CRAFT",
+          "href": "/en/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "ĐỊA",
+          "href": "/vi/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "VỊ",
+          "href": "/vi/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "vi",
+          "category": "NGHỀ",
+          "href": "/vi/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": true,
+              "labels": ["Tìm địa điểm"]
+            },
+            {
+              "prefix": "_r_0_",
+              "visible": false,
+              "labels": ["Search places"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "PLACE",
+          "href": "/en/explore/hoang-thanh-thang-long",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "TASTE",
+          "href": "/en/explore/bun-thang-ba-duc",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        },
+        {
+          "lang": "en",
+          "category": "CRAFT",
+          "href": "/en/explore/ngu-xa",
+          "instances": [
+            {
+              "prefix": "_r_0_",
+              "visible": true,
+              "labels": ["Search places"]
+            },
+            {
+              "prefix": "_R_19bn5rl9etb_",
+              "visible": false,
+              "labels": ["Tìm địa điểm"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "English search normalization, empty recovery and retained category query",
+      "status": "passed"
+    },
+    {
+      "name": "Desktop/narrow resize, selected pin avoidance, card actions and no horizontal overflow",
+      "status": "passed",
+      "evidence": [
+        {
+          "width": 1440,
+          "height": 1000,
+          "pin": {
+            "x": 748,
+            "y": 527.296875,
+            "width": 44,
+            "height": 44
+          },
+          "card": {
+            "x": 1091,
+            "y": 314.171875,
+            "width": 300,
+            "height": 505.953125
+          },
+          "geom": {
+            "viewport": 1440,
+            "document": 1440
+          }
+        },
+        {
+          "width": 1024,
+          "height": 800,
+          "pin": {
+            "x": 681.5625,
+            "y": 232.109375,
+            "width": 44,
+            "height": 44
+          },
+          "card": {
+            "x": 409.5625,
+            "y": 440.109375,
+            "width": 588.875,
+            "height": 360
+          },
+          "geom": {
+            "viewport": 1024,
+            "document": 1024
+          }
+        },
+        {
+          "width": 390,
+          "height": 844,
+          "pin": {
+            "x": 173,
+            "y": 33.703125,
+            "width": 44,
+            "height": 44
+          },
+          "card": {
+            "x": 17,
+            "y": 241.703125,
+            "width": 356,
+            "height": 360
+          },
+          "geom": {
+            "viewport": 390,
+            "document": 390
+          }
+        },
+        {
+          "width": 320,
+          "height": 720,
+          "pin": {
+            "x": 138,
+            "y": 151.796875,
+            "width": 44,
+            "height": 44
+          },
+          "card": {
+            "x": 17,
+            "y": 359.796875,
+            "width": 286,
+            "height": 360
+          },
+          "geom": {
+            "viewport": 320,
+            "document": 320
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mouse drag, locate/reset, keyboard pan/zoom, zoom bounds and Back restoration",
+      "status": "passed"
+    },
+    {
+      "name": "Reduced-motion emulation, map controls and transition suppression",
+      "status": "passed",
+      "evidence": {
+        "preferenceMatched": true,
+        "transition": "0s",
+        "animations": 0,
+        "limitation": "Browser emulation, not a physical OS/device preference test"
+      }
+    },
+    {
+      "name": "Forced cover-image failure retains usable card and actions",
+      "status": "passed",
+      "evidence": {
+        "blockedImages": 1
+      }
+    },
+    {
+      "name": "Forced map failure, failed retry then successful retry preserve search and selection",
+      "status": "passed",
+      "evidence": [
+        {
+          "lang": "vi",
+          "requests": 3,
+          "queryPreserved": true,
+          "selectionPreserved": true
+        },
+        {
+          "lang": "en",
+          "requests": 3,
+          "queryPreserved": true,
+          "selectionPreserved": true
+        }
+      ]
+    },
+    {
+      "name": "Emulated touch drag and two-finger pinch change the map",
+      "status": "passed",
+      "evidence": {
+        "beforeDrag": {
+          "x": 52,
+          "y": 355.703125,
+          "width": 286,
+          "height": 180
+        },
+        "afterPinch": {
+          "x": -28,
+          "y": 253.703125,
+          "width": 809,
+          "height": 510
+        },
+        "limitation": "Synthetic Chromium touch events; physical touch hardware not tested"
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "browser": "157.0.4341.60"
+}

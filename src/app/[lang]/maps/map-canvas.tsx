@@ -12,7 +12,13 @@ import "leaflet/dist/leaflet.css";
 import type { Layer } from "@/content";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { mapFocusPoint, spreadMapPins } from "@/features/maps/layout";
-import type { MapGroup, MapImage } from "./map-explorer";
+import type { MapGroup, MapImage, DisplayMapLabel } from "./map-explorer";
+import type { SavedMapRoute } from "@/features/maps/catalogue";
+import {
+  labelBox,
+  fitsLabel,
+  type LabelBox,
+} from "@/features/maps/label-layout";
 import s from "./page.module.css";
 
 export interface MapControls {
@@ -20,6 +26,8 @@ export interface MapControls {
   zoomOut: () => void;
   reset: () => void;
   locate: () => void;
+  fitRoute: () => void;
+  pan: (x: number, y: number) => void;
 }
 
 export interface MapViewport {
@@ -42,6 +50,10 @@ interface MapCanvasProps {
   onViewport: (viewport: MapViewport) => void;
   onError: () => void;
   ui: Dictionary["maps"];
+  contextLabels: DisplayMapLabel[];
+  showNames: boolean;
+  route?: SavedMapRoute;
+  routeFitKey: number;
 }
 
 function focusTarget(map: L.Map, cardElement: HTMLElement | null) {
@@ -76,6 +88,10 @@ export default function MapCanvas({
   onViewport,
   onError,
   ui,
+  contextLabels,
+  showNames,
+  route,
+  routeFitKey,
 }: MapCanvasProps) {
   const surface = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
@@ -92,6 +108,7 @@ export default function MapCanvas({
   );
   const resetRef = useRef<() => void>(() => {});
   const locateRef = useRef<() => void>(() => {});
+  const fitRouteRef = useRef<() => void>(() => {});
 
   useImperativeHandle(
     ref,
@@ -99,6 +116,21 @@ export default function MapCanvas({
       zoomIn: () => mapRef.current?.zoomIn(0.5, { animate: false }),
       zoomOut: () => mapRef.current?.zoomOut(0.5, { animate: false }),
       reset: () => resetRef.current(),
+      fitRoute: () => {
+        fitRouteRef.current();
+        surface.current?.focus({ preventScroll: true });
+        surface.current?.scrollIntoView({
+          block: "nearest",
+          behavior: "instant",
+        });
+      },
+      pan: (x, y) => {
+        const map = mapRef.current;
+        if (map)
+          map.panTo(map.unproject(map.project(map.getCenter()).add([x, y])), {
+            animate: false,
+          });
+      },
       locate: () => {
         locateRef.current();
         surface.current?.focus({ preventScroll: true });
@@ -118,7 +150,7 @@ export default function MapCanvas({
     const map = L.map(element, {
       crs: L.CRS.Simple,
       minZoom: -5,
-      maxZoom: 1.5,
+      maxZoom: 3,
       zoomSnap: 0.25,
       zoomDelta: 0.5,
       // Extra room is needed to place an edge pin beside a wide detail card.
@@ -316,8 +348,7 @@ export default function MapCanvas({
     };
     separatePins();
     map.on("zoomend", separatePins);
-    // A layer switch or a new search starts with its pins in view.
-    resetRef.current();
+    // Searching should not repeatedly discard the visitor's chosen viewport.
     return () => {
       map.off("zoomend", separatePins);
       for (const { marker, leader } of entries.values()) {
@@ -336,6 +367,174 @@ export default function MapCanvas({
     onSelect,
     cardRef,
     cardId,
+  ]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !route) {
+      fitRouteRef.current = () => {};
+      return;
+    }
+    const latLngs = route.pixels.map(({ x, y }) =>
+      L.latLng(artwork.height - y, x),
+    );
+    const group = L.layerGroup().addTo(map);
+    L.polyline(latLngs, {
+      className: s.routeHalo,
+      weight: 8,
+      opacity: 1,
+      interactive: false,
+    }).addTo(group);
+    L.polyline(latLngs, {
+      className: s.routeLine,
+      weight: 4,
+      opacity: 1,
+      interactive: false,
+    }).addTo(group);
+    for (const [index, badge] of [
+      [0, "A"],
+      [latLngs.length - 1, "B"],
+    ] as const) {
+      const node = document.createElement("span");
+      node.className = s.routeEndpoint;
+      node.textContent = badge;
+      node.setAttribute("aria-hidden", "true");
+      L.marker(latLngs[index], {
+        icon: L.divIcon({
+          html: node,
+          className: s.markerHost,
+          iconSize: [32, 32],
+          iconAnchor: [16, 16],
+        }),
+        keyboard: false,
+        interactive: false,
+        zIndexOffset: 2000,
+      }).addTo(group);
+    }
+    const fit = () => {
+      map.invalidateSize({ pan: false, animate: false });
+      map.fitBounds(L.latLngBounds(latLngs), {
+        padding: [52, 52],
+        maxZoom: 3,
+        animate: false,
+      });
+    };
+    fitRouteRef.current = fit;
+    fit();
+    return () => {
+      group.remove();
+      fitRouteRef.current = () => {};
+    };
+  }, [route, routeFitKey, artwork.height, artwork.src]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !showNames) return;
+    const layer = document.createElement("div");
+    layer.className = s.contextLayer;
+    layer.setAttribute("aria-hidden", "true");
+    map.getContainer().append(layer);
+    const entries = [...contextLabels]
+      .sort(
+        (a, b) =>
+          Number(a.kind === "road") - Number(b.kind === "road") ||
+          a.priority - b.priority,
+      )
+      .map((label) => {
+        const node = document.createElement("span");
+        node.textContent = label.name;
+        node.className = label.kind === "road" ? s.roadLabel : s.landmarkLabel;
+        layer.append(node);
+        return { label, node };
+      });
+    const render = () => {
+      const size = map.getSize();
+      const viewport = map.getContainer().getBoundingClientRect();
+      const occupied: LabelBox[] = [];
+      const card = cardRef.current?.getBoundingClientRect();
+      if (card)
+        occupied.push({
+          left: card.left - viewport.left,
+          right: card.right - viewport.left,
+          top: card.top - viewport.top,
+          bottom: card.bottom - viewport.top,
+        });
+      for (const { marker } of markers.current.values()) {
+        const p = map.latLngToContainerPoint(marker.getLatLng());
+        occupied.push({
+          left: p.x - 30,
+          right: p.x + 30,
+          top: p.y - 60,
+          bottom: p.y + 8,
+        });
+      }
+      if (route)
+        for (const vertex of [route.pixels[0], route.pixels.at(-1)!]) {
+          const p = map.latLngToContainerPoint([
+            artwork.height - vertex.y,
+            vertex.x,
+          ]);
+          occupied.push({
+            left: p.x - 22,
+            right: p.x + 22,
+            top: p.y - 22,
+            bottom: p.y + 22,
+          });
+        }
+      for (const { label, node } of entries) {
+        node.hidden = true;
+        if (map.getZoom() < (label.kind === "road" ? 1.25 : 0.75)) continue;
+        node.hidden = false;
+        let placed = false;
+        for (const { position, angle } of label.anchors) {
+          const p = map.latLngToContainerPoint([
+            artwork.height - position.y,
+            position.x,
+          ]);
+          p.y -= label.kind === "landmark" ? 16 : 8;
+          const box = labelBox(
+            p.x,
+            p.y,
+            node.offsetWidth,
+            node.offsetHeight,
+            angle,
+          );
+          if (!fitsLabel(box, size, occupied)) continue;
+          node.style.left = `${p.x}px`;
+          node.style.top = `${p.y}px`;
+          node.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+          occupied.push(box);
+          placed = true;
+          break;
+        }
+        node.hidden = !placed;
+      }
+    };
+    let frame = 0;
+    const schedule = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(render);
+    };
+    map.on("move zoom resize", schedule);
+    const resize = new ResizeObserver(schedule);
+    resize.observe(map.getContainer());
+    if (cardRef.current) resize.observe(cardRef.current);
+    render();
+    return () => {
+      cancelAnimationFrame(frame);
+      resize.disconnect();
+      map.off("move zoom resize", schedule);
+      layer.remove();
+    };
+  }, [
+    contextLabels,
+    showNames,
+    route,
+    points,
+    selectedSlug,
+    cardRef,
+    artwork.height,
+    artwork.src,
   ]);
 
   useEffect(() => {

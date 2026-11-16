@@ -90,6 +90,276 @@
   color: var(--seashell);
 }
 
+.modeButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex-shrink: 0;
+  gap: 4px;
+  padding: 12px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  border-bottom: 1px solid var(--navy-300);
+}
+.modeButtons button {
+  min-height: 44px;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.modeButtons button[aria-pressed="true"] {
+  background: var(--seashell);
+  color: var(--navy-500);
+}
+.modeButtons button:focus-visible {
+  outline-color: var(--frosted-blue);
+}
+.directionsPanel {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 22px;
+  scrollbar-width: thin;
+}
+.directionIntro {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.directionLegend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+}
+.endpointFields {
+  display: grid;
+  gap: 8px;
+}
+.endpointFields label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.endpointBadge {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: var(--seashell);
+  background: var(--navy-500);
+}
+.endpointFields select {
+  min-width: 0;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px;
+  border: 1px solid var(--navy-200);
+  border-radius: 4px;
+  background: var(--seashell);
+  color: var(--navy-500);
+  font: inherit;
+  font-size: 0.8125rem;
+}
+.swapRoute {
+  justify-self: end;
+  padding: 4px 0;
+  min-height: 40px;
+  font-size: 0.6875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.swapRoute:disabled {
+  opacity: 0.5;
+}
+.routeStatus {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--frosted-blue);
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+}
+.routeMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin: 8px 0;
+}
+.routeMetrics strong {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  line-height: 1.1;
+}
+.routeMetrics > span {
+  font-size: 0.875rem;
+}
+.routeActions {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 8px;
+  margin: 12px 0;
+}
+.routeActions button {
+  padding: 10px 8px;
+  min-height: 44px;
+  border: 1px solid var(--navy-500);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.routeActions button:first-child {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.routeActions button:disabled {
+  opacity: 0.5;
+}
+.routeNotice,
+.routeDetails {
+  font-size: 0.6875rem;
+  line-height: 1.65;
+}
+.routeDetails {
+  margin-top: 12px;
+}
+.routeDetails summary {
+  cursor: pointer;
+  padding: 10px 0;
+  min-height: 44px;
+  font-weight: 600;
+}
+.routeDetails p {
+  margin-bottom: 10px;
+}
+.routeDetails a {
+  text-underline-offset: 3px;
+}
+.savedRoutes {
+  margin-top: 24px;
+  border-top: 1px solid var(--navy-200);
+  padding-top: 20px;
+}
+.savedRoutes h2 {
+  font-weight: 600;
+}
+.savedRoutes > p {
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  margin: 8px 0 12px;
+}
+.savedRoutes ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.savedRoutes button {
+  display: grid;
+  width: 100%;
+  gap: 3px;
+  text-align: left;
+  padding: 12px;
+  border: 1px solid var(--navy-200);
+  border-radius: 5px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.savedRoutes button[aria-pressed="true"],
+.savedRoutes button:hover {
+  border-color: var(--navy-500);
+  background: var(--frosted-blue);
+}
+.savedRoutes button > span:nth-child(2) {
+  color: var(--navy-300);
+}
+.routeToPlace {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  gap: 12px;
+  min-height: 46px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--navy-200);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.routeToPlace:hover {
+  background: var(--frosted-blue);
+}
+.namesToggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--navy-500);
+  border-radius: 5px;
+  background: var(--seashell);
+  font-size: 0.6875rem;
+  cursor: pointer;
+}
+.namesToggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--navy-500);
+}
+.routeLine {
+  stroke: var(--navy-500);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.routeHalo {
+  stroke: var(--seashell);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.routeEndpoint {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--seashell);
+  border-radius: 50%;
+  background: var(--navy-500);
+  color: var(--seashell);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+.contextLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 450;
+  pointer-events: none;
+  overflow: hidden;
+}
+.roadLabel,
+.landmarkLabel {
+  position: absolute;
+  width: max-content;
+  padding: 3px 5px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--navy-500);
+  background: var(--seashell);
+  border-radius: 3px;
+  transform-origin: center;
+}
+.landmarkLabel {
+  font-size: 10px;
+  border: 1px solid var(--navy-200);
+}
+
 .sidebarLabel {
   margin-bottom: 16px;
   color: var(--frosted-blue);
@@ -571,7 +841,7 @@
 
 .canvasFooter {
   flex-wrap: wrap;
-  padding: 12px 16px 28px;
+  padding: 12px 16px;
   border-top: 1px solid var(--navy-500);
   background: var(--seashell);
 }
@@ -598,14 +868,15 @@
 }
 
 .attribution {
-  position: absolute;
-  right: 8px;
-  bottom: 3px;
+  position: relative;
+  flex-shrink: 0;
   z-index: 2;
-  padding: 2px 4px;
+  padding: 5px 12px;
   background: var(--seashell);
   color: var(--navy-500);
   font-size: 0.625rem;
+  line-height: 1.6;
+  text-align: right;
 }
 
 .registrationMark {
@@ -900,7 +1171,10 @@
 .controls {
   margin-left: auto;
   pointer-events: auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  width: 308px;
+  max-width: 100%;
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid var(--navy-500);
@@ -911,7 +1185,7 @@
 .controls button {
   display: grid;
   place-items: center;
-  width: 44px;
+  width: 100%;
   height: 44px;
   cursor: pointer;
 }
@@ -1022,6 +1296,10 @@
 
   .locations {
     max-height: 260px;
+  }
+
+  .directionsPanel {
+    max-height: 550px;
   }
 
   .sidebarHeader {

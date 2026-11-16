@@ -78,13 +78,9 @@ export default async function PointPage({
           </li>
         ))}
       </ul>
-      <a
-        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(point.address)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href={`/${lang}/maps?to=${encodeURIComponent(point.slug)}`}>
         {t.directions}
-      </a>
+      </Link>
       {point.audio && (
         <audio controls preload="none" src={point.audio} lang="vi" />
       )}

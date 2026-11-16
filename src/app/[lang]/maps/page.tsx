@@ -1,5 +1,11 @@
 ﻿import type { Metadata } from "next";
-import { getPage, getPoints, layers } from "@/content";
+import {
+  getPage,
+  getPoints,
+  layers,
+  mapContextLabels,
+  savedMapRoutes,
+} from "@/content";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
 import { MapExplorer, type MapGroup } from "./map-explorer";
@@ -57,6 +63,11 @@ export default async function MapsPage() {
         brand={site.brand[lang]}
         ui={ui}
         emptyLabel={explore.empty}
+        routes={savedMapRoutes}
+        contextLabels={mapContextLabels.map((label) => ({
+          ...label,
+          name: label.name[lang],
+        }))}
       />
     </div>
   );

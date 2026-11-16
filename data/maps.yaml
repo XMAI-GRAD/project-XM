@@ -1,23 +1,23 @@
 title:
   vi: Ba mạch của thành phố
-  en: ""
+  en: Three threads of the city
 lead:
   vi: Một bản đồ, ba lớp. Chạm để đổi lớp.
-  en: ""
+  en: One map, three layers. Switch layers to explore.
 artwork:
   src: /maps/hanoi-map.png
   width: 1618
   height: 1020
   alt:
     vi: Bản đồ đường phố Hà Nội
-    en: ""
+    en: Street map of Hanoi
 layers:
   place:
     vi: Năm nơi giữ ký ức của thành phố
-    en: ""
+    en: Five places that hold the city's memory
   taste:
     vi: Món Hà Nội đổi theo bốn mùa
-    en: ""
+    en: Hanoi flavours through the four seasons
   craft:
     vi: Làng nghề vẫn sống trong lòng phố
-    en: ""
+    en: Craft villages still alive within the city
