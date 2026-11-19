@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { type ReactNode, useRef } from "react";
-import { motionAllowed } from "../explore-motion";
+import { motionAllowed } from "@/app/[lang]/(site)/explore/explore-motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 

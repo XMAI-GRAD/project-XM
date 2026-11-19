@@ -1,4 +1,13 @@
-/* Point detail: a full-width photo hero, an info bar, then the story with comments in its margin. */
+/* Point detail: on the home board frame, keeping the current blocks until the comp layout replaces them. */
+
+.board {
+  height: auto;
+  min-height: calc(2348 * var(--u));
+}
+.page {
+  --pad: clamp(16px, 2.4vw, 32px);
+  padding: calc(258 * var(--u)) calc(180 * var(--u)) 0;
+}
 
 /* hero */
 .hero {
