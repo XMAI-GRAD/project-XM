@@ -124,9 +124,10 @@
   },
   "comments": {
     "title": "Bình luận",
+    "invitation": "Gửi lại một ký ức hay cảm nhận của bạn về nơi này.",
     "loading": "Đang tải bình luận…",
     "loadError": "Không tải được bình luận. Vui lòng thử lại sau.",
-    "empty": "Chưa có bình luận nào.",
+    "empty": "Chưa có ký ức nào — hãy là người đầu tiên chia sẻ.",
     "label": "Bình luận của bạn",
     "submit": "Gửi",
     "delete": "Xoá",
