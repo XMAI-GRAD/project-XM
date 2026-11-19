@@ -1,12 +1,16 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRouter } from "next/navigation";
 import { type ReactNode, useRef } from "react";
-import { motionAllowed } from "@/app/[lang]/(site)/explore/explore-motion";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import {
+  attachGateTransition,
+  consumeGateScrollReset,
+  type GateHandoff,
+  LABEL_CLIPPED,
+  LABEL_SHOWN,
+  takeGateHandoff,
+} from "@/features/explore/gate-transition";
+import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 
 // Negative horizontal insets keep the clip vertical-only so wide children
 // (such as centered nowrap gate captions) are never clipped at the sides.
@@ -15,38 +19,180 @@ const SHOWN = "inset(0 -50vw 0% -50vw)";
 const START = "top 88%";
 
 /**
- * The page's motion. On arrival the photo settles while the name and its line
- * slide in, then the info bar unrolls. Below the fold, blocks reveal as they
- * scroll into view and replay when scrolled back: short lines slide out from
- * their top edge (`data-unroll`), longer blocks are wiped open (`data-wipe`).
+ * The page's motion. When arriving from a gate click (fresh hand-off for this
+ * slug), the hero photo runs a content-matched FLIP from the gate's opened
+ * rectangle into its own place (house power2.out, 1.15 s) while the headline,
+ * info bar and in-view story blocks wait until it has mostly landed. Otherwise,
+ * the photo settles from 1.08 while the name, line and info bar unroll. Below
+ * the fold, blocks reveal as they scroll into view and replay when scrolled back.
  */
 export function PointMotion({
+  slug,
   className,
   children,
 }: {
+  slug: string;
   className: string;
   children: ReactNode;
 }) {
   const root = useRef<HTMLElement>(null);
   const arrived = useRef(false);
+  // Captured once per mount so React Strict Mode's double effect doesn't lose it.
+  const handoffRef = useRef<GateHandoff | null | undefined>(undefined);
+  const router = useRouter();
 
   useGSAP(
     () => {
-      if (!arrived.current && motionAllowed()) {
-        gsap
-          .timeline({
+      const article = root.current!;
+
+      // Reset scroll before measuring [data-media] or in-view fold checks whenever
+      // we arrived via a gate select (`router.push(..., { scroll: false })`).
+      if (consumeGateScrollReset()) {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
+
+      gsap.matchMedia().add(MOTION, () => {
+        // Attach the gate transition first so any stale exit styles from Next's
+        // router cache are cleared before reveal tweens set their initial clips.
+        const gatesSection =
+          article.querySelector<HTMLElement>("[data-point-gates]");
+        let detachTransition: (() => void) | null = null;
+        if (gatesSection) {
+          const header =
+            gatesSection.querySelector<HTMLElement>("[data-gate-header]");
+          detachTransition = attachGateTransition({
+            scope: gatesSection,
+            router,
+            addExit: (tl) => {
+              if (header) {
+                tl.fromTo(
+                  header,
+                  { clipPath: LABEL_SHOWN, yPercent: 0 },
+                  {
+                    clipPath: LABEL_CLIPPED,
+                    yPercent: -60,
+                    duration: 0.42,
+                    ease: "power2.in",
+                  },
+                  0,
+                );
+              }
+            },
+            extraResetTargets: () => (header ? [header] : []),
+          });
+        }
+
+        let arrivalTl: gsap.core.Timeline | null = null;
+        let handoffRevealAt = 0;
+
+        if (!arrived.current) {
+          if (handoffRef.current === undefined) {
+            handoffRef.current = takeGateHandoff(slug);
+          }
+          const handoff = handoffRef.current;
+          const media = article.querySelector<HTMLElement>("[data-media]");
+          const tl = gsap.timeline({
             defaults: { ease: "power3.out" },
             onComplete: () => {
               arrived.current = true;
+              handoffRef.current = null;
             },
-          })
-          .fromTo(
-            "[data-media]",
-            { scale: 1.08 },
-            { scale: 1, duration: 1.2, clearProps: "transform" },
-            0,
-          )
-          .fromTo(
+          });
+          arrivalTl = tl;
+
+          let revealAt = 0.1;
+          let cellsAt = 0.45;
+
+          if (handoff && media) {
+            const heroRect = media.getBoundingClientRect();
+            const gateRect = handoff.rect;
+            if (heroRect.width > 0 && heroRect.height > 0) {
+              const img = media.querySelector<HTMLImageElement>("img");
+              const nw = img?.naturalWidth || handoff.naturalWidth;
+              const nh = img?.naturalHeight || handoff.naturalHeight;
+
+              // Match cover content scale across the swap so the image never jumps in zoom.
+              const scale =
+                nw > 0 && nh > 0
+                  ? Math.max(gateRect.width / nw, gateRect.height / nh) /
+                    Math.max(heroRect.width / nw, heroRect.height / nh)
+                  : Math.max(
+                      gateRect.width / heroRect.width,
+                      gateRect.height / heroRect.height,
+                    );
+
+              // If the content-matched hero box is narrower or shorter than the gate box
+              // (e.g. a portrait cover in the wider 1.62 hero frame), expand media inside
+              // its fixed-size .photoWrap so the first frame matches gateRect with 0 px error,
+              // then clip smoothly back to heroRect as it lands.
+              const boxW = Math.max(heroRect.width, gateRect.width / scale);
+              const boxH = Math.max(heroRect.height, gateRect.height / scale);
+              const expanded =
+                boxW > heroRect.width + 0.5 || boxH > heroRect.height + 0.5;
+
+              const dx =
+                gateRect.left +
+                gateRect.width / 2 -
+                (heroRect.left + heroRect.width / 2);
+              const dy =
+                gateRect.top +
+                gateRect.height / 2 -
+                (heroRect.top + heroRect.height / 2);
+
+              const startIx =
+                Math.max(0, (1 - gateRect.width / (boxW * scale)) / 2) * 100;
+              const startIy =
+                Math.max(0, (1 - gateRect.height / (boxH * scale)) / 2) * 100;
+              const endIx = Math.max(0, (1 - heroRect.width / boxW) / 2) * 100;
+              const endIy = Math.max(0, (1 - heroRect.height / boxH) / 2) * 100;
+
+              if (expanded) {
+                gsap.set(media, {
+                  position: "absolute",
+                  left: (heroRect.width - boxW) / 2,
+                  top: (heroRect.height - boxH) / 2,
+                  width: boxW,
+                  height: boxH,
+                });
+              }
+
+              tl.fromTo(
+                media,
+                {
+                  x: dx,
+                  y: dy,
+                  scale,
+                  clipPath: `inset(${startIy.toFixed(2)}% ${startIx.toFixed(2)}% ${startIy.toFixed(2)}% ${startIx.toFixed(2)}%)`,
+                  transformOrigin: "50% 50%",
+                  zIndex: 10,
+                },
+                {
+                  x: 0,
+                  y: 0,
+                  scale: 1,
+                  clipPath: `inset(${endIy.toFixed(2)}% ${endIx.toFixed(2)}% ${endIy.toFixed(2)}% ${endIx.toFixed(2)}%)`,
+                  duration: 1.15,
+                  ease: "power2.out",
+                  clearProps:
+                    "position,left,top,width,height,transform,clipPath,zIndex",
+                },
+                0,
+              );
+              // Headline, info bar and in-view story blocks follow once the photo has mostly landed.
+              revealAt = 0.72;
+              cellsAt = 0.9;
+              handoffRevealAt = revealAt;
+            }
+          } else {
+            tl.fromTo(
+              "[data-media]",
+              { scale: 1.08 },
+              { scale: 1, duration: 1.2, clearProps: "transform" },
+              0,
+            );
+          }
+
+          tl.fromTo(
             "[data-reveal]",
             { clipPath: CLIPPED, yPercent: -100 },
             {
@@ -56,66 +202,114 @@ export function PointMotion({
               stagger: 0.12,
               clearProps: "clipPath,transform",
             },
-            0.1,
+            revealAt,
           )
-          .fromTo(
-            "[data-cell]",
-            { clipPath: CLIPPED },
-            {
-              clipPath: SHOWN,
-              duration: 0.6,
-              stagger: 0.08,
-              clearProps: "clipPath",
-            },
-            0.45,
-          )
-          .fromTo(
-            "[data-cell] > *",
-            { y: -20 },
-            { y: 0, duration: 0.6, stagger: 0.04, clearProps: "transform" },
-            0.45,
-          );
+            .fromTo(
+              "[data-cell]",
+              { clipPath: CLIPPED },
+              {
+                clipPath: SHOWN,
+                duration: 0.6,
+                stagger: 0.08,
+                clearProps: "clipPath",
+              },
+              cellsAt,
+            )
+            .fromTo(
+              "[data-cell] > *",
+              { y: -20 },
+              { y: 0, duration: 0.6, stagger: 0.04, clearProps: "transform" },
+              cellsAt,
+            );
+        }
+
+        const fold = window.innerHeight * 0.88;
+        let inViewWipeIndex = 0;
 
         gsap.utils.toArray<HTMLElement>("[data-unroll]").forEach((el) => {
           // The parent, because the slide would move this element's own start point.
           const parent = el.parentElement!;
-          gsap.fromTo(
-            el,
-            { clipPath: CLIPPED, yPercent: -100 },
-            {
-              clipPath: SHOWN,
-              yPercent: 0,
-              duration: 0.6,
-              ease: "power3.out",
-              delay: [...parent.children].indexOf(el) * 0.08,
-              scrollTrigger: {
-                trigger: parent,
-                start: START,
-                toggleActions: "play none none reverse",
+          const delay = [...parent.children].indexOf(el) * 0.08;
+          if (
+            arrivalTl &&
+            handoffRevealAt > 0 &&
+            parent.getBoundingClientRect().top < fold
+          ) {
+            arrivalTl.fromTo(
+              el,
+              { clipPath: CLIPPED, yPercent: -100 },
+              {
+                clipPath: SHOWN,
+                yPercent: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                clearProps: "clipPath,transform",
               },
-            },
-          );
+              handoffRevealAt + delay,
+            );
+          } else {
+            gsap.fromTo(
+              el,
+              { clipPath: CLIPPED, yPercent: -100 },
+              {
+                clipPath: SHOWN,
+                yPercent: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                delay,
+                scrollTrigger: {
+                  trigger: parent,
+                  start: START,
+                  toggleActions: "play none none reverse",
+                },
+              },
+            );
+          }
         });
 
         gsap.utils.toArray<HTMLElement>("[data-wipe]").forEach((el) => {
-          gsap.fromTo(
-            el,
-            { clipPath: CLIPPED },
-            {
-              clipPath: SHOWN,
-              duration: 0.8,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: el,
-                start: START,
-                toggleActions: "play none none reverse",
+          if (
+            arrivalTl &&
+            handoffRevealAt > 0 &&
+            el.getBoundingClientRect().top < fold
+          ) {
+            arrivalTl.fromTo(
+              el,
+              { clipPath: CLIPPED },
+              {
+                clipPath: SHOWN,
+                duration: 0.8,
+                ease: "power3.out",
+                clearProps: "clipPath",
               },
-            },
-          );
+              handoffRevealAt + inViewWipeIndex * 0.08,
+            );
+            inViewWipeIndex++;
+          } else {
+            gsap.fromTo(
+              el,
+              { clipPath: CLIPPED },
+              {
+                clipPath: SHOWN,
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                  trigger: el,
+                  start: START,
+                  toggleActions: "play none none reverse",
+                },
+              },
+            );
+          }
         });
-      }
+
+        return () => {
+          detachTransition?.();
+        };
+      });
+
       // Lifts the CSS that holds content back until this first paint (page.module.css).
-      root.current!.dataset.arrived = "";
+      article.dataset.arrived = "";
     },
     { scope: root },
   );

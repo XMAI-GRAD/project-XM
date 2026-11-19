@@ -4,6 +4,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { ExplorePlaceLine, explorePlaceLineBox } from "@/features/home/art";
 import h from "@/features/home/home.module.css";
 import { at } from "@/features/home/place";
+import { ExploreMotion } from "./explore-motion";
 import s from "./explore.module.css";
 import { PointCard } from "./point-card";
 
@@ -15,14 +16,15 @@ export function LayerSlide({ layer, lang }: { layer: Layer; lang: Locale }) {
   const { layers: names } = getDictionary(lang);
   const { layers: captions } = getPage("home");
   return (
-    <section
+    <ExploreMotion
       className={`${h.section} ${s.slide}`}
-      data-layer={layer}
-      aria-labelledby={`layer-${layer}`}
+      layer={layer}
+      labelledBy={`layer-${layer}`}
     >
       <h2
         id={`layer-${layer}`}
         className={`${h.at} ${h.text} ${h.display} ${s.layerName}`}
+        data-explore-name=""
       >
         {names[layer]}
       </h2>
@@ -30,16 +32,16 @@ export function LayerSlide({ layer, lang }: { layer: Layer; lang: Locale }) {
         className={h.at}
         style={at({ ...explorePlaceLineBox, y: 405.84 })}
       />
-      <p className={`${h.at} ${h.text} ${s.caption}`}>
+      <p className={`${h.at} ${h.text} ${s.caption}`} data-explore-caption="">
         {captions[layer][lang]}
       </p>
       <ul className={s.points}>
         {getPoints(layer).map((point) => (
-          <li key={point.slug} className={h.at}>
+          <li key={point.slug} className={h.at} data-explore-gate="">
             <PointCard point={point} lang={lang} />
           </li>
         ))}
       </ul>
-    </section>
+    </ExploreMotion>
   );
 }
