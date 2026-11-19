@@ -62,7 +62,7 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 | Home         | `/[lang]`                | Hero (tagline, intro, [Explore the map] · Join). Block 1: intro + three overlapping circles (State · Artists · Public). Block 2: map teaser with the three layers. Block 3: next 3 events. Block 4: join (Individual · Organization). |
 | About        | `/[lang]/about`          | UNESCO intro, three roles, five fields, timeline, operators                                                                                                                                                                           |
 | Explore      | `/[lang]/explore`        | Tabs PLACE · TASTE · CRAFT, [List view], empty state                                                                                                                                                                                  |
-| Point detail | `/[lang]/explore/[slug]` | Photo, name + code, info bar, audio (VI, with the story as text), hook, story, little-known fact, nearby points, directions, hours & price, favorite button, comments                                                                 |
+| Point detail | `/[lang]/explore/[slug]` | Info row · headline · hook · price and address with directions, favorite and counts · photo · story · audio · fact · nearby · the layer's other points · comments                                                                     |
 | Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                   |
 | Events       | `/[lang]/events`         | Placeholder gallery (below)                                                                                                                                                                                                           |
 | Join         | `/[lang]/join`           | Individual and Organization mock forms (below)                                                                                                                                                                                        |
@@ -169,44 +169,45 @@ type Season = "spring" | "summer" | "autumn" | "winter";
 
 interface Photo {
   src: string; // "/points/<slug>/<file>.jpg"
+  temporary?: boolean; // a stand-in until the real photo arrives
   width: number;
   height: number;
   alt: Localized;
 }
 
-interface PointBase {
+/** One shape for all three layers; the layer decides how `kind` is labelled. */
+interface Point {
   slug: string; // kebab-case, no diacritics, e.g. "hoang-thanh-thang-long"
   code: string; // d01…, v01…, n01…; the prefix matches the layer
+  layer: Layer;
   name: Localized;
+  headline?: Localized; // the display headline: marks for drawn letters, "\n" between lines; falls back to `name`
+  headlineIndent?: number; // comp units; indents every headline line after the first
+  shortName?: Localized; // the name in "Nearby" lines ("Hoàng thành"); falls back to `name`
+  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
+  since?: Localized;
+  season?: Season; // TASTE only
+  hours: Localized;
+  price?: Localized; // PLACE and TASTE
+  address: string; // also the [Directions] query
   hook: Localized; // the opening verse or line
   story: Localized<string[]>; // paragraphs; also the audio transcript
   fact: Localized; // "Little-known fact"
-  address: string; // also the [Directions] query
-  hours: Localized;
+  mapLocation?: {
+    latitude: number;
+    longitude: number;
+    kind: "entrance" | "venue" | "representative";
+    source: string;
+    label: Localized;
+  };
+  mapPosition?: { x: number; y: number }; // derived from mapLocation and calibration
   nearby: { slug: string; km: number }[];
   images: Photo[]; // the first is the cover
   audio?: string; // "/points/<slug>/audio-vi.mp3"; Vietnamese only
 }
-
-interface Place extends PointBase {
-  layer: "place";
-  era: Localized;
-  kind: Localized;
-  price: Localized;
-}
-interface Taste extends PointBase {
-  layer: "taste";
-  since?: number;
-  dish: Localized;
-  price: Localized;
-  season: Season;
-}
-interface Craft extends PointBase {
-  layer: "craft";
-  craft: Localized;
-}
-type Point = Place | Taste | Craft;
 ```
+
+Text marks (`RichText`): `{glyph-…:x}` swaps `x` for a designer-drawn glyph (where `x` is what screen readers hear), and `{b:…}` renders `<strong>`.
 
 **Events:**
 

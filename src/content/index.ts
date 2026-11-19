@@ -32,6 +32,9 @@ export interface Point {
   code: string;
   layer: Layer;
   name: Localized;
+  headline?: Localized; // the display headline: marks for drawn letters, "\n" between lines; falls back to `name`
+  headlineIndent?: number; // comp units; indents every headline line after the first
+  shortName?: Localized; // the name in "Nearby" lines ("Hoàng thành"); falls back to `name`
   kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
   since?: Localized;
   season?: Season; // TASTE only
@@ -290,6 +293,11 @@ function validate(): string[] {
     if (!p.code?.startsWith(codePrefix[p.layer]))
       errors.push(`${p.slug}: code "${p.code}" doesn't match ${p.layer}`);
     walk(p.slug, p);
+    if (
+      p.headlineIndent !== undefined &&
+      !(Number.isFinite(p.headlineIndent) && p.headlineIndent >= 0)
+    )
+      errors.push(`${p.slug}: headlineIndent must be a number ≥ 0`);
     if (p.mapPosition)
       errors.push(
         `${p.slug}: author mapLocation instead of an unverified mapPosition`,

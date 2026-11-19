@@ -1,3 +1,4 @@
+import { pieces as placePieces } from "@/features/explore/art";
 import { pieces, type ArtBox, type ArtComponent } from "./art";
 
 /**
@@ -30,10 +31,15 @@ on(2465, 87, ["field-roof", "field-weave", "field-star"]);
 on(2590, 87, ["field-tiers", "field-arch"]);
 on(2715, 87, ["field-spark", "field-line"]);
 on(2840, 87, ["field-gate", "field-tiers-2", "field-wave"]);
+// Places (ĐỊA comps)
+on(485, 56, ["dia-a-grave", "dia-a-breve", "dia-a-circ"]);
+on(554, 56, ["dia-o"]);
+
+const allPieces = { ...pieces, ...placePieces };
 
 export const glyphs: Record<string, Glyph> = Object.fromEntries(
   Object.entries(lines).map(([name, line]) => {
-    const piece = pieces[name];
+    const piece = allPieces[name];
     if (!piece) throw new Error(`glyphs: no art piece "${name}"`);
     return [name, { ...piece, ...line }];
   }),

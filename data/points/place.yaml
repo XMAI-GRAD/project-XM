@@ -12,17 +12,24 @@
   name:
     vi: Hoàng thành Thăng Long
     en: Thang Long Imperial Citadel
+  headline:
+    vi: "Ho{dia-a-grave:à}ng thành\nThăng L{dia-o:o}ng"
+    en: "Thang L{dia-o:o}ng\nImperial Citadel"
+  headlineIndent: 195
+  shortName:
+    vi: Hoàng thành
+    en: Imperial Citadel
   kind:
-    vi: Di sản Thế giới được công nhận
+    vi: Di sản thế giới
     en: ""
   since:
-    vi: Thế kỷ 11
+    vi: Thế kỉ XI
     en: ""
   hours:
-    vi: 8H00-17H00 / (các ngày trong tuần, trừ Thứ Hai)
+    vi: 8H00 - 17H00 / Nghỉ thứ Hai
     en: ""
   price:
-    vi: 70.000 đ
+    vi: 70.000 VNĐ
     en: ""
   address: 19C Hoàng Diệu
   hook:
@@ -30,8 +37,8 @@
     en: ""
   story:
     vi:
-      - Từ thế kỷ 11, đây là trung tâm chính trị của nước Việt qua các triều Lý, Trần, Lê rồi Nguyễn. Mỗi triều dựng cung điện của mình lên trên nền của triều trước, nên lòng đất ở đây không phải một lớp mà là nhiều lớp chồng nhau.
-      - "Khu khảo cổ 18 Hoàng Diệu cho thấy rõ điều đó: móng cung điện của bốn thời kỳ nằm trong cùng một hố đào, cái sau cắt qua cái trước. Năm 2010, UNESCO công nhận Hoàng thành là Di sản Thế giới, đúng dịp Hà Nội tròn một nghìn tuổi."
+      - Từ thế kỷ 11, đây là {b:trung tâm chính trị} của nước Việt qua các triều Lý, Trần, Lê rồi Nguyễn. Mỗi triều dựng cung điện của mình lên trên nền của triều trước, nên lòng đất ở đây không phải một lớp mà là nhiều lớp chồng nhau.
+      - "Khu khảo cổ 18 Hoàng Diệu cho thấy rõ điều đó: móng cung điện của bốn thời kỳ nằm trong cùng một hố đào, cái sau cắt qua cái trước. Năm 2010, UNESCO công nhận {b:Hoàng thành} là Di sản Thế giới, đúng dịp Hà Nội tròn một nghìn tuổi."
     en: []
   fact:
     vi: Điện Kính Thiên không còn, nhưng đôi thềm rồng đá thời Lê vẫn nằm nguyên chỗ cũ. Bạn đang đứng đúng nơi vua từng ngồi.
@@ -61,17 +68,24 @@
   name:
     vi: Văn Miếu – Quốc Tử Giám
     en: Temple of Literature – Imperial Academy
+  headline:
+    vi: "V{dia-a-breve:ă}n Miếu\n– Quốc Tử Giám"
+    en: "Temple of Literature\n– Imperial Academy"
+  headlineIndent: 141
+  shortName:
+    vi: Văn Miếu
+    en: Temple of Literature
   kind:
     vi: Di tích quốc gia đặc biệt
     en: ""
   since:
-    vi: "1070"
+    vi: Năm 1070
     en: "1070"
   hours:
-    vi: 8H00-17H00 / (các ngày trong tuần)
+    vi: 8H00 - 17H00
     en: ""
   price:
-    vi: 70.000 đ
+    vi: 70.000 VNĐ
     en: ""
   address: 58 Quốc Tử Giám
   hook:
@@ -79,7 +93,7 @@
     en: ""
   story:
     vi:
-      - Trường đại học đầu tiên của Việt Nam, mở cửa từ năm 1076. Văn Miếu dựng năm 1070 để thờ Khổng Tử. Sáu năm sau, Quốc Tử Giám ra đời bên cạnh, ban đầu dạy con vua, rồi dần mở cho người tài khắp nước. Trong gần bảy trăm năm, đây là nơi đào tạo quan lại của cả quốc gia.
+      - "{b:Trường đại học đầu tiên của Việt Nam}, mở cửa từ năm 1076. {b:Văn Miếu} dựng năm 1070 để thờ Khổng Tử. Sáu năm sau, {b:Quốc Tử Giám} ra đời bên cạnh, ban đầu dạy con vua, rồi dần mở cho người tài khắp nước. Trong gần bảy trăm năm, đây là nơi đào tạo quan lại của cả quốc gia."
       - Tám mươi hai tấm bia đá dựng trên lưng rùa ghi tên 1.307 tiến sĩ qua các khoa thi — danh sách đầy đủ nhất còn lại về trí thức Việt Nam thời quân chủ. Người đến đây hôm nay vẫn xoa đầu rùa trước mùa thi.
     en: []
   fact:
@@ -110,17 +124,24 @@
   name:
     vi: Hồ Hoàn Kiếm – Đền Ngọc Sơn
     en: Hoan Kiem Lake – Ngoc Son Temple
+  headline:
+    vi: "Hồ Ho{dia-a-grave:à}n Kiếm\n– Đền Ngọc Sơn"
+    en: "H{dia-o:o}an Kiem Lake\n– Ngoc Son Temple"
+  headlineIndent: 356
+  shortName:
+    vi: Hồ Gươm
+    en: Hoan Kiem Lake
   kind:
     vi: Danh thắng
     en: ""
   since:
-    vi: Thế kỷ 15
+    vi: Thế kỉ 15
     en: ""
   hours:
-    vi: "Hồ Hoàn Kiếm: 24/7 / Đền Ngọc Sơn: 7H00-18H00 / (các ngày trong tuần)"
+    vi: 7H00 - 18H00
     en: ""
   price:
-    vi: "Hồ Hoàn Kiếm: Miễn phí / Đền Ngọc Sơn: 50.000 đ"
+    vi: 50.000 VNĐ
     en: ""
   address: Đinh Tiên Hoàng
   hook:
@@ -128,8 +149,8 @@
     en: ""
   story:
     vi:
-      - Hồ Hoàn Kiếm không phải nơi lớn nhất hay cổ nhất Hà Nội, nhưng là nơi thành phố tự nhận ra mình. Tên hồ gắn với truyền thuyết vua Lê trả gươm cho rùa thần sau khi đuổi xong giặc — một câu chuyện về việc buông quyền lực, không phải giành lấy nó.
-      - Đền Ngọc Sơn trên đảo nối vào bờ bằng cầu Thê Húc sơn đỏ. Quanh hồ, mỗi sáng vẫn là người tập thể dục, mỗi cuối tuần là phố đi bộ.
+      - "{b:Hồ Hoàn Kiếm} không phải nơi lớn nhất hay cổ nhất Hà Nội, nhưng là nơi thành phố tự nhận ra mình. Tên hồ gắn với truyền thuyết vua Lê trả gươm cho rùa thần sau khi đuổi xong giặc — một câu chuyện về việc buông quyền lực, không phải giành lấy nó."
+      - "{b:Đền Ngọc Sơn} trên đảo nối vào bờ bằng cầu Thê Húc sơn đỏ. Quanh hồ, mỗi sáng vẫn là người tập thể dục, mỗi cuối tuần là phố đi bộ."
     en: []
   fact:
     vi: Tháp Rùa giữa hồ chỉ dựng cuối thế kỷ 19, muộn hơn truyền thuyết nó gợi nhắc tới gần bốn trăm năm.
@@ -159,25 +180,32 @@
   name:
     vi: Phố cổ 36 phố phường
     en: The Old Quarter
+  headline:
+    vi: "Phố cổ\n– 36 phố phường"
+    en: The Old Quarter
+  headlineIndent: 0
+  shortName:
+    vi: Phố cổ
+    en: Old Quarter
   kind:
     vi: Khu phố lịch sử
     en: ""
   since:
-    vi: Thế kỷ 15
+    vi: Thế kỉ XV
     en: ""
   hours:
-    vi: 24/7
+    vi: Mở cửa cả ngày
     en: ""
   price:
-    vi: Miễn phí
+    vi: Tham quan miễn phí
     en: ""
   address: Hàng Đào – Đồng Xuân
   hook:
-    vi: Rủ nhau chơi khắp Long thành, / Ba mươi sáu phố rành rành chẳng sai.
+    vi: Rủ nhau chơi khắp Long thành, / Ba sáu phố rành rành chẳng sai
     en: ""
   story:
     vi:
-      - "Khu phố cổ hình thành từ các làng nghề kéo về kinh thành buôn bán. Mỗi phố nhận một mặt hàng và lấy luôn tên hàng ấy: Hàng Bạc đúc bạc, Hàng Trống làm trống và vẽ tranh, Hàng Thiếc gò thiếc, Hàng Đường bán ô mai và bánh."
+      - "{b:Khu phố cổ} hình thành từ các làng nghề kéo về kinh thành buôn bán. Mỗi phố nhận một mặt hàng và lấy luôn tên hàng ấy: {b:Hàng Bạc} đúc bạc, {b:Hàng Trống} làm trống và vẽ tranh, {b:Hàng Thiếc} gò thiếc, {b:Hàng Đường} bán ô mai và bánh."
       - Nhà ở đây là nhà ống — mặt tiền hẹp vì thuế tính theo bề ngang, nhưng sâu hun hút về phía sau, có sân trong lấy sáng. Nhiều phố nay đã đổi hàng, nhưng tên thì vẫn giữ nguyên nghề cũ.
     en: []
   fact:
@@ -208,17 +236,23 @@
   name:
     vi: Cầu Long Biên
     en: Long Bien Bridge
+  headline:
+    vi: "C{dia-a-circ:ầ}u Long Biên"
+    en: "L{dia-o:o}ng Bien Bridge"
+  shortName:
+    vi: Long Biên
+    en: Long Bien Bridge
   kind:
     vi: Cầu thép
     en: ""
   since:
-    vi: "1903"
+    vi: Năm 1903
     en: "1903"
   hours:
-    vi: 24/7
+    vi: Mở cửa cả ngày
     en: ""
   price:
-    vi: Miễn phí
+    vi: Tham quan miễn phí
     en: ""
   address: Trần Nhật Duật
   hook:
@@ -226,7 +260,7 @@
     en: ""
   story:
     vi:
-      - Khánh thành năm 1903 sau bốn năm xây dựng, Long Biên là cây cầu thép đầu tiên bắc qua sông Hồng, nối nội thành với vùng đất bên kia sông.
+      - Khánh thành năm 1903 sau bốn năm xây dựng, {b:Long Biên} là cây cầu thép đầu tiên bắc qua sông Hồng, nối nội thành với vùng đất bên kia sông.
       - Trong chiến tranh, cầu bị đánh bom nhiều lần, có nhịp gãy rồi được nối lại bằng dầm khác hẳn kiểu cũ — nên đến nay nhìn dọc thân cầu vẫn thấy rõ chỗ nào là nguyên bản, chỗ nào là vá. Tàu hỏa, xe máy và người đi bộ vẫn qua cầu mỗi ngày.
     en: []
   fact:
