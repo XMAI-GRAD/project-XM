@@ -2,13 +2,14 @@
 // React components, one per piece, so each piece (and each group inside it) can be
 // placed and animated on its own.
 //
-//   node scripts/home-art/extract.mjs [path/to/svg-dir]
+//   node scripts/home-art/extract.mjs [path/to/svg-dir] [manifest] [out-dir]
 //
 // The raw exports (default: docs/lttem/svg) never go in the repo (SPEC Part 3), so run
 // this locally after the designer sends new ones. It drives a local Chrome or Edge
 // headless (set CHROME to override the path) to parse the SVG and measure every piece,
-// then writes src/features/home/art/. Pieces are picked by their child-index path in the
-// export (manifest.mjs); a re-export that reorders layers needs the manifest updated.
+// then writes the output folder (default: src/features/home/art/). Pieces are picked by
+// their child-index path in the export (default: manifest.mjs); a re-export that
+// reorders layers needs the manifest updated.
 //
 // What it does to each piece:
 // - inlines the shared `.stN` class styles as attributes, so a piece stands alone;
@@ -29,11 +30,13 @@ import {
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { pieces } from "./manifest.mjs";
-
-const root = resolve(dirname(fileURLToPath(import.meta.url)), "../..");
+const here = dirname(fileURLToPath(import.meta.url));
+const root = resolve(here, "../..");
 const svgDir = resolve(process.argv[2] ?? join(root, "docs/lttem/svg"));
-const outDir = join(root, "src/features/home/art");
+const { pieces } = await import(
+  pathToFileURL(resolve(process.argv[3] ?? join(here, "manifest.mjs"))).href
+);
+const outDir = resolve(process.argv[4] ?? join(root, "src/features/home/art"));
 
 const chrome =
   process.env.CHROME ??

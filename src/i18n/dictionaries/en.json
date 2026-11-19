@@ -124,9 +124,10 @@
   },
   "comments": {
     "title": "Comments",
+    "invitation": "Leave a memory or impression of this place.",
     "loading": "Loading comments…",
     "loadError": "Comments couldn’t load. Please try again later.",
-    "empty": "No comments yet.",
+    "empty": "No memories here yet — be the first to write a note.",
     "label": "Your comment",
     "submit": "Post",
     "delete": "Delete",

@@ -1,13 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { getCurrentUser } from "@/features/auth/queries";
+import { PlaceMark } from "@/features/explore/art";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { CommentForm } from "./comment-form";
+import type { DisplayComment } from "./comment-list-state";
 import s from "./comments.module.css";
-import { DeleteCommentButton } from "./delete-comment-button";
+import { CommentsThread } from "./comments-thread";
 import { type Comment, getComments } from "./queries";
 
 /** Comments on a point page; `path` is where login returns to. */
@@ -22,20 +21,66 @@ export function Comments({
 }) {
   const { comments } = getDictionary(lang);
   return (
-    <section className={s.section}>
-      <h2 className={s.title}>{comments.title}</h2>
+    <section className={s.section} aria-labelledby="comments-heading">
+      <div className={s.header}>
+        <PlaceMark className={s.placeMark} />
+        <h2 id="comments-heading" className={s.title}>
+          {comments.title}
+        </h2>
+      </div>
       <ErrorBoundary
         fallback={
-          <p role="alert" className={s.note}>
-            {comments.loadError}
-          </p>
+          <div className={s.columns}>
+            <div className={s.left}>
+              <p className={s.invitation}>{comments.invitation}</p>
+            </div>
+            <div className={s.right}>
+              <p role="alert" className={s.note}>
+                {comments.loadError}
+              </p>
+            </div>
+          </div>
         }
       >
-        <Suspense fallback={<p className={s.note}>{comments.loading}</p>}>
+        <Suspense
+          fallback={
+            <CommentsSkeleton
+              label={comments.loading}
+              invitation={comments.invitation}
+            />
+          }
+        >
           <CommentList lang={lang} slug={slug} path={path} />
         </Suspense>
       </ErrorBoundary>
     </section>
+  );
+}
+
+function CommentsSkeleton({
+  label,
+  invitation,
+}: {
+  label: string;
+  invitation: string;
+}) {
+  return (
+    <div className={s.columns} aria-busy="true">
+      <span className="sr-only">{label}</span>
+      <div className={s.left}>
+        <p className={s.invitation}>{invitation}</p>
+        <span className={s.skeletonPill} aria-hidden="true" />
+      </div>
+      <div className={s.right} aria-hidden="true">
+        <div className={s.skeletonEmpty}>
+          <span className={s.skeletonMark} />
+          <div className={s.skeletonLines}>
+            <span className={s.skeletonLine} />
+            <span className={s.skeletonLineShort} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -46,6 +91,17 @@ const dateFormat = (lang: Locale) =>
     timeStyle: "short",
     timeZone: "Asia/Ho_Chi_Minh",
   });
+
+function toDisplay(c: Comment, format: Intl.DateTimeFormat): DisplayComment {
+  return {
+    id: c.id,
+    body: c.body,
+    createdAt: c.createdAt,
+    formattedDate: format.format(new Date(c.createdAt)),
+    author: c.author,
+    replies: c.replies.map((reply) => toDisplay(reply, format)),
+  };
+}
 
 async function CommentList({
   lang,
@@ -58,67 +114,17 @@ async function CommentList({
 }) {
   const [user, list] = await Promise.all([getCurrentUser(), getComments(slug)]);
   const { comments, errors } = getDictionary(lang);
-  const dict = { comments, errors };
   const format = dateFormat(lang);
-  return (
-    <>
-      {user ? (
-        <CommentForm slug={slug} dict={dict} />
-      ) : (
-        <Link
-          href={`/${lang}/login?next=${encodeURIComponent(path)}`}
-          className={s.login}
-        >
-          {comments.login}
-        </Link>
-      )}
-      {list.length === 0 ? (
-        <p className={s.note}>{comments.empty}</p>
-      ) : (
-        // tabIndex: keyboard users can scroll a long thread.
-        <ul className={s.list} tabIndex={0} aria-label={comments.title}>
-          {list.map((top) => (
-            <li key={top.id} className={s.thread}>
-              {item(top)}
-              {top.replies.length > 0 && (
-                <ul className={s.replies}>
-                  {top.replies.map((reply) => (
-                    <li key={reply.id}>{item(reply)}</li>
-                  ))}
-                </ul>
-              )}
-              {/* One level only: every reply in this thread attaches to `top`. */}
-              {user && (
-                <details className={s.reply}>
-                  <summary>{comments.reply}</summary>
-                  <CommentForm slug={slug} parentId={top.id} dict={dict} />
-                </details>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
-  );
+  const displayComments = list.map((c) => toDisplay(c, format));
 
-  function item(c: Comment) {
-    return (
-      <div className={s.item}>
-        <div className={s.byline}>
-          {c.author.avatarUrl && (
-            <Image src={c.author.avatarUrl} alt="" width={32} height={32} />
-          )}
-          <strong>{c.author.displayName || comments.anonymous}</strong>
-          <time dateTime={c.createdAt} className="meta">
-            {format.format(new Date(c.createdAt))}
-          </time>
-        </div>
-        <p className={s.body}>{c.body}</p>
-        {/* UI hint only: the delete policy is the real check. */}
-        {(user?.id === c.author.id || user?.isAdmin) && (
-          <DeleteCommentButton id={c.id} dict={dict} />
-        )}
-      </div>
-    );
-  }
+  return (
+    <CommentsThread
+      lang={lang}
+      slug={slug}
+      path={path}
+      user={user}
+      initialComments={displayComments}
+      dict={{ comments, errors }}
+    />
+  );
 }
