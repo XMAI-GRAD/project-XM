@@ -117,3 +117,24 @@
   text-decoration: underline;
   text-underline-offset: 0.25em;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Holds content back until the motion starts, so it doesn't paint first.
+     The zero-length animation shows it anyway if the script never runs. */
+  .slide:not([data-arrived])
+    :is(
+      [data-explore-name],
+      [data-explore-caption],
+      [data-explore-gate],
+      [data-art$="-line"]
+    ) {
+    clip-path: inset(0 -50vw 100% -50vw);
+    animation: explore-arrival-failsafe 0s 4s forwards;
+  }
+}
+
+@keyframes explore-arrival-failsafe {
+  to {
+    clip-path: none;
+  }
+}
