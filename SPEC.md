@@ -350,7 +350,7 @@ This section is the source of truth for color. `DESIGN.md`, `globals.css` and ev
 | `sunflower-gold` | `#fec35a` | ~5%   | Accent                                   |
 | `lime`           | `#cbdb2b` | ~5%   | Accent                                   |
 | `mauve`          | `#dbb8ff` | ~5%   | Accent                                   |
-| `mauve-100`      | `#e6cdff` | —     | Point detail page frame                  |
+| `mauve-100`      | `#e6cdff` | —     | Explore and point detail frame           |
 
 **Ratio: 20% navy ramp · 40% seashell · 40% accents** (palette confirmed by the designer, 2026-11-07). Keep it in mind when building UI without a design from the designer. Navy is for the rail, the footer and type; whole bands can use frosted blue or dark cyan.
 

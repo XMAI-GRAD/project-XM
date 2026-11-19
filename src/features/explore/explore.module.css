@@ -2,6 +2,13 @@
    Same system as home (src/features/home/home.module.css): comp units, a section's
    --sy/--sh, pieces at --x/--y with text placed by its cap top. */
 
+/* Recolor the shared home frame from lime to lavender on /explore. */
+.lavenderFrame
+  :is([data-art="frame-left"], [data-art="frame-right"])
+  [fill="#cbdb2b"] {
+  fill: var(--mauve-100);
+}
+
 .slide {
   --sy: 258;
   --sh: 822;

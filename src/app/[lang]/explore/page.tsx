@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { getPage } from "@/content";
+import e from "@/features/explore/explore.module.css";
 import { LayerSlide } from "@/features/explore/layer-slide";
 import { HomeHeader } from "@/features/home/home-header";
 import s from "@/features/home/home.module.css";
@@ -23,7 +24,10 @@ export default async function ExplorePage() {
   return (
     <>
       <div className={s.home}>
-        <div className={s.board} style={{ "--board": 1080 } as CSSProperties}>
+        <div
+          className={`${s.board} ${e.lavenderFrame}`}
+          style={{ "--board": 1080 } as CSSProperties}
+        >
           <HomeHeader lang={lang} current="explore" />
           <main>
             <h1 className="sr-only">{explore.title[lang]}</h1>
