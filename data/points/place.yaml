@@ -42,13 +42,12 @@
     - slug: ngu-xa
       km: 1.5
   images:
-    - src: /points/hoang-thanh-thang-long/cover.png
-      temporary: true
+    - src: /points/hoang-thanh-thang-long/cover.jpg
       width: 2400
       height: 1600
       alt:
-        vi: Ảnh tạm cho Hoàng thành Thăng Long
-        en: ""
+        vi: Cổng Đoan Môn bằng đá năm cửa vòm của Hoàng thành Thăng Long dưới bầu trời có mây.
+        en: The five-arched stone Đoan Môn gate of the Thang Long Imperial Citadel beneath a cloudy sky.
 - slug: van-mieu-quoc-tu-giam
   code: d02
   mapLocation:
@@ -91,7 +90,13 @@
       km: 1.2
     - slug: ho-hoan-kiem-den-ngoc-son
       km: 1.8
-  images: []
+  images:
+    - src: /points/van-mieu-quoc-tu-giam/cover.jpg
+      width: 2400
+      height: 1600
+      alt:
+        vi: Gác Khuê Văn Các sơn đỏ mái ngói cong giữa tán cây xanh ở Văn Miếu – Quốc Tử Giám.
+        en: The red-lacquered Khuê Văn Các pavilion with curved tiled roofs framed by trees at the Temple of Literature.
 - slug: ho-hoan-kiem-den-ngoc-son
   code: d03
   mapLocation:
@@ -134,7 +139,13 @@
       km: 0.4
     - slug: bun-thang-ba-duc
       km: 0.2
-  images: []
+  images:
+    - src: /points/ho-hoan-kiem-den-ngoc-son/cover.jpg
+      width: 1595
+      height: 2400
+      alt:
+        vi: Tháp Rùa cổ kính trên gò cỏ giữa mặt nước xanh hồ Hoàn Kiếm qua khung tán lá.
+        en: Turtle Tower on its grassy islet in Hoan Kiem Lake, framed by overhanging tree leaves.
 - slug: pho-co-36-pho-phuong
   code: d04
   mapLocation:
@@ -177,7 +188,13 @@
       km: 0.3
     - slug: cha-ca-la-vong
       km: 0.3
-  images: []
+  images:
+    - src: /points/pho-co-36-pho-phuong/cover.jpg
+      width: 2400
+      height: 1609
+      alt:
+        vi: Những ngôi nhà ống nhiều tầng sơn vàng cũ kỹ với chuồng cọp sắt ở khu phố cổ Hà Nội.
+        en: Weathered yellow multi-story shophouses with iron window cages in Hanoi's Old Quarter.
 - slug: cau-long-bien
   code: d05
   mapLocation:
@@ -220,4 +237,10 @@
       km: 1
     - slug: ngu-xa
       km: 1.8
-  images: []
+  images:
+    - src: /points/cau-long-bien/cover.jpg
+      width: 1692
+      height: 2400
+      alt:
+        vi: Nhịp cầu thép rỉ sét của cầu Long Biên chạy dọc đường ray xe lửa và làn xe máy.
+        en: Weathered steel trusses of Long Bien Bridge running alongside the railway tracks and motorbike lane.
