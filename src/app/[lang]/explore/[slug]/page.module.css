@@ -381,9 +381,6 @@
 .gates a {
   gap: calc(24 * var(--u));
 }
-.gates a > span {
-  font-size: calc(13.1 / 0.727 * var(--u));
-}
 
 /* ---------- 8. Comments ---------- */
 

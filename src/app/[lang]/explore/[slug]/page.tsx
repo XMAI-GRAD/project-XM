@@ -13,13 +13,7 @@ import {
   type Season,
 } from "@/content";
 import { getCurrentUser } from "@/features/auth/queries";
-import {
-  DetailGate,
-  detailGateBox,
-  FactMark,
-  PhotoMark,
-  PlaceMark,
-} from "@/features/explore/art";
+import { FactMark, PhotoMark, PlaceMark } from "@/features/explore/art";
 import { nearbyLabel } from "@/features/explore/nearby";
 import { PointCard } from "@/features/explore/point-card";
 import { HomeHeader } from "@/features/home/home-header";
@@ -57,7 +51,6 @@ export async function generateMetadata({
 }
 
 const seasons: Season[] = ["spring", "summer", "autumn", "winter"];
-const detailGate = { Art: DetailGate, box: detailGateBox, border: 10 };
 
 export default async function PointPage({
   params,
@@ -263,11 +256,7 @@ export default async function PointPage({
                   <ul className={s.gates}>
                     {otherPoints.map((other) => (
                       <li key={other.slug} className={s.gateItem} data-unroll>
-                        <PointCard
-                          point={other}
-                          lang={lang}
-                          gate={detailGate}
-                        />
+                        <PointCard point={other} lang={lang} />
                       </li>
                     ))}
                   </ul>

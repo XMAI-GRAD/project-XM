@@ -33,26 +33,26 @@
   list-style: none;
 }
 .points > li {
-  --w: 355;
+  --w: 261;
 }
 .points > li:nth-child(1) {
-  --x: 350;
+  --x: 396;
   --y: 397;
 }
 .points > li:nth-child(2) {
-  --x: 1197;
+  --x: 1241;
   --y: 397;
 }
 .points > li:nth-child(3) {
-  --x: 773;
+  --x: 830;
   --y: 554;
 }
 .points > li:nth-child(4) {
-  --x: 350;
+  --x: 396;
   --y: 773;
 }
 .points > li:nth-child(5) {
-  --x: 1197;
+  --x: 1242;
   --y: 773;
 }
 
@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: calc(22 * var(--u));
+  gap: calc(16 * var(--u));
   color: var(--navy-400);
   text-decoration: none;
 }
@@ -75,7 +75,7 @@
 }
 .name {
   font-weight: 600;
-  font-size: calc(13 / 0.727 * var(--u));
+  font-size: calc(13.1 / 0.727 * var(--u));
   line-height: 1;
   text-transform: uppercase;
   text-align: center;
