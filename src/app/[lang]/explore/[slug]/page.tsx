@@ -2,13 +2,23 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Suspense, type ReactNode } from "react";
+import { Fragment, Suspense, type CSSProperties, type ReactNode } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { SiteFooter } from "@/components/site-footer";
-import { getPoint, points, type Point, type Season } from "@/content";
+import {
+  getPoint,
+  getPoints,
+  points,
+  type Point,
+  type Season,
+} from "@/content";
 import { getCurrentUser } from "@/features/auth/queries";
+import { FactMark, PhotoMark, PlaceMark } from "@/features/explore/art";
+import { nearbyLabel } from "@/features/explore/nearby";
+import { PointCard } from "@/features/explore/point-card";
 import { HomeHeader } from "@/features/home/home-header";
 import h from "@/features/home/home.module.css";
+import { RichText } from "@/features/home/rich-text";
 import { Frame } from "@/features/home/sections";
 import { Comments } from "@/features/interactions/comments";
 import { FavoriteButton, Heart } from "@/features/interactions/favorite-button";
@@ -50,37 +60,76 @@ export default async function PointPage({
   if (!point) notFound();
   const lang = await getLocale();
   const { point: t, home, layers } = getDictionary(lang);
-  const cover = point.images[0];
+  const cover = point.images.find((image) => !image.temporary);
   const path = `/${lang}/explore/${slug}`;
+  const headline = (point.headline ?? point.name)[lang].split("\n");
+  const hookLines = point.hook[lang].split(" / ");
+  const otherPoints = getPoints(point.layer).filter(
+    (p) => p.slug !== point.slug,
+  );
 
   return (
     <>
       <div className={h.home}>
-        <div className={`${h.board} ${s.board}`}>
+        <div className={`${h.board} ${s.board}`} data-layer={point.layer}>
           <HomeHeader lang={lang} current="explore" />
           <main>
             <PointMotion className={s.page}>
-              <header className={s.hero}>
-                <div className={s.media} data-media>
-                  {cover ? (
-                    <Image
-                      src={cover.src}
-                      alt={cover.alt[lang]}
-                      fill
-                      sizes="(max-width: 48rem) 100vw, calc(100vw - 64px)"
-                      loading="eager"
-                      fetchPriority="high"
-                    />
-                  ) : (
-                    <span className={s.skeleton}>
-                      <span className={`meta ${s.chip}`}>
-                        {home.imagePlaceholder}
-                      </span>
-                    </span>
-                  )}
-                </div>
+              {/* 1. Info row */}
+              <dl className={s.info}>
+                {cells(point, lang).map(({ key, label, value }) => (
+                  <div key={key} className={s.cell} data-cell>
+                    <dt className="sr-only">{label}</dt>
+                    <dd className={s.value}>{value}</dd>
+                  </div>
+                ))}
+              </dl>
 
-                <div className={s.heroTop}>
+              {/* 2. Headline & 3. Hook */}
+              <header className={s.header}>
+                <h1
+                  className={s.headline}
+                  style={
+                    {
+                      "--indent": point.headlineIndent ?? 0,
+                    } as CSSProperties
+                  }
+                  data-reveal
+                >
+                  {headline.map((line, i) => (
+                    <span
+                      key={i}
+                      className={i > 0 ? s.headlineIndented : s.headlineLine}
+                    >
+                      <RichText text={line} />
+                    </span>
+                  ))}
+                </h1>
+
+                <blockquote className={s.hook} data-reveal>
+                  {hookLines.map((line, i) => (
+                    <span key={i} className={s.hookLine}>
+                      {line}
+                    </span>
+                  ))}
+                </blockquote>
+              </header>
+
+              {/* 4. Price row */}
+              <div className={s.priceRow} data-reveal>
+                <div className={s.priceCell}>
+                  {point.price && <Lines text={point.price[lang]} />}
+                </div>
+                <div className={s.addressCell}>
+                  <span>{point.address}</span>
+                  <Link
+                    href={`/${lang}/maps?to=${encodeURIComponent(point.slug)}`}
+                    className={s.directions}
+                  >
+                    {t.directions} <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+                <div className={s.toolsCell}>
                   <ErrorBoundary fallback={null}>
                     <Suspense
                       fallback={
@@ -97,80 +146,53 @@ export default async function PointPage({
                       <Favorite lang={lang} slug={slug} />
                     </Suspense>
                   </ErrorBoundary>
+                  <StatCounts
+                    lang={lang}
+                    slug={slug}
+                    favorites
+                    className={s.stats}
+                  />
+                </div>
+              </div>
+
+              {/* 5. Photo & 6. Right column */}
+              <div className={s.showcase}>
+                <div className={s.photoWrap}>
+                  <div className={s.media} data-media>
+                    {cover ? (
+                      <Image
+                        src={cover.src}
+                        alt={cover.alt[lang]}
+                        fill
+                        sizes="(max-width: 48rem) 100vw, 50vw"
+                        loading="eager"
+                        fetchPriority="high"
+                      />
+                    ) : (
+                      <span className={s.skeleton}>
+                        <span className={`meta ${s.chip}`}>
+                          {home.imagePlaceholder}
+                        </span>
+                      </span>
+                    )}
+                  </div>
+                  {point.layer === "place" && (
+                    <PhotoMark className={s.photoMark} />
+                  )}
                 </div>
 
-                <div className={s.heroText}>
-                  <h1 className={s.name} data-reveal>
-                    {point.name[lang]}
-                  </h1>
-                  <div className={s.heroFoot} data-reveal>
-                    <span className={`meta ${s.tag}`}>
-                      {layers[point.layer]}
-                    </span>
-                    <span className={s.address}>
-                      <svg
-                        viewBox="0 0 12 16"
-                        width="12"
-                        height="16"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M6 15S1 9.6 1 6a5 5 0 0 1 10 0c0 3.6-5 9-5 9Z"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.25"
-                        />
-                        <circle cx="6" cy="6" r="1.5" fill="currentColor" />
-                      </svg>
-                      {point.address}
-                    </span>
-                    <Link
-                      href={`/${lang}/maps?to=${encodeURIComponent(point.slug)}`}
-                      className={s.directions}
-                    >
-                      {t.directions}
-                      <svg
-                        viewBox="0 0 16 10"
-                        width="16"
-                        height="10"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M0 5h14M10 1l4 4-4 4"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="1.5"
-                        />
-                      </svg>
-                    </Link>
-                    <StatCounts
-                      lang={lang}
-                      slug={slug}
-                      favorites
-                      className={`meta ${s.stats}`}
-                    />
+                <div className={s.rightCol}>
+                  <div className={s.story}>
+                    {point.story[lang].map((p, i) => (
+                      <p key={i} data-wipe>
+                        <RichText text={p} />
+                      </p>
+                    ))}
                   </div>
-                </div>
-              </header>
 
-              <dl className={s.info}>
-                {cells(point, lang).map(({ label, value, lead }) => (
-                  <div
-                    key={label}
-                    className={lead ? s.cellLead : s.cell}
-                    data-cell
-                  >
-                    <dt className="meta">{label}</dt>
-                    <dd className={lead ? s.valueLead : s.value}>{value}</dd>
-                  </div>
-                ))}
-              </dl>
-
-              <div className={s.body}>
-                <div className={s.main}>
                   {point.audio && (
-                    <section className={s.listen}>
-                      <h2 className="meta">{t.listen}</h2>
+                    <section className={s.listen} data-wipe>
+                      <h2 className="sr-only">{t.listen}</h2>
                       <audio
                         controls
                         preload="none"
@@ -180,60 +202,70 @@ export default async function PointPage({
                     </section>
                   )}
 
-                  <blockquote className={s.hook}>
-                    {point.hook[lang].split(" / ").map((line) => (
-                      <span key={line} data-unroll>
-                        {line}
-                      </span>
-                    ))}
-                  </blockquote>
-
-                  <div className={s.story}>
-                    {point.story[lang].map((p, i) => (
-                      <p key={i} data-wipe>
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-
                   <section className={s.fact} data-wipe>
-                    <h2 className={s.factTitle}>{t.fact}</h2>
-                    <p>{point.fact[lang]}</p>
+                    <FactMark className={s.factMark} />
+                    <div className={s.factBody}>
+                      <h2 className={s.factTitle}>{t.fact}:</h2>
+                      <p>{point.fact[lang]}</p>
+                    </div>
                   </section>
 
                   {point.nearby.length > 0 && (
-                    <section className={s.nearby}>
-                      <h2 className={s.sectionTitle} data-unroll>
-                        {t.nearby}
-                      </h2>
-                      <ul className={s.nearbyList}>
-                        {point.nearby.map((n) => {
+                    <section className={s.nearby} data-unroll>
+                      <h2 className={s.nearbyTitle}>{t.nearby}:</h2>{" "}
+                      <p className={s.nearbyLinks}>
+                        {point.nearby.map((n, i) => {
                           const near = getPoint(n.slug)!;
+                          const label = nearbyLabel(
+                            (near.shortName ?? near.name)[lang],
+                            n.km,
+                            lang,
+                          );
                           return (
-                            <li key={n.slug} data-unroll>
+                            <Fragment key={n.slug}>
+                              {i > 0 && <span aria-hidden="true"> · </span>}
                               <Link
                                 href={`/${lang}/explore/${n.slug}`}
                                 className={s.nearbyLink}
                               >
-                                <span className={s.nearbyName}>
-                                  {near.name[lang]}
-                                </span>
-                                <span className="meta">{near.kind[lang]}</span>
-                                <span className={s.km}>
-                                  {n.km.toLocaleString(lang)} km
-                                </span>
+                                {label}
                               </Link>
-                            </li>
+                            </Fragment>
                           );
                         })}
-                      </ul>
+                      </p>
                     </section>
                   )}
                 </div>
+              </div>
 
-                <aside className={s.aside} data-wipe>
-                  <Comments lang={lang} slug={slug} path={path} />
-                </aside>
+              {/* 7. Layer section */}
+              {otherPoints.length > 0 && (
+                <section
+                  className={s.layerSection}
+                  aria-labelledby="point-layer-heading"
+                >
+                  <div className={s.layerHeader}>
+                    {point.layer === "place" && (
+                      <PlaceMark className={s.placeMark} />
+                    )}
+                    <h2 id="point-layer-heading" className={s.layerHeading}>
+                      {layers[point.layer]}
+                    </h2>
+                  </div>
+                  <ul className={s.gates}>
+                    {otherPoints.map((other) => (
+                      <li key={other.slug} className={s.gateItem} data-unroll>
+                        <PointCard point={other} lang={lang} />
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
+
+              {/* 8. Comments */}
+              <div className={s.commentsWrap} data-wipe>
+                <Comments lang={lang} slug={slug} path={path} />
               </div>
             </PointMotion>
           </main>
@@ -262,27 +294,36 @@ function Lines({ text }: { text: string }) {
   ));
 }
 
-/** Info bar cells per layer; the first leads (SPEC Part 1, Point detail). */
+/** Info bar cells per layer; price lives in the price row for every layer. */
 function cells(point: Point, lang: Locale) {
   const t = getDictionary(lang).point;
-  const hours = { label: t.hours, value: <Lines text={point.hours[lang]} /> };
-  const price = point.price && <Lines text={point.price[lang]} />;
   const since = point.since?.[lang];
-  const list: { label: string; value: ReactNode; lead?: boolean }[] =
+  const hoursLines = point.hours[lang]
+    .split(" / ")
+    .filter(Boolean)
+    .map((line, i) => ({
+      key: `hours-${i}`,
+      label: t.hours,
+      value: <Lines text={line} />,
+    }));
+  const list: { key: string; label: string; value: ReactNode }[] =
     point.layer === "place"
       ? [
-          { label: t.year, value: since, lead: true },
-          { label: t.type, value: point.kind[lang] },
-          hours,
-          { label: t.ticket, value: price },
+          { key: "since", label: t.year, value: since },
+          { key: "kind", label: t.type, value: point.kind[lang] },
+          ...hoursLines,
         ]
       : point.layer === "taste"
         ? [
-            { label: t.whatToOrder, value: point.kind[lang], lead: true },
-            { label: t.openedSince, value: since },
-            { label: t.price, value: price },
-            hours,
+            { key: "dish", label: t.whatToOrder, value: point.kind[lang] },
+            { key: "since", label: t.openedSince, value: since },
             {
+              key: "hours",
+              label: t.hours,
+              value: <Lines text={point.hours[lang]} />,
+            },
+            {
+              key: "season",
               label: t.season,
               value: point.season && (
                 <ol className={s.seasons}>
@@ -303,7 +344,14 @@ function cells(point: Point, lang: Locale) {
               ),
             },
           ]
-        : [{ label: t.craft, value: point.kind[lang], lead: true }, hours];
+        : [
+            { key: "craft", label: t.craft, value: point.kind[lang] },
+            {
+              key: "hours",
+              label: t.hours,
+              value: <Lines text={point.hours[lang]} />,
+            },
+          ];
   return list.filter((cell) => cell.value);
 }
 

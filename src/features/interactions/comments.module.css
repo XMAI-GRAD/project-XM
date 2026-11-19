@@ -1,37 +1,48 @@
-/* The comment thread: fills its column, and the list scrolls when the thread is long. */
+/* The comment thread on the point detail board, scaled to the comp's type scale (--u). */
 .section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: calc(24 * var(--u));
   width: 100%;
   min-height: 0;
-  padding: clamp(12px, 1.2vw, 18px) var(--pad) clamp(24px, 3vw, 44px);
+  padding: calc(36 * var(--u)) 0 0;
+  border-top: 1px solid var(--navy-100);
+  color: var(--navy-500);
+  font-family: var(--font-body);
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
 }
 .title {
   margin: 0;
+  color: var(--navy-400);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
+  font-size: calc(25.2 / 0.703 * var(--u));
+  line-height: 1;
   text-transform: uppercase;
-  font-size: clamp(1.5rem, 2vw, 2.25rem);
-  line-height: 1.05;
 }
 .note {
   margin: 0;
+  color: var(--navy-400);
 }
 .login {
   display: inline-flex;
   align-self: flex-start;
-  padding: 12px 20px;
-  border: 1px solid var(--navy-500);
+  padding: calc(10 * var(--u)) calc(20 * var(--u));
+  border: 1px solid var(--navy-400);
   border-radius: 999px;
+  color: var(--navy-400);
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 700;
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 .login:hover {
   background: var(--navy-500);
+  border-color: var(--navy-500);
   color: var(--seashell);
 }
 
@@ -41,28 +52,28 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  border-top: 1px solid var(--navy-500);
+  border-top: 1px solid var(--navy-100);
 }
 .thread {
   display: grid;
-  gap: 10px;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--navy-500);
+  gap: calc(12 * var(--u));
+  padding: calc(16 * var(--u)) 0;
+  border-bottom: 1px solid var(--navy-100);
 }
 .item {
   display: grid;
-  gap: 6px;
+  gap: calc(8 * var(--u));
   justify-items: start;
 }
 .byline {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 10px;
+  gap: calc(6 * var(--u)) calc(12 * var(--u));
 }
 .byline img {
+  width: calc(28 * var(--u));
+  height: calc(28 * var(--u));
   border-radius: 999px;
 }
 .body {
@@ -72,65 +83,73 @@
 }
 .replies {
   display: grid;
-  gap: 10px;
+  gap: calc(12 * var(--u));
   margin: 0;
-  padding: 0 0 0 14px;
+  padding: 0 0 0 calc(18 * var(--u));
   list-style: none;
-  border-left: 1px solid var(--navy-500);
+  border-left: 1px solid var(--navy-100);
 }
 .reply summary {
   cursor: pointer;
-  font-size: 0.9rem;
+  color: var(--navy-400);
+  font-size: calc(12 / 0.727 * var(--u));
   text-decoration: underline;
   text-underline-offset: 0.22em;
 }
 .reply form {
-  margin-top: 10px;
+  margin-top: calc(12 * var(--u));
 }
 .delete {
   padding: 0;
   border: 0;
   background: none;
-  color: inherit;
+  color: var(--navy-400);
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: calc(12 / 0.727 * var(--u));
   text-decoration: underline;
   text-underline-offset: 0.22em;
 }
 
 .form {
   display: grid;
-  gap: 8px;
+  gap: calc(12 * var(--u));
   justify-items: start;
+  max-width: calc(884 * var(--u));
 }
 .field {
   display: grid;
-  gap: 6px;
+  gap: calc(8 * var(--u));
   width: 100%;
+  color: var(--navy-400);
 }
 .field textarea {
   width: 100%;
-  min-height: 5.5rem;
-  padding: 10px 12px;
-  border: 1px solid var(--navy-500);
+  min-height: calc(88 * var(--u));
+  padding: calc(10 * var(--u)) calc(14 * var(--u));
+  border: 1px solid var(--navy-400);
   background: transparent;
+  color: var(--navy-500);
+  font-family: var(--font-body);
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
   resize: vertical;
 }
 .submit {
-  padding: 10px 22px;
-  border: 1px solid var(--navy-500);
+  padding: calc(10 * var(--u)) calc(22 * var(--u));
+  border: 1px solid var(--navy-400);
   border-radius: 999px;
-  background: var(--sunflower-gold);
-  color: var(--navy-500);
+  background: var(--navy-500);
+  color: var(--seashell);
   cursor: pointer;
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: 1;
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 .submit:hover:not(:disabled) {
-  background: var(--navy-500);
-  color: var(--seashell);
+  background: var(--navy-400);
 }
 .status {
   margin: 0;

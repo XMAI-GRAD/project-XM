@@ -1,395 +1,383 @@
-/* Point detail: on the home board frame, keeping the current blocks until the comp layout replaces them. */
+/* Point detail: the designer's ĐỊA comps on home's 1920-wide board frame,
+   with content flowing in a CSS grid sized in comp units (--u). */
 
 .board {
   height: auto;
   min-height: calc(2348 * var(--u));
 }
-.page {
-  --pad: clamp(16px, 2.4vw, 32px);
-  padding: calc(258 * var(--u)) calc(180 * var(--u)) 0;
-}
 
-/* hero */
-.hero {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 48px;
-  min-height: clamp(420px, 68dvh, 760px);
-  padding: var(--pad);
-  color: var(--seashell);
-  overflow: hidden;
-}
-.media {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: var(--navy-400);
-}
-.media img {
-  object-fit: cover;
-}
-/* Keeps the name and its line readable over any photo. */
-.media::after {
+/* The bottom frame corners (from comp y 1447.5..2347.5), pinned to the bottom
+   of the growing board above the clipped lime frame. */
+.board::before,
+.board::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    color-mix(in srgb, var(--navy-500) 92%, transparent) 0%,
-    color-mix(in srgb, var(--navy-500) 62%, transparent) 38%,
-    transparent 72%
-  );
+  bottom: 0;
+  z-index: 2;
+  width: calc(355.36 * var(--u));
+  height: calc(900 * var(--u));
+  background: var(--lime);
+  pointer-events: none;
 }
-/* The chip sits above the scrim's reach, clear of the name. */
-.skeleton {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: start center;
-  padding-top: clamp(32px, 3vw, 48px);
+.board::before {
+  left: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 1447.98 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M317.41,2347.98H0v-196.51v-0.18l0-703.31h179.65v703.43c6.34,65.7,60.55,117.21,127.61,118.41c0.79,0.01,48.1,0,48.1,0v40.23C334.4,2310.05,317.41,2327.03,317.41,2347.98z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
 }
-.chip {
-  padding: 6px 10px;
-  background: var(--seashell);
+.board::after {
+  right: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1564.02 1447.5 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M1601.97,2347.5h317.41v-196.51v-0.18V1447.5h-179.65v703.43c-6.34,65.7-60.55,117.21-127.61,118.41c-0.79,0.01-48.1,0-48.1,0v40.23C1584.98,2309.57,1601.97,2326.55,1601.97,2347.5z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+
+/* Content runs from x 280 to x 1690 (width 1410), starting at y 325 (info row cap top). */
+.page {
+  position: relative;
+  z-index: 3;
+  padding: calc(325 * var(--u)) calc(230 * var(--u)) calc(210 * var(--u))
+    calc(280 * var(--u));
   color: var(--navy-500);
 }
 
-.heroTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.back {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  border: 1px solid var(--navy-500);
-  border-radius: 999px;
-  background: var(--seashell);
-  color: var(--navy-500);
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: clamp(0.9rem, 1vw, 1.25rem);
-  letter-spacing: 0.03em;
-}
-.back:hover {
-  background: var(--navy-500);
-  color: var(--seashell);
-}
+/* ---------- 1. Info row (y ≈ 325..339) ---------- */
 
-.heroText {
-  display: grid;
-  gap: clamp(16px, 1.6vw, 24px);
-}
-.name {
-  max-width: 16ch;
-  font-family: var(--font-display);
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: clamp(3rem, 7.4vw, 8rem);
-  line-height: 0.98;
-  letter-spacing: -0.03em;
-  padding-top: 0.08em;
-  text-wrap: balance;
-}
-.heroFoot {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 24px;
-}
-.heroFoot .tag {
-  font-size: clamp(0.875rem, 1vw, 1.25rem);
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: var(--seashell);
-  color: var(--navy-500);
-  font-weight: 700;
-}
-.address {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
-}
-.directions {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 22px;
-  border: 1px solid var(--navy-500);
-  border-radius: 999px;
-  background: var(--sunflower-gold);
-  color: var(--navy-500);
-  text-decoration: none;
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  font-size: clamp(1.05rem, 1.15vw, 1.35rem);
-}
-.directions:hover {
-  background: var(--navy-500);
-  color: var(--seashell);
-}
-.stats {
-  margin-left: auto;
-  font-size: clamp(0.875rem, 1vw, 1.25rem);
-}
-
-/* info bar */
 .info {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns:
+    calc(426 * var(--u))
+    calc(491 * var(--u))
+    calc(306 * var(--u))
+    minmax(0, 1fr);
+  align-items: start;
   margin: 0;
-  border-bottom: 1px solid var(--navy-500);
+  color: var(--navy-400);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: 1.3;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
 }
-.cell,
-.cellLead {
-  flex: 1 1 13rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: clamp(16px, 1.6vw, 24px) var(--pad);
-  border-left: 1px solid var(--navy-500);
-}
-.cellLead {
-  flex: 2 1 20rem;
-  border-left: 0;
-}
-.info dt {
-  font-size: clamp(0.8rem, 0.9vw, 1.05rem);
+.cell {
+  min-width: 0;
+  padding-inline-end: calc(16 * var(--u));
 }
 .info dd {
   margin: 0;
 }
 .value {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.25rem, 1.7vw, 2rem);
-  line-height: 1.15;
+  display: block;
 }
-/* Phudu has no lowercase, so times and prices read wrong in it ("7H00"). */
 .line {
   display: block;
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 1.2vw, 1.45rem);
-  font-weight: 600;
-  line-height: 1.3;
-  font-variant-numeric: tabular-nums;
 }
 .range {
   white-space: nowrap;
 }
 .note {
   display: block;
-  margin-top: 4px;
-  font-family: var(--font-body);
-  font-size: clamp(0.875rem, 0.95vw, 1.1rem);
-  line-height: 1.3;
-}
-.valueLead {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(2.25rem, 4.2vw, 4.5rem);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-wrap: balance;
+  margin-top: calc(4 * var(--u));
+  font-size: 0.88em;
 }
 .seasons {
   display: flex;
-  gap: 6px;
+  flex-wrap: wrap;
+  gap: calc(6 * var(--u));
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .seasons li {
-  padding: 4px 12px;
-  border: 1px solid var(--navy-500);
+  padding: calc(2 * var(--u)) calc(10 * var(--u));
+  border: 1px solid var(--navy-400);
   border-radius: 999px;
 }
 .seasons .seasonOn {
   background: var(--sunflower-gold);
+  color: var(--navy-500);
 }
 
-/* story, with comments in its margin */
-.body {
+/* ---------- 2. Headline & 3. Hook (y ≈ 429..554) ---------- */
+
+.header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: calc(884 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(32 * var(--u));
+  align-items: start;
+  margin-top: calc(90 * var(--u));
 }
-.main {
-  display: grid;
-  gap: clamp(32px, 4vw, 64px);
-  position: relative;
-  padding: clamp(8px, 1vw, 16px) var(--pad) clamp(48px, 6vw, 96px);
-}
-.sentinel {
-  position: absolute;
-  top: 0;
-  height: 1px;
-}
-/* Takes no space, so nothing shifts when the bar appears. */
-.stickyName {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  height: 0;
-}
-/* Same top padding and type as the comment title, so the two line up. */
-.stickyBar {
-  position: absolute;
-  top: 0;
-  right: calc(var(--pad) * -1);
-  left: calc(var(--pad) * -1);
+
+.headline {
   margin: 0;
-  padding: clamp(12px, 1.2vw, 18px) var(--pad);
-  border-bottom: 1px solid var(--navy-500);
-  background: var(--seashell);
+  color: var(--navy-400);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
+  font-size: calc(56 / 0.703 * var(--u));
+  line-height: calc(69 * var(--u));
   text-transform: uppercase;
-  font-size: clamp(1.5rem, 2vw, 2.25rem);
-  line-height: 1.05;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  opacity: 0;
-  visibility: hidden;
+  letter-spacing: -0.005em;
 }
-.listen {
-  display: grid;
-  gap: 8px;
+.headlineLine,
+.headlineIndented {
+  display: block;
 }
-.listen h2 {
-  margin: 0;
+.headlineIndented {
+  padding-inline-start: calc(var(--indent, 0) * var(--u));
 }
-.listen audio {
-  width: 100%;
-  max-width: 34rem;
-}
+
 .hook {
-  display: grid;
-  margin: 0;
+  margin: calc(38 * var(--u)) 0 0;
+  color: var(--navy-400);
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
+  font-size: calc(20 / 0.703 * var(--u));
+  line-height: calc(34 * var(--u));
   text-transform: uppercase;
-  font-size: clamp(1.75rem, 3.2vw, 3.5rem);
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  text-wrap: balance;
 }
+[data-layer="place"] .hook {
+  color: var(--lime-600);
+}
+.hookLine {
+  display: block;
+}
+.hookLine:first-child::before {
+  content: "“ ";
+}
+.hookLine:last-child::after {
+  content: " ”";
+}
+
+/* ---------- 4. Price row (y ≈ 602..615) ---------- */
+
+.priceRow {
+  display: grid;
+  grid-template-columns:
+    calc(426 * var(--u))
+    calc(491 * var(--u))
+    minmax(0, 1fr);
+  align-items: center;
+  margin-top: calc(48 * var(--u));
+  color: var(--navy-400);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: 1.3;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.priceCell {
+  min-width: 0;
+  padding-inline-end: calc(16 * var(--u));
+}
+.addressCell {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(8 * var(--u)) calc(24 * var(--u));
+  padding-inline-end: calc(16 * var(--u));
+}
+.directions {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(6 * var(--u));
+  color: var(--navy-400);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.directions:hover {
+  text-decoration: underline;
+}
+.toolsCell {
+  display: flex;
+  align-items: center;
+  gap: calc(14 * var(--u));
+}
+.toolsCell :global(button),
+.toolsCell :global(a) {
+  width: calc(36 * var(--u));
+  height: calc(36 * var(--u));
+}
+.toolsCell :global(svg) {
+  width: calc(18 * var(--u));
+  height: auto;
+}
+.stats {
+  color: var(--navy-400);
+  font-size: calc(12 / 0.727 * var(--u));
+}
+
+/* ---------- 5. Photo (883 × 546) & 6. Right column (x 1196, y 648..1194) ---------- */
+
+.showcase {
+  display: grid;
+  grid-template-columns: calc(884 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(33 * var(--u));
+  align-items: stretch;
+  margin-top: calc(33 * var(--u));
+}
+
+.photoWrap {
+  position: relative;
+  width: calc(883.72 * var(--u));
+  height: calc(546.49 * var(--u));
+  align-self: start;
+}
+.media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--navy-400);
+}
+.media img {
+  object-fit: cover;
+}
+.skeleton {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.chip {
+  padding: calc(6 * var(--u)) calc(12 * var(--u));
+  background: var(--seashell);
+  color: var(--navy-500);
+}
+.photoMark {
+  position: absolute;
+  left: calc(44 * var(--u));
+  bottom: calc(30 * var(--u));
+  z-index: 1;
+  width: calc(46.37 * var(--u));
+  height: auto;
+  pointer-events: none;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: calc(32 * var(--u));
+  min-height: calc(546.49 * var(--u));
+  color: var(--navy-500);
+  font-family: var(--font-body);
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
+}
+
 .story {
   display: grid;
-  gap: 1em;
-  max-width: 58ch;
-  font-size: clamp(1.1rem, 1.3vw, 1.5rem);
-  line-height: 1.5;
-  text-wrap: pretty;
+  gap: calc(14 * var(--u));
+  max-width: calc(489 * var(--u));
 }
 .story p {
   margin: 0;
 }
-.fact {
-  display: grid;
-  gap: 12px;
-  padding: clamp(24px, 3vw, 44px);
-  background: var(--frosted-blue);
+
+.listen {
+  max-width: calc(454 * var(--u));
 }
-.fact p {
-  margin: 0;
-  max-width: 44ch;
-  font-size: clamp(1.25rem, 1.8vw, 2rem);
-  line-height: 1.3;
-  text-wrap: pretty;
-}
-.factTitle,
-.sectionTitle {
-  margin: 0;
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(1.5rem, 2vw, 2.25rem);
-  line-height: 1.05;
-}
-.nearby {
-  display: grid;
-  gap: 16px;
-}
-.nearbyList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--navy-500);
-}
-.nearbyList li {
-  border-top: 1px solid var(--navy-500);
-}
-.nearbyLink {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 4px 24px;
-  align-items: center;
-  padding: 10px 0;
-  text-decoration: none;
-}
-.nearbyLink :global(.meta) {
-  font-size: clamp(0.875rem, 1vw, 1.25rem);
-}
-.nearbyName {
-  font-family: var(--font-display);
-  font-weight: 800;
-  text-transform: uppercase;
-  font-size: clamp(1.5rem, 2.6vw, 2.75rem);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-}
-.km {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
-}
-.nearbyLink:hover {
-  background: var(--navy-500);
-  color: var(--seashell);
-  box-shadow:
-    -12px 0 0 var(--navy-500),
-    12px 0 0 var(--navy-500);
-}
-.aside {
-  border-top: 1px solid var(--navy-500);
+.listen audio {
+  display: block;
+  width: 100%;
+  height: calc(36 * var(--u));
 }
 
-@media (min-width: 56rem) {
-  .body {
-    grid-template-columns: minmax(0, 1fr) clamp(340px, 30vw, 480px);
-  }
-  /* Stays beside the story while it scrolls; a long thread scrolls inside. */
-  .aside {
-    position: sticky;
-    top: 0;
-    align-self: start;
-    display: flex;
-    max-height: 100dvh;
-    margin-top: clamp(
-      12px,
-      1.8vw,
-      26px
-    ); /* at rest only: sticking ignores it */
-    border-top: 0;
-  }
-  /* On the story, so the line runs the full height even beside a short thread. */
-  .main {
-    border-right: 1px solid var(--navy-500);
-  }
+.fact {
+  display: grid;
+  grid-template-columns: calc(37.7 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(6.64 * var(--u));
+  align-items: start;
+  padding-inline-start: calc(184.23 * var(--u));
+  max-width: calc(489 * var(--u));
+}
+.factMark {
+  width: calc(37.7 * var(--u));
+  height: auto;
+  margin-top: calc(-8.8 * var(--u));
+}
+.factBody {
+  min-width: 0;
+}
+.factTitle {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+}
+.factBody p {
+  margin: 0;
+}
+
+.nearby {
+  margin-top: auto;
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
+}
+.nearbyTitle {
+  display: inline;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: inherit;
+  line-height: inherit;
+}
+.nearbyLinks {
+  display: inline;
+  margin: 0;
+}
+.nearbyLink {
+  text-decoration: none;
+}
+.nearbyLink:hover {
+  text-decoration: underline;
+}
+
+/* ---------- 7. Layer section (y ≈ 1294..2078) ---------- */
+
+.layerSection {
+  margin-top: calc(100 * var(--u));
+}
+.layerHeader {
+  display: flex;
+  align-items: center;
+  gap: calc(32.7 * var(--u));
+}
+.placeMark {
+  width: calc(44.49 * var(--u));
+  height: auto;
+  flex-shrink: 0;
+}
+.layerHeading {
+  margin: 0;
+  color: var(--navy-400);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(25.2 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* 2 × 2 grid matching comp gates at x 477..738 (center 608) and x 1163..1426 (center 1294), y 1427 and 1805.
+   PointCard uses ExploreGate (354.74 × 228.36), so 355-wide columns keep its natural 228 height. */
+.gates {
+  display: grid;
+  grid-template-columns: repeat(2, calc(355 * var(--u)));
+  column-gap: calc(331 * var(--u));
+  row-gap: calc(105 * var(--u));
+  margin: calc(104 * var(--u)) 0 0 calc(150 * var(--u));
+  padding: 0;
+  list-style: none;
+}
+.gateItem {
+  min-width: 0;
+}
+
+/* ---------- 8. Comments ---------- */
+
+.commentsWrap {
+  margin-top: calc(100 * var(--u));
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -399,14 +387,6 @@
     :is([data-reveal], [data-cell], [data-unroll], [data-wipe]) {
     clip-path: inset(0 0 100% 0);
     animation: arrival-failsafe 0s 4s forwards;
-  }
-  .back,
-  .directions,
-  .nearbyLink {
-    transition:
-      background-color 0.15s,
-      color 0.15s,
-      box-shadow 0.15s;
   }
 }
 
