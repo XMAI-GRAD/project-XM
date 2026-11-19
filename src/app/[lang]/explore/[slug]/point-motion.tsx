@@ -14,9 +14,9 @@ const START = "top 88%";
 
 /**
  * The page's motion. On arrival the photo settles while the name and its line
- * slide in, then the info bar unrolls. Below the fold, blocks reveal once as
- * they scroll into view: short lines slide out from their top edge
- * (`data-unroll`), longer blocks are wiped open (`data-wipe`).
+ * slide in, then the info bar unrolls. Below the fold, blocks reveal as they
+ * scroll into view and replay when scrolled back: short lines slide out from
+ * their top edge (`data-unroll`), longer blocks are wiped open (`data-wipe`).
  */
 export function PointMotion({
   className,
@@ -86,8 +86,11 @@ export function PointMotion({
               duration: 0.6,
               ease: "power3.out",
               delay: [...parent.children].indexOf(el) * 0.08,
-              clearProps: "clipPath,transform",
-              scrollTrigger: { trigger: parent, start: START, once: true },
+              scrollTrigger: {
+                trigger: parent,
+                start: START,
+                toggleActions: "play none none reverse",
+              },
             },
           );
         });
@@ -100,8 +103,11 @@ export function PointMotion({
               clipPath: SHOWN,
               duration: 0.8,
               ease: "power3.out",
-              clearProps: "clipPath",
-              scrollTrigger: { trigger: el, start: START, once: true },
+              scrollTrigger: {
+                trigger: el,
+                start: START,
+                toggleActions: "play none none reverse",
+              },
             },
           );
         });

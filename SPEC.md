@@ -377,6 +377,7 @@ This section is the source of truth for color. `DESIGN.md`, `globals.css` and ev
 
 - **One stack for everyone: GSAP + ScrollTrigger + Lenis** (smooth scroll), through `@gsap/react` (`useGSAP`). Don't mix in Framer Motion or other animation libraries.
 - **Reduced motion:** every animation respects `prefers-reduced-motion` (`gsap.matchMedia`). Content appears with no tween, and there's no smooth scroll.
+- **Point detail pages:** arrival motion plays once on load; below-the-fold scroll reveals replay when scrolled back.
 
 ### Images and audio
 
