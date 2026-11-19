@@ -1,22 +1,46 @@
-/* Explore, after the designer's WEB-06 (one 1920 × 1080 slide per layer; ĐỊA first).
+/* Explore, after ĐỊA.svg (1920 × 1436; ĐỊA first).
    Same system as home (src/features/home/home.module.css): comp units, a section's
    --sy/--sh, pieces at --x/--y with text placed by its cap top. */
 
-/* Recolor the shared home frame from lime to lavender on /explore. */
+/* Recolor the shared home frame from lime to lavender on /explore and point pages. */
 .lavenderFrame
   :is([data-art="frame-left"], [data-art="frame-right"])
   [fill="#cbdb2b"] {
   fill: var(--mauve-100);
 }
 
+/* The bottom frame corners (from comp y 1447.5..2347.5), pinned to the bottom
+   of the growing board above the clipped lavender frame. */
+.lavenderFrame::before,
+.lavenderFrame::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+  width: calc(355.36 * var(--u));
+  height: calc(900 * var(--u));
+  background: var(--mauve-100);
+  pointer-events: none;
+}
+.lavenderFrame::before {
+  left: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 1447.98 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M317.41,2347.98H0v-196.51v-0.18l0-703.31h179.65v703.43c6.34,65.7,60.55,117.21,127.61,118.41c0.79,0.01,48.1,0,48.1,0v40.23C334.4,2310.05,317.41,2327.03,317.41,2347.98z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+.lavenderFrame::after {
+  right: 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1564.02 1447.5 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M1601.97,2347.5h317.41v-196.51v-0.18V1447.5h-179.65v703.43c-6.34,65.7-60.55,117.21-127.61,118.41c-0.79,0.01-48.1,0-48.1,0v40.23C1584.98,2309.57,1601.97,2326.55,1601.97,2347.5z' fill='black'/%3E%3C/svg%3E");
+  mask-size: 100% 100%;
+}
+
 .slide {
   --sy: 258;
-  --sh: 822;
+  --sh: 1178;
 }
 
 .layerName {
   --x: 473;
-  --y: 305;
+  --y: 375.14;
   --w: 400;
   font-size: calc(56 / 0.703 * var(--u));
   width: max-content;
@@ -26,7 +50,7 @@
 }
 .caption {
   --x: 1145;
-  --y: 347;
+  --y: 417;
   --w: 500;
   font-weight: 500;
   font-size: calc(14 / 0.727 * var(--u));
@@ -43,24 +67,24 @@
   --w: 261;
 }
 .points > li:nth-child(1) {
-  --x: 396;
-  --y: 397;
+  --x: 395.83;
+  --y: 539.72;
 }
 .points > li:nth-child(2) {
-  --x: 1241;
-  --y: 397;
+  --x: 1240.94;
+  --y: 538.73;
 }
 .points > li:nth-child(3) {
-  --x: 830;
-  --y: 554;
+  --x: 829.52;
+  --y: 697.04;
 }
 .points > li:nth-child(4) {
-  --x: 396;
-  --y: 773;
+  --x: 396.15;
+  --y: 915.71;
 }
 .points > li:nth-child(5) {
-  --x: 1242;
-  --y: 773;
+  --x: 1242.07;
+  --y: 915.73;
 }
 
 .card {

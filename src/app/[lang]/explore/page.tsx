@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 /**
- * Explore, after the designer's WEB-06: the showcase frame and header of home, then
+ * Explore, after ĐỊA.svg (1920 × 1436): the showcase frame and header of home, then
  * one slide per layer. ĐỊA is designed; VỊ and NGHỀ join as their comps arrive.
  */
 export default async function ExplorePage() {
@@ -26,7 +26,7 @@ export default async function ExplorePage() {
       <div className={s.home}>
         <div
           className={`${s.board} ${e.lavenderFrame}`}
-          style={{ "--board": 1080 } as CSSProperties}
+          style={{ "--board": 1436 } as CSSProperties}
         >
           <HomeHeader lang={lang} current="explore" />
           <main>

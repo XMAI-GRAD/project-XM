@@ -8,7 +8,7 @@ import s from "./explore.module.css";
 import { PointCard } from "./point-card";
 
 /**
- * One layer's slide on explore (WEB-06 for ĐỊA): its name, the line to its caption,
+ * One layer's slide on explore (ĐỊA.svg, 1920 × 1436): its name, the line to its caption,
  * and its points as gates. ĐỊA is designed; VỊ and NGHỀ follow when their comps do.
  */
 export function LayerSlide({ layer, lang }: { layer: Layer; lang: Locale }) {
@@ -26,7 +26,10 @@ export function LayerSlide({ layer, lang }: { layer: Layer; lang: Locale }) {
       >
         {names[layer]}
       </h2>
-      <ExplorePlaceLine className={h.at} style={at(explorePlaceLineBox)} />
+      <ExplorePlaceLine
+        className={h.at}
+        style={at({ ...explorePlaceLineBox, y: 405.84 })}
+      />
       <p className={`${h.at} ${h.text} ${s.caption}`}>
         {captions[layer][lang]}
       </p>
