@@ -30,7 +30,11 @@ export function DeleteCommentButton({
       >
         {dict.comments.delete}
       </button>
-      {error && <span role="status">{dict.errors[error]}</span>}
+      {error && (
+        <span role="status" className={s.deleteError}>
+          {dict.errors[error]}
+        </span>
+      )}
     </>
   );
 }
