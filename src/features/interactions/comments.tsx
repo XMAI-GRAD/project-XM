@@ -31,11 +31,31 @@ export function Comments({
           </p>
         }
       >
-        <Suspense fallback={<p className={s.note}>{comments.loading}</p>}>
+        <Suspense fallback={<CommentsSkeleton label={comments.loading} />}>
           <CommentList lang={lang} slug={slug} path={path} />
         </Suspense>
       </ErrorBoundary>
     </section>
+  );
+}
+
+function CommentsSkeleton({ label }: { label: string }) {
+  return (
+    <div className={s.skeleton} aria-busy="true">
+      <span className="sr-only">{label}</span>
+      <span className={s.skeletonLogin} aria-hidden="true" />
+      <div className={s.list} aria-hidden="true">
+        {[0, 1, 2].map((i) => (
+          <div key={i} className={s.thread}>
+            <div className={s.item}>
+              <span className={s.skeletonName} />
+              <span className={s.skeletonLine} />
+              <span className={s.skeletonLineShort} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

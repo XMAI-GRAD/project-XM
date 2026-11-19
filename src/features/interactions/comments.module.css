@@ -158,6 +158,45 @@
   display: none;
 }
 
+/* Static loading skeletons: pale navy-100 placeholders on seashell. */
+.statsSkeleton {
+  display: inline-block;
+  width: 18ch;
+  height: 1lh;
+  vertical-align: middle;
+  border-radius: 999px;
+  background: var(--navy-100);
+}
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: calc(24 * var(--u));
+}
+.skeletonLogin {
+  display: block;
+  width: calc(260 * var(--u));
+  height: calc(38 * var(--u));
+  border-radius: 999px;
+  background: var(--navy-100);
+}
+.skeletonName,
+.skeletonLine,
+.skeletonLineShort {
+  display: block;
+  height: calc(16 * var(--u));
+  border-radius: calc(4 * var(--u));
+  background: var(--navy-100);
+}
+.skeletonName {
+  width: calc(180 * var(--u));
+}
+.skeletonLine {
+  width: calc(560 * var(--u));
+}
+.skeletonLineShort {
+  width: calc(360 * var(--u));
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .login,
   .submit {
