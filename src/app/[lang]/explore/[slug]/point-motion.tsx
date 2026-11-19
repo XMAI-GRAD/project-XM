@@ -8,8 +8,10 @@ import { motionAllowed } from "@/app/[lang]/(site)/explore/explore-motion";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const CLIPPED = "inset(0 0 100% 0)";
-const SHOWN = "inset(0 0 0% 0)";
+// Negative horizontal insets keep the clip vertical-only so wide children
+// (such as centered nowrap gate captions) are never clipped at the sides.
+const CLIPPED = "inset(0 -50vw 100% -50vw)";
+const SHOWN = "inset(0 -50vw 0% -50vw)";
 const START = "top 88%";
 
 /**

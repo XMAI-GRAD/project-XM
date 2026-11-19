@@ -393,7 +393,7 @@
      The zero-length animation shows it anyway if the script never runs. */
   .page:not([data-arrived])
     :is([data-reveal], [data-cell], [data-unroll], [data-wipe]) {
-    clip-path: inset(0 0 100% 0);
+    clip-path: inset(0 -50vw 100% -50vw);
     animation: arrival-failsafe 0s 4s forwards;
   }
 }
