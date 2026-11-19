@@ -377,7 +377,8 @@ This section is the source of truth for color. `DESIGN.md`, `globals.css` and ev
 
 - **One stack for everyone: GSAP + ScrollTrigger + Lenis** (smooth scroll), through `@gsap/react` (`useGSAP`). Don't mix in Framer Motion or other animation libraries.
 - **Reduced motion:** every animation respects `prefers-reduced-motion` (`gsap.matchMedia`). Content appears with no tween, and there's no smooth scroll.
-- **Point detail pages:** arrival motion plays once on load; below-the-fold scroll reveals replay when scrolled back.
+- **Explore slides:** paced like home Layers (1.5 s); on arrival the layer name rises, its line draws away from the name and its caption opens, while all five gates animate as one group on a single ScrollTrigger (reversing only after all five leave the viewport and replaying together on re-entry).
+- **Point detail pages:** selecting any gate (from `/explore` or a point page's ĐỊA section) lifts the chosen photo immediately while opening its lime gate into a plain rectangle and retracting the other gates and heading (~0.45 s), resets scroll to top before measuring, and runs a content-matched FLIP (`power2.out`, ~1.15 s) into the hero before the headline, info bar and in-view story blocks reveal; direct loads play the standard arrival, and below-the-fold scroll reveals replay when scrolled back.
 
 ### Images and audio
 

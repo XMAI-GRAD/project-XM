@@ -6,35 +6,6 @@
   min-height: calc(2348 * var(--u));
 }
 
-/* Recolor the shared home frame from lime to lavender on point detail pages. */
-.board :is([data-art="frame-left"], [data-art="frame-right"]) [fill="#cbdb2b"] {
-  fill: var(--mauve-100);
-}
-
-/* The bottom frame corners (from comp y 1447.5..2347.5), pinned to the bottom
-   of the growing board above the clipped lavender frame. */
-.board::before,
-.board::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  z-index: 2;
-  width: calc(355.36 * var(--u));
-  height: calc(900 * var(--u));
-  background: var(--mauve-100);
-  pointer-events: none;
-}
-.board::before {
-  left: 0;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 1447.98 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M317.41,2347.98H0v-196.51v-0.18l0-703.31h179.65v703.43c6.34,65.7,60.55,117.21,127.61,118.41c0.79,0.01,48.1,0,48.1,0v40.23C334.4,2310.05,317.41,2327.03,317.41,2347.98z' fill='black'/%3E%3C/svg%3E");
-  mask-size: 100% 100%;
-}
-.board::after {
-  right: 0;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='1564.02 1447.5 355.36 900' preserveAspectRatio='none'%3E%3Cpath d='M1601.97,2347.5h317.41v-196.51v-0.18V1447.5h-179.65v703.43c-6.34,65.7-60.55,117.21-127.61,118.41c-0.79,0.01-48.1,0-48.1,0v40.23C1584.98,2309.57,1601.97,2326.55,1601.97,2347.5z' fill='black'/%3E%3C/svg%3E");
-  mask-size: 100% 100%;
-}
-
 /* Content runs from x 280 to x 1690 (width 1410), starting at y 325 (info row cap top). */
 .page {
   position: relative;

@@ -29,12 +29,18 @@ export function PointCard({ point, lang }: { point: Point; lang: Locale }) {
   const mask = `gate-${point.slug}`;
 
   return (
-    <Link href={`/${lang}/explore/${point.slug}`} className={s.card}>
+    <Link
+      href={`/${lang}/explore/${point.slug}`}
+      className={s.card}
+      data-gate-link=""
+      data-gate-slug={point.slug}
+    >
       <svg
         viewBox={`0 0 ${w} ${h}`}
         className={s.gate}
         aria-hidden="true"
         focusable="false"
+        data-gate-svg=""
       >
         {photo && (
           <defs>
@@ -46,22 +52,29 @@ export function PointCard({ point, lang }: { point: Point; lang: Locale }) {
                 width={w - 2 * BORDER}
                 height={h - 2 * BORDER}
                 preserveAspectRatio="none"
+                data-gate-mask=""
               />
             </mask>
           </defs>
         )}
-        <DetailGate width={w} height={h} />
+        <DetailGate width={w} height={h} data-gate-frame="" />
         {photo && (
-          <image
-            href={photo}
-            width={w}
-            height={h}
-            preserveAspectRatio="xMidYMid slice"
-            mask={`url(#${mask})`}
-          />
+          <g mask={`url(#${mask})`}>
+            <image
+              href={photo}
+              width={w}
+              height={h}
+              preserveAspectRatio="xMidYMid slice"
+              data-gate-photo=""
+              data-gate-nw={cover?.width}
+              data-gate-nh={cover?.height}
+            />
+          </g>
         )}
       </svg>
-      <span className={s.name}>{point.name[lang]}</span>
+      <span className={s.name} data-gate-name="">
+        {point.name[lang]}
+      </span>
     </Link>
   );
 }

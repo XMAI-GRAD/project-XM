@@ -14,6 +14,7 @@ import {
 } from "@/content";
 import { getCurrentUser } from "@/features/auth/queries";
 import { FactMark, PhotoMark, PlaceMark } from "@/features/explore/art";
+import e from "@/features/explore/explore.module.css";
 import { nearbyLabel } from "@/features/explore/nearby";
 import { PointCard } from "@/features/explore/point-card";
 import { HomeHeader } from "@/features/home/home-header";
@@ -71,10 +72,13 @@ export default async function PointPage({
   return (
     <>
       <div className={h.home}>
-        <div className={`${h.board} ${s.board}`} data-layer={point.layer}>
+        <div
+          className={`${h.board} ${s.board} ${e.lavenderFrame}`}
+          data-layer={point.layer}
+        >
           <HomeHeader lang={lang} current="explore" />
           <main>
-            <PointMotion className={s.page}>
+            <PointMotion key={slug} slug={slug} className={s.page}>
               {/* 1. Info row */}
               <dl className={s.info}>
                 {cells(point, lang).map(({ key, label, value }) => (
@@ -244,8 +248,9 @@ export default async function PointPage({
                 <section
                   className={s.layerSection}
                   aria-labelledby="point-layer-heading"
+                  data-point-gates=""
                 >
-                  <div className={s.layerHeader}>
+                  <div className={s.layerHeader} data-gate-header="">
                     {point.layer === "place" && (
                       <PlaceMark className={s.placeMark} />
                     )}
@@ -255,7 +260,12 @@ export default async function PointPage({
                   </div>
                   <ul className={s.gates}>
                     {otherPoints.map((other) => (
-                      <li key={other.slug} className={s.gateItem} data-unroll>
+                      <li
+                        key={other.slug}
+                        className={s.gateItem}
+                        data-unroll
+                        data-explore-gate=""
+                      >
                         <PointCard point={other} lang={lang} />
                       </li>
                     ))}
