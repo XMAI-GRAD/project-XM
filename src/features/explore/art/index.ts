@@ -5,6 +5,7 @@ import { DiaO, box as diaOBox } from "./dia-o";
 import { PlaceMark, box as placeMarkBox } from "./place-mark";
 import { PhotoMark, box as photoMarkBox } from "./photo-mark";
 import { FactMark, box as factMarkBox } from "./fact-mark";
+import { DetailGate, box as detailGateBox } from "./detail-gate";
 import { DiaABreve, box as diaABreveBox } from "./dia-a-breve";
 import { DiaACirc, box as diaACircBox } from "./dia-a-circ";
 
@@ -20,6 +21,8 @@ export {
   photoMarkBox,
   FactMark,
   factMarkBox,
+  DetailGate,
+  detailGateBox,
   DiaABreve,
   diaABreveBox,
   DiaACirc,
@@ -33,6 +36,7 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "place-mark": { Art: PlaceMark, box: placeMarkBox },
   "photo-mark": { Art: PhotoMark, box: photoMarkBox },
   "fact-mark": { Art: FactMark, box: factMarkBox },
+  "detail-gate": { Art: DetailGate, box: detailGateBox },
   "dia-a-breve": { Art: DiaABreve, box: diaABreveBox },
   "dia-a-circ": { Art: DiaACirc, box: diaACircBox },
 };

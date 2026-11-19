@@ -6,8 +6,13 @@
   min-height: calc(2348 * var(--u));
 }
 
+/* Recolor the shared home frame from lime to lavender on point detail pages. */
+.board :is([data-art="frame-left"], [data-art="frame-right"]) [fill="#cbdb2b"] {
+  fill: var(--mauve-100);
+}
+
 /* The bottom frame corners (from comp y 1447.5..2347.5), pinned to the bottom
-   of the growing board above the clipped lime frame. */
+   of the growing board above the clipped lavender frame. */
 .board::before,
 .board::after {
   content: "";
@@ -16,7 +21,7 @@
   z-index: 2;
   width: calc(355.36 * var(--u));
   height: calc(900 * var(--u));
-  background: var(--lime);
+  background: var(--mauve-100);
   pointer-events: none;
 }
 .board::before {
@@ -360,18 +365,24 @@
 }
 
 /* 2 × 2 grid matching comp gates at x 477..738 (center 608) and x 1163..1426 (center 1294), y 1427 and 1805.
-   PointCard uses ExploreGate (354.74 × 228.36), so 355-wide columns keep its natural 228 height. */
+   DetailGate is 260.94 × 234.17, with centered captions 24 units below each gate. */
 .gates {
   display: grid;
-  grid-template-columns: repeat(2, calc(355 * var(--u)));
-  column-gap: calc(331 * var(--u));
+  grid-template-columns: repeat(2, calc(261 * var(--u)));
+  column-gap: calc(425.7 * var(--u));
   row-gap: calc(105 * var(--u));
-  margin: calc(104 * var(--u)) 0 0 calc(150 * var(--u));
+  margin: calc(104 * var(--u)) 0 0 calc(197.2 * var(--u));
   padding: 0;
   list-style: none;
 }
 .gateItem {
   min-width: 0;
+}
+.gates a {
+  gap: calc(24 * var(--u));
+}
+.gates a > span {
+  font-size: calc(13.1 / 0.727 * var(--u));
 }
 
 /* ---------- 8. Comments ---------- */

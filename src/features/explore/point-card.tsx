@@ -2,11 +2,20 @@ import { getImageProps } from "next/image";
 import Link from "next/link";
 import type { Point } from "@/content";
 import type { Locale } from "@/i18n/config";
-import { ExploreGate, exploreGateBox } from "@/features/home/art";
+import {
+  ExploreGate,
+  exploreGateBox,
+  type ArtBox,
+  type ArtComponent,
+} from "@/features/home/art";
 import s from "./explore.module.css";
 
 /** The lime border the gate leaves around a photo, in comp units. */
-const BORDER = 5;
+const DEFAULT_GATE = {
+  Art: ExploreGate,
+  box: exploreGateBox,
+  border: 5,
+};
 
 /**
  * A point on the explore slide (WEB-06): its cover cut to the lime gate, a lime
@@ -14,8 +23,20 @@ const BORDER = 5;
  * only a temporary stand-in) the gate stays lime.
  * The whole card links to the point.
  */
-export function PointCard({ point, lang }: { point: Point; lang: Locale }) {
-  const { w, h } = exploreGateBox;
+export function PointCard({
+  point,
+  lang,
+  gate = DEFAULT_GATE,
+}: {
+  point: Point;
+  lang: Locale;
+  gate?: { Art: ArtComponent; box: ArtBox; border: number };
+}) {
+  const {
+    Art: Gate,
+    box: { w, h },
+    border,
+  } = gate;
   // A temporary stand-in isn't shown here: the gate stays lime until the real photo.
   const cover = point.images.find((image) => !image.temporary);
   const photo = cover
@@ -40,17 +61,17 @@ export function PointCard({ point, lang }: { point: Point; lang: Locale }) {
           <defs>
             {/* The gate again, inset, as the photo's cut: alpha, so it's opaque. */}
             <mask id={mask} style={{ maskType: "alpha" }}>
-              <ExploreGate
-                x={BORDER}
-                y={BORDER}
-                width={w - 2 * BORDER}
-                height={h - 2 * BORDER}
+              <Gate
+                x={border}
+                y={border}
+                width={w - 2 * border}
+                height={h - 2 * border}
                 preserveAspectRatio="none"
               />
             </mask>
           </defs>
         )}
-        <ExploreGate width={w} height={h} />
+        <Gate width={w} height={h} />
         {photo && (
           <image
             href={photo}

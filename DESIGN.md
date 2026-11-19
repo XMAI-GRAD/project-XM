@@ -13,6 +13,7 @@ colors:
   sunflower-gold: "#fec35a"
   lime: "#cbdb2b"
   mauve: "#dbb8ff"
+  mauve-100: "#e6cdff"
 typography:
   display:
     fontFamily: "Phudu, system-ui, sans-serif"

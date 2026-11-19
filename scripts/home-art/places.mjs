@@ -61,4 +61,10 @@ export const pieces = [
     paths: ["/26"],
     note: "The four-petal mark beside Điều ít người biết.",
   },
+  {
+    name: "detail-gate",
+    source: httl,
+    paths: ["/39/0"],
+    note: "The lime gate frame on the point detail page.",
+  },
 ];

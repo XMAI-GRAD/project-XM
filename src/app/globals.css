@@ -13,6 +13,7 @@
   --sunflower-gold: #fec35a;
   --lime: #cbdb2b;
   --mauve: #dbb8ff;
+  --mauve-100: #e6cdff;
   /* Deeper accents the home comp uses for words and numbers on seashell, and its pale
      hairline. Large or bold text only: they sit near the base accents in contrast. */
   --frosted-blue-600: #69dfff;
@@ -35,6 +36,7 @@
   --color-sunflower-gold: var(--sunflower-gold);
   --color-lime: var(--lime);
   --color-mauve: var(--mauve);
+  --color-mauve-100: var(--mauve-100);
   --color-frosted-blue-600: var(--frosted-blue-600);
   --color-sunflower-gold-600: var(--sunflower-gold-600);
   --color-lime-600: var(--lime-600);
