@@ -58,12 +58,13 @@ body {
   color: var(--seashell);
 }
 
-/* The site's cursor: the lime petal (public/cursor.svg), outlined in navy so it
-   reads on the lime frame too. Its point, the hotspot, is 2 px in from the top left.
-   Text fields keep the text cursor. */
+/* The site's cursor: the two-tone blue curved triangle (public/cursor.svg), tilted
+   like a standard arrow pointer (~22.5 deg axis) and outlined in seashell so it reads on
+   navy too. Its top-left tip, the hotspot, is at 7 2 in the 32 px image. Text fields
+   keep the text cursor. */
 html {
   cursor:
-    url("/cursor.svg") 2 2,
+    url("/cursor.svg") 7 2,
     auto;
 }
 a,
@@ -72,7 +73,7 @@ summary,
 label[for],
 select {
   cursor:
-    url("/cursor.svg") 2 2,
+    url("/cursor.svg") 7 2,
     pointer;
 }
 input:not(
