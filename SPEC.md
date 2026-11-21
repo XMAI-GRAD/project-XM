@@ -51,7 +51,7 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 ```
 
 - **Layout:** every page uses the wireframe of the former prototype A: a navy side rail (logo, explore CTA), a top bar with the nav, then full-width bands. New UI builds on this frame.
-- **Header (desktop):** logo · HOME · ABOUT US · EXPLORE · MAPS · EVENTS · JOIN · search · VI/EN · login link or avatar.
+- **Header (desktop):** logo · HOME · ABOUT US · EXPLORE · MAPS · EVENTS · JOIN · search · login link or avatar.
 - **Footer:** menu, contact block, credits.
 - **`sitemap.xml`:** every public page in both languages: home, about, explore, the 12 point pages, maps, events, join. It leaves out account, login and `/auth/*`.
 
@@ -62,7 +62,7 @@ Its core is the content program **"Mạch nối ngàn năm"**: 12 points in thre
 | Home         | `/[lang]`                | Hero (tagline, intro, [Explore the map] · Join). Block 1: intro + three overlapping circles (State · Artists · Public). Block 2: map teaser with the three layers. Block 3: next 3 events. Block 4: join (Individual · Organization). |
 | About        | `/[lang]/about`          | UNESCO intro, three roles, five fields, timeline, operators                                                                                                                                                                           |
 | Explore      | `/[lang]/explore`        | Tabs PLACE · TASTE · CRAFT, [List view], empty state                                                                                                                                                                                  |
-| Point detail | `/[lang]/explore/[slug]` | Info row · headline · hook · price and address with directions, favorite and counts · photo · story · audio · fact · nearby · the layer's other points · comments (two-column memory prompt and thread)                               |
+| Point detail | `/[lang]/explore/[slug]` | Info row · headline · hook · price, address and directions link · photo · story · audio · fact · nearby · the layer's other points · comments (two-column memory prompt and thread)                                                   |
 | Maps         | `/[lang]/maps`           | One map, three layers, tap to switch layer. Free-form (Part 3, Map)                                                                                                                                                                   |
 | Events       | `/[lang]/events`         | Placeholder gallery (below)                                                                                                                                                                                                           |
 | Join         | `/[lang]/join`           | Individual and Organization mock forms (below)                                                                                                                                                                                        |
@@ -80,7 +80,7 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 
 **Explore behavior:**
 
-- **[Directions]** opens `https://www.google.com/maps/search/?api=1&query=<encoded address>` in a new tab. No API key.
+- **[Directions]** links internally to `/<lang>/maps?to=<slug>` (opens the in-app map in walking-routes mode with the point preselected as destination). No API key.
 - **Search (header)** matches point names in the current language, ignoring case and diacritics. Results link to the point detail.
 
 **Events (placeholder):**
@@ -103,10 +103,10 @@ The old routes `/[lang]/heritage/[slug]`, `/[lang]/map`, `/[lang]/articles/[slug
 - **Browse:** everything is readable without logging in.
 - **Header:** signed in, it shows the Google avatar and display name, linking to `/[lang]/account`. Signed out, it shows a login link.
 - **Profile while signed out:** `/[lang]/account` redirects to `/[lang]/login?next=/[lang]/account`.
-- **Favorite or comment on a point while signed out:**
+- **Comment on a point while signed out:**
   1. The user is sent to log in with Google.
   2. They land back on the same page.
-- **Language:** a VI/EN switch in the header (Part 3).
+- **Language:** Vietnamese (`/vi/…`, default) and English (`/en/…`) routes (Part 3); no VI/EN toggle in the header.
 
 ### Out of scope
 
@@ -202,7 +202,7 @@ interface Point {
   };
   mapPosition?: { x: number; y: number }; // derived from mapLocation and calibration
   nearby: { slug: string; km: number }[];
-  images: Photo[]; // the first is the cover
+  images: Photo[]; // the first is the cover; the second (if present) is the detail hero
   audio?: string; // "/points/<slug>/audio-vi.mp3"; Vietnamese only
 }
 ```
@@ -407,7 +407,7 @@ Fonts must include full Vietnamese glyphs. Load them via `next/font/google` with
 
 ### Languages (VI/EN)
 
-- **The switch:** a VI/EN toggle in the header. It feels like a dark/light toggle, but it switches the URL: `/vi/maps` ↔ `/en/maps`. The choice is remembered in the `NEXT_LOCALE` cookie, which the proxy sets to the locale of the last page visited.
+- **Routes:** every public page is served at `/vi/…` (default) and `/en/…` (the VI/EN header toggle is removed). The locale of the last page visited is remembered in the `NEXT_LOCALE` cookie set by the proxy.
   - Shared links open in the right language.
   - Google indexes both languages.
   - Both versions prerender as static pages.

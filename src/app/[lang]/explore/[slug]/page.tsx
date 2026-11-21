@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Fragment, Suspense, type CSSProperties, type ReactNode } from "react";
-import { ErrorBoundary } from "@/components/error-boundary";
+import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import {
+  detailPhoto,
+  getPage,
   getPoint,
   getPoints,
   points,
   type Point,
   type Season,
 } from "@/content";
-import { getCurrentUser } from "@/features/auth/queries";
 import { FactMark, PhotoMark, PlaceMark } from "@/features/explore/art";
 import e from "@/features/explore/explore.module.css";
 import { nearbyLabel } from "@/features/explore/nearby";
@@ -22,10 +22,6 @@ import h from "@/features/home/home.module.css";
 import { RichText } from "@/features/home/rich-text";
 import { Frame } from "@/features/home/sections";
 import { Comments } from "@/features/interactions/comments";
-import { FavoriteButton, Heart } from "@/features/interactions/favorite-button";
-import f from "@/features/interactions/favorite-button.module.css";
-import { getMyFavoriteSlugs } from "@/features/interactions/queries";
-import { StatCounts } from "@/features/interactions/stat-counts";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
@@ -61,13 +57,14 @@ export default async function PointPage({
   if (!point) notFound();
   const lang = await getLocale();
   const { point: t, home, layers } = getDictionary(lang);
-  const cover = point.images.find((image) => !image.temporary);
+  const heroPhoto = detailPhoto(point.images);
   const path = `/${lang}/explore/${slug}`;
   const headline = (point.headline ?? point.name)[lang].split("\n");
   const hookLines = point.hook[lang].split(" / ");
   const otherPoints = getPoints(point.layer).filter(
     (p) => p.slug !== point.slug,
   );
+  const layerCaption = getPage("home").layers[point.layer][lang];
 
   return (
     <>
@@ -75,10 +72,20 @@ export default async function PointPage({
         <div
           className={`${h.board} ${s.board} ${e.lavenderFrame}`}
           data-layer={point.layer}
+          data-slug={point.slug}
         >
           <HomeHeader lang={lang} current="explore" />
           <main>
-            <PointMotion key={slug} slug={slug} className={s.page}>
+            <PointMotion
+              key={slug}
+              slug={slug}
+              heroSize={
+                heroPhoto
+                  ? { width: heroPhoto.width, height: heroPhoto.height }
+                  : undefined
+              }
+              className={s.page}
+            >
               {/* 1. Info row */}
               <dl className={s.info}>
                 {cells(point, lang).map(({ key, label, value }) => (
@@ -119,43 +126,26 @@ export default async function PointPage({
                 </blockquote>
               </header>
 
-              {/* 4. Price row */}
+              {/* 4. Price, address & directions row */}
               <div className={s.priceRow} data-reveal>
                 <div className={s.priceCell}>
                   {point.price && <Lines text={point.price[lang]} />}
                 </div>
                 <div className={s.addressCell}>
                   <span>{point.address}</span>
+                </div>
+                <div className={s.directionsCell}>
                   <Link
                     href={`/${lang}/maps?to=${encodeURIComponent(point.slug)}`}
                     className={s.directions}
+                    aria-label={t.directionsTo.replace(
+                      "{name}",
+                      point.name[lang],
+                    )}
                   >
-                    {t.directions} <span aria-hidden="true">→</span>
+                    <DirectionsPin className={s.directionsPin} />
+                    <span>{t.directions}</span>
                   </Link>
-                </div>
-                <div className={s.toolsCell}>
-                  <ErrorBoundary fallback={null}>
-                    <Suspense
-                      fallback={
-                        <button
-                          type="button"
-                          disabled
-                          className={f.button}
-                          aria-label={t.favorite}
-                        >
-                          <Heart filled={false} />
-                        </button>
-                      }
-                    >
-                      <Favorite lang={lang} slug={slug} />
-                    </Suspense>
-                  </ErrorBoundary>
-                  <StatCounts
-                    lang={lang}
-                    slug={slug}
-                    favorites
-                    className={s.stats}
-                  />
                 </div>
               </div>
 
@@ -163,10 +153,10 @@ export default async function PointPage({
               <div className={s.showcase}>
                 <div className={s.photoWrap}>
                   <div className={s.media} data-media>
-                    {cover ? (
+                    {heroPhoto ? (
                       <Image
-                        src={cover.src}
-                        alt={cover.alt[lang]}
+                        src={heroPhoto.src}
+                        alt={heroPhoto.alt[lang]}
                         fill
                         sizes="(max-width: 48rem) 100vw, 50vw"
                         loading="eager"
@@ -257,6 +247,8 @@ export default async function PointPage({
                     <h2 id="point-layer-heading" className={s.layerHeading}>
                       {layers[point.layer]}
                     </h2>
+                    <LayerLine className={s.layerLine} />
+                    <p className={s.layerCaption}>{layerCaption}</p>
                   </div>
                   <ul className={s.gates}>
                     {otherPoints.map((other) => (
@@ -284,6 +276,45 @@ export default async function PointPage({
       </div>
       <SiteFooter lang={lang} />
     </>
+  );
+}
+
+/** Sunflower-gold gate/pin mark beside CHỈ ĐƯỜNG in the detail comp. */
+function DirectionsPin({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 23 29"
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="M11.5 0C5.15 0 0 5.15 0 11.5V24.5C4.5 24.5 8.5 26 11.5 29C14.5 26 18.5 24.5 23 24.5V11.5C23 5.15 17.85 0 11.5 0Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
+/** Stepped mauve rule connecting the ĐỊA heading to its caption. */
+function LayerLine({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 966 20"
+      className={className}
+      preserveAspectRatio="none"
+      aria-hidden="true"
+      focusable="false"
+      data-layer-line
+    >
+      <path
+        d="M0 1H615C615 11.5 623.5 19 634 19H966"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        vectorEffect="non-scaling-stroke"
+      />
+    </svg>
   );
 }
 
@@ -363,29 +394,4 @@ function cells(point: Point, lang: Locale) {
             },
           ];
   return list.filter((cell) => cell.value);
-}
-
-async function Favorite({ lang, slug }: { lang: Locale; slug: string }) {
-  const { point, errors } = getDictionary(lang);
-  const user = await getCurrentUser();
-  if (!user) {
-    const next = encodeURIComponent(`/${lang}/explore/${slug}`);
-    return (
-      <Link
-        href={`/${lang}/login?next=${next}`}
-        className={f.button}
-        aria-label={point.favorite}
-      >
-        <Heart filled={false} />
-      </Link>
-    );
-  }
-  const favorites = await getMyFavoriteSlugs();
-  return (
-    <FavoriteButton
-      slug={slug}
-      initialFavorited={favorites.includes(slug)}
-      dict={{ point, errors }}
-    />
-  );
 }

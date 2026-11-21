@@ -79,6 +79,9 @@
   display: grid;
   grid-template-columns: calc(884 * var(--u)) minmax(0, 1fr);
   column-gap: calc(32 * var(--u));
+  /* The comps keep the price row and photo at one height on every point, so a
+     two-line title or a three-line hook runs into the gap instead of pushing them. */
+  grid-template-rows: calc(106 * var(--u));
   align-items: start;
   margin-top: calc(90 * var(--u));
 }
@@ -123,7 +126,7 @@
   content: " ”";
 }
 
-/* ---------- 4. Price row (y ≈ 602..615) ---------- */
+/* ---------- 4. Price, address & CHỈ ĐƯỜNG row (y ≈ 594..623) ---------- */
 
 .priceRow {
   display: grid;
@@ -132,7 +135,7 @@
     calc(491 * var(--u))
     minmax(0, 1fr);
   align-items: center;
-  margin-top: calc(48 * var(--u));
+  margin-top: calc(40 * var(--u));
   color: var(--navy-400);
   font-family: var(--font-body);
   font-weight: 600;
@@ -141,21 +144,16 @@
   text-transform: uppercase;
   font-variant-numeric: tabular-nums;
 }
-.priceCell {
+.priceCell,
+.addressCell,
+.directionsCell {
   min-width: 0;
-  padding-inline-end: calc(16 * var(--u));
-}
-.addressCell {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: calc(8 * var(--u)) calc(24 * var(--u));
   padding-inline-end: calc(16 * var(--u));
 }
 .directions {
   display: inline-flex;
   align-items: center;
-  gap: calc(6 * var(--u));
+  gap: calc(8 * var(--u));
   color: var(--navy-400);
   text-decoration: none;
   white-space: nowrap;
@@ -163,23 +161,11 @@
 .directions:hover {
   text-decoration: underline;
 }
-.toolsCell {
-  display: flex;
-  align-items: center;
-  gap: calc(14 * var(--u));
-}
-.toolsCell :global(button),
-.toolsCell :global(a) {
-  width: calc(36 * var(--u));
-  height: calc(36 * var(--u));
-}
-.toolsCell :global(svg) {
-  width: calc(18 * var(--u));
-  height: auto;
-}
-.stats {
-  color: var(--navy-400);
-  font-size: calc(12 / 0.727 * var(--u));
+.directionsPin {
+  width: calc(23 * var(--u));
+  height: calc(29 * var(--u));
+  flex-shrink: 0;
+  color: var(--sunflower-gold-600);
 }
 
 /* ---------- 5. Photo (883 × 546) & 6. Right column (x 1196, y 648..1194) ---------- */
@@ -189,7 +175,7 @@
   grid-template-columns: calc(884 * var(--u)) minmax(0, 1fr);
   column-gap: calc(33 * var(--u));
   align-items: stretch;
-  margin-top: calc(33 * var(--u));
+  margin-top: calc(26 * var(--u));
 }
 
 .photoWrap {
@@ -244,7 +230,12 @@
 .story {
   display: grid;
   gap: calc(14 * var(--u));
-  max-width: calc(489 * var(--u));
+  width: calc(var(--story-w, 459) * var(--u));
+  max-width: 100%;
+  /* Reading pause: the comps pin the fact title 282 px below the story's first
+     line on every point, however long the story runs. */
+  min-height: calc(245 * var(--u));
+  align-content: start;
 }
 .story p {
   margin: 0;
@@ -261,19 +252,20 @@
 
 .fact {
   display: grid;
-  grid-template-columns: calc(37.7 * var(--u)) minmax(0, 1fr);
+  grid-template-columns:
+    calc(37.7 * var(--u))
+    calc(var(--fact-w, 231) * var(--u));
   column-gap: calc(6.64 * var(--u));
   align-items: start;
   padding-inline-start: calc(184.23 * var(--u));
-  max-width: calc(489 * var(--u));
 }
 .factMark {
   width: calc(37.7 * var(--u));
   height: auto;
-  margin-top: calc(-8.8 * var(--u));
 }
 .factBody {
   min-width: 0;
+  margin-top: calc(4.5 * var(--u));
 }
 .factTitle {
   margin: 0;
@@ -284,6 +276,30 @@
 }
 .factBody p {
   margin: 0;
+  white-space: pre-line;
+}
+
+/* Per-point measures from the ĐỊA comps (pages 2–6 of dia - web final.pdf) so
+   every prose block wraps word-for-word at 1920 and 1440. */
+.board[data-slug="hoang-thanh-thang-long"] {
+  --story-w: 458.5;
+  --fact-w: 225;
+}
+.board[data-slug="van-mieu-quoc-tu-giam"] {
+  --story-w: 459;
+  --fact-w: 231;
+}
+.board[data-slug="ho-hoan-kiem-den-ngoc-son"] {
+  --story-w: 456.5;
+  --fact-w: 236;
+}
+.board[data-slug="pho-co-36-pho-phuong"] {
+  --story-w: 465;
+  --fact-w: 253;
+}
+.board[data-slug="cau-long-bien"] {
+  --story-w: 492;
+  --fact-w: 266;
 }
 
 .nearby {
@@ -318,7 +334,8 @@
 .layerHeader {
   display: flex;
   align-items: center;
-  gap: calc(32.7 * var(--u));
+  gap: calc(24 * var(--u));
+  max-width: calc(1346 * var(--u));
 }
 .placeMark {
   width: calc(44.49 * var(--u));
@@ -327,12 +344,33 @@
 }
 .layerHeading {
   margin: 0;
+  margin-inline-start: calc(8 * var(--u));
   color: var(--navy-400);
   font-family: var(--font-display);
   font-weight: 700;
   font-size: calc(25.2 / 0.703 * var(--u));
   line-height: 1;
   text-transform: uppercase;
+  flex-shrink: 0;
+}
+.layerLine {
+  flex: 1 1 auto;
+  min-width: calc(80 * var(--u));
+  height: calc(20 * var(--u));
+  color: var(--mauve-600);
+  align-self: flex-end;
+  margin-bottom: calc(2 * var(--u));
+}
+.layerCaption {
+  margin: 0;
+  color: var(--lime-600);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: calc(10.8 / 0.727 * var(--u));
+  line-height: 1.2;
+  white-space: nowrap;
+  flex-shrink: 0;
+  align-self: flex-end;
 }
 
 /* 2 × 2 grid matching comp gates at x 477..738 (center 608) and x 1163..1426 (center 1294), y 1427 and 1805.
