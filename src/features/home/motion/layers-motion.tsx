@@ -1,13 +1,16 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
+import { gsap, HOVER, MOTION, ScrollTrigger, useGSAP } from "./gsap";
 
 /** How long each part of a layer takes; all three play together. */
 const DURATION = 1.5;
 /** How far the caption drifts the way it spreads, in comp units. */
 const DRIFT = 40;
 const SOFT = "power2.out";
+/** Where, through a layer's pass across the window, it plays itself out again. */
+const OUT_AT = 0.8;
+
 /** The magnet, in comp units: how close the halves pull in, how far they push out. */
 const PULL = 14;
 const PUSH = 10;
@@ -32,12 +35,15 @@ function halves(svg: SVGSVGElement) {
 }
 
 /**
- * Layers: ĐỊA · VỊ · NGHỀ. As each layer scrolls into view, once, its name rises out
- * of its baseline while, at the same time, its line draws away from the name and its
- * caption spreads the same way — ĐỊA and NGHỀ to the left, VỊ to the right. The way
+ * Layers: ĐỊA · VỊ · NGHỀ, played as one group. As it comes into view, each name
+ * rises out of its baseline while its line draws away from the name and its caption
+ * spreads the same way — ĐỊA and NGHỀ to the left, VỊ to the right. The way
  * is read from the layout: the line draws from its end nearest the name.
- * The layer's pair of shapes fades in; hovering it, its two halves pull together and
- * push apart once, like magnets, and settle back.
+ * Each pair of shapes opens out from the seam between its halves. Once the group
+ * is 80% of the way across the window, all of it plays back out the way it
+ * came (the halves close to the seam, the caption and line run back to the name),
+ * and in again on the way back up. Hovering the shapes, the two halves pull
+ * together and push apart once, like magnets, and settle back.
  */
 export function LayersMotion({
   className,
@@ -54,6 +60,8 @@ export function LayersMotion({
         const q = gsap.utils.selector(root);
         const unit = root.current!.getBoundingClientRect().width / 1920;
 
+        const master = gsap.timeline({ paused: true });
+        const groupBoxes: SVGSVGElement[] = [];
         q<HTMLElement>("li[data-layer]").forEach((item) => {
           const layer = item.dataset.layer!;
           const name = item.querySelector<HTMLElement>(
@@ -81,13 +89,8 @@ export function LayersMotion({
             Math.abs(startX - centre) <= Math.abs(endX - centre);
           const toLeft = (fromStart ? endX - startX : startX - endX) < 0;
 
-          gsap
+          const tl = gsap
             .timeline({
-              scrollTrigger: {
-                trigger: svg,
-                start: homeEnter(svg, 0.8),
-                once: true,
-              },
               defaults: { duration: DURATION, ease: SOFT },
             })
             // The name rises out of its baseline, accents included.
@@ -123,21 +126,55 @@ export function LayersMotion({
               },
               0.15,
             );
+
+          // The pair of shapes isn't there to begin with: it opens out from the seam
+          // between its halves, the upper one growing up and the lower one down.
+          const shapes = item.querySelector<SVGSVGElement>(
+            '[data-art$="-shapes"]',
+          )!;
+          const { upper, lower } = halves(shapes);
+          const frame = shapes.viewBox.baseVal;
+          const seam = `${frame.x + frame.width / 2} ${frame.y + frame.height / 2}`;
+          tl.fromTo(
+            [...upper, ...lower],
+            { scaleY: 0, svgOrigin: seam },
+            { scaleY: 1, svgOrigin: seam, ease: "power3.out" },
+            0.1,
+          );
+
+          master.add(tl, 0);
+          groupBoxes.push(shapes);
         });
 
-        q<SVGSVGElement>('[data-art$="-shapes"]').forEach((shapes) =>
-          gsap.from(shapes, {
-            opacity: 0,
-            duration: 1.4,
-            ease: "power1.out",
-            clearProps: "opacity",
-            scrollTrigger: {
-              trigger: shapes,
-              start: homeEnter(shapes, 0.85),
-              once: true,
-            },
-          }),
-        );
+        // The three layers play as one. In once the whole group is in view (its
+        // last shapes reach the bottom of the window, or on a short window its top
+        // is well up it); out again, the way it came, once the group is 80% of the
+        // way across the window, and back in on the way up.
+        const groupBox = () => {
+          const rects = groupBoxes.map((el) => el.getBoundingClientRect());
+          const top = Math.min(...rects.map((r) => r.top));
+          const bottom = Math.max(...rects.map((r) => r.bottom));
+          return { top, height: bottom - top, bottom };
+        };
+        let arrived = false;
+        let shown = false;
+        const show = (on: boolean) => {
+          if (on === shown) return;
+          shown = on;
+          if (on) master.timeScale(1).play();
+          else master.timeScale(1.3).reverse();
+        };
+        ScrollTrigger.create({
+          start: 0,
+          end: "max",
+          onUpdate: () => {
+            const vh = window.innerHeight;
+            const box = groupBox();
+            if (!arrived) arrived = box.bottom <= vh || box.top <= vh * 0.3;
+            if (!arrived) return;
+            show((vh - box.top) / (vh + box.height) < OUT_AT);
+          },
+        });
       });
 
       gsap.matchMedia().add(HOVER, () => {

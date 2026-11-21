@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { getCurrentUser } from "@/features/auth/queries";
-import { PlaceMark } from "@/features/explore/art";
+import { PlaceMark } from "@/features/explore/place/art";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { DisplayComment } from "./comment-list-state";

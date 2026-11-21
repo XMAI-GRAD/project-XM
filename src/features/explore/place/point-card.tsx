@@ -4,10 +4,11 @@ import { detailPhoto, type Point } from "@/content";
 import type { Locale } from "@/i18n/config";
 import { DetailGate, detailGateBox } from "./art";
 import s from "./explore.module.css";
+import { pointHref } from "@/features/explore/paths";
 
 /** The lime border the gate leaves around a photo, in comp units. */
 const BORDER = 10;
-/** Matches the hero `<Image>` sizes in `src/app/[lang]/explore/[slug]/page.tsx`. */
+/** Matches the hero `<Image>` sizes in `point-page.tsx`. */
 const HERO_SIZES = "(max-width: 48rem) 100vw, 50vw";
 
 /**
@@ -42,7 +43,7 @@ export function PointCard({ point, lang }: { point: Point; lang: Locale }) {
 
   return (
     <Link
-      href={`/${lang}/explore/${point.slug}`}
+      href={pointHref(lang, point)}
       prefetch={true}
       className={s.card}
       data-gate-link=""

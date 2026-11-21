@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HeaderSearch } from "@/components/header-search";
-import { getPage, points } from "@/content";
+import { getPage, layers as layerKeys, points, type Layer } from "@/content";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -16,20 +16,26 @@ import {
 import s from "./home.module.css";
 import { at } from "./place";
 import { Today } from "./today";
+import { ExploreMenu } from "./explore-menu";
 import { HomeHeaderMotion } from "./header-motion";
 import { HomeSectionLink } from "./section-link";
+import { pointHref } from "@/features/explore/paths";
 
 /**
  * The showcase header (home, about, explore): weather and date, the logo, search,
- * then the nav tab, with the current page marked.
+ * then the nav tab, with the current page marked. Khám phá on the tab opens a choice
+ * of the three layers rather than a page.
  */
 export function HomeHeader({
   lang,
   current,
+  layer,
 }: {
   lang: Locale;
   /** The page this header sits on, marked on the nav tab. */
   current?: "about" | "explore" | "maps" | "events" | "join";
+  /** On an explore page: its layer, marked in Khám phá's list. */
+  layer?: Layer;
 }) {
   const { nav, search, home, layers } = getDictionary(lang);
   const site = getPage("site");
@@ -66,7 +72,7 @@ export function HomeHeader({
         <HeaderSearch
           className={s.searchField}
           items={points.map((p) => ({
-            href: `/${lang}/explore/${p.slug}`,
+            href: pointHref(lang, p),
             name: p.name[lang],
             layer: p.layer,
             layerName: layers[p.layer],
@@ -82,15 +88,30 @@ export function HomeHeader({
         <FrameRight className={s.at} style={at(frameRightBox)} />
       </div>
       <nav className={s.nav} aria-label={nav.label}>
-        {links.map((n) => (
-          <Link
-            key={n.href}
-            href={n.href}
-            aria-current={n.key === current ? "page" : undefined}
-          >
-            {n.label}
-          </Link>
-        ))}
+        {links.map((n) =>
+          n.key === "explore" ? (
+            <ExploreMenu
+              key={n.key}
+              label={n.label}
+              items={layerKeys.map((key) => ({
+                layer: key,
+                href: `/${lang}/explore/${key}`,
+                name: layers[key],
+              }))}
+              current={current === "explore"}
+              currentLayer={layer}
+            />
+          ) : (
+            <Link
+              key={n.href}
+              href={n.href}
+              className={s.navLink}
+              aria-current={n.key === current ? "page" : undefined}
+            >
+              {n.label}
+            </Link>
+          ),
+        )}
       </nav>
     </HomeHeaderMotion>
   );

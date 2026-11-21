@@ -1,8 +1,8 @@
-/* About, after the designer's WEB-05 (1920 × 4320). Same system as home
+/* About, after docs/svg/02.ABOUT US/01-AboutUs.svg (1920 × 4320). Same system as home
    (src/features/home/home.module.css): comp units, sections by --sy/--sh, pieces at
    --x/--y with text placed by its cap top. Phudu capitals are 0.703 em, Inter's 0.727. */
 
-/* ---------- Intro: GIỚI THIỆU, the composed heading, the founding notes ---------- */
+/* ---------- Intro: GIỚI THIỆU, the composed heading, the words by the petal ---------- */
 
 .intro {
   --sy: 268;
@@ -37,24 +37,24 @@
   --y: 462;
 }
 .headingLine:nth-child(3) {
-  --r: 768;
-  --y: 532;
+  --r: 772;
+  --y: 548;
 }
 .headingLine:nth-child(4) {
-  --r: 768;
-  --y: 621;
+  --r: 776;
+  --y: 642;
 }
 .headingLine:nth-child(5) {
-  --x: 1096;
+  --x: 1102;
   --y: 768;
 }
 .headingLine:nth-child(6) {
-  --x: 973;
-  --y: 851;
+  --x: 930;
+  --y: 852;
 }
 .headingLine:nth-child(7) {
-  --x: 844;
-  --y: 939;
+  --x: 930;
+  --y: 940;
 }
 .headingLine:nth-child(3),
 .headingLine:nth-child(4) {
@@ -65,17 +65,17 @@
 .note {
   font-weight: 600;
   font-size: calc(18 * var(--u));
-  color: var(--navy-400);
+  color: var(--brick-red);
   white-space: nowrap;
 }
-.decision {
-  --x: 1160;
-  --y: 662;
+.petalRight {
+  --x: 1164;
+  --y: 660;
   --w: 300;
 }
-.date {
-  --x: 507;
-  --y: 1069;
+.petalLeft {
+  --x: 670;
+  --y: 906;
   --w: 300;
 }
 .introBody {
@@ -142,13 +142,15 @@
   --x: 245;
   --y: 2378;
   --w: 1500;
+  /* The comp sets the fields in black at 70%, a warm grey on seashell. */
+  color: rgb(0 0 0 / 0.7);
   font-size: calc(87 / 0.703 * var(--u));
   line-height: calc(125 * var(--u));
   white-space: nowrap;
 }
 .fieldsNote {
   --x: 969;
-  --y: 3063;
+  --y: 3059;
   --w: 800;
   font-weight: 500;
   font-size: calc(36 * var(--u));
@@ -160,6 +162,11 @@
 .timeline {
   --sy: 3200;
   --sh: 1120;
+}
+.timelineLabel {
+  --y: 3464;
+  margin: 0;
+  font-size: calc(24 / 0.727 * var(--u));
 }
 .years {
   margin: 0;

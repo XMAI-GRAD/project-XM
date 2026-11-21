@@ -64,7 +64,7 @@ const display = `${text} ${s.display}`;
 /** A display heading whose words move: placed by cap top without text-box trim. */
 const movingDisplay = `${s.at} ${s.display} ${s.capTop}`;
 
-/** The lime frame around the card, painted above the drawings it crops. */
+/** The lavender frame around the card, painted above the drawings it crops. */
 export function Frame({ lang }: { lang: Locale }) {
   const { home } = getDictionary(lang);
   return (
@@ -143,7 +143,7 @@ export function Thread({ lang }: { lang: Locale }) {
 export function Stats({ lang }: { lang: Locale }) {
   const { stats } = getPage("home");
   return (
-    <section className={`${s.section} ${s.stats} ${s.rule}`}>
+    <section className={`${s.section} ${s.stats}`}>
       <StatsBand className={s.at} style={at(statsBandBox)} />
       <ul className={s.statList}>
         {stats.map((count) => {
@@ -200,7 +200,7 @@ export function Heritage({ lang }: { lang: Locale }) {
   const { heritage } = getPage("home");
   const [left, right] = heritage.body[lang];
   return (
-    <HeritageMotion className={`${s.section} ${s.heritage} ${s.rule}`}>
+    <HeritageMotion className={`${s.section} ${s.heritage}`}>
       <HeritageWave className={s.at} style={at(heritageWaveBox)} />
       <p className={`${text} ${s.since}`} data-motion="since">
         {heritage.since[lang]}
@@ -268,7 +268,7 @@ export function Layers({ lang }: { lang: Locale }) {
   const { layers: copy } = getPage("home");
   const { layers: names, home } = getDictionary(lang);
   return (
-    <LayersMotion className={`${s.section} ${s.layers} ${s.rule}`}>
+    <LayersMotion className={`${s.section} ${s.layers}`}>
       <h2>
         <span className={`${display} ${s.layersKicker}`}>
           {copy.kicker[lang]}

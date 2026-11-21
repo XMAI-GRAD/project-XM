@@ -12,6 +12,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { ActionError } from "@/lib/action-result";
 import s from "./page.module.css";
+import { pointHref } from "@/features/explore/paths";
 
 export interface SavedPoint {
   slug: string;
@@ -85,7 +86,7 @@ export function SavedWall({
           {crosses}
           <p className={s.emptyTitle}>{dict.account.noFavorites}</p>
           <p className={s.emptyHint}>{dict.account.noFavoritesHint}</p>
-          <Link href={`/${lang}/explore`} className={s.primary}>
+          <Link href={`/${lang}/explore/place`} className={s.primary}>
             {dict.explore}
             <Arrow />
           </Link>
@@ -148,7 +149,7 @@ function Card({
         )}
       </div>
       <h3 className={s.name}>
-        <Link href={`/${lang}/explore/${point.slug}`} className={s.link}>
+        <Link href={pointHref(lang, point)} className={s.link}>
           {point.name}
         </Link>
       </h3>

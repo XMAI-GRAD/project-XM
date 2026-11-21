@@ -7,7 +7,7 @@ import {
   computeArrivalFrame,
   resolveArrival,
   type Size,
-} from "@/features/explore/arrival-scale";
+} from "@/features/explore/place/arrival-scale";
 import {
   attachGateTransition,
   consumeGateScrollReset,
@@ -16,7 +16,7 @@ import {
   LABEL_CLIPPED,
   LABEL_SHOWN,
   takeGateHandoff,
-} from "@/features/explore/gate-transition";
+} from "@/features/explore/place/gate-transition";
 import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 
 // Negative horizontal insets keep the clip vertical-only so wide children
@@ -349,7 +349,7 @@ export function PointMotion({
         };
       });
 
-      // Lifts the CSS that holds content back until this first paint (page.module.css).
+      // Lifts the CSS that holds content back until this first paint (point-page.module.css).
       article.dataset.arrived = "";
     },
     { scope: root },
