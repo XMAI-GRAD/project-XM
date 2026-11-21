@@ -2,11 +2,9 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { ErrorBoundary } from "@/components/error-boundary";
 import { HeaderSearch } from "@/components/header-search";
-import { LangSwitch } from "@/components/lang-switch";
 import { SiteFooter } from "@/components/site-footer";
 import { getPage, points } from "@/content";
 import { AccountStatus, LoginLink } from "@/features/auth/account-status";
-import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale } from "@/i18n/server";
 import s from "./layout.module.css";
@@ -16,7 +14,6 @@ export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
   const lang = await getLocale();
   const { nav, search, layers: layerNames } = getDictionary(lang);
   const site = getPage("site");
-  const other = locales.find((l) => l !== lang)!;
   const links = (["about", "explore", "maps", "events", "join"] as const).map(
     (key) => ({ href: `/${lang}/${key}`, label: nav[key] }),
   );
@@ -69,11 +66,6 @@ export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
                 <AccountStatus lang={lang} />
               </Suspense>
             </ErrorBoundary>
-            <LangSwitch
-              to={other}
-              label={nav.switchLanguage}
-              className={s.lang}
-            />
           </nav>
         </header>
 

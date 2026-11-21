@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { HeaderSearch } from "@/components/header-search";
-import { LangSwitch } from "@/components/lang-switch";
 import { getPage, points } from "@/content";
-import { locales, type Locale } from "@/i18n/config";
+import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   FrameLeft,
@@ -21,7 +20,7 @@ import { HomeHeaderMotion } from "./header-motion";
 import { HomeSectionLink } from "./section-link";
 
 /**
- * The showcase header (home, about): weather and date, the logo, VI | EN, search,
+ * The showcase header (home, about, explore): weather and date, the logo, search,
  * then the nav tab, with the current page marked.
  */
 export function HomeHeader({
@@ -61,22 +60,6 @@ export function HomeHeader({
       >
         <Logo />
       </HomeSectionLink>
-
-      <div
-        role="group"
-        aria-label={home.language}
-        className={`${s.at} ${s.lang}`}
-      >
-        {locales.map((l) =>
-          l === lang ? (
-            <span key={l} lang={l} aria-current="true">
-              {l.toUpperCase()}
-            </span>
-          ) : (
-            <LangSwitch key={l} to={l} label={l.toUpperCase()} />
-          ),
-        )}
-      </div>
 
       <div className={`${s.at} ${s.search}`} style={at(searchFrameBox)}>
         <SearchFrame />

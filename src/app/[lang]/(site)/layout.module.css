@@ -1,5 +1,6 @@
 /* The site frame (former prototype A). Colors: SPEC Part 3, Color. */
 .shell {
+  --u: calc(100vw / 1920);
   --rail: 64px;
   --pad: clamp(16px, 2.4vw, 32px);
   display: grid;
@@ -70,42 +71,46 @@
   color: var(--navy-500);
 }
 
-/* top bar */
+/* top bar: matches HomeHeader's --u scale relative to the 1920-wide comp. */
 .topbar {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  gap: calc(10 * var(--u)) calc(24 * var(--u));
   align-items: center;
   justify-content: space-between;
-  padding: 10px var(--pad);
+  padding: calc(14 * var(--u)) var(--pad);
   border-bottom: 1px solid var(--navy-500);
 }
-.route {
+.topbar .route {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: calc(12 * var(--u));
+  margin: 0;
+  font-size: calc(24 * var(--u));
+  line-height: calc(28 * var(--u));
 }
 .sep {
   width: 1px;
-  height: 12px;
+  height: calc(18 * var(--u));
   background: var(--navy-500);
 }
 .nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: calc(8 * var(--u));
   flex-wrap: wrap;
 }
 .nav a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
+  gap: calc(8 * var(--u));
+  padding: calc(10 * var(--u)) calc(18 * var(--u));
   text-decoration: none;
   font-family: var(--font-display);
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: calc(20 / 0.703 * var(--u));
+  line-height: 1;
   letter-spacing: 0.03em;
   border-radius: 999px;
 }
@@ -114,16 +119,9 @@
   color: var(--seashell);
 }
 .nav img {
+  width: calc(24 * var(--u));
+  height: calc(24 * var(--u));
   border-radius: 999px;
-}
-.nav .lang {
-  background: var(--navy-500);
-  color: var(--seashell);
-}
-.nav .lang:hover {
-  background: transparent;
-  color: var(--navy-500);
-  box-shadow: inset 0 0 0 1px var(--navy-500);
 }
 
 /* mobile: rail becomes a strip (mobile design comes after 2026-11-23) */

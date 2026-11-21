@@ -58,7 +58,7 @@
   align-self: end;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: calc(33 / 0.703 * var(--u));
+  font-size: calc(20 / 0.703 * var(--u));
   line-height: 1;
   text-transform: uppercase;
   text-box: cap alphabetic;

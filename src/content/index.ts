@@ -388,6 +388,8 @@ export const pointSlugs: ReadonlySet<string> = new Set(
   points.map((p) => p.slug),
 );
 
+export { detailPhoto } from "./photo.ts";
+
 export const getPoints = (layer: Layer) =>
   points.filter((p) => p.layer === layer);
 export const getPoint = (slug: string) => points.find((p) => p.slug === slug);

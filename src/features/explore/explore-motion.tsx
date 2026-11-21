@@ -11,6 +11,7 @@ import {
 } from "@/features/home/motion/gsap";
 import {
   attachGateTransition,
+  GATE_EXIT_TIMING,
   LABEL_CLIPPED,
   LABEL_SHOWN,
 } from "./gate-transition";
@@ -103,7 +104,7 @@ export function ExploreMotion({
                 {
                   yPercent: 70,
                   clipPath: "inset(140% -10% -40% -10%)",
-                  duration: 0.42,
+                  duration: GATE_EXIT_TIMING.heading,
                   ease: "power2.in",
                 },
                 0,
@@ -114,7 +115,7 @@ export function ExploreMotion({
                 line,
                 {
                   drawSVG: fromStart ? "0% 0%" : "100% 100%",
-                  duration: 0.44,
+                  duration: GATE_EXIT_TIMING.lift,
                   ease: "power2.in",
                 },
                 0,
@@ -129,7 +130,7 @@ export function ExploreMotion({
                   clipPath: toLeft
                     ? "inset(-70% 0% -40% 100%)"
                     : "inset(-70% 100% -40% 0%)",
-                  duration: 0.4,
+                  duration: GATE_EXIT_TIMING.heading,
                   ease: "power2.in",
                 },
                 0,

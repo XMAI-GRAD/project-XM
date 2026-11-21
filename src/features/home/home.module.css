@@ -153,7 +153,7 @@ svg.at,
   --sy: 0;
 }
 
-/* ---------- Header: weather and date, logo, language, search, nav tab ---------- */
+/* ---------- Header: weather and date, logo, search, nav tab ---------- */
 
 .header {
   --sy: 0;
@@ -169,7 +169,7 @@ svg.at,
 }
 .weather {
   --x: 181;
-  --y: 84;
+  --y: 70;
   --w: 400;
   font-size: calc(24 * var(--u));
   line-height: calc(28 * var(--u));
@@ -232,47 +232,12 @@ svg.at,
   outline-offset: calc(8 * var(--u));
 }
 
-/* VI | EN: the current language filled navy, the other a link. Same height and stroke
-   as the search box beside it. */
-.lang {
-  --x: 1250;
-  --y: 68;
-  --w: 120;
-  display: flex;
-  height: calc(45 * var(--u));
-  border: calc(1.5 * var(--u)) solid var(--navy-400);
-  border-radius: 999px;
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: calc(20 * var(--u));
-  letter-spacing: 0.04em;
-}
-.lang > * {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-}
-.lang > [aria-current] {
-  background: var(--navy-500);
-  color: var(--seashell);
-}
-.lang a {
-  color: var(--navy-400);
-}
-.lang a:hover {
-  background: var(--frosted-blue);
-  color: var(--navy-500);
-}
-.lang a:focus-visible {
-  outline-offset: -3px;
-}
-
 /* The tag-shaped search box: the designer's outline behind the shared search field. */
 .search {
   z-index: 3;
   height: calc(45 * var(--u));
+  /* The comp sits the box 9 px lower than the outline export (search-frame.tsx is generated). */
+  translate: 0 calc(9 * var(--u));
 }
 .search > svg {
   position: absolute;
@@ -289,11 +254,11 @@ svg.at,
   color: var(--navy-400);
   font-size: calc(20 * var(--u));
 }
-.searchField svg {
+.searchField.searchField svg {
   width: calc(20 * var(--u));
   height: calc(20 * var(--u));
 }
-.searchField input {
+.searchField.searchField input {
   width: 100%;
   font-size: inherit;
 }
@@ -311,22 +276,38 @@ svg.at,
   position: absolute;
   top: calc(180 * var(--u));
   left: calc(180 * var(--u));
-  right: calc(198 * var(--u));
+  right: calc(180 * var(--u));
   height: calc(78 * var(--u));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: calc(64 * var(--u));
 }
 .nav a {
+  position: absolute;
+  top: 50%;
+  left: calc((var(--cx) - 180) * var(--u));
+  translate: -50% -50%;
+  white-space: nowrap;
   padding: calc(10 * var(--u)) calc(20 * var(--u));
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: calc(19 / 0.703 * var(--u));
+  font-size: calc(19.3 / 0.703 * var(--u));
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 999px;
+}
+.nav a:nth-child(1) {
+  --cx: 534.5;
+}
+.nav a:nth-child(2) {
+  --cx: 763.5;
+}
+.nav a:nth-child(3) {
+  --cx: 975.5;
+}
+.nav a:nth-child(4) {
+  --cx: 1157;
+}
+.nav a:nth-child(5) {
+  --cx: 1370.5;
 }
 .nav a:hover {
   background: var(--navy-500);
@@ -670,8 +651,7 @@ svg.at,
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .nav a,
-  .lang a {
+  .nav a {
     transition:
       background-color 0.15s,
       color 0.15s;

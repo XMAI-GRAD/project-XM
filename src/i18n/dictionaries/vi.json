@@ -36,6 +36,7 @@
     "price": "Mức giá",
     "hours": "Giờ mở cửa",
     "directions": "Chỉ đường",
+    "directionsTo": "Chỉ đường đến {name}",
     "fact": "Điều ít người biết",
     "nearby": "Gần đây",
     "listen": "Nghe câu chuyện",
