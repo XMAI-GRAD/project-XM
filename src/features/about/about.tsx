@@ -2,6 +2,12 @@ import type { CSSProperties } from "react";
 import { getPage } from "@/content";
 import type { Locale } from "@/i18n/config";
 import {
+  AboutFieldsLine,
+  aboutFieldsLineBox,
+  AboutFrameEndLeft,
+  aboutFrameEndLeftBox,
+  AboutFrameEndRight,
+  aboutFrameEndRightBox,
   AboutIntroLine,
   aboutIntroLineBox,
   AboutPetal,
@@ -27,9 +33,9 @@ function piece(name: string) {
   return found;
 }
 
-/** GIỚI THIỆU, the heading set around the petal, the founding notes, the intro. */
+/** GIỚI THIỆU, the heading set around the petal, the words beside it, the intro. */
 export function Intro({ lang }: { lang: Locale }) {
-  const { title, heading, decision, intro } = getPage("about");
+  const { title, heading, petal, intro } = getPage("about");
   return (
     <section className={`${h.section} ${s.intro}`}>
       <AboutPetal className={h.at} style={at(aboutPetalBox)} />
@@ -42,10 +48,8 @@ export function Intro({ lang }: { lang: Locale }) {
           </span>
         ))}
       </h1>
-      <p className={`${text} ${s.note} ${s.decision}`}>{decision.number}</p>
-      <p className={`${text} ${s.note} ${s.date}`}>
-        <time dateTime="2024-09-27">{decision.date}</time>
-      </p>
+      <p className={`${text} ${s.note} ${s.petalRight}`}>{petal.right[lang]}</p>
+      <p className={`${text} ${s.note} ${s.petalLeft}`}>{petal.left[lang]}</p>
       <p className={`${text} ${s.introBody}`}>
         <RichText text={intro[lang]} />
       </p>
@@ -87,6 +91,7 @@ export function Fields({ lang }: { lang: Locale }) {
         <RichText text={fields.display[lang]} />
       </h2>
       <p className={`${text} ${s.fieldsNote}`}>{fields.note[lang]}</p>
+      <AboutFieldsLine className={h.at} style={at(aboutFieldsLineBox)} />
     </section>
   );
 }
@@ -96,7 +101,9 @@ export function Timeline({ lang }: { lang: Locale }) {
   const { timeline } = getPage("about");
   return (
     <section className={`${h.section} ${s.timeline}`}>
-      <h2 className="sr-only">{timeline.title[lang]}</h2>
+      <h2 className={`${text} ${s.label} ${s.timelineLabel}`}>
+        {timeline.title[lang]}
+      </h2>
       <AboutTimelineLine className={h.at} style={at(aboutTimelineLineBox)} />
       <ol className={s.years}>
         {timeline.items.map((item) => {
@@ -123,5 +130,18 @@ export function Timeline({ lang }: { lang: Locale }) {
         })}
       </ol>
     </section>
+  );
+}
+
+/**
+ * The frame's bottom corners. The shared frame (home's) runs on past this page's end,
+ * so the page closes it with the last slide of its own comp, painted over it.
+ */
+export function FrameEnd() {
+  return (
+    <div className={h.frame} aria-hidden="true">
+      <AboutFrameEndLeft className={h.at} style={at(aboutFrameEndLeftBox)} />
+      <AboutFrameEndRight className={h.at} style={at(aboutFrameEndRightBox)} />
+    </div>
   );
 }

@@ -135,7 +135,8 @@ export interface Pages {
   about: {
     title: Localized;
     heading: Localized;
-    decision: { number: string; date: string };
+    /** The two words set beside the petal: right of it, then below left. */
+    petal: { right: Localized; left: Localized };
     intro: Localized;
     lede: Localized;
     unesco: { title: Localized; body: Localized<string[]> };

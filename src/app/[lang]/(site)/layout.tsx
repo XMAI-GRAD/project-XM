@@ -8,6 +8,7 @@ import { AccountStatus, LoginLink } from "@/features/auth/account-status";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale } from "@/i18n/server";
 import s from "./layout.module.css";
+import { pointHref } from "@/features/explore/paths";
 
 /** The frame from the former prototype A: navy side rail, top bar, full-width bands, footer. */
 export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
@@ -15,7 +16,10 @@ export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
   const { nav, search, layers: layerNames } = getDictionary(lang);
   const site = getPage("site");
   const links = (["about", "explore", "maps", "events", "join"] as const).map(
-    (key) => ({ href: `/${lang}/${key}`, label: nav[key] }),
+    (key) => ({
+      href: `/${lang}/${key === "explore" ? "explore/place" : key}`,
+      label: nav[key],
+    }),
   );
 
   return (
@@ -24,7 +28,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
         <Link href={`/${lang}`} className={s.logo}>
           {site.brand[lang]}
         </Link>
-        <Link href={`/${lang}/explore`} className={s.cta}>
+        <Link href={`/${lang}/explore/place`} className={s.cta}>
           <span>{nav.explore}</span>
           <svg viewBox="0 0 10 16" width="10" height="16" aria-hidden="true">
             <path
@@ -53,7 +57,7 @@ export default async function SiteLayout({ children }: LayoutProps<"/[lang]">) {
             ))}
             <HeaderSearch
               items={points.map((p) => ({
-                href: `/${lang}/explore/${p.slug}`,
+                href: pointHref(lang, p),
                 name: p.name[lang],
                 layer: p.layer,
                 layerName: layerNames[p.layer],

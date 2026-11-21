@@ -2,13 +2,16 @@ import type { MetadataRoute } from "next";
 import { points } from "@/content";
 import { locales } from "@/i18n/config";
 import { alternates, siteUrl } from "@/i18n/server";
+import { pointPath } from "@/features/explore/paths";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "",
     "/about",
-    "/explore",
-    ...points.map((p) => `/explore/${p.slug}`),
+    "/explore/place",
+    "/explore/taste",
+    "/explore/craft",
+    ...points.map(pointPath),
     "/maps",
     "/events",
     "/join",

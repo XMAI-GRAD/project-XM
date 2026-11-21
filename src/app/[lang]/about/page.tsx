@@ -1,7 +1,13 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
-import { Fields, Intro, Timeline, Work } from "@/features/about/about";
+import {
+  Fields,
+  FrameEnd,
+  Intro,
+  Timeline,
+  Work,
+} from "@/features/about/about";
 import { HomeHeader } from "@/features/home/home-header";
 import s from "@/features/home/home.module.css";
 import { Frame } from "@/features/home/sections";
@@ -32,6 +38,7 @@ export default async function AboutPage() {
             <Timeline lang={lang} />
           </main>
           <Frame lang={lang} />
+          <FrameEnd />
         </div>
       </div>
       <SiteFooter lang={lang} />

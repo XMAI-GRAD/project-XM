@@ -3,7 +3,7 @@
 title:
   vi: Giới thiệu
   en: About us
-# The page as designed (WEB-05). Text marks as in data/home.yaml: {glyph-…:a} swaps a
+# The page as designed (docs/svg/02.ABOUT US). Text marks as in data/home.yaml: {glyph-…:a} swaps a
 # letter for the designer's drawing, {field-…:} sets an icon in the line; each line
 # break is a placed line of the composition.
 heading:
@@ -23,10 +23,14 @@ heading:
     Creative
     Cities
     Network
-# The two notes set beside the heading: the founding decision and its date.
-decision:
-  number: 5067/QĐ-UBND
-  date: 27/ 09/ 2024
+# The two words set beside the petal, in red: right of it, then below left.
+petal:
+  right:
+    vi: Mạch nối
+    en: Connection
+  left:
+    vi: Giao thoa
+    en: Crossing
 # Line breaks as in the comp.
 intro:
   vi: |-
@@ -121,8 +125,8 @@ fields:
     - vi: Thủ công mỹ nghệ
       en: Crafts
   note:
-    vi: Từ 2024 mở rộng thành 12 lĩnh vực.
-    en: Since 2024, widened to 12 fields.
+    vi: Từ 2024 mở rộng thành 12 lĩnh vực
+    en: Since 2024, widened to 12 fields
 timeline:
   title:
     vi: Mốc thời gian
@@ -138,8 +142,8 @@ timeline:
         en: The first Creativity Week
     - year: "2022"
       body:
-        vi: Lễ hội Thiết kế Sáng tạo thành thường niên; Nghị quyết 09-NQ/TU
-        en: The Creative Design Festival becomes yearly; Resolution 09-NQ/TU
+        vi: Lễ hội Thiết kế Sáng tạo thành thường niên
+        en: The Creative Design Festival becomes yearly
     - year: "2023"
       body:
         vi: Lễ hội mở rộng ra bảy điểm di sản ven sông

@@ -1,7 +1,17 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, HOVER, MOTION, ScrollTrigger, useGSAP } from "./gsap";
+
+/** How far each half of the title moves towards the other, in comp units. */
+const CLOSE = 220;
+/**
+ * Where, through the section's pass across the window, the halves close in: the
+ * title is then near the top edge of the window. Any later and it is out of sight.
+ */
+const CLOSE_AT = 0.5;
+/** The halves closing in or drawing apart: a set time, soft at both ends. */
+const CLOSE_TIME = 1.2;
 
 /** How far a hovered shape of the pattern rises, in comp units (it is 785 tall). */
 const LIFT = 22;
@@ -45,6 +55,9 @@ function spritesOf(shapes: SVGGeometryElement[]) {
  * Mạch nối ——— ngàn năm. The first time it scrolls into view, the two halves of the
  * title close in and the line between them draws from both ends until it joins in
  * the middle; the woven pattern opens from its centre. Once joined it stays joined.
+ * Scrolling on, a little before halfway through, the two halves draw closer together,
+ * the line shrinking from its middle to keep between them; scrolling back up past
+ * that point, they move apart again.
  * Hovering the pattern lifts the sprite under the pointer — a band, an arch — whole;
  * moving on to another sprite lowers the last one and lifts the next.
  */
@@ -69,7 +82,7 @@ export function ThreadMotion({
         const twin = line.cloneNode() as SVGPathElement;
         line.after(twin);
 
-        gsap
+        const enter = gsap
           .timeline({
             scrollTrigger: {
               trigger: root.current,
@@ -121,6 +134,48 @@ export function ThreadMotion({
             { y: 24, opacity: 0, stagger: 0.12, duration: 0.8 },
             "<0.3",
           );
+
+        // The halves closing in, played forward on the way down and back on the way
+        // up. The line shrinks from its middle by what the halves travel, so its ends
+        // stay at the words. Measured when played, in the page's current scale.
+        const lineArt = q<SVGSVGElement>('[data-art="thread-line"]')[0];
+        const unit = () => root.current!.getBoundingClientRect().width / 1920;
+        const close = gsap
+          .timeline({
+            paused: true,
+            defaults: { duration: CLOSE_TIME, ease: "power2.inOut" },
+          })
+          .to(start, { x: () => CLOSE * unit() }, 0)
+          .to(end, { x: () => -CLOSE * unit() }, 0)
+          .to(
+            lineArt,
+            {
+              scaleX: () => {
+                // Its laid-out width: unlike its box on screen, not shrunk by the tween.
+                const width = parseFloat(getComputedStyle(lineArt).width);
+                return Math.max(0, (width - 2 * CLOSE * unit()) / width);
+              },
+              transformOrigin: "50% 50%",
+            },
+            0,
+          );
+
+        // Where the section is, read from the page as it is (the header's hold
+        // shifts the page after the opening, so a scroll position wouldn't do).
+        let closed = false;
+        const check = () => {
+          if (enter.isActive() || enter.progress() < 1) return;
+          const box = root.current!.getBoundingClientRect();
+          const through =
+            (window.innerHeight - box.top) / (window.innerHeight + box.height);
+          const shouldClose = through >= CLOSE_AT;
+          if (shouldClose === closed) return;
+          closed = shouldClose;
+          if (closed) close.invalidate().play();
+          else close.reverse();
+        };
+        enter.eventCallback("onComplete", check);
+        ScrollTrigger.create({ start: 0, end: "max", onUpdate: check });
 
         return () => twin.remove();
       });

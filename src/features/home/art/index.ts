@@ -9,9 +9,7 @@ import { FrameRight, box as frameRightBox } from "./frame-right";
 import { RailMark, box as railMarkBox } from "./rail-mark";
 import { HeroSkyline, box as heroSkylineBox } from "./hero-skyline";
 import { HeroWave, box as heroWaveBox } from "./hero-wave";
-import { GlyphHeroO, box as glyphHeroOBox } from "./glyph-hero-o";
 import { GlyphHeroA, box as glyphHeroABox } from "./glyph-hero-a";
-import { GlyphThreadI, box as glyphThreadIBox } from "./glyph-thread-i";
 import { GlyphThreadA, box as glyphThreadABox } from "./glyph-thread-a";
 import { ThreadLine, box as threadLineBox } from "./thread-line";
 import { ThreadPattern, box as threadPatternBox } from "./thread-pattern";
@@ -28,7 +26,6 @@ import { RolesCloud, box as rolesCloudBox } from "./roles-cloud";
 import { RolesWave, box as rolesWaveBox } from "./roles-wave";
 import { HeritageWave, box as heritageWaveBox } from "./heritage-wave";
 import { GlyphLayersA, box as glyphLayersABox } from "./glyph-layers-a";
-import { GlyphLayersO, box as glyphLayersOBox } from "./glyph-layers-o";
 import { LayerPlaceLine, box as layerPlaceLineBox } from "./layer-place-line";
 import {
   LayerPlaceShapes,
@@ -67,6 +64,10 @@ import { AboutWorkHook1, box as aboutWorkHook1Box } from "./about-work-hook-1";
 import { AboutWorkHook2, box as aboutWorkHook2Box } from "./about-work-hook-2";
 import { AboutWorkHook3, box as aboutWorkHook3Box } from "./about-work-hook-3";
 import { AboutWorkLine, box as aboutWorkLineBox } from "./about-work-line";
+import {
+  AboutFieldsLine,
+  box as aboutFieldsLineBox,
+} from "./about-fields-line";
 import { FieldRoof, box as fieldRoofBox } from "./field-roof";
 import { FieldWeave, box as fieldWeaveBox } from "./field-weave";
 import { FieldStar, box as fieldStarBox } from "./field-star";
@@ -85,6 +86,14 @@ import { AboutYear2019, box as aboutYear2019Box } from "./about-year-2019";
 import { AboutYear2022, box as aboutYear2022Box } from "./about-year-2022";
 import { AboutYear2023, box as aboutYear2023Box } from "./about-year-2023";
 import { AboutYear2025, box as aboutYear2025Box } from "./about-year-2025";
+import {
+  AboutFrameEndLeft,
+  box as aboutFrameEndLeftBox,
+} from "./about-frame-end-left";
+import {
+  AboutFrameEndRight,
+  box as aboutFrameEndRightBox,
+} from "./about-frame-end-right";
 import { ExploreGate, box as exploreGateBox } from "./explore-gate";
 import {
   ExplorePlaceLine,
@@ -111,12 +120,8 @@ export {
   heroSkylineBox,
   HeroWave,
   heroWaveBox,
-  GlyphHeroO,
-  glyphHeroOBox,
   GlyphHeroA,
   glyphHeroABox,
-  GlyphThreadI,
-  glyphThreadIBox,
   GlyphThreadA,
   glyphThreadABox,
   ThreadLine,
@@ -149,8 +154,6 @@ export {
   heritageWaveBox,
   GlyphLayersA,
   glyphLayersABox,
-  GlyphLayersO,
-  glyphLayersOBox,
   LayerPlaceLine,
   layerPlaceLineBox,
   LayerPlaceShapes,
@@ -191,6 +194,8 @@ export {
   aboutWorkHook3Box,
   AboutWorkLine,
   aboutWorkLineBox,
+  AboutFieldsLine,
+  aboutFieldsLineBox,
   FieldRoof,
   fieldRoofBox,
   FieldWeave,
@@ -221,6 +226,10 @@ export {
   aboutYear2023Box,
   AboutYear2025,
   aboutYear2025Box,
+  AboutFrameEndLeft,
+  aboutFrameEndLeftBox,
+  AboutFrameEndRight,
+  aboutFrameEndRightBox,
   ExploreGate,
   exploreGateBox,
   ExplorePlaceLine,
@@ -238,9 +247,7 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "rail-mark": { Art: RailMark, box: railMarkBox },
   "hero-skyline": { Art: HeroSkyline, box: heroSkylineBox },
   "hero-wave": { Art: HeroWave, box: heroWaveBox },
-  "glyph-hero-o": { Art: GlyphHeroO, box: glyphHeroOBox },
   "glyph-hero-a": { Art: GlyphHeroA, box: glyphHeroABox },
-  "glyph-thread-i": { Art: GlyphThreadI, box: glyphThreadIBox },
   "glyph-thread-a": { Art: GlyphThreadA, box: glyphThreadABox },
   "thread-line": { Art: ThreadLine, box: threadLineBox },
   "thread-pattern": { Art: ThreadPattern, box: threadPatternBox },
@@ -257,7 +264,6 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "roles-wave": { Art: RolesWave, box: rolesWaveBox },
   "heritage-wave": { Art: HeritageWave, box: heritageWaveBox },
   "glyph-layers-a": { Art: GlyphLayersA, box: glyphLayersABox },
-  "glyph-layers-o": { Art: GlyphLayersO, box: glyphLayersOBox },
   "layer-place-line": { Art: LayerPlaceLine, box: layerPlaceLineBox },
   "layer-place-shapes": { Art: LayerPlaceShapes, box: layerPlaceShapesBox },
   "layer-taste-line": { Art: LayerTasteLine, box: layerTasteLineBox },
@@ -278,6 +284,7 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "about-work-hook-2": { Art: AboutWorkHook2, box: aboutWorkHook2Box },
   "about-work-hook-3": { Art: AboutWorkHook3, box: aboutWorkHook3Box },
   "about-work-line": { Art: AboutWorkLine, box: aboutWorkLineBox },
+  "about-fields-line": { Art: AboutFieldsLine, box: aboutFieldsLineBox },
   "field-roof": { Art: FieldRoof, box: fieldRoofBox },
   "field-weave": { Art: FieldWeave, box: fieldWeaveBox },
   "field-star": { Art: FieldStar, box: fieldStarBox },
@@ -293,6 +300,11 @@ export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
   "about-year-2022": { Art: AboutYear2022, box: aboutYear2022Box },
   "about-year-2023": { Art: AboutYear2023, box: aboutYear2023Box },
   "about-year-2025": { Art: AboutYear2025, box: aboutYear2025Box },
+  "about-frame-end-left": { Art: AboutFrameEndLeft, box: aboutFrameEndLeftBox },
+  "about-frame-end-right": {
+    Art: AboutFrameEndRight,
+    box: aboutFrameEndRightBox,
+  },
   "explore-gate": { Art: ExploreGate, box: exploreGateBox },
   "explore-place-line": { Art: ExplorePlaceLine, box: explorePlaceLineBox },
 };

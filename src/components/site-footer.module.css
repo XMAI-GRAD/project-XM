@@ -1,8 +1,9 @@
-/* The navy footer, after the designer's WEB-07 (a 1920-wide comp). Across, it keeps
-   the comp's columns, scaled like home: 1 comp unit = var(--u). Down, it is laid out
-   by its content rather than the comp's full 1080 slide. Text blocks are trimmed to
-   cap top and baseline (text-box), so the gaps below are the comp's: baseline to the
-   next capitals. Body text is Inter, 20 on 24. */
+/* The navy footer, after docs/svg/01.HOME/03-Footer.svg: a full screen (1920 × 1082).
+   It keeps the comp's columns and spacing, scaled like home: 1 comp unit = var(--u).
+   It fills the screen: the space between the columns and the credits takes up what
+   the viewport adds or lacks. Text blocks are trimmed to cap top and baseline
+   (text-box), so the gaps below are the comp's: baseline to the next capitals. Body
+   text is Inter, 20 on 24. */
 
 /* The footer is the container its units are measured against; the grid inside
    lays out in them. */
@@ -18,12 +19,15 @@
   grid-template-columns:
     calc(526 * var(--u)) calc(343 * var(--u)) calc(380 * var(--u))
     1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     "logo   home  visit  contact"
     "tag    nav   where  reach"
     "credit credit credit made";
   align-items: start;
-  padding: calc(80 * var(--u)) calc(100 * var(--u)) calc(64 * var(--u))
+  min-height: 100svh;
+  /* The comp's logo top (208) and the space under the credits' baseline (151). */
+  padding: calc(208 * var(--u)) calc(100 * var(--u)) calc(151 * var(--u))
     calc(179 * var(--u));
   font-size: calc(20 * var(--u));
   line-height: calc(24 * var(--u));
@@ -58,7 +62,7 @@
   align-self: end;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: calc(20 / 0.703 * var(--u));
+  font-size: calc(33 / 0.703 * var(--u));
   line-height: 1;
   text-transform: uppercase;
   text-box: cap alphabetic;
@@ -112,10 +116,12 @@
   overflow-wrap: anywhere;
 }
 
-/* Row 3: the credits, and the signature in the quieter navy. */
+/* Row 3, at the foot: the credits, and the signature in the quieter navy. */
 .credits,
 .madeBy {
+  align-self: end;
   margin-top: calc(80 * var(--u));
+  font-size: calc(18 * var(--u));
   text-box: cap alphabetic;
 }
 .credits {
@@ -124,6 +130,6 @@
 }
 .madeBy {
   grid-area: made;
-  color: var(--navy-200);
-  opacity: 0.6;
+  /* Faded in its colour, so the footer motion can own the opacity. */
+  color: color-mix(in srgb, var(--navy-200) 60%, transparent);
 }

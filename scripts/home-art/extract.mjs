@@ -4,18 +4,20 @@
 //
 //   node scripts/home-art/extract.mjs [path/to/svg-dir] [manifest] [out-dir]
 //
-// The raw exports (default: docs/lttem/svg) never go in the repo (SPEC Part 3), so run
-// this locally after the designer sends new ones. It drives a local Chrome or Edge
-// headless (set CHROME to override the path) to parse the SVG and measure every piece,
-// then writes the output folder (default: src/features/home/art/). Pieces are picked by
-// their child-index path in the export (default: manifest.mjs); a re-export that
-// reorders layers needs the manifest updated.
+// The exports live in docs/svg/ (the default), by page; a piece's `source` is its
+// path there. Run this after the designer sends new ones. It drives a local Chrome or
+// Edge headless (set CHROME to override the path) to parse the SVG and measure every
+// piece, then writes the output folder (default: src/features/home/art/). Pieces are
+// picked by their child-index path in the export (default: manifest.mjs); a re-export
+// that reorders layers needs the manifest updated. A piece whose export isn't on disk
+// keeps the file it was last generated into.
 //
 // What it does to each piece:
 // - inlines the shared `.stN` class styles as attributes, so a piece stands alone;
 // - drops invisible helpers (no fill, no stroke) and empty groups;
 // - turns a rectangular clip-path into the viewBox (an <svg> clips to its viewBox);
-// - keeps the export's coordinates: viewBox = the piece's box in artboard units.
+// - keeps the export's coordinates: viewBox = the piece's box in artboard units;
+// - wraps a part listed as several sibling paths in one <g>, kept in paint order.
 // Outlined text is never extracted: text lives in data/ and the dictionaries.
 
 import { execFileSync } from "node:child_process";
@@ -32,7 +34,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "../..");
-const svgDir = resolve(process.argv[2] ?? join(root, "docs/lttem/svg"));
+const svgDir = resolve(process.argv[2] ?? join(root, "docs/svg"));
 const { pieces } = await import(
   pathToFileURL(resolve(process.argv[3] ?? join(here, "manifest.mjs"))).href
 );
@@ -94,10 +96,25 @@ function inPage(spec) {
     let box = null;
     let clip = null;
     // Named parts become data-part hooks for motion; a named group is never unwrapped.
-    for (const [part, p] of Object.entries(parts)) {
-      const el = at(p);
-      if (!el) throw new Error(`${name}: part "${part}" has nothing at ${p}`);
-      el.setAttribute("data-part", part);
+    // A part given as several paths (siblings, in paint order) is wrapped in a group.
+    // Resolve every part before wrapping any, as wrapping shifts sibling indices.
+    const named = Object.entries(parts).map(([part, p]) => {
+      const els = [p].flat().map(at);
+      if (els.some((el) => !el))
+        throw new Error(`${name}: part "${part}" has nothing at ${p}`);
+      return [part, els];
+    });
+    for (const [part, els] of named) {
+      if (els.length === 1) {
+        els[0].setAttribute("data-part", part);
+        continue;
+      }
+      if (els.some((el) => el.parentNode !== els[0].parentNode))
+        throw new Error(`${name}: part "${part}" spans several parents`);
+      const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+      group.setAttribute("data-part", part);
+      els[0].before(group);
+      group.append(...els);
     }
     const nodes = paths.map((p) => {
       const el = at(p);
@@ -307,10 +324,23 @@ const toJsx = (markup) =>
 const pascal = (name) =>
   name.replace(/(^|-)(\w)/g, (_, __, c) => c.toUpperCase());
 
-const results = [...new Set(pieces.map((p) => p.source))].flatMap(extract);
-// Clear old pieces file by file: a running dev server holds the folder itself open.
+const sources = [...new Set(pieces.map((p) => p.source))];
+const missingSources = sources.filter((s) => !existsSync(join(svgDir, s)));
+const results = sources
+  .filter((s) => !missingSources.includes(s))
+  .flatMap(extract);
+// Pieces from an export that isn't on disk keep their last generated file.
+const kept = pieces.filter(
+  (p) =>
+    missingSources.includes(p.source) &&
+    existsSync(join(outDir, `${p.name}.tsx`)),
+);
+// Clear stale pieces file by file (a running dev server holds the folder itself open),
+// keeping those that can't be regenerated.
 mkdirSync(outDir, { recursive: true });
-for (const f of readdirSync(outDir)) rmSync(join(outDir, f), { force: true });
+const keep = new Set(kept.map((p) => `${p.name}.tsx`));
+for (const f of readdirSync(outDir))
+  if (!keep.has(f)) rmSync(join(outDir, f), { force: true });
 
 for (const { name, box, markup } of results) {
   const spec = pieces.find((p) => p.name === name);
@@ -352,11 +382,15 @@ export type ArtComponent = (props: ArtProps) => JSX.Element;
 `,
 );
 const camel = (name) => pascal(name).replace(/^./, (c) => c.toLowerCase());
+// The index lists every piece, in manifest order, regenerated or kept.
+const listed = pieces.filter(
+  (p) => results.some((r) => r.name === p.name) || kept.includes(p),
+);
 writeFileSync(
   join(outDir, "index.ts"),
   `// Generated by scripts/home-art/extract.mjs.
 import type { ArtBox, ArtComponent } from "./types";
-${results
+${listed
   .map(
     ({ name }) =>
       `import { ${pascal(name)}, box as ${camel(name)}Box } from "./${name}";`,
@@ -365,12 +399,12 @@ ${results
 
 export type { ArtBox, ArtComponent, ArtProps } from "./types";
 export {
-${results.map(({ name }) => `  ${pascal(name)}, ${camel(name)}Box,`).join("\n")}
+${listed.map(({ name }) => `  ${pascal(name)}, ${camel(name)}Box,`).join("\n")}
 };
 
 /** Every piece by name, for pieces picked in data/ (e.g. a stat's icon). */
 export const pieces: Record<string, { Art: ArtComponent; box: ArtBox }> = {
-${results.map(({ name }) => `  "${name}": { Art: ${pascal(name)}, box: ${camel(name)}Box },`).join("\n")}
+${listed.map(({ name }) => `  "${name}": { Art: ${pascal(name)}, box: ${camel(name)}Box },`).join("\n")}
 };
 `,
 );
@@ -382,7 +416,12 @@ execFileSync(process.execPath, [
   outDir,
 ]);
 
-const missing = pieces.filter((p) => !results.some((r) => r.name === p.name));
+const missing = pieces.filter((p) => !listed.includes(p));
 if (missing.length)
   throw new Error(`Not extracted: ${missing.map((p) => p.name).join(", ")}`);
-console.log(`Wrote ${results.length} pieces to ${outDir}`);
+console.log(
+  `Wrote ${results.length} pieces to ${outDir}` +
+    (kept.length
+      ? `; kept ${kept.length} whose export isn't in ${svgDir}: ${missingSources.join(", ")}`
+      : ""),
+);

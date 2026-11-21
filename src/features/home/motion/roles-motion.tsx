@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { CLEAR_WORD, homeEnter, gsap, MOTION, useGSAP } from "./gsap";
+import { CLEAR_WORD, homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
 
 /** How fast the line runs, in comp units a second. Calm, and even: each name rises
  *  as the line reaches it, so its pace sets when the names show. */
@@ -17,12 +17,57 @@ const SOFT = "power2.out";
  *  numbers above say (1.25, then 15% quicker again: 0.8 × 0.85 = 0.68 of the time). */
 const PACE = 1 / (0.8 * 0.85);
 
-/** The buildings, left to right, with the role label that belongs to each. */
+/** The buildings, left to right, with the role label that belongs to each. `parts`
+ *  rise from the ground; `whole` is everything that dims and lights up together. */
 const buildings = [
-  { role: "public", parts: ["public"] },
-  { role: "artists", parts: ["artists"] },
-  { role: "state", parts: ["state-roof", "state-house"] },
+  { role: "public", parts: ["public"], whole: ["public"] },
+  { role: "artists", parts: ["artists"], whole: ["artists", "artists-crown"] },
+  {
+    role: "state",
+    parts: ["state-roof", "state-house"],
+    whole: ["state-roof", "state-house"],
+  },
 ];
+/** A building once the line has run past it, and when not hovered afterwards: how
+ *  much of its own colour it keeps, the rest the page's seashell. */
+const DIMMED = 0.5;
+
+/**
+ * Dims a building by mixing its colours with the page behind it, rather than by
+ * opacity: the buildings overlap, and a see-through building would show the parts
+ * of the one behind it that it hides. Each of its groups gets one shared filter.
+ * Returns a setter for how much of its own colour it keeps (1 = untouched).
+ */
+function colourMix(svg: SVGSVGElement, groups: Element[], paper: number[]) {
+  const ns = "http://www.w3.org/2000/svg";
+  const id = `roles-dim-${Math.random().toString(36).slice(2)}`;
+  const filter = document.createElementNS(ns, "filter");
+  filter.id = id;
+  filter.setAttribute("color-interpolation-filters", "sRGB");
+  const transfer = document.createElementNS(ns, "feComponentTransfer");
+  const funcs = ["R", "G", "B"].map((c) => {
+    const f = document.createElementNS(ns, `feFunc${c}`);
+    f.setAttribute("type", "linear");
+    transfer.append(f);
+    return f;
+  });
+  filter.append(transfer);
+  svg.prepend(filter);
+  groups.forEach((g) => g.setAttribute("filter", `url(#${id})`));
+  const set = (keep: number) =>
+    funcs.forEach((f, i) => {
+      f.setAttribute("slope", String(keep));
+      f.setAttribute("intercept", String((1 - keep) * paper[i]));
+    });
+  set(1);
+  return {
+    set,
+    remove: () => {
+      groups.forEach((g) => g.removeAttribute("filter"));
+      filter.remove();
+    },
+  };
+}
 
 interface Segment {
   el: SVGGeometryElement;
@@ -34,7 +79,9 @@ interface Segment {
  * Roles: the violet line runs from the left edge while the actors — the public, the
  * artists, the state — rise from the ground; each name rises as the line reaches it,
  * and the motto writes itself in at the line's pace, its accented words stressed. The
- * clouds drift in from the right. Once.
+ * clouds drift in from the right. Once. As the line runs past each building, the
+ * building and its name dim to half; once the scene is done, hovering a building
+ * lights it up again, and hovering a stressed word makes its phrase beat again.
  */
 export function RolesMotion({
   className,
@@ -101,7 +148,8 @@ export function RolesMotion({
 
         // The motto writes itself left to right at the line's pace: its words are
         // spread over the line's run. Words in an accent tone ("sáng tạo", "nối
-        // tiếp") land larger and settle, then beat once together as the line arrives.
+        // tiếp") land larger and settle, then beat once together as the line arrives;
+        // once the scene is done, hovering one beats its phrase again.
         const words = q<HTMLElement>("h2 [data-word]");
         const stressed = words.filter((w) => w.dataset.tone);
         const span = timeAt(total) - LINE_START - 0.6;
@@ -162,7 +210,37 @@ export function RolesMotion({
             toDrawing,
           ).x;
 
-        buildings.forEach(({ role, parts }, i) => {
+        const rightOf = (el: Element) =>
+          new DOMPoint(el.getBoundingClientRect().right, 0).matrixTransform(
+            toDrawing,
+          ).x;
+
+        // The page's seashell, as 0–1 channels, for the dimmed buildings to mix with.
+        const paper = gsap.utils
+          .splitColor(
+            getComputedStyle(document.documentElement)
+              .getPropertyValue("--seashell")
+              .trim(),
+          )
+          .map((c) => Number(c) / 255);
+        /** Each building's dimming: its colour mix, its name, and how lit it is. */
+        const dims = buildings.map(({ role, whole }) => {
+          const mix = colourMix(cluster, whole.map(part), paper);
+          const name = q<HTMLElement>(`[data-role="${role}"]`)[0];
+          const state = { keep: 1 };
+          const to = (keep: number, vars: gsap.TweenVars) => {
+            gsap.to(state, {
+              keep,
+              onUpdate: () => mix.set(state.keep),
+              overwrite: true,
+              ...vars,
+            });
+            gsap.to(name, { opacity: keep, overwrite: true, ...vars });
+          };
+          return { mix, to };
+        });
+
+        buildings.forEach(({ role, parts, whole }, i) => {
           const rise = LINE_START + i * BUILD_GAP;
           tl.from(
             parts.map(part),
@@ -181,10 +259,17 @@ export function RolesMotion({
               rise + 1.8,
             );
           const name = q(`[data-role="${role}"]`)[0];
-          tl.from(
-            name,
-            { y: 24, opacity: 0, duration: 1.2 },
-            timeAt(reach(leftOf(name))),
+          const named = timeAt(reach(leftOf(name)));
+          tl.from(name, { y: 24, opacity: 0, duration: 1.2 }, named);
+          // Dims, name and all, once the line has run past its right edge, and not
+          // before its name has finished rising.
+          const passed = timeAt(
+            reach(Math.max(...whole.map(part).map(rightOf))),
+          );
+          tl.call(
+            () => dims[i].to(DIMMED, { duration: 0.8, ease: "power1.out" }),
+            undefined,
+            Math.max(passed, named + 1.2),
           );
         });
 
@@ -205,6 +290,66 @@ export function RolesMotion({
           { x: 500, opacity: 0, duration: 2.8, stagger: 0.35 },
           LINE_START + 0.8,
         );
+
+        // Hovering a building lights it up, once the scene is done; a building in
+        // several pieces lights up as one, so moving between them doesn't flicker.
+        const hover = window.matchMedia(HOVER);
+        const off: (() => void)[] = [];
+        tl.eventCallback("onComplete", () => {
+          buildings.forEach(({ whole }, i) => {
+            const groups = whole.map(part);
+            const inside = (el: EventTarget | null) =>
+              groups.some((g) => el instanceof Node && g.contains(el));
+            const light = (keep: number) => (e: PointerEvent) => {
+              if (!hover.matches || inside(e.relatedTarget)) return;
+              dims[i].to(keep, { duration: 0.35 });
+            };
+            const enter = light(1);
+            const leave = light(DIMMED);
+            for (const g of groups) {
+              g.addEventListener("pointerenter", enter);
+              g.addEventListener("pointerleave", leave);
+              off.push(() => {
+                g.removeEventListener("pointerenter", enter);
+                g.removeEventListener("pointerleave", leave);
+              });
+            }
+          });
+
+          // Hovering a stressed word beats its phrase (the words of one tone) once.
+          const phrases = new Map<string, HTMLElement[]>();
+          for (const w of stressed)
+            phrases.set(w.dataset.tone!, [
+              ...(phrases.get(w.dataset.tone!) ?? []),
+              w,
+            ]);
+          for (const phrase of phrases.values()) {
+            const beat = () => {
+              if (!hover.matches || gsap.isTweening(phrase[0])) return;
+              gsap.fromTo(
+                phrase,
+                { scale: 1 },
+                {
+                  scale: 1.14,
+                  transformOrigin: "50% 70%",
+                  duration: 0.35,
+                  yoyo: true,
+                  repeat: 1,
+                  ease: "power2.inOut",
+                  clearProps: CLEAR_WORD,
+                },
+              );
+            };
+            for (const w of phrase) {
+              w.addEventListener("pointerenter", beat);
+              off.push(() => w.removeEventListener("pointerenter", beat));
+            }
+          }
+        });
+        return () => {
+          off.forEach((f) => f());
+          dims.forEach((d) => d.mix.remove());
+        };
       });
     },
     { scope: root },

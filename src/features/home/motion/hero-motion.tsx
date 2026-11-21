@@ -1,14 +1,15 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { homeEnter, gsap, MOTION, useGSAP } from "./gsap";
+import { homeEnter, gsap, MOTION, ScrollTrigger, useGSAP } from "./gsap";
 
 /*
  * Tempo. Hà Nội không vội: long, soft eases that settle slowly, short travels, no
  * bounce. Tune the whole hero from here.
  */
-const WORD = 1.8; // each word's entrance
-const WORD_GAP = 0.4; // between the starts of two words
+const TITLE_PACE = 0.9; // the title's words, 10% quicker than the 1.8 s they began at
+const WORD = 1.8 * TITLE_PACE; // each word's entrance
+const WORD_GAP = 0.4 * TITLE_PACE; // between the starts of two words
 const ART = 3; // each drawing's way into the frame
 const ART_GAP = 0.25; // between drawings coming from the same side
 const SOFT = "power2.out";
@@ -26,10 +27,15 @@ const entrances: [gsap.TweenVars, gsap.TweenVars][] = [
       duration: WORD * 1.4,
     },
   ],
-  // drifts in from the left, out of a blur
+  // drops down through a slit, the first word's mirror: the mask opens from the top
+  // like a blind as the word comes down into place. No fade: what shows is solid.
   [
-    { xPercent: -25, skewX: -10, opacity: 0, filter: "blur(8px)" },
-    { filter: "blur(0px)" },
+    { yPercent: -45, clipPath: "inset(-45% -20% 145% -20%)" },
+    {
+      clipPath: "inset(-45% -20% -40% -20%)",
+      ease: "sine.inOut",
+      duration: WORD * 1.4,
+    },
   ],
   // settles down from above
   [{ yPercent: -60, opacity: 0 }, {}],
@@ -44,6 +50,9 @@ const entrances: [gsap.TweenVars, gsap.TweenVars][] = [
     {},
   ],
 ];
+
+/** A word's mask, open: wide enough for its accents and the drawn letters. */
+const OPEN = "inset(-45% -20% -40% -20%)";
 
 const settled = {
   xPercent: 0,
@@ -64,10 +73,38 @@ const fromLeft = [
 const fromRight = ["right-hill", "right-roof"];
 const fromBelow = ["center-roof", "center-gate", "center-crown"];
 
+/** The skyline's way in, each group from its side: [parts, from, start, stagger]. */
+const artWays: [string[], gsap.TweenVars, number][] = [
+  [fromLeft, { x: -800 }, 0.2],
+  [fromRight, { x: 900 }, 0.4],
+  [fromBelow, { y: 420 }, 0.6],
+];
+const WAVE_FROM = { yPercent: 60, clipPath: "inset(100% 0% 0% 0%)" };
+const STAR_FROM = { scale: 0, rotation: -90, transformOrigin: "50% 50%" };
+
 /**
- * The hero, the first time it scrolls into view: each word of the title arrives its
- * own way (a drawn letter unfolds after its word), then the tagline wipes in. At the
- * same time the skyline comes into the frame — from the sides, and up from below.
+ * The hero counts as leaving once its foot (the skyline's base, just above MẠCH NỐI)
+ * rises above this share of the window: MẠCH NỐI is then near the middle of it.
+ */
+const LEAVE_AT = 0.4;
+/** The skyline returning, a little slower than its entrance. */
+const LEAVE = 3.3;
+/** The buildings leaving: quicker, so they are gone before they drift far. */
+const BUILDINGS_LEAVE = LEAVE * 0.75;
+/** The text leaving upward: short and accelerating, fading as it goes. */
+const TEXT_OUT = 0.55;
+const TEXT_OUT_GAP = 0.08;
+
+/**
+ * The hero. Scrolling down into it, each word of the title arrives its own way (a
+ * drawn letter unfolds after its word), then the tagline wipes in; at the same time
+ * the skyline comes into the frame, from the sides and up from below.
+ *
+ * Scrolling on down, once MẠCH NỐI below reaches the middle of the window, it leaves:
+ * the buildings slide back out the way they came, fading, and the text whooshes up
+ * and fades out, bottom line first. The wave stays, as the band between the two.
+ * Coming back up past that point, the buildings slide back in and the text arrives
+ * again its own way.
  */
 export function HeroMotion({
   id,
@@ -88,86 +125,153 @@ export function HeroMotion({
           names.flatMap((n) =>
             q(`[data-art="hero-skyline"] [data-part="${n}"]`),
           );
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: root.current,
-            start: homeEnter(root.current, 0.7, true),
-            once: true,
-          },
-          defaults: { duration: WORD, ease: SOFT },
-        });
+        const words = q<HTMLElement>("h1 [data-word]");
+        const tagline = q<HTMLElement>('[data-motion="tagline"]');
+        const wave = q('[data-art="hero-wave"]');
+        const star = parts(["star"]);
+        const entry = homeEnter(root.current, 0.7, true);
 
-        q("h1 [data-word]").forEach((word, i) => {
-          const at = i * WORD_GAP;
-          const [from, to] = entrances[i % entrances.length];
-          tl.fromTo(word, from, { ...settled, ...to }, at);
-          const glyph = word.querySelector("svg");
-          if (glyph)
-            tl.from(
-              glyph,
-              {
-                scale: 0.4,
-                rotation: -60,
-                opacity: 0,
-                transformOrigin: "50% 60%",
-                duration: WORD,
-                ease: "back.out(1.2)",
-              },
-              at + 0.5,
+        /** The title and tagline arriving, from the start of `tl`. */
+        const textIn = (tl: gsap.core.Timeline) => {
+          words.forEach((word, i) => {
+            const at = i * WORD_GAP;
+            const [from, to] = entrances[i % entrances.length];
+            // Coming back after leaving, a word starts from where its own entrance
+            // does, so undo the exit's lift and fade first.
+            tl.fromTo(
+              word,
+              { yPercent: 0, clipPath: OPEN, opacity: 1, ...from },
+              { ...settled, ...to, overwrite: true },
+              at,
             );
-        });
+            const glyph = word.querySelector("svg");
+            if (glyph)
+              tl.fromTo(
+                glyph,
+                { scale: 0.4, rotation: -60, opacity: 0 },
+                {
+                  scale: 1,
+                  rotation: 0,
+                  opacity: 1,
+                  transformOrigin: "50% 60%",
+                  duration: WORD,
+                  ease: "back.out(1.2)",
+                  overwrite: true,
+                },
+                at + 0.5 * TITLE_PACE,
+              );
+          });
+          return tl.fromTo(
+            tagline,
+            { clipPath: "inset(-40% 100% -40% 0%)", yPercent: 0, opacity: 1 },
+            {
+              clipPath: "inset(-40% 0% -40% 0%)",
+              duration: 2,
+              ease: "sine.inOut",
+              clearProps: "clipPath,transform,opacity",
+              overwrite: true,
+            },
+            "-=1",
+          );
+        };
 
-        tl.fromTo(
-          q('[data-motion="tagline"]'),
-          { clipPath: "inset(-40% 100% -40% 0%)" },
-          {
-            clipPath: "inset(-40% 0% -40% 0%)",
-            duration: 2,
-            ease: "sine.inOut",
-            clearProps: "clipPath",
-          },
-          "-=1",
+        /** The text whooshing up and fading out, bottom line first. */
+        const textOut = () =>
+          gsap.to([...tagline, ...[...words].reverse()], {
+            yPercent: -70,
+            opacity: 0,
+            duration: TEXT_OUT,
+            ease: "power3.in",
+            stagger: TEXT_OUT_GAP,
+            overwrite: true,
+          });
+
+        // The first arrival: text and skyline together, in time.
+        const first = textIn(
+          gsap.timeline({
+            paused: true,
+            defaults: { duration: WORD, ease: SOFT },
+          }),
+        );
+        first
+          .addLabel("art", 0)
+          .from(
+            wave,
+            { ...WAVE_FROM, duration: 2, clearProps: "transform,clipPath" },
+            "art",
+          );
+        for (const [names, from, start] of artWays)
+          first.from(
+            parts(names),
+            { ...from, duration: ART, ease: SOFT, stagger: ART_GAP },
+            `art+=${start}`,
+          );
+        first.from(
+          star,
+          { ...STAR_FROM, duration: 2.4, ease: "back.out(1.1)" },
+          "art+=1.6",
         );
 
-        // The skyline starts with the first word, not after the text.
-        tl.addLabel("art", 0)
-          .fromTo(
-            q('[data-art="hero-wave"]'),
-            { yPercent: 60, clipPath: "inset(100% 0% 0% 0%)" },
-            {
-              yPercent: 0,
-              clipPath: "inset(0% 0% 0% 0%)",
-              duration: 2,
-              clearProps: "transform,clipPath",
-            },
-            "art",
-          )
-          .from(
-            parts(fromLeft),
-            { x: -800, duration: ART, ease: SOFT, stagger: ART_GAP },
-            "art+=0.2",
-          )
-          .from(
-            parts(fromRight),
-            { x: 900, duration: ART, ease: SOFT, stagger: ART_GAP },
-            "art+=0.4",
-          )
-          .from(
-            parts(fromBelow),
-            { y: 420, duration: ART, ease: SOFT, stagger: ART_GAP },
-            "art+=0.6",
-          )
-          .from(
-            parts(["star"]),
-            {
-              scale: 0,
-              rotation: -90,
-              transformOrigin: "50% 50%",
-              duration: 2.4,
-              ease: "back.out(1.1)",
-            },
-            "art+=1.6",
+        // The skyline leaving all together, the buildings fading as they slide; and
+        // returning in the entrance's manner, the groups in turn, each piece a beat
+        // apart, fading back in. The wave stays: once in, it is the band between the
+        // hero and MẠCH NỐI.
+        const artMove = (out: boolean) => {
+          const tl = gsap.timeline({
+            defaults: { ease: SOFT, overwrite: true },
+          });
+          for (const [names, from, start] of artWays)
+            tl.to(
+              parts(names),
+              {
+                ...(out ? { ...from, opacity: 0 } : { x: 0, y: 0, opacity: 1 }),
+                duration: out ? BUILDINGS_LEAVE : LEAVE,
+                // Out, everything goes at once; back in, in the entrance's turns.
+                stagger: out ? 0 : ART_GAP,
+              },
+              out ? 0 : start,
+            );
+          tl.to(
+            star,
+            out
+              ? { ...STAR_FROM, duration: 2.4 }
+              : { scale: 1, rotation: 0, duration: 2.4, ease: "back.out(1.1)" },
+            out ? 0 : 1,
           );
+        };
+
+        // Where the hero is, read from the page as it is: the header holds the page
+        // still for a while after the opening, so a scroll position wouldn't do.
+        let state: "arriving" | "in" | "out" = "arriving";
+        const check = () => {
+          if (state === "arriving") return;
+          const leaving =
+            root.current!.getBoundingClientRect().bottom <
+            window.innerHeight * LEAVE_AT;
+          if (leaving && state === "in") {
+            state = "out";
+            artMove(true);
+            textOut();
+          } else if (!leaving && state === "out") {
+            state = "in";
+            artMove(false);
+            textIn(gsap.timeline({ defaults: { duration: WORD, ease: SOFT } }));
+          }
+        };
+
+        ScrollTrigger.create({
+          trigger: root.current,
+          start: entry,
+          once: true,
+          onEnter: () =>
+            first
+              .eventCallback("onComplete", () => {
+                state = "in";
+                check();
+              })
+              .play(),
+        });
+        ScrollTrigger.create({ start: 0, end: "max", onUpdate: check });
       });
     },
     { scope: root },
