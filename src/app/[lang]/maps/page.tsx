@@ -1,0 +1,89 @@
+import type { CSSProperties } from "react";
+import type { Metadata } from "next";
+import { getPage, getPoints, layers, mapDesign } from "@/content";
+import { SiteFooter } from "@/components/site-footer";
+import { HomeHeader } from "@/features/home/home-header";
+import h from "@/features/home/home.module.css";
+import { DesignMapExplorer } from "@/features/maps/v2/explorer";
+import s from "@/features/maps/v2/map.module.css";
+import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale, pageMetadata } from "@/i18n/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await getLocale();
+  return pageMetadata(lang, "/maps", getPage("maps").title[lang]);
+}
+
+export default async function MapsPage() {
+  const lang = await getLocale();
+  const maps = getPage("maps");
+  const { maps: ui, layers: names } = getDictionary(lang);
+  const groups = layers.map((layer) => ({
+    layer,
+    name: names[layer],
+    intro: maps.layers[layer][lang],
+    points: getPoints(layer).map((point) => ({
+      slug: point.slug,
+      code: point.code,
+      layer,
+      name: point.name[lang],
+      address: point.address,
+      hook: point.hook[lang],
+      position: mapDesign.pins[point.code],
+    })),
+  }));
+  return (
+    <>
+      <div className={h.home}>
+        <div
+          className={`${h.board} ${s.board}`}
+          style={{ "--board": 1672.5 } as CSSProperties}
+        >
+          <a href={`#map-explorer-${lang}`} className={s.skip}>
+            {ui.design.skip}
+          </a>
+          <HomeHeader lang={lang} current="maps" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            className={s.pageFrame}
+            src="/maps/v2/page-frame.svg"
+            alt=""
+            aria-hidden="true"
+          />
+          <main id={`map-explorer-${lang}`} tabIndex={-1}>
+            <h1 className={s.heading}>
+              {lang === "vi" ? (
+                <>
+                  <span className="sr-only">{maps.displayTitle[lang]}</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/maps/v2/heading.svg" alt="" aria-hidden="true" />
+                </>
+              ) : (
+                <span className={s.englishHeading}>
+                  <span>{ui.design.illustration}</span>
+                  {maps.displayTitle[lang]}
+                </span>
+              )}
+            </h1>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={s.headingRule}
+              src="/maps/v2/heading-rule.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <p className={s.lead}>{maps.lead[lang]}</p>
+            <DesignMapExplorer
+              lang={lang}
+              groups={groups}
+              artwork={mapDesign.artwork}
+              origin={mapDesign.origin.name[lang]}
+              ui={ui}
+            />
+          </main>
+        </div>
+      </div>
+      <SiteFooter lang={lang} />
+    </>
+  );
+}

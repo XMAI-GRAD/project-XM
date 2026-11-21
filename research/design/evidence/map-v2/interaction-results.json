@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "VI category counts: 5 / 4 / 3; all 12 authored pins shown on the overview",
+    "Accent-insensitive search, Enter, empty/clear, destination URL, selected-card focus and Escape restoration",
+    "All 12 pin buttons select the matching detail card with resolved ARIA references",
+    "Space selection; legend open/close/focus; keyboard pan/zoom/Home; drag; zoom limits and reset",
+    "Repeated VI ↔ EN navigation, exact accessible search names, unique IDs and all ARIA targets",
+    "1280px desktop and 390px narrow layout; narrow category/list selection, no horizontal page overflow",
+    "Reduced-motion context; failed image load presents retry; retry restores the map and enabled controls"
+  ],
+  "errors": []
+}

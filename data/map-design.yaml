@@ -1,0 +1,31 @@
+{
+  "sourceSha256": "e3336e70d76534ac6c1eaad8b4e33409cd2b39fc140484c7b4057738919b02f1",
+  "coordinateSpace": "designer-artwork",
+  "artwork": { "src": "/maps/v2/map-base.svg", "width": 1094, "height": 680 },
+  "pins":
+    {
+      "d01": { "x": 747.9, "y": 138.65 },
+      "d02": { "x": 693.2, "y": 186.85 },
+      "d03": { "x": 823.4, "y": 194.85 },
+      "d04": { "x": 834.7, "y": 148.8 },
+      "d05": { "x": 828.4, "y": 84.55 },
+      "v01": { "x": 822.3, "y": 162.45 },
+      "v02": { "x": 820.75, "y": 292.85 },
+      "v03": { "x": 308, "y": 126.05 },
+      "v04": { "x": 794.7, "y": 140.45 },
+      "n01": { "x": 734.05, "y": 46.45 },
+      "n02": { "x": 797.15, "y": 160.35 },
+      "n03": { "x": 37.85, "y": 631.25 },
+    },
+  "origin":
+    {
+      "latitude": 20.981012,
+      "longitude": 105.7892685,
+      "name":
+        {
+          "vi": "Tr\u01b0\u1eddng \u0110\u1ea1i h\u1ecdc Ki\u1ebfn tr\u00fac H\u00e0 N\u1ed9i",
+          "en": "Hanoi Architectural University",
+        },
+      "sourceUrl": "https://www.google.com/maps/search/?api=1&query=20.981012%2C105.7892685",
+    },
+}

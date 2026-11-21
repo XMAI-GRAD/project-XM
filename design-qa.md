@@ -1,4 +1,106 @@
-# Homepage design QA — SVG migration, 17 November 2026
+# Design QA
+
+## Map v2 interface — 21 November 2026
+
+**Final result: passed** for the interface-first scope in headless Microsoft Edge.
+Geographic calibration and university-origin routing are explicitly a later stage.
+
+### Visual evidence and normalization
+
+- Source visual truth: `D:/XMAI GRAD/workspace/File/SVG/web final-12.svg`,
+  SHA256 `e3336e70d76534ac6c1eaad8b4e33409cd2b39fc140484c7b4057738919b02f1`.
+  [Source render](research/design/evidence/map-v2/web-final-12.png).
+- Implementation: `http://localhost:3000/vi/maps`, default PLACE overview,
+  no selection/query, light theme. [Browser capture](research/design/evidence/map-v2/implementation-final.png).
+- CSS viewport 1920 × 1673, deviceScaleFactor 1. Source raster 1919 × 1673,
+  SVG viewBox 1919.1 × 1672.5; normalized source width to 1920 for the shared
+  1920-unit shell. Implementation 1920 × 1673. No browser chrome included.
+- [Full comparison](research/design/evidence/map-v2/comparison-final.png),
+  source left / implementation right, inspected together.
+- [Focused sidebar comparison](research/design/evidence/map-v2/sidebar-comparison-final.png),
+  both cropped at x220/y600, 400 × 720 each, inspected together.
+- Additional inspected states: [English desktop](research/design/evidence/map-v2/english.png),
+  [390px English](research/design/evidence/map-v2/mobile-english.png),
+  [390px selected place](research/design/evidence/map-v2/mobile-selected.png),
+  [map failure](research/design/evidence/map-v2/failure.png),
+  [emulated touch zoom](research/design/evidence/map-v2/touch-pinch.png).
+  Desktop was also checked at 1280 × 1000. Mobile viewport 390 × 844, density 1;
+  full-page images extend beyond viewport height. There is no supplied mobile comp.
+
+### Findings and comparison history
+
+1. Initial comparison: blocked. P1 frame covered the sidebar; map symbols were
+   oversized; the coordination-centre symbol was missing.
+   [Initial sidebar evidence](research/design/evidence/map-v2/sidebar-comparison-1.png).
+   Fixed frame stacking, explicit Leaflet image specificity, and source extraction.
+2. Second comparison: blocked. P2 squared-off inner corners, double-applied
+   ornament opacity, enlarged sidebar type and overflowing hint.
+   [Second sidebar evidence](research/design/evidence/map-v2/sidebar-comparison-2.png).
+   Extracted alpha masks from the exact Illustrator contours, removed duplicate
+   opacity, and matched cap heights, row rhythm and source colours.
+3. Responsive/interaction review: blocked. P2 English heading overlapped the frame;
+   mobile margins displaced the header; large invisible pin hit areas intercepted
+   neighbouring symbols. Fixed localized title sizing, mobile flow containment,
+   scoped mobile header layout and actual-symbol pointer targets. Pin keyboard
+   focus remains on semantic buttons; all destinations also have list controls.
+   Removed unnecessary edge-pin panning and restored focus to rebuilt list rows.
+4. Final captures above: passed. No remaining actionable P0/P1/P2 implementation
+   differences in the agreed interface scope. Native HTML typography has minor
+   optical differences from outlined text (P3); no further visual fix was made
+   after the final paired comparison.
+
+### Required fidelity surfaces
+
+- **Fonts/typography:** extracted Vietnamese display lettering preserves custom
+  architectural glyphs. Phudu/Inter render semantic controls and content; adjusted
+  sizes to the outlined source's cap heights. English uses live text and fits its
+  allocated region. Minor raster antialiasing/weight differences are expected.
+- **Spacing/layout:** matched source heading, rule, lead, x221/y600.4 explorer,
+  1479.9 × 700.1 frame, sidebar and 1094 × 680 artwork crop. Exact masks preserve
+  concave corners. Fifth PLACE item scrolls; source draws only four despite count 05.
+- **Colours/tokens:** local paper, lavender surround, blue frame, pale roads/water
+  and source accent shades retained. No global theme changes. Source light category
+  lettering, tiny legend and white badge codes retain source contrast limitations;
+  this is a fidelity pass, not a WCAG conformance claim. The enlarged legend and
+  equivalent semantic list provide alternatives to the small map annotations.
+- **Image fidelity:** source vectors, including frames, glyphs, compass, symbols
+  and legend; no raster recreation or invented decorative artwork. Shared header
+  logo/search and existing cursor remain. The source scale is artwork only, not a
+  calibrated distance tool. Coordination-centre marker is not relabelled as university.
+- **Copy/content:** canonical 12 destinations, 5/4/3 grouping, corrected D04 address
+  from content data; source placeholder date/search becomes functional shared UI.
+  Existing layer descriptions and localized lead are retained. Buttons and details
+  are bilingual. Outlined legend artwork remains Vietnamese with a localized
+  accessible description. English content can fall back to Vietnamese where the
+  pre-existing dataset has no translation (109 build-reported fields site-wide).
+
+### Interaction and build checks
+
+[Browser results](research/design/evidence/map-v2/interaction-results.json): all
+12 pin/card selections, category counts, accent-insensitive search, Enter/Space,
+empty/clear, Escape/focus restoration, legend, drag, +/-/arrows/Home, zoom limits,
+reset, repeated VI/EN switching, unique IDs, ARIA targets, narrow layout and
+blocked-image retry. No browser page errors. Separately passed real Tab/skip-link
+navigation, destination deep-link reload, emulated touch categories/language,
+two-finger pinch and one-finger pan under reduced-motion preference.
+
+Lint, TypeScript, 46 tests (43 TypeScript tests plus 3 reference-geometry tests)
+and production build pass. Changed text files pass formatting. Default repository
+format check reports existing CRLF line endings; `prettier --check . --end-of-line auto`
+passes. No bulk normalization was performed; SPEC remains byte-for-byte unchanged.
+
+### Remaining scope and limitations
+
+- Next stage: calibrate the new illustration, confirm mode/start access, then
+  source and review 12 outbound university routes and contextual road labels.
+  Current coloured paths are the designer's thematic artwork, not new directions.
+- Physical touch devices, Safari/Firefox and assistive-technology sessions were
+  not available. Edge touch emulation passed; it is not physical-device evidence.
+- Mobile adapts the supplied desktop comp. Shared footer still scales its desktop
+  typography; a complete mobile design for the rest of the site is outside this pass.
+- No commit, push or deployment. Existing package/lockfile upgrade preserved.
+
+## Homepage design QA — SVG migration, 17 November 2026
 
 ## Current dev merge
 
