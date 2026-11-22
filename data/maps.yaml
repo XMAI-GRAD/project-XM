@@ -1,6 +1,9 @@
 title:
   vi: Ba mạch của thành phố
   en: Three threads of the city
+displayTitle:
+  vi: Bản đồ ba mạch của thành phố Hà Nội
+  en: Three threads of Hanoi
 lead:
   vi: Một bản đồ, ba lớp. Chạm để đổi lớp.
   en: One map, three layers. Switch layers to explore.

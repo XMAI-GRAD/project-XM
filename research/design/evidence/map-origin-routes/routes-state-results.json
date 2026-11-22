@@ -1,0 +1,18 @@
+{
+  "width": 1280,
+  "deepLink": true,
+  "pinClick": true,
+  "reveal": {
+    "offsetStart": 0.9128,
+    "offsetLater": 0.5558
+  },
+  "rapidSelection": true,
+  "dragInterruptsCamera": true,
+  "reducedDuringReveal": true,
+  "clear": true,
+  "historyRestore": true,
+  "invalidSlug": true,
+  "frames": 765,
+  "gaps": [],
+  "errors": []
+}

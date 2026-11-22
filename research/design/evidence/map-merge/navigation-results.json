@@ -1,0 +1,54 @@
+[
+  {
+    "lang": "vi",
+    "menuPaths": [
+      "/vi/explore/place",
+      "/vi/explore/taste",
+      "/vi/explore/craft"
+    ],
+    "canonicalDetailLinks": [
+      "/vi/explore/place/hoang-thanh-thang-long",
+      "/vi/explore/place/van-mieu-quoc-tu-giam",
+      "/vi/explore/place/ho-hoan-kiem-den-ngoc-son",
+      "/vi/explore/place/pho-co-36-pho-phuong",
+      "/vi/explore/place/cau-long-bien",
+      "/vi/explore/taste/bun-thang-ba-duc",
+      "/vi/explore/taste/che-muoi-sau",
+      "/vi/explore/taste/com-lang-vong",
+      "/vi/explore/taste/cha-ca-la-vong",
+      "/vi/explore/craft/ngu-xa",
+      "/vi/explore/craft/hang-trong",
+      "/vi/explore/craft/van-phuc"
+    ],
+    "threeDetailPages": true,
+    "backToMap": true,
+    "home": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "menuPaths": [
+      "/en/explore/place",
+      "/en/explore/taste",
+      "/en/explore/craft"
+    ],
+    "canonicalDetailLinks": [
+      "/en/explore/place/hoang-thanh-thang-long",
+      "/en/explore/place/van-mieu-quoc-tu-giam",
+      "/en/explore/place/ho-hoan-kiem-den-ngoc-son",
+      "/en/explore/place/pho-co-36-pho-phuong",
+      "/en/explore/place/cau-long-bien",
+      "/en/explore/taste/bun-thang-ba-duc",
+      "/en/explore/taste/che-muoi-sau",
+      "/en/explore/taste/com-lang-vong",
+      "/en/explore/taste/cha-ca-la-vong",
+      "/en/explore/craft/ngu-xa",
+      "/en/explore/craft/hang-trong",
+      "/en/explore/craft/van-phuc"
+    ],
+    "threeDetailPages": true,
+    "backToMap": true,
+    "home": true,
+    "errors": []
+  }
+]

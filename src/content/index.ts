@@ -5,6 +5,10 @@ import { createHash } from "node:crypto";
 import { parse } from "yaml";
 import { readMapContext, readSavedRoutes } from "../features/maps/catalogue.ts";
 import {
+  readIllustratedRoutes,
+  readMapDesign,
+} from "../features/maps/design.ts";
+import {
   fitArtworkTransform,
   projectToArtwork,
   validCoordinates,
@@ -149,6 +153,7 @@ export interface Pages {
   explore: { title: Localized; lead: Localized };
   maps: {
     title: Localized;
+    displayTitle: Localized;
     lead: Localized;
     artwork: Photo;
     layers: Record<Layer, Localized>;
@@ -196,6 +201,14 @@ export const mapCalibration = read("map-calibration.yaml") as MapCalibration;
 export const mapTransform = fitArtworkTransform(
   mapCalibration.origin,
   mapCalibration.controls,
+);
+export const mapDesign = readMapDesign(
+  read("map-design.yaml"),
+  points.map((point) => point.code),
+);
+export const illustratedMapRoutes = readIllustratedRoutes(
+  read("map-design-routes.yaml"),
+  mapDesign,
 );
 
 const isEmpty = (v: unknown) => {

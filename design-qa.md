@@ -1,4 +1,423 @@
-# Homepage design QA — SVG migration, 17 November 2026
+# Design QA
+
+## Local dev merge — 22 November 2026
+
+Merged dev `8f8c30e` into the map branch without conflicts. Map detail links now
+use the incoming theme-specific Explore URLs. Full formatting/lint/type checks,
+61 tests and the 103-page production build pass. Rechecked all 48 route cases,
+theme tabs, search, tools and legend in VI/EN on desktop/mobile. Navigation checks
+cover all 24 localized detail URLs, three actual detail-page visits per language,
+Back navigation, the Explore menu and homepage; no browser page errors.
+
+See the [merge record](docs/plans/2026-11-22-map-dev-merge.md) and
+[navigation evidence](research/design/evidence/map-merge/navigation-results.json).
+
+## Enlarged legend — 22 November 2026
+
+The legend popup now contains only its original SVG artwork and a close button.
+Removed the extra heading, explanatory paragraph and rectangular panel. The artwork
+expands to 680px on desktop and fits within the map on smaller screens, preserving
+its proportions and shaped border. The close button sits above the artwork.
+
+Headless Edge checks pass in VI/EN at 1920/1280/820/390/320: artwork enlargement,
+no explanatory copy, map bounds, unobstructed close button, click/Enter/touch,
+Escape dismissal and focus restoration. Normal and reduced motion checked. No
+page errors. Scoped formatting, ESLint, TypeScript and production build pass; the
+build required network access to fetch the existing Google Fonts.
+
+Evidence: [desktop](research/design/evidence/map-legend/legend-vi-1920.png),
+[mobile](research/design/evidence/map-legend/legend-en-320.png),
+[checks](research/design/evidence/map-legend/legend-results.json).
+
+## Map tool feedback — 22 November 2026
+
+Removed the visible keyboard/gesture paragraph below the map; it remains available
+to screen readers through the map's description. Zoom in/out, reset and clear route
+now show localized labels immediately on hover or keyboard focus. Enabled controls
+use a navy hover/focus fill and darker pressed fill; disabled controls remain dimmed.
+Labels can be hovered, dismiss with Escape without clearing the route, and disappear
+after activation. Touch activation does not leave a tooltip open. No motion added.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320 with normal and reduced
+motion: hidden instructions, translated labels, viewport fit, hover/pressed/focus
+feedback, disabled zoom limits, Escape dismissal, touch taps and zoom/reset/clear
+actions. No page errors. Scoped formatting, ESLint, TypeScript and build pass.
+
+Evidence: [desktop](research/design/evidence/map-tools/tools-vi-1920-focus.png),
+[narrow English](research/design/evidence/map-tools/tools-en-320-focus.png),
+[checks](research/design/evidence/map-tools/tools-results.json).
+
+## Default theme tags — 22 November 2026
+
+Unselected map themes now use the filled contours and seashell symbols from
+`web final-04.svg`: place #7484C4, taste #D99092 and craft #7FC3C0. Text remains
+localized HTML in the existing display font. Only the selected theme keeps the
+previous outlined frame, two-color symbol, bright label and underline. The
+extraction script checks the supplied source hash and emits only these six assets.
+Narrow layouts scale the labels and icon gap to keep English inside the tags.
+Tags rest at full opacity and dim to 70% on hover or keyboard focus, including
+the selected tag. Moving away restores full opacity; feedback does not add motion.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320: all three selected/default
+states, 70%/100% opacity feedback, hover without selection, keyboard focus,
+Enter/Space activation and the correct 5/4/3 pins
+and list items. No page errors. Source and rendered tags were visually inspected.
+Scoped formatting, ESLint, TypeScript and production build pass.
+
+Evidence: [source tags](research/design/evidence/map-default-tabs/source-tags.png),
+[place selected](research/design/evidence/map-default-tabs/tabs-vi-1920-place.png),
+[taste selected](research/design/evidence/map-default-tabs/tabs-vi-1920-taste.png),
+[craft selected](research/design/evidence/map-default-tabs/tabs-vi-1920-craft.png),
+[narrow English](research/design/evidence/map-default-tabs/tabs-en-320-craft.png),
+[checks](research/design/evidence/map-default-tabs/default-tabs-results.json).
+
+## Matching search fields — 22 November 2026
+
+The map search now shares the header's decorative frame and magnifying-glass icon,
+with matching placeholder, navy typography and spacing. Both decorative search
+fields use a slightly stronger frame and pale fill for focus, with no rectangular
+outline. The map retains its layer filtering and clear action; the header retains
+its result links. Placeholder text fits down to 320px.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320: input/container outlines
+are absent, frame focus is visible, filtering/empty results/clear work, Enter opens
+the matching map card, and header arrow-key navigation and Escape work. No page
+errors. Scoped formatting, ESLint, TypeScript and production build pass.
+Evidence: [map](research/design/evidence/map-search/search-map-vi-1920-focus.png),
+[header](research/design/evidence/map-search/search-header-vi-1920-focus.png),
+[narrow layout](research/design/evidence/map-search/search-map-en-320-focus.png),
+[checks](research/design/evidence/map-search/search-style-results.json).
+
+## Route button and anchored labels — 22 November 2026
+
+**Final result: passed.** Selecting a location now shows only its detail card.
+“Lộ trình đến đây” / “Route to this place” dismisses the card, draws the themed
+route on this map, and frames the complete path from ĐHKT. No external tab opens.
+Selecting a pin/row again reopens details. Clear route and Escape remove the line;
+URL state distinguishes details from route view with `view=route`.
+
+Labels remain centered above their pins while panning, zooming or opening other
+overlays. Removed border/card/legend collision repositioning for every label,
+including the origin. Labels clip naturally at the map boundary. Hover still
+renders above selection.
+
+All 48 location checks pass across VI/EN, 1920/390 and both motion preferences:
+card-only selection, CTA dismissal, one correctly colored full route, map focus,
+clear/reopen, direct links and fixed label offsets. Additional 1280 checks pass
+for rapid selection, Escape during dismissal, motion-preference changes during
+dismissal, search/theme clearing and the reported edge case. The origin and its
+label remain centered at x=20px while the label extends past the left boundary.
+No page errors. Scoped ESLint/formatting, TypeScript and production build pass.
+
+Evidence: [details](research/design/evidence/map-route-view/route-view-detail.png),
+[route](research/design/evidence/map-route-view/route-view-vi-1920-place.png),
+[mobile](research/design/evidence/map-route-view/route-view-en-390-place.png),
+[anchored edge label](research/design/evidence/map-route-view/route-view-anchored-edge.png),
+[all destinations](research/design/evidence/map-route-view/route-view-results.json),
+[transitions](research/design/evidence/map-route-view/route-view-transitions.json).
+
+## Illustrated routes from ĐHKT — 22 November 2026
+
+**Final result: passed.** All 12 destinations now have an illustrated path from
+the fixed university anchor, following roads in the current SVG. Only the selected
+destination's path appears. Its color matches the theme text: navy, brick red or
+teal. Hover keeps the selected route; closing, searching or changing themes clears
+it. The route draws from origin to destination in 0.8 seconds and appears instantly
+under reduced motion. Fractional dash offsets prevent a rounded on/off reveal.
+
+The new YAML manifest validates source-art identity, complete destination coverage,
+coordinate bounds and exact origin/destination connections. It uses authored
+illustration coordinates; the old map's geographic walking-route data and external
+directions remain separate. The camera keeps the destination clear of the card;
+the two eastern desktop destinations may crop the origin end when fitting both
+would conflict with the artwork boundary.
+
+Validated 48 selections across VI/EN, 1920/390 and both motion preferences: one
+route, correct color and endpoints, no card overlap, hover preservation, clear,
+rapid switching, pan/zoom and preference changes. Additional 1280 checks confirm
+deep links, pin clicks, gradual reveal, interruption, history and invalid slugs.
+The bounds sweep at 1920/1280/390 and 765 additional animation frames show no
+exposed artwork edges beyond the existing 1.5px rounding tolerance. No page errors.
+Scoped formatting/lint, TypeScript, 46 unit tests and production build pass; the
+build still reports the existing 109 English-content fallbacks.
+
+Evidence: [all authored paths](research/design/evidence/map-origin-routes/routes-authored-overview.png),
+[Địa](research/design/evidence/map-origin-routes/routes-vi-1920-place.png),
+[Vị](research/design/evidence/map-origin-routes/routes-vi-1920-taste.png),
+[Nghề](research/design/evidence/map-origin-routes/routes-vi-1920-craft.png),
+[mobile](research/design/evidence/map-origin-routes/routes-en-390-craft.png),
+[selection checks](research/design/evidence/map-origin-routes/routes-results.json),
+[state checks](research/design/evidence/map-origin-routes/routes-state-results.json).
+
+## Neutral theme-route roads — 22 November 2026
+
+Restored the embedded PLACE/TASTE/CRAFT route segments to the map's default road
+color, #E4CFC5. All 17 changed fill/stroke attributes preserve the original road
+geometry. The centre symbol and dashed ring-road guides remain unchanged.
+Removed the three obsolete theme-route keys from the legend and updated its
+VI/EN description. Regeneration applies the same changes in the extraction script.
+
+Verified the SVG structure and inspected the [rendered map](research/design/evidence/map-roads/neutral-roads.png).
+All three themes retain 5/4/3 destination pins and the fixed university origin.
+Changed JSON/YAML formatting passes.
+
+## Fixed university origin — 22 November 2026
+
+**Final result: passed.** The university now has a persistent Bạn/You badge,
+using the list's exact mask and #B5262A from the HÀ NỘI heading. The label identifies
+the starting point and the university in VI/EN. It remains present across themes,
+searches, card selections, pan/zoom/reset and motion-preference changes; theme
+counts remain 5/4/3. External directions retain 20.981012, 105.7892685 as origin.
+
+The display anchor (330, 590) is an authored illustration position, separate from
+the geographic coordinate. It is not a calibrated campus entrance. Source and
+implementation notes are in `docs/plans/2026-11-22-map-fixed-origin.md`.
+
+Headless Edge checks pass at 1920 and 390 widths in VI/EN, with no page errors.
+Screenshots were inspected; a mobile label/legend overlap was found and corrected.
+Shared label placement now avoids both the card and legend. Manifest validation,
+all 44 tests, scoped ESLint, TypeScript and production build pass.
+
+Evidence: [desktop](research/design/evidence/map-origin/origin-vi-1920.png),
+[mobile](research/design/evidence/map-origin/origin-vi-390.png),
+[checks](research/design/evidence/map-origin/origin-results.json).
+
+## Map location focus — 22 November 2026
+
+**Final result: passed.** Following owner review, circular selection outlines and
+pulses are replaced by the theme icon growing 35% and lifting 6px. Its name stays
+visible in a compact label with a theme-colored underline. Hovering or focusing
+another location preserves the selected icon's emphasis. Closing the card clears
+selection. Reduced motion applies the same final appearance immediately.
+
+Labels stay inside the map and clear of the info card, including during pan/zoom.
+Keyboard focus retains a visible rectangular outline. The source icons, camera
+bounds, and card interactions are preserved.
+
+Validated all 12 locations at 1920 and 390 widths across VI/EN and both motion
+preferences: **48 selection checks**, no page errors. Scoped formatting, ESLint,
+and TypeScript pass. Inspected rendered PLACE and CRAFT selections. Evidence:
+[PLACE](research/design/evidence/map-focus/focus-vi-place.png),
+[CRAFT](research/design/evidence/map-focus/focus-vi-craft.png),
+[mobile](research/design/evidence/map-focus/focus-en-mobile.png),
+[results](research/design/evidence/map-focus/focus-results.json).
+
+## Map motion — 22 November 2026
+
+**Final result: passed** in the approved headless Microsoft Edge workflow.
+This records the initial motion pass; its circular selection treatment is
+superseded by the location-focus revision above.
+
+- Page heading/rule and explorer arrive in sequence. Theme changes crossfade the
+  existing decoration, unfold the source pin halves, and introduce the new rows.
+  Search results and the legend have short reveals. Nothing loops while idle.
+- Pointer hover and keyboard focus link each row with its pin and label. Selecting
+  a place pulses one ring and moves a covered/offscreen pin into view. Camera
+  motion is bounded on every frame and stops on pointer/touch/keyboard input.
+  Repeated zoom presses accumulate. The card reveals its photo, title, quote and
+  actions; subsequent selections crossfade inside the same frame. Close restores
+  focus after its exit. A new selection cancels an in-progress close.
+- All motion uses GSAP through useGSAP and matchMedia. Reduced motion displays
+  final states immediately. Changing the preference while closing a card or
+  focusing a pin is handled. Cached locale pages dispose their maps and recreate
+  one active map on return; navigation during card exit causes no stale callbacks.
+- Motion checks at 1920 and 390 widths with both preferences sampled **6,121
+  frames with zero exposed artwork edges**, including rapid theme/query changes,
+  card swaps, camera interruption, reset, zoom and preference changes. No page
+  errors or GSAP warnings. Fixed a mobile pointer-leave event that cleared linked
+  focus after scrolling, and verified a single pulse during rapid selection.
+- Existing mouse/keyboard/pinch/resize bounds checks pass at 1920/1280/390.
+  All 24 VI/EN card cases, 320/390/1280/1920 layouts, links, focus restoration,
+  direct links and image fallback pass. Screenshots were inspected at rest to
+  verify the source layout is preserved. Physical devices and other browser
+  engines were not tested.
+- Scoped formatting and ESLint, TypeScript, all **44 tests**, and the production
+  build pass. The existing 109 untranslated fields still fall back to Vietnamese.
+  SPEC is unchanged. No commit or push.
+
+Evidence: [desktop](research/design/evidence/map-motion/motion-1920-no-preference.png),
+[mobile](research/design/evidence/map-motion/motion-390-no-preference.png),
+[motion checks](research/design/evidence/map-motion/motion-results.json),
+[navigation cleanup](research/design/evidence/map-motion/motion-cleanup-results.json),
+[bounds](research/design/evidence/map-motion/bounds-results.json),
+[card regression](research/design/evidence/map-motion/card-results.json).
+
+## Map location card — 22 November 2026
+
+**Final result: passed** for the selected-location card in headless Microsoft Edge.
+
+### Source and comparison
+
+- Source: `D:/XMAI GRAD/workspace/File/SVG/web final-18.svg`, SHA256
+  `21a164a06273320dc6348abbcf1872e923d02f1926d35fa5b9cfd458460d8c33`.
+  The 1151.6 × 1965 board contains five PLACE variants. Its external image files
+  were not supplied; the corresponding existing location covers were substituted
+  in the reference rendering. The source frame, close control, photo mask/rules
+  and badge were extracted directly by `scripts/map-art/extract-card.py`.
+- Implementation: `http://localhost:3000/vi/maps?to=hoang-thanh-thang-long`,
+  selected D01, desktop viewport 1920 × 1600, deviceScaleFactor 1.
+- [Full map](research/design/evidence/map-card/card-map.png): the 314.5 × 415.1 CSS-pixel
+  card aligns with the legend's right edge and sits 37 comp units above it.
+  The list remains available; the selected pin is brought beside the card within
+  the existing hard map bounds.
+- [Focused, side-by-side comparison](research/design/evidence/map-card/card-comparison.png):
+  native D01 source crop 314.6 × 415.1 and implementation 314.5 × 415.1,
+  each normalized to 315 × 415 pixels in a 670 × 455 comparison capture.
+  Source and implementation use the same canonical photo. The map visible through
+  the implementation's transparent corners is expected.
+- [Narrow layout](research/design/evidence/map-card/card-mobile.png): viewport
+  390 × 844, full-page capture. The card follows the 320px map surface and remains
+  above the legend; all controls fit at 320, 390, 1280 and 1920 widths.
+
+### Findings and iteration history
+
+1. Initial comparison: [P2] the photo caption said ĐỊA instead of the source's
+   D01, and the Explore action wrapped. Replaced the caption with the selected
+   location code and corrected action sizing. Adjusted title sizing and the
+   D01 photo crop. [P2] the card covered central selected pins; selection now
+   uses the measured card rectangle to place the pin in the unobstructed map area.
+2. Verification across the other layers found a four-line craft quote crowding
+   the action. Widened the quote area for TASTE/CRAFT. Eagerly request the selected
+   photo and show the localized fallback when absent or failed.
+3. Re-captured the final comparison and full map after these fixes. No actionable
+   P0/P1/P2 differences remain within this scope.
+
+### Required fidelity surfaces
+
+- **Typography:** existing Phudu/Inter fonts and designer-drawn headline glyphs;
+  two-line PLACE titles, source-sized labels/actions, separate readable English
+  and TASTE/CRAFT sizing. Minor outlined-font versus live-font differences remain P3.
+- **Layout:** original shaped frame, stepped image strip, code, close button,
+  staggered title/address, quote, Explore action and badge. Sidebar rows persist
+  and mark selection. On mobile the card moves below the map intentionally.
+- **Colors:** original white/lavender card artwork, navy PLACE text and lime action;
+  TASTE/CRAFT inherit the existing red/teal text and orange/purple accents.
+  Arrow masks reuse the source asset and follow the action color.
+- **Assets:** original vectors, live location photos, and existing theme pins.
+  No rasterized card or invented location photography. TASTE/CRAFT records without
+  real photos retain a localized unavailable state. Exact missing-source photo
+  reproduction cannot be claimed.
+- **Content:** content remains sourced through `src/content`, including names,
+  addresses, headlines, quotes, image alt text and destination coordinates.
+  Current canonical addresses take precedence over outlined reference copy.
+  UI strings reuse both existing dictionaries. Directions opens Google Maps in
+  a new tab from the configured university origin; no in-app route or time is claimed.
+
+### Verification
+
+- [24 card checks](research/design/evidence/map-card/card-results.json): all twelve
+  locations in both languages; persistent list, selected pin, card placement,
+  close/focus restoration, destination URLs, direct links, Escape, layout bounds,
+  and failed-image fallback. No captured page errors.
+- [Map bounds regression](research/design/evidence/map-card/bounds-results.json):
+  mouse drag, keyboard pan/zoom, emulated pinch, resize and selection at three widths;
+  no exposed artwork edges beyond pixel-rounding tolerance.
+- Changed-code formatting, lint, typecheck, 44 unit tests and production build pass.
+  All five extracted SVG assets parse. The build retains the existing 109 untranslated
+  content-field fallbacks. Physical touch devices and screen-reader audio were not tested.
+- No commit, push, deployment, package or SPEC change.
+
+## Map v2 interface — 21 November 2026
+
+**Final result: passed** for the interface-first scope in headless Microsoft Edge.
+Geographic calibration and university-origin routing are explicitly a later stage.
+
+### Visual evidence and normalization
+
+- Source visual truth: `D:/XMAI GRAD/workspace/File/SVG/web final-12.svg`,
+  SHA256 `e3336e70d76534ac6c1eaad8b4e33409cd2b39fc140484c7b4057738919b02f1`.
+  [Source render](research/design/evidence/map-v2/web-final-12.png).
+- Implementation: `http://localhost:3000/vi/maps`, default PLACE overview,
+  no selection/query, light theme. [Browser capture](research/design/evidence/map-v2/implementation-final.png).
+- CSS viewport 1920 × 1673, deviceScaleFactor 1. Source raster 1919 × 1673,
+  SVG viewBox 1919.1 × 1672.5; normalized source width to 1920 for the shared
+  1920-unit shell. Implementation 1920 × 1673. No browser chrome included.
+- [Full comparison](research/design/evidence/map-v2/comparison-final.png),
+  source left / implementation right, inspected together.
+- [Focused sidebar comparison](research/design/evidence/map-v2/sidebar-comparison-final.png),
+  both cropped at x220/y600, 400 × 720 each, inspected together.
+- Additional inspected states: [English desktop](research/design/evidence/map-v2/english.png),
+  [390px English](research/design/evidence/map-v2/mobile-english.png),
+  [390px selected place](research/design/evidence/map-v2/mobile-selected.png),
+  [map failure](research/design/evidence/map-v2/failure.png),
+  [emulated touch zoom](research/design/evidence/map-v2/touch-pinch.png).
+  Desktop was also checked at 1280 × 1000. Mobile viewport 390 × 844, density 1;
+  full-page images extend beyond viewport height. There is no supplied mobile comp.
+
+### Findings and comparison history
+
+1. Initial comparison: blocked. P1 frame covered the sidebar; map symbols were
+   oversized; the coordination-centre symbol was missing.
+   [Initial sidebar evidence](research/design/evidence/map-v2/sidebar-comparison-1.png).
+   Fixed frame stacking, explicit Leaflet image specificity, and source extraction.
+2. Second comparison: blocked. P2 squared-off inner corners, double-applied
+   ornament opacity, enlarged sidebar type and overflowing hint.
+   [Second sidebar evidence](research/design/evidence/map-v2/sidebar-comparison-2.png).
+   Extracted alpha masks from the exact Illustrator contours, removed duplicate
+   opacity, and matched cap heights, row rhythm and source colours.
+3. Responsive/interaction review: blocked. P2 English heading overlapped the frame;
+   mobile margins displaced the header; large invisible pin hit areas intercepted
+   neighbouring symbols. Fixed localized title sizing, mobile flow containment,
+   scoped mobile header layout and actual-symbol pointer targets. Pin keyboard
+   focus remains on semantic buttons; all destinations also have list controls.
+   Removed unnecessary edge-pin panning and restored focus to rebuilt list rows.
+4. Final captures above: passed. No remaining actionable P0/P1/P2 implementation
+   differences in the agreed interface scope. Native HTML typography has minor
+   optical differences from outlined text (P3); no further visual fix was made
+   after the final paired comparison.
+
+### Required fidelity surfaces
+
+- **Fonts/typography:** extracted Vietnamese display lettering preserves custom
+  architectural glyphs. Phudu/Inter render semantic controls and content; adjusted
+  sizes to the outlined source's cap heights. English uses live text and fits its
+  allocated region. Minor raster antialiasing/weight differences are expected.
+- **Spacing/layout:** matched source heading, rule, lead, x221/y600.4 explorer,
+  1479.9 × 700.1 frame, sidebar and 1094 × 680 artwork crop. Exact masks preserve
+  concave corners. Fifth PLACE item scrolls; source draws only four despite count 05.
+- **Colours/tokens:** local paper, lavender surround, blue frame, pale roads/water
+  and source accent shades retained. No global theme changes. Source light category
+  lettering, tiny legend and white badge codes retain source contrast limitations;
+  this is a fidelity pass, not a WCAG conformance claim. The enlarged legend and
+  equivalent semantic list provide alternatives to the small map annotations.
+- **Image fidelity:** source vectors, including frames, glyphs, compass, symbols
+  and legend; no raster recreation or invented decorative artwork. Shared header
+  logo/search and existing cursor remain. The source scale is artwork only, not a
+  calibrated distance tool. Coordination-centre marker is not relabelled as university.
+- **Copy/content:** canonical 12 destinations, 5/4/3 grouping, corrected D04 address
+  from content data; source placeholder date/search becomes functional shared UI.
+  Existing layer descriptions and localized lead are retained. Buttons and details
+  are bilingual. Outlined legend artwork remains Vietnamese with a localized
+  accessible description. English content can fall back to Vietnamese where the
+  pre-existing dataset has no translation (109 build-reported fields site-wide).
+
+### Interaction and build checks
+
+[Browser results](research/design/evidence/map-v2/interaction-results.json): all
+12 pin/card selections, category counts, accent-insensitive search, Enter/Space,
+empty/clear, Escape/focus restoration, legend, drag, +/-/arrows/Home, zoom limits,
+reset, repeated VI/EN switching, unique IDs, ARIA targets, narrow layout and
+blocked-image retry. No browser page errors. Separately passed real Tab/skip-link
+navigation, destination deep-link reload, emulated touch categories/language,
+two-finger pinch and one-finger pan under reduced-motion preference.
+
+Lint, TypeScript, 46 tests (43 TypeScript tests plus 3 reference-geometry tests)
+and production build pass. Changed text files pass formatting. Default repository
+format check reports existing CRLF line endings; `prettier --check . --end-of-line auto`
+passes. No bulk normalization was performed; SPEC remains byte-for-byte unchanged.
+
+### Remaining scope and limitations
+
+- Next stage: calibrate the new illustration, confirm mode/start access, then
+  source and review 12 outbound university routes and contextual road labels.
+  Current coloured paths are the designer's thematic artwork, not new directions.
+- Physical touch devices, Safari/Firefox and assistive-technology sessions were
+  not available. Edge touch emulation passed; it is not physical-device evidence.
+- Mobile adapts the supplied desktop comp. Shared footer still scales its desktop
+  typography; a complete mobile design for the rest of the site is outside this pass.
+- No commit, push or deployment. Existing package/lockfile upgrade preserved.
+
+## Homepage design QA — SVG migration, 17 November 2026
 
 ## Current dev merge
 

@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "vi/hoang-thanh-thang-long",
+    "vi/van-mieu-quoc-tu-giam",
+    "vi/ho-hoan-kiem-den-ngoc-son",
+    "vi/pho-co-36-pho-phuong",
+    "vi/cau-long-bien",
+    "vi/bun-thang-ba-duc",
+    "vi/che-muoi-sau",
+    "vi/com-lang-vong",
+    "vi/cha-ca-la-vong",
+    "vi/ngu-xa",
+    "vi/hang-trong",
+    "vi/van-phuc",
+    "en/hoang-thanh-thang-long",
+    "en/van-mieu-quoc-tu-giam",
+    "en/ho-hoan-kiem-den-ngoc-son",
+    "en/pho-co-36-pho-phuong",
+    "en/cau-long-bien",
+    "en/bun-thang-ba-duc",
+    "en/che-muoi-sau",
+    "en/com-lang-vong",
+    "en/cha-ca-la-vong",
+    "en/ngu-xa",
+    "en/hang-trong",
+    "en/van-phuc"
+  ],
+  "widths": [1920, 1280, 390, 320],
+  "imageFailure": true,
+  "errors": []
+}
