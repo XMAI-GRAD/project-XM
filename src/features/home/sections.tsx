@@ -55,6 +55,7 @@ import { HeritageMotion } from "./motion/heritage-motion";
 import { HeroMotion } from "./motion/hero-motion";
 import { LayersMotion } from "./motion/layers-motion";
 import { RolesMotion } from "./motion/roles-motion";
+import { StatsMotion } from "./motion/stats-motion";
 import { ThreadMotion } from "./motion/thread-motion";
 import { RichText, toneClass } from "./rich-text";
 import { HomeSectionLink } from "./section-link";
@@ -143,7 +144,7 @@ export function Thread({ lang }: { lang: Locale }) {
 export function Stats({ lang }: { lang: Locale }) {
   const { stats } = getPage("home");
   return (
-    <section className={`${s.section} ${s.stats}`}>
+    <StatsMotion className={`${s.section} ${s.stats}`}>
       <StatsBand className={s.at} style={at(statsBandBox)} />
       <ul className={s.statList}>
         {stats.map((count) => {
@@ -154,7 +155,7 @@ export function Stats({ lang }: { lang: Locale }) {
           const style = { "--cx": box.x + box.w / 2 } as CSSProperties;
           return (
             <li key={count.art} style={style} className={toneClass(count.tone)}>
-              <Art className={s.at} style={at(box)} />
+              <Art className={s.at} style={at(box)} data-motion="stat-icon" />
               <span className={s.statValue}>
                 <CountUp to={count.value} />
               </span>{" "}
@@ -163,7 +164,7 @@ export function Stats({ lang }: { lang: Locale }) {
           );
         })}
       </ul>
-    </section>
+    </StatsMotion>
   );
 }
 

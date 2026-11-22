@@ -1,17 +1,31 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
+import { edgeMotion } from "./edge";
 import { homeEnter, gsap, HOVER, MOTION, ScrollTrigger, useGSAP } from "./gsap";
 
-/** How far each half of the title moves towards the other, in comp units. */
-const CLOSE = 220;
+/** What is left between the halves of the title when they meet, in comp units. */
+const MEET = 8;
 /**
  * Where, through the section's pass across the window, the halves close in: the
  * title is then near the top edge of the window. Any later and it is out of sight.
  */
 const CLOSE_AT = 0.5;
-/** The halves closing in or drawing apart: a set time, soft at both ends. */
-const CLOSE_TIME = 1.2;
+/** The halves rushing together and fading out as they go (or, played back,
+ *  showing and drawing apart), quickening until they meet. */
+const CLOSE_TIME = 1.1;
+
+/** The pattern opening from its middle line: shut, open, and how long it takes. */
+const SHUT = "inset(50% 0% 50% 0%)";
+const OPEN = "inset(0% 0% 0% 0%)";
+const OPEN_TIME = 1.2;
+/**
+ * When the pattern leaves the window, it closes back to its middle line, and opens
+ * again as it comes back: going down, once its bottom is above 20% of the window;
+ * going up, once its top is below 80%. Most of it is out of sight by then.
+ */
+const PATTERN_ABOVE = 0.2;
+const PATTERN_BELOW = 0.8;
 
 /** How far a hovered shape of the pattern rises, in comp units (it is 785 tall). */
 const LIFT = 22;
@@ -55,9 +69,11 @@ function spritesOf(shapes: SVGGeometryElement[]) {
  * Mạch nối ——— ngàn năm. The first time it scrolls into view, the two halves of the
  * title close in and the line between them draws from both ends until it joins in
  * the middle; the woven pattern opens from its centre. Once joined it stays joined.
- * Scrolling on, a little before halfway through, the two halves draw closer together,
- * the line shrinking from its middle to keep between them; scrolling back up past
- * that point, they move apart again.
+ * Scrolling on, halfway through, the two halves rush together, fading out as they
+ * go, the line drawn back into where they meet; scrolling back up past that point,
+ * they show again and draw apart.
+ * The pattern leaves the way it came: as it goes out of the window, up or down, it
+ * closes back to its middle line, and opens again as it comes back.
  * Hovering the pattern lifts the sprite under the pointer — a band, an arch — whole;
  * moving on to another sprite lowers the last one and lifts the next.
  */
@@ -75,12 +91,16 @@ export function ThreadMotion({
       const mm = gsap.matchMedia();
       const q = gsap.utils.selector(root);
 
-      mm.add(MOTION, () => {
-        const [start, end] = q("h2 > span");
+      mm.add(MOTION, (context) => {
+        const title = q<HTMLElement>("h2")[0];
+        const [start, end] = q<HTMLElement>("h2 > span");
         const line = q<SVGPathElement>('[data-art="thread-line"] path')[0];
         // The line draws from both ends at once: a twin draws the right half.
         const twin = line.cloneNode() as SVGPathElement;
         line.after(twin);
+
+        const unit = () => root.current!.getBoundingClientRect().width / 1920;
+        const edge = edgeMotion(context, unit);
 
         const enter = gsap
           .timeline({
@@ -120,10 +140,10 @@ export function ThreadMotion({
           )
           .fromTo(
             q('[data-art="thread-pattern"]'),
-            { clipPath: "inset(50% 0% 50% 0%)" },
+            { clipPath: SHUT },
             {
-              clipPath: "inset(0% 0% 0% 0%)",
-              duration: 1.2,
+              clipPath: OPEN,
+              duration: OPEN_TIME,
               ease: "power3.inOut",
               clearProps: "clipPath",
             },
@@ -139,26 +159,24 @@ export function ThreadMotion({
         // up. The line shrinks from its middle by what the halves travel, so its ends
         // stay at the words. Measured when played, in the page's current scale.
         const lineArt = q<SVGSVGElement>('[data-art="thread-line"]')[0];
-        const unit = () => root.current!.getBoundingClientRect().width / 1920;
+        // How far each half travels to meet the other: half the gap between them as
+        // laid out (offsets ignore the motion's own transforms), less what is kept.
+        const travel = () =>
+          (end.offsetLeft -
+            (start.offsetLeft + start.offsetWidth) -
+            MEET * unit()) /
+          2;
         const close = gsap
           .timeline({
             paused: true,
-            defaults: { duration: CLOSE_TIME, ease: "power2.inOut" },
+            defaults: { duration: CLOSE_TIME, ease: "power3.in" },
           })
-          .to(start, { x: () => CLOSE * unit() }, 0)
-          .to(end, { x: () => -CLOSE * unit() }, 0)
-          .to(
-            lineArt,
-            {
-              scaleX: () => {
-                // Its laid-out width: unlike its box on screen, not shrunk by the tween.
-                const width = parseFloat(getComputedStyle(lineArt).width);
-                return Math.max(0, (width - 2 * CLOSE * unit()) / width);
-              },
-              transformOrigin: "50% 50%",
-            },
-            0,
-          );
+          .to(start, { x: () => travel() }, 0)
+          .to(end, { x: () => -travel() }, 0)
+          .to(lineArt, { scaleX: 0, transformOrigin: "50% 50%" }, 0)
+          // The two fade out together as they rush in, gone as they meet. On the
+          // title, not its halves: their own opacity is the window-edge motion's.
+          .to(title, { opacity: 0, ease: "sine.in" }, 0);
 
         // Where the section is, read from the page as it is (the header's hold
         // shifts the page after the opening, so a scroll position wouldn't do).
@@ -174,8 +192,66 @@ export function ThreadMotion({
           if (closed) close.invalidate().play();
           else close.reverse();
         };
-        enter.eventCallback("onComplete", check);
-        ScrollTrigger.create({ start: 0, end: "max", onUpdate: check });
+        // Once in, the title and its line, the text and the button sink away at the window's
+        // foot and rise back, like the footer.
+        // The pattern's way out is its way in, played back: it closes to its middle
+        // line as it leaves the window, either way, and opens again as it comes back.
+        // No clip once open, so a hovered sprite rising at its top edge stays whole.
+        const pattern = q<SVGSVGElement>('[data-art="thread-pattern"]')[0];
+        const open = gsap.fromTo(
+          pattern,
+          { clipPath: SHUT },
+          {
+            clipPath: OPEN,
+            duration: OPEN_TIME,
+            ease: "power3.inOut",
+            paused: true,
+            immediateRender: false,
+            // Set by hand at both ends: played back to its start, a tween with
+            // clearProps hands back the cleared style, and the pattern would show.
+            onComplete: () => pattern.style.removeProperty("clip-path"),
+            onReverseComplete: () => {
+              pattern.style.clipPath = SHUT;
+            },
+          },
+        );
+        let opened = true;
+        const checkPattern = () => {
+          if (enter.progress() < 1) return;
+          const vh = window.innerHeight;
+          const box = pattern.getBoundingClientRect();
+          const inView =
+            box.bottom >= vh * PATTERN_ABOVE && box.top <= vh * PATTERN_BELOW;
+          if (inView === opened) return;
+          opened = inView;
+          if (inView) open.play();
+          else {
+            // Never played yet: it starts from open, as the entrance left it.
+            if (open.progress() === 0 && !open.reversed()) open.progress(1);
+            open.reverse();
+          }
+        };
+
+        enter.eventCallback("onComplete", () => {
+          edge.add([
+            start,
+            end,
+            // The line between the halves goes with them, timed by the title.
+            { el: lineArt, ref: start },
+            ...q<HTMLElement>('[data-motion="thread-body"] p'),
+            ...q<HTMLElement>('[data-motion="join"]'),
+          ]);
+          check();
+          checkPattern();
+        });
+        ScrollTrigger.create({
+          start: 0,
+          end: "max",
+          onUpdate: () => {
+            check();
+            checkPattern();
+          },
+        });
 
         return () => twin.remove();
       });

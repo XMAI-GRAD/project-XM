@@ -452,6 +452,12 @@ svg.at,
   padding: 0;
   list-style: none;
 }
+/* Each count spans the band, so its parts keep their places in it and move as one
+   (src/features/home/motion/stats-motion.tsx). */
+.statList li {
+  position: absolute;
+  inset: 0;
+}
 .statValue,
 .statLabel {
   position: absolute;
