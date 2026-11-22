@@ -2,6 +2,7 @@
 
 import {
   useCallback,
+  useEffect,
   useId,
   useMemo,
   useRef,
@@ -45,7 +46,9 @@ function writeSelection(slug: string | null, view?: "route") {
 }
 
 /* Reuses the existing map controls' vector icons. */
-function ControlIcon({ name }: { name: "plus" | "minus" | "reset" | "close" }) {
+type ControlIconName = "plus" | "minus" | "reset" | "close";
+
+function ControlIcon({ name }: { name: ControlIconName }) {
   const paths = {
     plus: "M12 5v14M5 12h14",
     minus: "M5 12h14",
@@ -68,6 +71,67 @@ function ControlIcon({ name }: { name: "plus" | "minus" | "reset" | "close" }) {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+function MapToolButton({
+  icon,
+  label,
+  disabled = false,
+  onClick,
+}: {
+  icon: ControlIconName;
+  label: string;
+  disabled?: boolean;
+  onClick: () => void;
+}) {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [dismissed, setDismissed] = useState(false);
+  const labelOpen = (hovered || focused) && !dismissed;
+
+  useEffect(() => {
+    if (!labelOpen) return;
+    const dismiss = (event: KeyboardEvent) => {
+      if (event.key !== "Escape") return;
+      event.stopPropagation();
+      setDismissed(true);
+    };
+    document.addEventListener("keydown", dismiss, true);
+    return () => document.removeEventListener("keydown", dismiss, true);
+  }, [labelOpen]);
+
+  return (
+    <span
+      className={s.tool}
+      data-label-open={labelOpen}
+      onPointerEnter={(event) => {
+        if (event.pointerType === "touch") return;
+        setHovered(true);
+        setDismissed(false);
+      }}
+      onPointerLeave={() => setHovered(false)}
+      onFocus={(event) => {
+        setFocused(event.target.matches(":focus-visible"));
+        setDismissed(false);
+      }}
+      onBlur={() => setFocused(false)}
+    >
+      <button
+        type="button"
+        disabled={disabled}
+        aria-label={label}
+        onClick={() => {
+          setDismissed(true);
+          onClick();
+        }}
+      >
+        <ControlIcon name={icon} />
+      </button>
+      <span className={s.toolLabel} aria-hidden="true">
+        {label}
+      </span>
+    </span>
   );
 }
 
@@ -406,7 +470,14 @@ export function DesignMapExplorer({
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/maps/v2/pin-${entry.layer}.svg`} alt="" />
+                <img
+                  src={
+                    activeLayer === entry.layer
+                      ? `/maps/v2/pin-${entry.layer}.svg`
+                      : `/maps/v2/tab-${entry.layer}-symbol.svg`
+                  }
+                  alt=""
+                />
                 <span>{entry.name}</span>
               </button>
             ))}
@@ -569,53 +640,35 @@ export function DesignMapExplorer({
             >
               <ControlIcon name="close" />
             </button>
-            <h3>{ui.design.legend}</h3>
-            <p>{ui.design.legendDescription}</p>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/maps/v2/legend.svg" alt="" />
+            <img src="/maps/v2/legend.svg" alt={ui.design.legend} />
           </div>
         )}
       </div>
       <div className={s.tools} role="group" aria-label={ui.controls}>
         {routeVisible && (
-          <button
-            type="button"
-            aria-label={ui.clearRoute}
-            title={ui.clearRoute}
-            onClick={close}
-          >
-            <ControlIcon name="close" />
-          </button>
+          <MapToolButton icon="close" label={ui.clearRoute} onClick={close} />
         )}
-        <button
-          type="button"
+        <MapToolButton
+          icon="plus"
+          label={ui.zoomIn}
           disabled={!viewport.ready || !viewport.canZoomIn}
-          aria-label={ui.zoomIn}
-          title={ui.zoomIn}
           onClick={() => controls.current?.zoom(0.5)}
-        >
-          <ControlIcon name="plus" />
-        </button>
-        <button
-          type="button"
+        />
+        <MapToolButton
+          icon="minus"
+          label={ui.zoomOut}
           disabled={!viewport.ready || !viewport.canZoomOut}
-          aria-label={ui.zoomOut}
-          title={ui.zoomOut}
           onClick={() => controls.current?.zoom(-0.5)}
-        >
-          <ControlIcon name="minus" />
-        </button>
-        <button
-          type="button"
+        />
+        <MapToolButton
+          icon="reset"
+          label={ui.resetView}
           disabled={!viewport.ready}
-          aria-label={ui.resetView}
-          title={ui.resetView}
           onClick={() => controls.current?.reset()}
-        >
-          <ControlIcon name="reset" />
-        </button>
+        />
       </div>
-      <p id={helpId} className={s.help}>
+      <p id={helpId} className="sr-only">
         {ui.keyboardHelp}
       </p>
     </section>

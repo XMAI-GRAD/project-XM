@@ -188,20 +188,31 @@
   flex: 1;
   min-width: 0;
   height: calc(57.6 * var(--u));
+  color: #fff8f5;
+  opacity: 1;
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   font: 700 calc(24.7 * var(--u)) / 1 var(--font-display);
 }
 .layers button[data-layer="place"] {
+  background-image: url("/maps/v2/tab-place-default.svg");
+}
+.layers button[data-layer="taste"] {
+  background-image: url("/maps/v2/tab-taste-default.svg");
+}
+.layers button[data-layer="craft"] {
+  background-image: url("/maps/v2/tab-craft-default.svg");
+}
+.layers button[data-layer="place"][aria-pressed="true"] {
   color: #cbdb2b;
   background-image: url("/maps/v2/tab-place.svg");
 }
-.layers button[data-layer="taste"] {
+.layers button[data-layer="taste"][aria-pressed="true"] {
   color: #ffaf26;
   background-image: url("/maps/v2/tab-taste.svg");
 }
-.layers button[data-layer="craft"] {
+.layers button[data-layer="craft"][aria-pressed="true"] {
   color: #c68fff;
   background-image: url("/maps/v2/tab-craft.svg");
 }
@@ -211,6 +222,9 @@
 }
 .layers button:hover {
   background-color: #e6cdff33;
+}
+.layers button:is(:hover, :focus-visible) {
+  opacity: 0.7;
 }
 .layers button:focus-visible {
   outline-offset: 4px;
@@ -553,36 +567,47 @@
 .legendPopover {
   position: absolute;
   z-index: 600;
-  right: 20px;
-  bottom: 20px;
-  padding: 24px;
-  width: min(440px, calc(100% - 40px));
-  background: #fff8f5;
-  border: 2px solid #e6cdff;
-  box-shadow: 0 8px 40px #0d185520;
-  font-size: 13px;
-  line-height: 1.5;
-}
-.legendPopover h3 {
-  font-weight: 600;
-  margin-bottom: 8px;
+  right: 12px;
+  bottom: 12px;
+  width: min(680px, calc(100% - 24px));
+  filter: drop-shadow(0 8px 20px #0d185520);
 }
 .legendPopover > img {
+  display: block;
   width: 100%;
-  margin-top: 12px;
+  height: auto;
 }
 .legendClose {
   position: absolute;
-  right: 4px;
-  top: 4px;
-  padding: 4px;
+  right: 0;
+  top: -36px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #7484c4;
+  border-radius: 50%;
+  background: #fff8f5;
+  color: #273991;
+}
+.legendClose:is(:hover, :focus-visible) {
+  background: #273991;
+  color: #fff8f5;
+}
+.legendClose:active {
+  background: #0d1855;
 }
 .tools {
   position: absolute;
+  z-index: 700;
   top: calc(714 * var(--u));
   right: 0;
   display: flex;
   gap: 6px;
+}
+.tool {
+  position: relative;
+  display: flex;
 }
 .tools button {
   width: 36px;
@@ -593,15 +618,44 @@
   background: #fff8f5;
   color: #273991;
 }
+.tools button:not(:disabled):is(:hover, :focus-visible) {
+  border-color: #273991;
+  background: #273991;
+  color: #fff8f5;
+  box-shadow: 0 2px 8px #27399126;
+}
+.tools button:not(:disabled):active {
+  background: #0d1855;
+  box-shadow: inset 0 0 0 2px #7484c4;
+}
 .tools button:disabled {
   opacity: 0.35;
+  cursor: not-allowed;
 }
-.help {
+.toolLabel {
   position: absolute;
-  top: calc(720 * var(--u));
-  left: calc(376 * var(--u));
-  max-width: calc(850 * var(--u));
-  font-size: max(10px, calc(12 * var(--u)));
+  bottom: calc(100% + 8px);
+  right: 0;
+  width: max-content;
+  max-width: min(240px, calc(100vw - 32px));
+  padding: 7px 10px;
+  border-radius: 3px;
+  background: #0d1855;
+  color: #fff8f5;
+  box-shadow: 0 2px 8px #0d185526;
+  font: 500 12px / 1.4 var(--font-body);
+  text-align: center;
+  visibility: hidden;
+}
+.toolLabel::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  inset-inline: 0;
+  height: 8px;
+}
+.tool[data-label-open="true"] .toolLabel {
+  visibility: visible;
 }
 .loading,
 .mapError {
@@ -976,7 +1030,8 @@
     margin-top: 12px;
   }
   .layers button {
-    font-size: 20px;
+    gap: clamp(3px, 1vw, 6px);
+    font-size: clamp(16px, 5vw, 20px);
     height: 48px;
   }
   .results {
@@ -1008,16 +1063,10 @@
     mask: none;
   }
   .tools {
-    position: static;
+    position: relative;
+    top: auto;
     padding: 10px;
     justify-content: flex-end;
-    background: #fff8f5;
-  }
-  .help {
-    position: static;
-    max-width: none;
-    padding: 0 10px 12px;
-    font-size: 11px;
     background: #fff8f5;
   }
   .mapSurface {

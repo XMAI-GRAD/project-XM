@@ -1,5 +1,64 @@
 # Design QA
 
+## Enlarged legend — 22 November 2026
+
+The legend popup now contains only its original SVG artwork and a close button.
+Removed the extra heading, explanatory paragraph and rectangular panel. The artwork
+expands to 680px on desktop and fits within the map on smaller screens, preserving
+its proportions and shaped border. The close button sits above the artwork.
+
+Headless Edge checks pass in VI/EN at 1920/1280/820/390/320: artwork enlargement,
+no explanatory copy, map bounds, unobstructed close button, click/Enter/touch,
+Escape dismissal and focus restoration. Normal and reduced motion checked. No
+page errors. Scoped formatting, ESLint, TypeScript and production build pass; the
+build required network access to fetch the existing Google Fonts.
+
+Evidence: [desktop](research/design/evidence/map-legend/legend-vi-1920.png),
+[mobile](research/design/evidence/map-legend/legend-en-320.png),
+[checks](research/design/evidence/map-legend/legend-results.json).
+
+## Map tool feedback — 22 November 2026
+
+Removed the visible keyboard/gesture paragraph below the map; it remains available
+to screen readers through the map's description. Zoom in/out, reset and clear route
+now show localized labels immediately on hover or keyboard focus. Enabled controls
+use a navy hover/focus fill and darker pressed fill; disabled controls remain dimmed.
+Labels can be hovered, dismiss with Escape without clearing the route, and disappear
+after activation. Touch activation does not leave a tooltip open. No motion added.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320 with normal and reduced
+motion: hidden instructions, translated labels, viewport fit, hover/pressed/focus
+feedback, disabled zoom limits, Escape dismissal, touch taps and zoom/reset/clear
+actions. No page errors. Scoped formatting, ESLint, TypeScript and build pass.
+
+Evidence: [desktop](research/design/evidence/map-tools/tools-vi-1920-focus.png),
+[narrow English](research/design/evidence/map-tools/tools-en-320-focus.png),
+[checks](research/design/evidence/map-tools/tools-results.json).
+
+## Default theme tags — 22 November 2026
+
+Unselected map themes now use the filled contours and seashell symbols from
+`web final-04.svg`: place #7484C4, taste #D99092 and craft #7FC3C0. Text remains
+localized HTML in the existing display font. Only the selected theme keeps the
+previous outlined frame, two-color symbol, bright label and underline. The
+extraction script checks the supplied source hash and emits only these six assets.
+Narrow layouts scale the labels and icon gap to keep English inside the tags.
+Tags rest at full opacity and dim to 70% on hover or keyboard focus, including
+the selected tag. Moving away restores full opacity; feedback does not add motion.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320: all three selected/default
+states, 70%/100% opacity feedback, hover without selection, keyboard focus,
+Enter/Space activation and the correct 5/4/3 pins
+and list items. No page errors. Source and rendered tags were visually inspected.
+Scoped formatting, ESLint, TypeScript and production build pass.
+
+Evidence: [source tags](research/design/evidence/map-default-tabs/source-tags.png),
+[place selected](research/design/evidence/map-default-tabs/tabs-vi-1920-place.png),
+[taste selected](research/design/evidence/map-default-tabs/tabs-vi-1920-taste.png),
+[craft selected](research/design/evidence/map-default-tabs/tabs-vi-1920-craft.png),
+[narrow English](research/design/evidence/map-default-tabs/tabs-en-320-craft.png),
+[checks](research/design/evidence/map-default-tabs/default-tabs-results.json).
+
 ## Matching search fields — 22 November 2026
 
 The map search now shares the header's decorative frame and magnifying-glass icon,

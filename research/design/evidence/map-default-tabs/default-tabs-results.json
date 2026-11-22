@@ -1,0 +1,530 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "selected": "place",
+    "pins": 5,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "true",
+        "name": "ĐỊA",
+        "color": "rgb(203, 219, 43)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place.svg\")",
+        "icon": "/maps/v2/pin-place.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "VỊ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "NGHỀ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "vi",
+    "width": 1920,
+    "selected": "taste",
+    "pins": 4,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "ĐỊA",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "true",
+        "name": "VỊ",
+        "color": "rgb(255, 175, 38)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste.svg\")",
+        "icon": "/maps/v2/pin-taste.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "NGHỀ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "vi",
+    "width": 1920,
+    "selected": "craft",
+    "pins": 3,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "ĐỊA",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "VỊ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "true",
+        "name": "NGHỀ",
+        "color": "rgb(198, 143, 255)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft.svg\")",
+        "icon": "/maps/v2/pin-craft.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "selected": "place",
+    "pins": 5,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "true",
+        "name": "PLACE",
+        "color": "rgb(203, 219, 43)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place.svg\")",
+        "icon": "/maps/v2/pin-place.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "TASTE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "CRAFT",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "selected": "taste",
+    "pins": 4,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "PLACE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "true",
+        "name": "TASTE",
+        "color": "rgb(255, 175, 38)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste.svg\")",
+        "icon": "/maps/v2/pin-taste.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "CRAFT",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "selected": "craft",
+    "pins": 3,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "PLACE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "TASTE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "true",
+        "name": "CRAFT",
+        "color": "rgb(198, 143, 255)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft.svg\")",
+        "icon": "/maps/v2/pin-craft.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "selected": "place",
+    "pins": 5,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "true",
+        "name": "ĐỊA",
+        "color": "rgb(203, 219, 43)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place.svg\")",
+        "icon": "/maps/v2/pin-place.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "VỊ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "NGHỀ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "selected": "taste",
+    "pins": 4,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "ĐỊA",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "true",
+        "name": "VỊ",
+        "color": "rgb(255, 175, 38)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste.svg\")",
+        "icon": "/maps/v2/pin-taste.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "NGHỀ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "selected": "craft",
+    "pins": 3,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "ĐỊA",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "VỊ",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "true",
+        "name": "NGHỀ",
+        "color": "rgb(198, 143, 255)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft.svg\")",
+        "icon": "/maps/v2/pin-craft.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "selected": "place",
+    "pins": 5,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "true",
+        "name": "PLACE",
+        "color": "rgb(203, 219, 43)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place.svg\")",
+        "icon": "/maps/v2/pin-place.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "TASTE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "CRAFT",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "selected": "taste",
+    "pins": 4,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "PLACE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "true",
+        "name": "TASTE",
+        "color": "rgb(255, 175, 38)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste.svg\")",
+        "icon": "/maps/v2/pin-taste.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "false",
+        "name": "CRAFT",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft-default.svg\")",
+        "icon": "/maps/v2/tab-craft-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      }
+    ]
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "selected": "craft",
+    "pins": 3,
+    "states": [
+      {
+        "layer": "place",
+        "pressed": "false",
+        "name": "PLACE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-place-default.svg\")",
+        "icon": "/maps/v2/tab-place-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "taste",
+        "pressed": "false",
+        "name": "TASTE",
+        "color": "rgb(255, 248, 245)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-taste-default.svg\")",
+        "icon": "/maps/v2/tab-taste-symbol.svg",
+        "iconLoaded": true,
+        "underline": "none",
+        "fits": true
+      },
+      {
+        "layer": "craft",
+        "pressed": "true",
+        "name": "CRAFT",
+        "color": "rgb(198, 143, 255)",
+        "opacity": "1",
+        "background": "url(\"http://localhost:3000/maps/v2/tab-craft.svg\")",
+        "icon": "/maps/v2/pin-craft.svg",
+        "iconLoaded": true,
+        "underline": "underline",
+        "fits": true
+      }
+    ]
+  }
+]

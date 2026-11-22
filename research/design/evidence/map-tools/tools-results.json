@@ -1,0 +1,78 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "motion": "no-preference",
+    "labels": ["Phóng to", "Thu nhỏ", "Xem toàn bộ bản đồ"],
+    "hiddenHelp": {
+      "cls": "sr-only",
+      "w": 1,
+      "h": 1,
+      "clip": "inset(50%)"
+    },
+    "hover": true,
+    "pressed": true,
+    "keyboard": true,
+    "escape": true,
+    "touch": true,
+    "zoomResetClear": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "motion": "reduce",
+    "labels": ["Zoom in", "Zoom out", "Show the whole map"],
+    "hiddenHelp": {
+      "cls": "sr-only",
+      "w": 1,
+      "h": 1,
+      "clip": "inset(50%)"
+    },
+    "hover": true,
+    "pressed": true,
+    "keyboard": true,
+    "escape": true,
+    "touch": true,
+    "zoomResetClear": true,
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "motion": "reduce",
+    "labels": ["Phóng to", "Thu nhỏ", "Xem toàn bộ bản đồ"],
+    "hiddenHelp": {
+      "cls": "sr-only",
+      "w": 1,
+      "h": 1,
+      "clip": "inset(50%)"
+    },
+    "hover": true,
+    "pressed": true,
+    "keyboard": true,
+    "escape": true,
+    "touch": true,
+    "zoomResetClear": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "motion": "reduce",
+    "labels": ["Zoom in", "Zoom out", "Show the whole map"],
+    "hiddenHelp": {
+      "cls": "sr-only",
+      "w": 1,
+      "h": 1,
+      "clip": "inset(50%)"
+    },
+    "hover": true,
+    "pressed": true,
+    "keyboard": true,
+    "escape": true,
+    "touch": true,
+    "zoomResetClear": true,
+    "errors": []
+  }
+]
