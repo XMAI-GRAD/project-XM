@@ -116,9 +116,6 @@ export function DesignMapExplorer({
     () => group.points.filter((point) => matchesMapSearch(point, query)),
     [group, query],
   );
-  // The supplied overview shows all three sets of symbols. Search is explicitly
-  // scoped to the active layer; filtering narrows the pins as well as the list.
-  const mapPoints = query.trim() ? visible : allPoints;
   const select = useCallback((point: DesignMapPoint, source: HTMLElement) => {
     trigger.current = source;
     setQuery("");
@@ -178,13 +175,21 @@ export function DesignMapExplorer({
         aria-hidden="true"
       />
       <aside className={s.sidebar}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <div
           className={s.sidebarDecoration}
-          src="/maps/v2/sidebar-decoration.svg"
-          alt=""
+          data-layer={activeLayer}
           aria-hidden="true"
-        />
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={
+              activeLayer === "place"
+                ? "/maps/v2/sidebar-decoration.svg"
+                : `/maps/v2/pin-${activeLayer}.svg`
+            }
+            alt=""
+          />
+        </div>
         <div className={s.sidebarHead}>
           <h2>{ui.design.title}</h2>
           <div className={s.searchBox}>
@@ -349,7 +354,7 @@ export function DesignMapExplorer({
             key={attempt}
             ref={controls}
             artwork={artwork}
-            points={mapPoints}
+            points={visible}
             selected={selected?.slug ?? null}
             cardId={cardId}
             helpId={helpId}

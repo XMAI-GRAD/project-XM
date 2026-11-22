@@ -189,13 +189,40 @@
   width: calc(180.6 * var(--u));
   height: calc(170.5 * var(--u));
   pointer-events: none;
+  overflow: hidden;
+}
+.sidebarDecoration img {
+  width: 100%;
+  height: 100%;
+}
+.sidebarDecoration:not([data-layer="place"]) img {
+  /* Match the full symbol's scale and crop in the original ĐỊA decoration. */
+  position: absolute;
+  left: calc(0.2 * var(--u));
+  top: calc(-17.8 * var(--u));
+  width: auto;
+  max-width: none;
+  height: calc(219.6 * var(--u));
+  opacity: 0.5;
 }
 .results {
+  --layer-ink: var(--navy-400);
   position: absolute;
   left: calc(13.4 * var(--u));
   right: calc(13.4 * var(--u));
   top: calc(238 * var(--u));
   bottom: calc(45 * var(--u));
+}
+.results[data-layer="taste"] {
+  --layer-ink: var(--brick-red);
+}
+.results[data-layer="craft"] {
+  --layer-ink: var(--dark-cyan);
+}
+.resultSummary,
+.layerTitle,
+.layerIntro {
+  color: var(--layer-ink);
 }
 .resultSummary {
   display: flex;
