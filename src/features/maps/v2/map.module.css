@@ -271,6 +271,9 @@
 .listScroll li button:hover {
   background: #e6cdff50;
 }
+.listScroll li button[aria-pressed="true"] {
+  background: #e6cdff80;
+}
 .listScroll li button:focus-visible {
   outline-offset: -2px;
 }
@@ -340,6 +343,7 @@
   height: 100%;
   background: #fff6f1;
   cursor: inherit;
+  isolation: isolate;
 }
 .mapSurface:global(.leaflet-container) {
   background: #fff6f1;
@@ -498,59 +502,220 @@
 .mapError button {
   text-decoration: underline;
 }
-.details {
-  max-height: 100%;
-  overflow-y: auto;
-  padding: 0 calc(12 * var(--u)) calc(12 * var(--u)) calc(25 * var(--u));
-  scrollbar-width: thin;
+/* Selected-place card: web final-18.svg, 314.5 × 415.1 comp units. */
+.locationCard {
+  --cu: var(--u);
+  --card-ink: var(--navy-400);
+  --card-accent: #bfd100;
+  position: absolute;
+  top: calc(35.3 * var(--u));
+  right: calc(34.9 * var(--u));
+  z-index: 550;
+  width: calc(314.5 * var(--cu));
+  height: calc(415.1 * var(--cu));
+  color: var(--card-ink);
+  background: url("/maps/v2/card-frame.svg") center / 100% 100% no-repeat;
 }
-.back {
-  font-size: max(11px, calc(14 * var(--u)));
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  margin-bottom: calc(18 * var(--u));
+.locationCard[data-layer="taste"] {
+  --card-ink: var(--brick-red);
+  --card-accent: #ffaf26;
 }
-.selectedCode {
-  font-size: max(11px, calc(14 * var(--u)));
-  margin-bottom: calc(10 * var(--u));
+.locationCard[data-layer="craft"] {
+  --card-ink: var(--dark-cyan);
+  --card-accent: #c68fff;
 }
-.details h3 {
-  font: 700 calc(29 * var(--u)) / 1.1 var(--font-display);
+.cardMeta {
+  position: absolute;
+  left: calc(43.9 * var(--cu));
+  top: calc(15.5 * var(--cu));
+  font-size: calc(10.5 * var(--cu));
+  line-height: calc(12 * var(--cu));
   text-transform: uppercase;
 }
-.selectedAddress {
-  margin-top: calc(12 * var(--u));
-  font-size: max(11px, calc(14 * var(--u)));
-}
-.hook {
-  margin-top: calc(18 * var(--u));
-  font-size: max(12px, calc(15 * var(--u)));
-  line-height: 1.55;
-}
-.origin {
-  margin-top: calc(20 * var(--u));
-  padding-block: calc(12 * var(--u));
-  border-block: 1px solid #e6cdff;
-  font-size: max(11px, calc(14 * var(--u)));
-}
-.origin span,
-.origin strong {
+.cardMeta span {
   display: block;
 }
-.origin strong {
-  margin-top: 5px;
-  font-weight: 600;
+.cardClose {
+  position: absolute;
+  left: calc(231.9 * var(--cu));
+  top: calc(8.7 * var(--cu));
+  width: calc(39 * var(--cu));
+  height: calc(39 * var(--cu));
 }
-.detailLink {
+.cardClose img {
+  width: 100%;
+  height: 100%;
+}
+.cardPhoto {
+  position: absolute;
+  left: calc(2.7 * var(--cu));
+  top: calc(53.8 * var(--cu));
+  width: calc(308.9 * var(--cu));
+  height: calc(95 * var(--cu));
+  overflow: hidden;
+  background: var(--card-ink);
+  mask: url("/maps/v2/card-photo-mask.svg") center / 100% 100% no-repeat;
+}
+.cardPhoto > img {
+  object-fit: cover;
+}
+.locationCard[data-code="d01"] .cardPhoto > img {
+  transform: scale(1.09);
+  object-position: center 52%;
+}
+.cardPhotoUnavailable {
+  position: absolute;
+  right: calc(16 * var(--cu));
+  top: calc(24 * var(--cu));
+  max-width: calc(125 * var(--cu));
+  color: white;
+  font-size: calc(10.5 * var(--cu));
+  line-height: 1.4;
+}
+.cardPhotoTheme {
+  position: absolute;
+  left: calc(30 * var(--cu));
+  bottom: calc(3 * var(--cu));
+  color: white;
+  font: 700 calc(83 * var(--cu)) / 0.9 var(--font-display);
+}
+.cardPhotoTheme img {
+  position: absolute;
+  left: calc(-5 * var(--cu));
+  top: calc(-8 * var(--cu));
+  width: calc(30.8 * var(--cu));
+  height: auto;
+}
+.cardPhotoRule {
+  position: absolute;
+  left: calc(2 * var(--cu));
+  top: calc(53.1 * var(--cu));
+  width: calc(310.3 * var(--cu));
+  height: calc(96.4 * var(--cu));
+  pointer-events: none;
+}
+.cardHeading {
+  position: absolute;
+  left: calc(29.4 * var(--cu));
+  top: calc(162.7 * var(--cu));
+  width: calc(256.3 * var(--cu));
+}
+.cardHeading h3 {
+  margin: 0;
+  font: 700 calc(35 * var(--cu)) / calc(33.3 * var(--cu)) var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+}
+.cardHeading h3 > span {
+  display: block;
+}
+.cardHeading h3 > span + span {
+  text-align: right;
+}
+.cardAddress {
+  position: absolute;
+  top: calc(78.8 * var(--cu));
+  left: 0;
+  max-width: 100%;
+  font-size: calc(8.5 * var(--cu));
+  line-height: 1.3;
+}
+.locationCard[data-code="d01"] .cardAddress {
+  top: calc(57.9 * var(--cu));
+  max-width: calc(80 * var(--cu));
+}
+.locationCard[data-code="d02"] .cardAddress,
+.locationCard[data-code="d04"] .cardAddress {
+  top: calc(8.5 * var(--cu));
+  left: calc(147 * var(--cu));
+  max-width: calc(109 * var(--cu));
+}
+.locationCard[data-code="d05"] .cardAddress {
+  top: calc(55 * var(--cu));
+}
+.locationCard[lang="en"] .cardHeading h3,
+.locationCard:not([data-layer="place"]) .cardHeading h3 {
+  font-size: calc(29 * var(--cu));
+  line-height: calc(30 * var(--cu));
+}
+.locationCard[lang="en"] .cardAddress,
+.locationCard:not([data-layer="place"]) .cardAddress {
+  top: calc(78.8 * var(--cu));
+  left: 0;
+  max-width: 100%;
+}
+.cardQuote {
+  position: absolute;
+  left: calc(44.7 * var(--cu));
+  top: calc(263.3 * var(--cu));
+  width: calc(190 * var(--cu));
+  margin: 0;
+  font-size: calc(10.5 * var(--cu));
+  line-height: calc(13.3 * var(--cu));
+}
+.cardQuote span {
+  display: block;
+}
+.locationCard:not([data-layer="place"]) .cardQuote {
+  width: calc(225 * var(--cu));
+}
+.cardQuote span:first-child::before {
+  content: "“ ";
+}
+.cardQuote span:last-child::after {
+  content: " ”";
+}
+.cardExplore,
+.cardDirections {
+  position: absolute;
+  left: calc(44.6 * var(--cu));
+  width: calc(167.7 * var(--cu));
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin-top: calc(18 * var(--u));
-  font-size: max(12px, calc(16 * var(--u)));
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  gap: calc(10 * var(--cu));
+  text-decoration: none;
 }
-.detailLink img {
-  width: 10px;
+.cardExplore {
+  top: calc(311.3 * var(--cu));
+  height: calc(38.7 * var(--cu));
+  color: var(--card-accent);
+  font: 700 calc(17.5 * var(--cu)) / 1.1 var(--font-display);
+  text-transform: uppercase;
+}
+.cardExplore span {
+  white-space: nowrap;
+}
+.cardDirections {
+  top: calc(362 * var(--cu));
+  height: calc(30 * var(--cu));
+  font-size: calc(10.5 * var(--cu));
+  line-height: 1.3;
+}
+.cardExplore:hover,
+.cardDirections:hover {
+  text-decoration: underline;
+}
+.cardArrow {
+  flex-shrink: 0;
+  width: calc(7.3 * var(--cu));
+  height: calc(6.9 * var(--cu));
+  background: currentColor;
+  mask: url("/maps/v2/row-arrow.svg") center / contain no-repeat;
+}
+.cardBadge {
+  position: absolute;
+  left: calc(240.1 * var(--cu));
+  top: calc(311.3 * var(--cu));
+  width: calc(30.3 * var(--cu));
+  height: calc(38.7 * var(--cu));
+  display: grid;
+  place-items: center;
+  color: white;
+  background: var(--card-accent);
+  mask: url("/maps/v2/card-badge.svg") center / 100% 100% no-repeat;
+  font-size: calc(11.5 * var(--cu));
+  font-weight: 600;
 }
 
 /* The supplied comp is desktop. Keep a usable stacked layout pending mobile art. */
@@ -719,11 +884,19 @@
     font-size: 11px;
     background: #fff8f5;
   }
-  .details h3 {
-    font-size: 25px;
+  .mapSurface {
+    height: 320px;
   }
-  .sidebar:has(.details) {
-    height: 620px;
+  .canvas:has(.locationCard) {
+    height: auto;
+    padding-bottom: 180px;
+  }
+  .locationCard {
+    --cu: min(1px, calc((84vw - 24px) / 314.5));
+    position: relative;
+    top: auto;
+    right: auto;
+    margin: 16px auto 0;
   }
   .resultSummary {
     font-size: 12px;

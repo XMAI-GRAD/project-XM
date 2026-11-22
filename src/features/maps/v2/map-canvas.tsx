@@ -4,6 +4,7 @@ import { useEffect, useImperativeHandle, useRef, type Ref } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { mapFocusPoint } from "../layout";
 import type { DesignMapPoint } from "./types";
 import s from "./map.module.css";
 
@@ -235,13 +236,45 @@ export default function DesignMapCanvas({
     }
     const target = selected ? markers.current.get(selected) : undefined;
     const map = mapRef.current;
-    if (
-      target &&
-      map &&
-      !map.getBounds().pad(-0.02).contains(target.marker.getLatLng())
-    )
-      map.panTo(target.marker.getLatLng(), { animate: false });
-  }, [selected, points]);
+    if (!target || !map) return;
+    const anchor = target.marker.getLatLng();
+    const surface = map.getContainer().getBoundingClientRect();
+    const card = document.getElementById(cardId)?.getBoundingClientRect();
+    const pixel = map.latLngToContainerPoint(anchor);
+    const covered =
+      card &&
+      pixel.x + 24 > card.left - surface.left &&
+      pixel.x - 24 < card.right - surface.left &&
+      pixel.y + 24 > card.top - surface.top &&
+      pixel.y - 24 < card.bottom - surface.top;
+    if (covered) {
+      const size = map.getSize();
+      const focus = mapFocusPoint(
+        { width: size.x, height: size.y },
+        {
+          left: card.left - surface.left,
+          right: card.right - surface.left,
+          top: card.top - surface.top,
+          bottom: card.bottom - surface.top,
+        },
+      );
+      // The overview cannot pan without exposing an artwork edge. Give it room
+      // before positioning a covered pin in the open space beside the card.
+      const zoom = Math.min(
+        map.getMaxZoom(),
+        Math.max(map.getZoom(), map.getMinZoom() + 1),
+      );
+      const center = map.unproject(
+        map
+          .project(anchor, zoom)
+          .add([size.x / 2 - focus.x, size.y / 2 - focus.y]),
+        zoom,
+      );
+      map.setView(center, zoom, { animate: false });
+    } else if (!map.getBounds().pad(-0.02).contains(anchor)) {
+      map.panTo(anchor, { animate: false });
+    }
+  }, [selected, points, cardId]);
 
   return (
     <div

@@ -10,13 +10,13 @@ import {
   useSyncExternalStore,
 } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import type { Layer } from "@/content";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { matchesMapSearch } from "../search";
 import type { DesignMapGroup, DesignMapPoint } from "./types";
 import type { DesignMapControls, DesignMapViewport } from "./map-canvas";
+import { LocationCard } from "./location-card";
 import s from "./map.module.css";
 
 const Canvas = dynamic(() => import("./map-canvas"), { ssr: false });
@@ -127,7 +127,12 @@ export function DesignMapExplorer({
     setViewport({ ready: false, canZoomIn: false, canZoomOut: false });
   }, []);
   useEffect(() => {
-    if (selected) cardTitle.current?.focus({ preventScroll: true });
+    if (!selected) return;
+    cardTitle.current?.focus({ preventScroll: true });
+    if (window.matchMedia("(max-width: 800px)").matches)
+      cardTitle.current
+        ?.closest("article")
+        ?.scrollIntoView({ block: "nearest", behavior: "instant" });
   }, [selected]);
 
   function close() {
@@ -255,97 +260,62 @@ export function DesignMapExplorer({
           </div>
         </div>
         <div className={s.results} data-layer={activeLayer}>
-          {selected ? (
-            <article
-              id={cardId}
-              aria-labelledby={titleId}
-              className={s.details}
-            >
-              <button className={s.back} type="button" onClick={close}>
-                {ui.design.back}
-              </button>
-              <p className={s.selectedCode}>
-                {selected.code.toUpperCase()} · {group.name}
-              </p>
-              <h3 id={titleId} ref={cardTitle} tabIndex={-1}>
-                {selected.name}
-              </h3>
-              <p className={s.selectedAddress}>{selected.address}</p>
-              <p className={s.hook}>{selected.hook}</p>
-              <div className={s.origin}>
-                <span>{ui.design.origin}</span>
-                <strong>{origin}</strong>
-              </div>
-              <Link
-                className={s.detailLink}
-                href={`/${lang}/explore/${selected.slug}`}
-              >
-                {ui.viewDetails}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/maps/v2/row-arrow.svg" alt="" />
-              </Link>
-            </article>
-          ) : (
-            <>
-              <div id={cardId} className="sr-only" />
-              <div
-                className={s.resultSummary}
-                role="status"
-                aria-live="polite"
-                aria-atomic="true"
-              >
-                <span>{ui.design.list}</span>
-                <strong>{String(visible.length).padStart(2, "0")}</strong>
-              </div>
-              <h3 className={s.layerTitle}>{group.name}</h3>
-              <p className={s.layerIntro}>{group.intro}</p>
-              <div className={s.listScroll} ref={list}>
-                {visible.length ? (
-                  <ul aria-label={ui.design.list}>
-                    {visible.map((point) => (
-                      <li key={point.slug}>
-                        <button
-                          type="button"
-                          data-point={point.slug}
-                          onClick={(event) =>
-                            select(point, event.currentTarget)
-                          }
-                          aria-controls={cardId}
-                        >
-                          <span className={s.badge}>
-                            {point.code.toUpperCase()}
-                          </span>
-                          <span className={s.rowCopy}>
-                            <strong>{point.name}</strong>
-                            <span>{point.address}</span>
-                          </span>
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img
-                            className={s.rowArrow}
-                            src="/maps/v2/row-arrow.svg"
-                            alt=""
-                          />
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <div className={s.empty}>
-                    <p>{ui.design.empty}</p>
+          {!selected && <div id={cardId} className="sr-only" />}
+          <div
+            className={s.resultSummary}
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <span>{ui.design.list}</span>
+            <strong>{String(visible.length).padStart(2, "0")}</strong>
+          </div>
+          <h3 className={s.layerTitle}>{group.name}</h3>
+          <p className={s.layerIntro}>{group.intro}</p>
+          <div className={s.listScroll} ref={list}>
+            {visible.length ? (
+              <ul aria-label={ui.design.list}>
+                {visible.map((point) => (
+                  <li key={point.slug}>
                     <button
                       type="button"
-                      onClick={() => {
-                        setQuery("");
-                        search.current?.focus();
-                      }}
+                      data-point={point.slug}
+                      aria-pressed={selected?.slug === point.slug}
+                      onClick={(event) => select(point, event.currentTarget)}
+                      aria-controls={cardId}
                     >
-                      {ui.design.clear}
+                      <span className={s.badge}>
+                        {point.code.toUpperCase()}
+                      </span>
+                      <span className={s.rowCopy}>
+                        <strong>{point.name}</strong>
+                        <span>{point.address}</span>
+                      </span>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        className={s.rowArrow}
+                        src="/maps/v2/row-arrow.svg"
+                        alt=""
+                      />
                     </button>
-                  </div>
-                )}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className={s.empty}>
+                <p>{ui.design.empty}</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setQuery("");
+                    search.current?.focus();
+                  }}
+                >
+                  {ui.design.clear}
+                </button>
               </div>
-            </>
-          )}
+            )}
+          </div>
         </div>
       </aside>
       <div className={s.canvas}>
@@ -382,6 +352,20 @@ export function DesignMapExplorer({
               {ui.retry}
             </button>
           </div>
+        )}
+        {selected && (
+          <LocationCard
+            key={selected.slug}
+            point={selected}
+            layerName={group.name}
+            lang={lang}
+            id={cardId}
+            titleId={titleId}
+            titleRef={cardTitle}
+            origin={origin}
+            onClose={close}
+            ui={ui}
+          />
         )}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img

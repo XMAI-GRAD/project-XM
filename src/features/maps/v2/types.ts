@@ -1,4 +1,5 @@
 import type { Layer } from "@/content";
+import type { ReactNode } from "react";
 
 export interface DesignMapPoint {
   slug: string;
@@ -7,6 +8,9 @@ export interface DesignMapPoint {
   name: string;
   address: string;
   hook: string;
+  headline: ReactNode[];
+  photo: { src: string; width: number; height: number; alt: string } | null;
+  directionsDestination: string;
   position: { x: number; y: number };
 }
 

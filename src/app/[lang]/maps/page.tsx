@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getPage, getPoints, layers, mapDesign } from "@/content";
 import { SiteFooter } from "@/components/site-footer";
 import { HomeHeader } from "@/features/home/home-header";
+import { RichText } from "@/features/home/rich-text";
 import h from "@/features/home/home.module.css";
 import { DesignMapExplorer } from "@/features/maps/v2/explorer";
 import s from "@/features/maps/v2/map.module.css";
@@ -22,15 +23,25 @@ export default async function MapsPage() {
     layer,
     name: names[layer],
     intro: maps.layers[layer][lang],
-    points: getPoints(layer).map((point) => ({
-      slug: point.slug,
-      code: point.code,
-      layer,
-      name: point.name[lang],
-      address: point.address,
-      hook: point.hook[lang],
-      position: mapDesign.pins[point.code],
-    })),
+    points: getPoints(layer).map((point) => {
+      const photo = point.images.find((image) => !image.temporary);
+      return {
+        slug: point.slug,
+        code: point.code,
+        layer,
+        name: point.name[lang],
+        address: point.address,
+        hook: point.hook[lang],
+        headline: (point.headline ?? point.name)[lang]
+          .split("\n")
+          .map((line, i) => <RichText key={i} text={line} />),
+        photo: photo ? { ...photo, alt: photo.alt[lang] } : null,
+        directionsDestination: point.mapLocation
+          ? `${point.mapLocation.latitude},${point.mapLocation.longitude}`
+          : point.address,
+        position: mapDesign.pins[point.code],
+      };
+    }),
   }));
   return (
     <>
@@ -77,7 +88,7 @@ export default async function MapsPage() {
               lang={lang}
               groups={groups}
               artwork={mapDesign.artwork}
-              origin={mapDesign.origin.name[lang]}
+              origin={`${mapDesign.origin.latitude},${mapDesign.origin.longitude}`}
               ui={ui}
             />
           </main>

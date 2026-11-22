@@ -1,5 +1,80 @@
 # Design QA
 
+## Map location card — 22 November 2026
+
+**Final result: passed** for the selected-location card in headless Microsoft Edge.
+
+### Source and comparison
+
+- Source: `D:/XMAI GRAD/workspace/File/SVG/web final-18.svg`, SHA256
+  `21a164a06273320dc6348abbcf1872e923d02f1926d35fa5b9cfd458460d8c33`.
+  The 1151.6 × 1965 board contains five PLACE variants. Its external image files
+  were not supplied; the corresponding existing location covers were substituted
+  in the reference rendering. The source frame, close control, photo mask/rules
+  and badge were extracted directly by `scripts/map-art/extract-card.py`.
+- Implementation: `http://localhost:3000/vi/maps?to=hoang-thanh-thang-long`,
+  selected D01, desktop viewport 1920 × 1600, deviceScaleFactor 1.
+- [Full map](research/design/evidence/map-card/card-map.png): the 314.5 × 415.1 CSS-pixel
+  card aligns with the legend's right edge and sits 37 comp units above it.
+  The list remains available; the selected pin is brought beside the card within
+  the existing hard map bounds.
+- [Focused, side-by-side comparison](research/design/evidence/map-card/card-comparison.png):
+  native D01 source crop 314.6 × 415.1 and implementation 314.5 × 415.1,
+  each normalized to 315 × 415 pixels in a 670 × 455 comparison capture.
+  Source and implementation use the same canonical photo. The map visible through
+  the implementation's transparent corners is expected.
+- [Narrow layout](research/design/evidence/map-card/card-mobile.png): viewport
+  390 × 844, full-page capture. The card follows the 320px map surface and remains
+  above the legend; all controls fit at 320, 390, 1280 and 1920 widths.
+
+### Findings and iteration history
+
+1. Initial comparison: [P2] the photo caption said ĐỊA instead of the source's
+   D01, and the Explore action wrapped. Replaced the caption with the selected
+   location code and corrected action sizing. Adjusted title sizing and the
+   D01 photo crop. [P2] the card covered central selected pins; selection now
+   uses the measured card rectangle to place the pin in the unobstructed map area.
+2. Verification across the other layers found a four-line craft quote crowding
+   the action. Widened the quote area for TASTE/CRAFT. Eagerly request the selected
+   photo and show the localized fallback when absent or failed.
+3. Re-captured the final comparison and full map after these fixes. No actionable
+   P0/P1/P2 differences remain within this scope.
+
+### Required fidelity surfaces
+
+- **Typography:** existing Phudu/Inter fonts and designer-drawn headline glyphs;
+  two-line PLACE titles, source-sized labels/actions, separate readable English
+  and TASTE/CRAFT sizing. Minor outlined-font versus live-font differences remain P3.
+- **Layout:** original shaped frame, stepped image strip, code, close button,
+  staggered title/address, quote, Explore action and badge. Sidebar rows persist
+  and mark selection. On mobile the card moves below the map intentionally.
+- **Colors:** original white/lavender card artwork, navy PLACE text and lime action;
+  TASTE/CRAFT inherit the existing red/teal text and orange/purple accents.
+  Arrow masks reuse the source asset and follow the action color.
+- **Assets:** original vectors, live location photos, and existing theme pins.
+  No rasterized card or invented location photography. TASTE/CRAFT records without
+  real photos retain a localized unavailable state. Exact missing-source photo
+  reproduction cannot be claimed.
+- **Content:** content remains sourced through `src/content`, including names,
+  addresses, headlines, quotes, image alt text and destination coordinates.
+  Current canonical addresses take precedence over outlined reference copy.
+  UI strings reuse both existing dictionaries. Directions opens Google Maps in
+  a new tab from the configured university origin; no in-app route or time is claimed.
+
+### Verification
+
+- [24 card checks](research/design/evidence/map-card/card-results.json): all twelve
+  locations in both languages; persistent list, selected pin, card placement,
+  close/focus restoration, destination URLs, direct links, Escape, layout bounds,
+  and failed-image fallback. No captured page errors.
+- [Map bounds regression](research/design/evidence/map-card/bounds-results.json):
+  mouse drag, keyboard pan/zoom, emulated pinch, resize and selection at three widths;
+  no exposed artwork edges beyond pixel-rounding tolerance.
+- Changed-code formatting, lint, typecheck, 44 unit tests and production build pass.
+  All five extracted SVG assets parse. The build retains the existing 109 untranslated
+  content-field fallbacks. Physical touch devices and screen-reader audio were not tested.
+- No commit, push, deployment, package or SPEC change.
+
 ## Map v2 interface — 21 November 2026
 
 **Final result: passed** for the interface-first scope in headless Microsoft Edge.
