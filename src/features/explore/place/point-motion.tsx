@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { type ReactNode, useRef } from "react";
+import { scrollToImmediate } from "@/components/smooth-scroll";
 import {
   arrivalScale,
   computeArrivalFrame,
@@ -57,7 +58,7 @@ export function PointMotion({
       // Reset scroll before measuring [data-media] or in-view fold checks whenever
       // we arrived via a gate select (`router.push(..., { scroll: false })`).
       if (consumeGateScrollReset()) {
-        window.scrollTo({ top: 0, behavior: "instant" });
+        scrollToImmediate(0);
       }
 
       gsap.matchMedia().add(MOTION, () => {

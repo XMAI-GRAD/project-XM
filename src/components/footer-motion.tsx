@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
+import { SCRUB_SMOOTH } from "@/features/home/motion/timing";
 
 /** How far each row rises into place, in comp units. */
 const RISE = 120;
@@ -10,7 +11,7 @@ const ROW_GAP = 0.3;
 /** Within a row, the delay between its columns. */
 const COLUMN_GAP = 0.06;
 /** Seconds the rows take to catch up with the scroll, so they glide. */
-const SMOOTH = 1;
+const SMOOTH = SCRUB_SMOOTH;
 
 /**
  * The footer's arrival, tied to the scroll: as it comes up, a navy band shows first,

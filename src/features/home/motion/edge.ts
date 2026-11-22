@@ -1,6 +1,7 @@
 "use client";
 
 import { gsap, ScrollTrigger } from "./gsap";
+import { SCRUB_SMOOTH } from "./timing";
 
 /** How far an element sinks as it nears the window's foot, or rises as it nears
  *  its head, in comp units: the footer's rise (src/components/footer-motion.tsx). */
@@ -14,7 +15,7 @@ const GONE_AT = 0.95;
 const SHOWN_ABOVE = 0.1;
 const GONE_ABOVE = 0;
 /** Seconds it takes to catch up with the scroll, so it glides. */
-const SMOOTH = 1;
+const SMOOTH = SCRUB_SMOOTH;
 
 type Edge = {
   el: HTMLElement | SVGElement;
