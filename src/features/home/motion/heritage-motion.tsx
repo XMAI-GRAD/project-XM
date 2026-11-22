@@ -1,7 +1,8 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
-import { CLEAR_WORD, homeEnter, gsap, MOTION, useGSAP } from "./gsap";
+import { edgeMotion } from "./edge";
+import { CLEAR_WORD, homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
 
 /** Hidden to the right of the left edge → fully shown; the vertical slack keeps
  *  accents and the thin "+" uncut, since the text box is trimmed to its capitals. */
@@ -13,6 +14,9 @@ const LINE_GAP = 0.3;
 const WORD_GAP = 0.05;
 /** How far a line of the title travels in from the side, in comp units. */
 const WEAVE = 140;
+/** How far a hovered accent phrase lifts, as a share of its words' height. */
+const LIFT = -10;
+
 /** Shown → wiped away from the left; the vertical slack covers the accents. */
 const COVERED = "inset(-50% 0% -50% 0%)";
 const UNCOVERED = "inset(-50% 0% -50% 100%)";
@@ -82,8 +86,12 @@ export function HeritageMotion({
 
   useGSAP(
     () => {
-      gsap.matchMedia().add(MOTION, () => {
+      gsap.matchMedia().add(MOTION, (context) => {
         const q = gsap.utils.selector(root);
+        const edge = edgeMotion(
+          context,
+          () => root.current!.getBoundingClientRect().width / 1920,
+        );
 
         const title = q<HTMLElement>("h2")[0];
         const navy = getComputedStyle(title).color;
@@ -138,7 +146,98 @@ export function HeritageMotion({
           end - 0.6,
         );
 
+        // Once played in, "Từ 2019", the title and the paragraphs sink away at the
+        // window's foot and rise back, like the footer; the numbers too, once theirs.
+        // Once inked, hovering an accented phrase ("di sản", "làng nghề", "sáng
+        // tạo": the words of one tone) lifts it a touch, and it settles back as the
+        // pointer leaves. Its words then lose their transform (CLEAR_WORD).
+        const hover = window.matchMedia(HOVER);
+        const off: (() => void)[] = [];
+        const phrases = new Map<string, HTMLElement[]>();
+        for (const w of words.filter((w) => w.dataset.tone))
+          phrases.set(w.dataset.tone!, [
+            ...(phrases.get(w.dataset.tone!) ?? []),
+            w,
+          ]);
+        // Hit-tested against where each phrase sits at rest, as one box over its
+        // words and the gap between them: a lifted phrase that rises out from under
+        // the pointer stays hovered instead of bobbing.
+        const restBox = (phrase: HTMLElement[]) => {
+          const boxes = phrase.map((w) => {
+            const r = w.getBoundingClientRect();
+            const y =
+              Number(gsap.getProperty(w, "y")) +
+              (Number(gsap.getProperty(w, "yPercent")) * r.height) / 100;
+            return {
+              left: r.left,
+              right: r.right,
+              top: r.top - y,
+              bottom: r.bottom - y,
+            };
+          });
+          return {
+            left: Math.min(...boxes.map((b) => b.left)),
+            right: Math.max(...boxes.map((b) => b.right)),
+            top: Math.min(...boxes.map((b) => b.top)),
+            bottom: Math.max(...boxes.map((b) => b.bottom)),
+          };
+        };
+        let lifted: HTMLElement[] | null = null;
+        const lift = (phrase: HTMLElement[] | null) => {
+          if (phrase === lifted) return;
+          if (lifted)
+            gsap.to(lifted, {
+              yPercent: 0,
+              duration: 0.45,
+              ease: "power2.out",
+              overwrite: true,
+              clearProps: CLEAR_WORD,
+            });
+          lifted = phrase;
+          if (phrase)
+            gsap.to(phrase, {
+              yPercent: LIFT,
+              duration: 0.35,
+              ease: "back.out(2.5)",
+              overwrite: true,
+            });
+        };
+        const move = (e: PointerEvent) => {
+          if (!hover.matches) return;
+          const under = [...phrases.values()].find((phrase) => {
+            const b = restBox(phrase);
+            return (
+              e.clientX >= b.left &&
+              e.clientX <= b.right &&
+              e.clientY >= b.top &&
+              e.clientY <= b.bottom
+            );
+          });
+          lift(under ?? null);
+        };
+        const leave = () => lift(null);
+        const accent = () => {
+          title.addEventListener("pointerover", move);
+          title.addEventListener("pointermove", move);
+          title.addEventListener("pointerleave", leave);
+          off.push(() => {
+            title.removeEventListener("pointerover", move);
+            title.removeEventListener("pointermove", move);
+            title.removeEventListener("pointerleave", leave);
+          });
+        };
+
+        intro.eventCallback("onComplete", () => {
+          edge.add([
+            ...q<HTMLElement>('[data-motion="since"]'),
+            title,
+            ...q<HTMLElement>('[data-motion="heritage-body"]'),
+          ]);
+          accent();
+        });
+
         const tl = gsap.timeline({
+          onComplete: () => edge.add(q<HTMLElement>('[data-motion="number"]')),
           scrollTrigger: {
             trigger: q('[data-motion="numbers"]')[0],
             start: homeEnter(q('[data-motion="numbers"]')[0], 0.8),
@@ -163,11 +262,13 @@ export function HeritageMotion({
           );
         });
 
-        return () =>
+        return () => {
+          off.forEach((f) => f());
           covers.forEach((cover) => {
             cover.parentElement?.style.removeProperty("position");
             cover.remove();
           });
+        };
       });
     },
     { scope: root },
