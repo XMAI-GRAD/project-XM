@@ -2,24 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, type Ref } from "react";
+import {
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+  type Ref,
+} from "react";
+import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { DesignMapPoint } from "./types";
 import s from "./map.module.css";
 
-/** The selected-place card from web final-18.svg, with live content and links. */
-export function LocationCard({
-  point,
-  layerName,
-  lang,
-  id,
-  titleId,
-  titleRef,
-  origin,
-  onClose,
-  ui,
-}: {
+export interface LocationCardControls {
+  dismiss: (complete: () => void) => void;
+  cancelDismiss: () => void;
+}
+type CardProps = {
   point: DesignMapPoint;
   layerName: string;
   lang: Locale;
@@ -29,32 +29,226 @@ export function LocationCard({
   origin: string;
   onClose: () => void;
   ui: Dictionary["maps"];
+};
+
+/** Keep the source frame in place while the selected location crossfades. */
+export function LocationCard({
+  ref,
+  ...props
+}: CardProps & { ref: Ref<LocationCardControls> }) {
+  const root = useRef<HTMLElement>(null);
+  const controls = useRef<LocationCardControls | null>(null);
+  const [content, setContent] = useState<{
+    current: DesignMapPoint;
+    previous: DesignMapPoint | null;
+  }>({ current: props.point, previous: null });
+  if (content.current.slug !== props.point.slug)
+    setContent({ current: props.point, previous: content.current });
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      dismiss: (complete) => controls.current?.dismiss(complete),
+      cancelDismiss: () => controls.current?.cancelDismiss(),
+    }),
+    [],
+  );
+  useGSAP(
+    () => {
+      const card = root.current!;
+      const current = card.querySelector<HTMLElement>("[data-card-current]")!;
+      const ghost = card.querySelector<HTMLElement>("[data-card-ghost]");
+      const media = gsap.matchMedia();
+      media.add(
+        { motion: MOTION, reduced: "(prefers-reduced-motion: reduce)" },
+        (context) => {
+          let exit: gsap.core.Timeline | undefined;
+          let completeExit: (() => void) | undefined;
+          const entrance = gsap.timeline();
+          if (context.conditions?.motion) {
+            if (ghost) {
+              entrance
+                .fromTo(
+                  ghost,
+                  { opacity: 1 },
+                  { opacity: 0, duration: 0.22 },
+                  0,
+                )
+                .from(
+                  current,
+                  { opacity: 0, duration: 0.26, ease: "power1.out" },
+                  0,
+                );
+            } else {
+              entrance
+                .from(
+                  card,
+                  {
+                    clipPath: "inset(0 0 100% 0)",
+                    opacity: 0,
+                    duration: 0.38,
+                    ease: "power3.out",
+                  },
+                  0,
+                )
+                .from(
+                  current.querySelector(`.${s.cardPhoto}`),
+                  { opacity: 0, y: -8, duration: 0.3 },
+                  0.08,
+                )
+                .from(
+                  current.querySelector(`.${s.cardHeading}`),
+                  { opacity: 0, y: 8, duration: 0.3 },
+                  0.17,
+                )
+                .from(
+                  current.querySelector(`.${s.cardQuote}`),
+                  { opacity: 0, y: 6, duration: 0.25 },
+                  0.25,
+                )
+                .from(
+                  current.querySelectorAll(
+                    `.${s.cardExplore}, .${s.cardBadge}, .${s.cardDirections}`,
+                  ),
+                  { opacity: 0, y: 4, duration: 0.22, stagger: 0.035 },
+                  0.32,
+                );
+            }
+          }
+          const dismiss = context.add("dismiss", (complete: () => void) => {
+            if (exit) return;
+            if (!context.conditions?.motion) {
+              complete();
+              return;
+            }
+            completeExit = complete;
+            entrance.progress(1);
+            exit = gsap
+              .timeline({
+                onComplete: () => {
+                  completeExit = undefined;
+                  complete();
+                },
+              })
+              .to(current, {
+                opacity: 0,
+                y: -6,
+                duration: 0.13,
+                ease: "power1.in",
+              })
+              .to(
+                card,
+                {
+                  clipPath: "inset(0 0 100% 0)",
+                  opacity: 0,
+                  duration: 0.15,
+                  ease: "power2.in",
+                },
+                0.07,
+              );
+          });
+          controls.current = {
+            dismiss: (complete) => dismiss(complete),
+            cancelDismiss: () => {
+              completeExit = undefined;
+              exit?.revert();
+              exit = undefined;
+            },
+          };
+          return () => {
+            controls.current = null;
+            // A preference change must not leave a closing card stranded on screen.
+            if (!window.matchMedia(MOTION).matches) completeExit?.();
+          };
+        },
+        root,
+      );
+      return () => media.revert();
+    },
+    { scope: root, dependencies: [props.point.slug], revertOnUpdate: true },
+  );
+
+  useEffect(() => {
+    const heading = root.current?.querySelector<HTMLHeadingElement>(
+      "[data-card-current] h3",
+    );
+    heading?.focus({ preventScroll: true });
+    if (window.matchMedia("(max-width: 800px)").matches)
+      root.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
+  }, [props.point.slug]);
+
+  return (
+    <article
+      ref={root}
+      id={props.id}
+      aria-labelledby={props.titleId}
+      className={s.locationCard}
+      data-layer={props.point.layer}
+      data-code={props.point.code}
+      lang={props.lang}
+    >
+      {content.previous && (
+        <div
+          className={s.cardContent}
+          data-card-ghost=""
+          data-layer={content.previous.layer}
+          data-code={content.previous.code}
+          lang={props.lang}
+          aria-hidden="true"
+          inert
+        >
+          <CardContent
+            {...props}
+            key={content.previous.slug}
+            point={content.previous}
+            titleId={undefined}
+            titleRef={undefined}
+          />
+        </div>
+      )}
+      <div
+        className={s.cardContent}
+        data-card-current=""
+        data-layer={props.point.layer}
+        data-code={props.point.code}
+        lang={props.lang}
+      >
+        <CardContent {...props} key={props.point.slug} />
+      </div>
+      <button
+        type="button"
+        className={s.cardClose}
+        aria-label={props.ui.closeCard}
+        onClick={props.onClose}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/maps/v2/card-close.svg" alt="" />
+      </button>
+    </article>
+  );
+}
+
+function CardContent({
+  point,
+  layerName,
+  lang,
+  titleId,
+  titleRef,
+  origin,
+  ui,
+}: Omit<CardProps, "titleId" | "titleRef"> & {
+  titleId?: string;
+  titleRef?: Ref<HTMLHeadingElement>;
 }) {
   const [imageFailed, setImageFailed] = useState(false);
   return (
-    <article
-      id={id}
-      aria-labelledby={titleId}
-      className={s.locationCard}
-      data-layer={point.layer}
-      data-code={point.code}
-      lang={lang}
-    >
+    <>
       <p className={s.cardMeta}>
         <span>
           {point.code.toUpperCase()} / {layerName}
         </span>
         <span>{ui.selectedPlace}</span>
       </p>
-      <button
-        type="button"
-        className={s.cardClose}
-        aria-label={ui.closeCard}
-        onClick={onClose}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/maps/v2/card-close.svg" alt="" />
-      </button>
       <div className={s.cardPhoto}>
         {point.photo && !imageFailed ? (
           <Image
@@ -110,6 +304,6 @@ export function LocationCard({
         <span>{ui.directionsTo}</span>
         <span className={s.cardArrow} aria-hidden="true" />
       </a>
-    </article>
+    </>
   );
 }

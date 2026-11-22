@@ -2,7 +2,6 @@
 
 import {
   useCallback,
-  useEffect,
   useId,
   useMemo,
   useRef,
@@ -10,13 +9,14 @@ import {
   useSyncExternalStore,
 } from "react";
 import dynamic from "next/dynamic";
+import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 import type { Layer } from "@/content";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { matchesMapSearch } from "../search";
 import type { DesignMapGroup, DesignMapPoint } from "./types";
 import type { DesignMapControls, DesignMapViewport } from "./map-canvas";
-import { LocationCard } from "./location-card";
+import { LocationCard, type LocationCardControls } from "./location-card";
 import s from "./map.module.css";
 
 const Canvas = dynamic(() => import("./map-canvas"), { ssr: false });
@@ -89,6 +89,7 @@ export function DesignMapExplorer({
     helpId = `${id}-help`;
   const [layer, setLayer] = useState<Layer>("place");
   const [query, setQuery] = useState("");
+  const [highlighted, setHighlighted] = useState<string | null>(null);
   const [legendOpen, setLegendOpen] = useState(false);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
@@ -98,6 +99,8 @@ export function DesignMapExplorer({
     canZoomOut: false,
   });
   const controls = useRef<DesignMapControls>(null);
+  const root = useRef<HTMLElement>(null);
+  const card = useRef<LocationCardControls>(null);
   const search = useRef<HTMLInputElement>(null);
   const cardTitle = useRef<HTMLHeadingElement>(null);
   const list = useRef<HTMLDivElement>(null);
@@ -116,7 +119,14 @@ export function DesignMapExplorer({
     () => group.points.filter((point) => matchesMapSearch(point, query)),
     [group, query],
   );
+  const highlight = useCallback((slug: string | null) => {
+    // Scrolling a focused pin into view can move the pointer out of a row.
+    // Keep keyboard focus linked even when that pointer-leave arrives later.
+    const focused = document.activeElement as HTMLElement | null;
+    setHighlighted(slug ?? focused?.dataset.point ?? null);
+  }, []);
   const select = useCallback((point: DesignMapPoint, source: HTMLElement) => {
+    card.current?.cancelDismiss();
     trigger.current = source;
     setQuery("");
     setLayer(point.layer);
@@ -126,19 +136,120 @@ export function DesignMapExplorer({
     setError(true);
     setViewport({ ready: false, canZoomIn: false, canZoomOut: false });
   }, []);
-  useEffect(() => {
-    if (!selected) return;
-    cardTitle.current?.focus({ preventScroll: true });
-    if (window.matchMedia("(max-width: 800px)").matches)
-      cardTitle.current
-        ?.closest("article")
-        ?.scrollIntoView({ block: "nearest", behavior: "instant" });
-  }, [selected]);
+  const previousLayer = useRef(activeLayer);
+  useGSAP(
+    () => {
+      const previous = previousLayer.current;
+      previousLayer.current = activeLayer;
+      const changed = previous !== activeLayer;
+      const media = gsap.matchMedia();
+      media.add(
+        MOTION,
+        () => {
+          if (changed) {
+            const oldDecoration = root.current?.querySelector(
+              `.${s.sidebarDecoration}[data-layer="${previous}"]`,
+            );
+            const decoration = root.current?.querySelector(
+              `.${s.sidebarDecoration}[data-layer="${activeLayer}"]`,
+            );
+            gsap.fromTo(
+              oldDecoration ?? [],
+              { opacity: 1 },
+              { opacity: 0, duration: 0.2 },
+            );
+            gsap.fromTo(
+              decoration ?? [],
+              { opacity: 0 },
+              { opacity: 1, duration: 0.35 },
+            );
+            if (decoration)
+              gsap.from(decoration.children, {
+                y: (i) => (i === 0 ? -10 : 10),
+                duration: 0.4,
+                ease: "power3.out",
+              });
+            gsap.from(
+              `.${s.resultSummary}, .${s.layerTitle}, .${s.layerIntro}`,
+              { opacity: 0, y: 4, duration: 0.25, stagger: 0.025 },
+            );
+          }
+          gsap.from(`.${s.listScroll} li, .${s.empty}`, {
+            opacity: 0,
+            y: changed ? 8 : 3,
+            duration: changed ? 0.28 : 0.16,
+            stagger: changed ? 0.025 : 0.01,
+            clearProps: "opacity,transform",
+            ease: "power2.out",
+          });
+        },
+        root,
+      );
+      return () => media.revert();
+    },
+    { scope: root, dependencies: [activeLayer, query], revertOnUpdate: true },
+  );
+
+  const previousHighlight = useRef<string | null>(null);
+  useGSAP(
+    () => {
+      const previous = previousHighlight.current;
+      previousHighlight.current = highlighted;
+      const media = gsap.matchMedia();
+      media.add(
+        MOTION,
+        () => {
+          for (const row of list.current?.querySelectorAll<HTMLButtonElement>(
+            "button[data-point]",
+          ) ?? []) {
+            const active = row.dataset.point === highlighted;
+            if (active || row.dataset.point === previous)
+              gsap.fromTo(
+                row.querySelector(`.${s.rowArrow}`),
+                { x: active ? 0 : 4 },
+                { x: active ? 4 : 0, duration: 0.17, ease: "power2.out" },
+              );
+          }
+        },
+        root,
+      );
+      return () => media.revert();
+    },
+    { scope: root, dependencies: [highlighted], revertOnUpdate: true },
+  );
+
+  useGSAP(
+    () => {
+      if (!legendOpen) return;
+      const media = gsap.matchMedia();
+      media.add(
+        MOTION,
+        () => {
+          gsap.from(`.${s.legendPopover}`, {
+            opacity: 0,
+            y: 10,
+            scale: 0.96,
+            transformOrigin: "right bottom",
+            duration: 0.22,
+            ease: "power2.out",
+          });
+        },
+        root,
+      );
+      return () => media.revert();
+    },
+    { scope: root, dependencies: [legendOpen], revertOnUpdate: true },
+  );
 
   function close() {
+    card.current?.dismiss(finishClose);
+  }
+
+  function finishClose() {
     if (selected) setLayer(selected.layer);
     writeSelection(null);
     requestAnimationFrame(() => {
+      if (new URLSearchParams(window.location.search).get("to")) return;
       if (trigger.current?.isConnected)
         trigger.current.focus({ preventScroll: true });
       else {
@@ -159,6 +270,7 @@ export function DesignMapExplorer({
 
   return (
     <section
+      ref={root}
       className={s.explorer}
       aria-label={ui.design.title}
       onKeyDown={(event) => {
@@ -180,21 +292,29 @@ export function DesignMapExplorer({
         aria-hidden="true"
       />
       <aside className={s.sidebar}>
-        <div
-          className={s.sidebarDecoration}
-          data-layer={activeLayer}
-          aria-hidden="true"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={
-              activeLayer === "place"
-                ? "/maps/v2/sidebar-decoration.svg"
-                : `/maps/v2/pin-${activeLayer}.svg`
-            }
-            alt=""
-          />
-        </div>
+        {groups.map((entry) => (
+          <div
+            key={entry.layer}
+            className={s.sidebarDecoration}
+            data-layer={entry.layer}
+            data-active={activeLayer === entry.layer}
+            aria-hidden="true"
+          >
+            {["top", "bottom"].map((part) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={part}
+                data-part={part}
+                src={
+                  entry.layer === "place"
+                    ? "/maps/v2/sidebar-decoration.svg"
+                    : `/maps/v2/pin-${entry.layer}.svg`
+                }
+                alt=""
+              />
+            ))}
+          </div>
+        ))}
         <div className={s.sidebarHead}>
           <h2>{ui.design.title}</h2>
           <div className={s.searchBox}>
@@ -208,6 +328,7 @@ export function DesignMapExplorer({
               aria-describedby={hintId}
               autoComplete="off"
               onChange={(event) => {
+                setHighlighted(null);
                 setQuery(event.target.value);
                 if (selected) {
                   setLayer(selected.layer);
@@ -227,6 +348,7 @@ export function DesignMapExplorer({
                 type="button"
                 aria-label={ui.design.clear}
                 onClick={() => {
+                  setHighlighted(null);
                   setQuery("");
                   search.current?.focus();
                 }}
@@ -246,6 +368,7 @@ export function DesignMapExplorer({
                 data-layer={entry.layer}
                 aria-pressed={activeLayer === entry.layer}
                 onClick={() => {
+                  setHighlighted(null);
                   setLayer(entry.layer);
                   setQuery("");
                   writeSelection(null);
@@ -280,6 +403,17 @@ export function DesignMapExplorer({
                     <button
                       type="button"
                       data-point={point.slug}
+                      data-highlighted={highlighted === point.slug}
+                      onPointerEnter={() => highlight(point.slug)}
+                      onPointerLeave={(event) => {
+                        if (!event.currentTarget.matches(":focus"))
+                          highlight(null);
+                      }}
+                      onFocus={() => highlight(point.slug)}
+                      onBlur={(event) => {
+                        if (!event.currentTarget.matches(":hover"))
+                          highlight(null);
+                      }}
                       aria-pressed={selected?.slug === point.slug}
                       onClick={(event) => select(point, event.currentTarget)}
                       aria-controls={cardId}
@@ -326,6 +460,8 @@ export function DesignMapExplorer({
             artwork={artwork}
             points={visible}
             selected={selected?.slug ?? null}
+            highlighted={highlighted}
+            onHighlight={highlight}
             cardId={cardId}
             helpId={helpId}
             onSelect={select}
@@ -355,7 +491,7 @@ export function DesignMapExplorer({
         )}
         {selected && (
           <LocationCard
-            key={selected.slug}
+            ref={card}
             point={selected}
             layerName={group.name}
             lang={lang}

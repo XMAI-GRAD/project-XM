@@ -183,6 +183,7 @@
   text-underline-offset: 5px;
 }
 .sidebarDecoration {
+  opacity: 0;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -191,9 +192,22 @@
   pointer-events: none;
   overflow: hidden;
 }
+.sidebarDecoration[data-active="true"] {
+  opacity: 1;
+}
 .sidebarDecoration img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+}
+.sidebarDecoration [data-part="top"],
+.pinSymbol [data-part="top"] {
+  clip-path: inset(0 0 50% 0);
+}
+.sidebarDecoration [data-part="bottom"],
+.pinSymbol [data-part="bottom"] {
+  clip-path: inset(50% 0 0 0);
 }
 .sidebarDecoration:not([data-layer="place"]) img {
   /* Match the full symbol's scale and crop in the original ĐỊA decoration. */
@@ -268,8 +282,12 @@
   text-align: left;
   gap: calc(12 * var(--u));
 }
-.listScroll li button:hover {
+.listScroll li button:hover,
+.listScroll li button[data-highlighted="true"] {
   background: #e6cdff50;
+}
+.listScroll li button[data-highlighted="true"] .rowArrow {
+  transform: translateX(4px);
 }
 .listScroll li button[aria-pressed="true"] {
   background: #e6cdff80;
@@ -370,48 +388,69 @@
   position: relative;
   background: transparent;
   border: 0;
-  border-radius: 50%;
+  border-radius: 0;
   color: #0d1855;
-  pointer-events: none;
-}
-.pin > img {
-  width: clamp(20px, calc(26.4 * var(--u)), 34px);
-  height: auto;
-  filter: drop-shadow(0 1px 0 #fff8f5);
   pointer-events: auto;
 }
-.mapSurface :global(.leaflet-marker-icon) .pin > img {
+.pinVisual {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.pinSymbol {
+  position: relative;
   width: clamp(20px, calc(26.4 * var(--u)), 34px);
+  aspect-ratio: 26.4 / 16.7;
+  filter: drop-shadow(0 1px 0 #fff8f5);
+  pointer-events: none;
 }
-.mapSurface :global(.leaflet-marker-icon) .pin[data-layer="taste"] > img {
+.pinSymbol img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.pin[data-layer="taste"] .pinSymbol {
   width: clamp(18px, calc(21.9 * var(--u)), 30px);
+  aspect-ratio: 21.9 / 16.7;
 }
-.pin[data-layer="taste"] > img {
-  width: clamp(18px, calc(21.9 * var(--u)), 30px);
+.pin[data-layer="taste"] {
+  color: var(--brick-red);
 }
-.pin[aria-pressed="true"] {
-  background: #fff8f5df;
-  box-shadow: 0 0 0 2px #273991;
+.pin[data-layer="craft"] {
+  color: var(--dark-cyan);
+}
+.pin:disabled {
+  pointer-events: none;
 }
 .pinLabel {
   display: none;
   position: absolute;
   left: 50%;
   bottom: 100%;
-  transform: translateX(-50%);
+  transform: translate(calc(-50% + var(--label-x, 0px)), var(--label-y, 0px));
   padding: 6px 10px;
   max-width: 220px;
   width: max-content;
   background: #fff8f5;
   box-shadow: 0 2px 12px #0d185520;
-  border: 1px solid #7484c4;
-  color: #0d1855;
+  border: 0;
+  border-bottom: 2px solid currentColor;
+  color: inherit;
   font: 500 12px / 1.4 var(--font-body);
   pointer-events: none;
 }
 .pin:hover .pinLabel,
+.pin[aria-pressed="true"] .pinLabel,
+.pin[data-highlighted="true"] .pinLabel,
 .pin:focus-visible .pinLabel {
   display: block;
+}
+.pin[aria-pressed="true"] .pinLabel {
+  font-weight: 600;
 }
 .compass {
   position: absolute;
@@ -516,11 +555,22 @@
   color: var(--card-ink);
   background: url("/maps/v2/card-frame.svg") center / 100% 100% no-repeat;
 }
-.locationCard[data-layer="taste"] {
+.cardContent {
+  --card-ink: var(--navy-400);
+  --card-accent: #bfd100;
+  position: absolute;
+  inset: 0;
+  color: var(--card-ink);
+}
+.cardContent[data-card-ghost] {
+  opacity: 0;
+  pointer-events: none;
+}
+.cardContent[data-layer="taste"] {
   --card-ink: var(--brick-red);
   --card-accent: #ffaf26;
 }
-.locationCard[data-layer="craft"] {
+.cardContent[data-layer="craft"] {
   --card-ink: var(--dark-cyan);
   --card-accent: #c68fff;
 }
@@ -559,7 +609,7 @@
 .cardPhoto > img {
   object-fit: cover;
 }
-.locationCard[data-code="d01"] .cardPhoto > img {
+.cardContent[data-code="d01"] .cardPhoto > img {
   transform: scale(1.09);
   object-position: center 52%;
 }
@@ -620,26 +670,26 @@
   font-size: calc(8.5 * var(--cu));
   line-height: 1.3;
 }
-.locationCard[data-code="d01"] .cardAddress {
+.cardContent[data-code="d01"] .cardAddress {
   top: calc(57.9 * var(--cu));
   max-width: calc(80 * var(--cu));
 }
-.locationCard[data-code="d02"] .cardAddress,
-.locationCard[data-code="d04"] .cardAddress {
+.cardContent[data-code="d02"] .cardAddress,
+.cardContent[data-code="d04"] .cardAddress {
   top: calc(8.5 * var(--cu));
   left: calc(147 * var(--cu));
   max-width: calc(109 * var(--cu));
 }
-.locationCard[data-code="d05"] .cardAddress {
+.cardContent[data-code="d05"] .cardAddress {
   top: calc(55 * var(--cu));
 }
-.locationCard[lang="en"] .cardHeading h3,
-.locationCard:not([data-layer="place"]) .cardHeading h3 {
+.cardContent[lang="en"] .cardHeading h3,
+.cardContent:not([data-layer="place"]) .cardHeading h3 {
   font-size: calc(29 * var(--cu));
   line-height: calc(30 * var(--cu));
 }
-.locationCard[lang="en"] .cardAddress,
-.locationCard:not([data-layer="place"]) .cardAddress {
+.cardContent[lang="en"] .cardAddress,
+.cardContent:not([data-layer="place"]) .cardAddress {
   top: calc(78.8 * var(--cu));
   left: 0;
   max-width: 100%;
@@ -656,7 +706,7 @@
 .cardQuote span {
   display: block;
 }
-.locationCard:not([data-layer="place"]) .cardQuote {
+.cardContent:not([data-layer="place"]) .cardQuote {
   width: calc(225 * var(--cu));
 }
 .cardQuote span:first-child::before {

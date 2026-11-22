@@ -6,6 +6,7 @@ import { HomeHeader } from "@/features/home/home-header";
 import { RichText } from "@/features/home/rich-text";
 import h from "@/features/home/home.module.css";
 import { DesignMapExplorer } from "@/features/maps/v2/explorer";
+import { MapPageMotion } from "@/features/maps/v2/page-motion";
 import s from "@/features/maps/v2/map.module.css";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, pageMetadata } from "@/i18n/server";
@@ -61,7 +62,7 @@ export default async function MapsPage() {
             alt=""
             aria-hidden="true"
           />
-          <main id={`map-explorer-${lang}`} tabIndex={-1}>
+          <MapPageMotion id={`map-explorer-${lang}`}>
             <h1 className={s.heading}>
               {lang === "vi" ? (
                 <>
@@ -91,7 +92,7 @@ export default async function MapsPage() {
               origin={`${mapDesign.origin.latitude},${mapDesign.origin.longitude}`}
               ui={ui}
             />
-          </main>
+          </MapPageMotion>
         </div>
       </div>
       <SiteFooter lang={lang} />

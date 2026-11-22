@@ -1,5 +1,65 @@
 # Design QA
 
+## Map location focus — 22 November 2026
+
+**Final result: passed.** Following owner review, circular selection outlines and
+pulses are replaced by the theme icon growing 35% and lifting 6px. Its name stays
+visible in a compact label with a theme-colored underline. Hovering or focusing
+another location preserves the selected icon's emphasis. Closing the card clears
+selection. Reduced motion applies the same final appearance immediately.
+
+Labels stay inside the map and clear of the info card, including during pan/zoom.
+Keyboard focus retains a visible rectangular outline. The source icons, camera
+bounds, and card interactions are preserved.
+
+Validated all 12 locations at 1920 and 390 widths across VI/EN and both motion
+preferences: **48 selection checks**, no page errors. Scoped formatting, ESLint,
+and TypeScript pass. Inspected rendered PLACE and CRAFT selections. Evidence:
+[PLACE](research/design/evidence/map-focus/focus-vi-place.png),
+[CRAFT](research/design/evidence/map-focus/focus-vi-craft.png),
+[mobile](research/design/evidence/map-focus/focus-en-mobile.png),
+[results](research/design/evidence/map-focus/focus-results.json).
+
+## Map motion — 22 November 2026
+
+**Final result: passed** in the approved headless Microsoft Edge workflow.
+This records the initial motion pass; its circular selection treatment is
+superseded by the location-focus revision above.
+
+- Page heading/rule and explorer arrive in sequence. Theme changes crossfade the
+  existing decoration, unfold the source pin halves, and introduce the new rows.
+  Search results and the legend have short reveals. Nothing loops while idle.
+- Pointer hover and keyboard focus link each row with its pin and label. Selecting
+  a place pulses one ring and moves a covered/offscreen pin into view. Camera
+  motion is bounded on every frame and stops on pointer/touch/keyboard input.
+  Repeated zoom presses accumulate. The card reveals its photo, title, quote and
+  actions; subsequent selections crossfade inside the same frame. Close restores
+  focus after its exit. A new selection cancels an in-progress close.
+- All motion uses GSAP through useGSAP and matchMedia. Reduced motion displays
+  final states immediately. Changing the preference while closing a card or
+  focusing a pin is handled. Cached locale pages dispose their maps and recreate
+  one active map on return; navigation during card exit causes no stale callbacks.
+- Motion checks at 1920 and 390 widths with both preferences sampled **6,121
+  frames with zero exposed artwork edges**, including rapid theme/query changes,
+  card swaps, camera interruption, reset, zoom and preference changes. No page
+  errors or GSAP warnings. Fixed a mobile pointer-leave event that cleared linked
+  focus after scrolling, and verified a single pulse during rapid selection.
+- Existing mouse/keyboard/pinch/resize bounds checks pass at 1920/1280/390.
+  All 24 VI/EN card cases, 320/390/1280/1920 layouts, links, focus restoration,
+  direct links and image fallback pass. Screenshots were inspected at rest to
+  verify the source layout is preserved. Physical devices and other browser
+  engines were not tested.
+- Scoped formatting and ESLint, TypeScript, all **44 tests**, and the production
+  build pass. The existing 109 untranslated fields still fall back to Vietnamese.
+  SPEC is unchanged. No commit or push.
+
+Evidence: [desktop](research/design/evidence/map-motion/motion-1920-no-preference.png),
+[mobile](research/design/evidence/map-motion/motion-390-no-preference.png),
+[motion checks](research/design/evidence/map-motion/motion-results.json),
+[navigation cleanup](research/design/evidence/map-motion/motion-cleanup-results.json),
+[bounds](research/design/evidence/map-motion/bounds-results.json),
+[card regression](research/design/evidence/map-motion/card-results.json).
+
 ## Map location card — 22 November 2026
 
 **Final result: passed** for the selected-location card in headless Microsoft Edge.

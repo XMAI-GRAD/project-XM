@@ -1,0 +1,23 @@
+[
+  {
+    "width": 1920,
+    "frames": 494,
+    "blankEdges": 0,
+    "mouseKeyboardPinchResizeSelection": "passed",
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "frames": 475,
+    "blankEdges": 0,
+    "mouseKeyboardPinchResizeSelection": "passed",
+    "errors": []
+  },
+  {
+    "width": 390,
+    "frames": 461,
+    "blankEdges": 0,
+    "mouseKeyboardPinchResizeSelection": "passed",
+    "errors": []
+  }
+]
