@@ -1,5 +1,17 @@
 # Design QA
 
+## Local dev merge — 22 November 2026
+
+Merged dev `8f8c30e` into the map branch without conflicts. Map detail links now
+use the incoming theme-specific Explore URLs. Full formatting/lint/type checks,
+61 tests and the 103-page production build pass. Rechecked all 48 route cases,
+theme tabs, search, tools and legend in VI/EN on desktop/mobile. Navigation checks
+cover all 24 localized detail URLs, three actual detail-page visits per language,
+Back navigation, the Explore menu and homepage; no browser page errors.
+
+See the [merge record](docs/plans/2026-11-22-map-dev-merge.md) and
+[navigation evidence](research/design/evidence/map-merge/navigation-results.json).
+
 ## Enlarged legend — 22 November 2026
 
 The legend popup now contains only its original SVG artwork and a close button.

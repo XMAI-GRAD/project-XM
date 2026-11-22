@@ -48,6 +48,13 @@
 [data-layer="place"] .layerName {
   color: var(--lime-600);
 }
+/* VỊ and NGHỀ borrow this slide until their comps arrive: their names in their colours. */
+[data-layer="taste"] .layerName {
+  color: var(--sunflower-gold-600);
+}
+[data-layer="craft"] .layerName {
+  color: var(--mauve-600);
+}
 .caption {
   --x: 1145;
   --y: 417;

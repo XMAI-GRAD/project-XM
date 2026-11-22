@@ -25,12 +25,7 @@
     "en/hang-trong",
     "en/van-phuc"
   ],
-  "widths": [
-    1920,
-    1280,
-    390,
-    320
-  ],
+  "widths": [1920, 1280, 390, 320],
   "imageFailure": true,
   "errors": []
 }

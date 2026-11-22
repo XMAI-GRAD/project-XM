@@ -139,7 +139,8 @@ export interface Pages {
   about: {
     title: Localized;
     heading: Localized;
-    decision: { number: string; date: string };
+    /** The two words set beside the petal: right of it, then below left. */
+    petal: { right: Localized; left: Localized };
     intro: Localized;
     lede: Localized;
     unesco: { title: Localized; body: Localized<string[]> };
@@ -400,6 +401,8 @@ export const mapContextLabels = readMapContext(
 export const pointSlugs: ReadonlySet<string> = new Set(
   points.map((p) => p.slug),
 );
+
+export { detailPhoto } from "./photo.ts";
 
 export const getPoints = (layer: Layer) =>
   points.filter((p) => p.layer === layer);

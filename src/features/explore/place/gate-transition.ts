@@ -24,20 +24,57 @@ let pendingHandoff: GateHandoff | null = null;
 /** Set whenever a gate select navigates with `scroll: false`; consumed once on arrival. */
 let pendingScrollReset = false;
 
-/** Record the chosen gate photo's viewport rect (clamped into the viewport) before pushing. */
+/**
+ * Exit choreography durations (seconds). Navigation pushes at `handoffAt` as
+ * soon as the gate mask finishes opening into a rectangle, instead of waiting
+ * on trailing staggers.
+ */
+export const GATE_EXIT_TIMING = {
+  lift: 0.22,
+  mask: 0.2,
+  frame: 0.16,
+  label: 0.16,
+  others: 0.19,
+  othersStagger: 0.01,
+  heading: 0.2,
+  handoffAt: 0.2,
+} as const;
+
+/**
+ * Keep a gate's viewport rect as-is whenever it intersects the viewport (so a
+ * partially visible bottom gate doesn't jump upward on swap), and clamp only if
+ * the rect is completely offscreen.
+ */
+export function clampGateRect(
+  rect: { left: number; top: number; width: number; height: number },
+  viewport: { width: number; height: number },
+): { left: number; top: number; width: number; height: number } {
+  const width = Math.min(rect.width, viewport.width);
+  const height = Math.min(rect.height, viewport.height);
+  const intersectsX = rect.left + rect.width > 0 && rect.left < viewport.width;
+  const intersectsY = rect.top + rect.height > 0 && rect.top < viewport.height;
+  const left = intersectsX
+    ? rect.left
+    : Math.max(0, Math.min(rect.left, viewport.width - width));
+  const top = intersectsY
+    ? rect.top
+    : Math.max(0, Math.min(rect.top, viewport.height - height));
+  return { left, top, width, height };
+}
+
+/** Record the chosen gate photo's viewport rect before pushing. */
 export function saveGateHandoff(
   slug: string,
   rect: DOMRect,
   naturalWidth = 0,
   naturalHeight = 0,
 ) {
-  const width = Math.min(rect.width, window.innerWidth);
-  const height = Math.min(rect.height, window.innerHeight);
-  const left = Math.max(0, Math.min(rect.left, window.innerWidth - width));
-  const top = Math.max(0, Math.min(rect.top, window.innerHeight - height));
   pendingHandoff = {
     slug,
-    rect: { left, top, width, height },
+    rect: clampGateRect(rect, {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    }),
     naturalWidth,
     naturalHeight,
     at: Date.now(),
@@ -117,6 +154,20 @@ export function attachGateTransition({
   let exiting = false;
   let exitTl: gsap.core.Timeline | null = null;
   const prefetched = new Set<string>();
+  const preloadedHeroes = new Set<string>();
+
+  const preloadHero = (link: HTMLAnchorElement, href: string) => {
+    if (preloadedHeroes.has(href) || typeof Image === "undefined") return;
+    const src = link.getAttribute("data-gate-hero-src");
+    const srcset = link.getAttribute("data-gate-hero-srcset");
+    if (!src && !srcset) return;
+    preloadedHeroes.add(href);
+    const img = new Image();
+    const sizes = link.getAttribute("data-gate-hero-sizes");
+    if (sizes) img.sizes = sizes;
+    if (srcset) img.srcset = srcset;
+    if (src) img.src = src;
+  };
 
   const getGates = () =>
     Array.from(scope.querySelectorAll<HTMLElement>("[data-explore-gate]"));
@@ -166,7 +217,9 @@ export function attachGateTransition({
     );
     if (!link || !scope.contains(link)) return;
     const href = link.getAttribute("href");
-    if (!href || prefetched.has(href)) return;
+    if (!href) return;
+    preloadHero(link, href);
+    if (prefetched.has(href)) return;
     prefetched.add(href);
     router.prefetch(href);
   };
@@ -195,6 +248,7 @@ export function attachGateTransition({
     if (exiting) return;
     exiting = true;
 
+    preloadHero(link, href);
     if (!prefetched.has(href)) {
       prefetched.add(href);
       router.prefetch(href);
@@ -248,12 +302,18 @@ export function attachGateTransition({
       chosenMaskPath.dataset.origD = chosenMaskPath.getAttribute("d") ?? "";
     }
 
-    exitTl = gsap.timeline({
-      onComplete: () => {
+    exitTl = gsap.timeline();
+
+    // Push as soon as the gate mask finishes opening into a plain rectangle
+    // rather than waiting on trailing staggers or timeline onComplete.
+    exitTl.call(
+      () => {
         saveGateHandoff(slug, chosenPhoto.getBoundingClientRect(), nw, nh);
         router.push(href, { scroll: false });
       },
-    });
+      [],
+      GATE_EXIT_TIMING.handoffAt,
+    );
 
     // Chosen photo lifts immediately (< 50 ms) while scaling up into the flight
     // and opening its lime gate into a plain rectangle.
@@ -264,7 +324,7 @@ export function attachGateTransition({
           {
             scale: 1.04,
             transformOrigin: "50% 50%",
-            duration: 0.45,
+            duration: GATE_EXIT_TIMING.lift,
             ease: "power2.in",
           },
           0,
@@ -273,7 +333,7 @@ export function attachGateTransition({
           chosenSvg,
           {
             y: -22 * unit,
-            duration: 0.45,
+            duration: GATE_EXIT_TIMING.lift,
             ease: "power3.out",
           },
           0,
@@ -283,7 +343,7 @@ export function attachGateTransition({
     if (chosenFrame) {
       exitTl.to(
         chosenFrame,
-        { opacity: 0, duration: 0.3, ease: "power2.out" },
+        { opacity: 0, duration: GATE_EXIT_TIMING.frame, ease: "power2.out" },
         0,
       );
     }
@@ -293,7 +353,7 @@ export function attachGateTransition({
         chosenMask,
         {
           attr: { x: 0, y: 0, width: detailGateBox.w, height: detailGateBox.h },
-          duration: 0.42,
+          duration: GATE_EXIT_TIMING.mask,
           ease: "power2.inOut",
         },
         0,
@@ -305,7 +365,7 @@ export function attachGateTransition({
         chosenMaskPath,
         {
           morphSVG: GATE_OPEN_RECT,
-          duration: 0.42,
+          duration: GATE_EXIT_TIMING.mask,
           ease: "power2.inOut",
         },
         0,
@@ -319,7 +379,7 @@ export function attachGateTransition({
         {
           clipPath: LABEL_CLIPPED,
           yPercent: -100,
-          duration: 0.32,
+          duration: GATE_EXIT_TIMING.label,
           ease: "power2.in",
         },
         0,
@@ -333,8 +393,8 @@ export function attachGateTransition({
         {
           clipPath: OTHER_CLIPPED,
           y: -14 * unit,
-          duration: 0.4,
-          stagger: 0.02,
+          duration: GATE_EXIT_TIMING.others,
+          stagger: GATE_EXIT_TIMING.othersStagger,
           ease: "power2.in",
         },
         0,

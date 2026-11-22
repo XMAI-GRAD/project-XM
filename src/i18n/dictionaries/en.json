@@ -36,6 +36,7 @@
     "price": "Price range",
     "hours": "Opening hours",
     "directions": "Directions",
+    "directionsTo": "Get directions to {name}",
     "fact": "Little-known fact",
     "nearby": "Nearby",
     "listen": "Listen to the story",

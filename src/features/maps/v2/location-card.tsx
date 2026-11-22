@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { pointHref } from "@/features/explore/paths";
 import {
   useEffect,
   useImperativeHandle,
@@ -290,7 +291,7 @@ function CardContent({
           <span key={i}>{line}</span>
         ))}
       </blockquote>
-      <Link className={s.cardExplore} href={`/${lang}/explore/${point.slug}`}>
+      <Link className={s.cardExplore} href={pointHref(lang, point)}>
         <span>{ui.viewDetails}</span>
         <span className={s.cardArrow} aria-hidden="true" />
       </Link>

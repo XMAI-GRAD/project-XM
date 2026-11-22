@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useOptimistic, useRef, useState } from "react";
 import type { CurrentUser } from "@/features/auth/queries";
-import { FactMark } from "@/features/explore/art";
+import { FactMark } from "@/features/explore/place/art";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { CommentForm } from "./comment-form";

@@ -33,12 +33,11 @@
     en: ""
   address: 19C Hoàng Diệu
   hook:
-    vi: Thăng Long Hà Nội đô thành, / Nước non ai vẽ nên tranh họa đồ.
+    vi: Thăng Long Hà Nội đô thành, / Nước non ai vẽ nên tranh họa đồ
     en: ""
   story:
     vi:
-      - Từ thế kỷ 11, đây là {b:trung tâm chính trị} của nước Việt qua các triều Lý, Trần, Lê rồi Nguyễn. Mỗi triều dựng cung điện của mình lên trên nền của triều trước, nên lòng đất ở đây không phải một lớp mà là nhiều lớp chồng nhau.
-      - "Khu khảo cổ 18 Hoàng Diệu cho thấy rõ điều đó: móng cung điện của bốn thời kỳ nằm trong cùng một hố đào, cái sau cắt qua cái trước. Năm 2010, UNESCO công nhận {b:Hoàng thành} là Di sản Thế giới, đúng dịp Hà Nội tròn một nghìn tuổi."
+      - "Từ thế kỷ 11, đây là {b:trung tâm chính trị} của nước Việt qua các triều Lý, Trần, Lê rồi Nguyễn. Mỗi triều dựng cung điện của mình lên trên nền của triều trước, nên lòng đất ở đây không phải một lớp mà là nhiều lớp chồng nhau. Khu khảo cổ 18 Hoàng Diệu cho thấy rõ điều đó: móng cung điện của bốn thời kỳ nằm trong cùng một hố đào, cái sau cắt qua cái trước. Năm 2010, UNESCO công nhận {b:Hoàng thành} là Di sản Thế giới, đúng dịp Hà Nội tròn một nghìn tuổi."
     en: []
   fact:
     vi: Điện Kính Thiên không còn, nhưng đôi thềm rồng đá thời Lê vẫn nằm nguyên chỗ cũ. Bạn đang đứng đúng nơi vua từng ngồi.
@@ -51,10 +50,16 @@
   images:
     - src: /points/hoang-thanh-thang-long/cover.jpg
       width: 2400
-      height: 1600
+      height: 2154
       alt:
         vi: Cổng Đoan Môn bằng đá năm cửa vòm của Hoàng thành Thăng Long dưới bầu trời có mây.
         en: The five-arched stone Đoan Môn gate of the Thang Long Imperial Citadel beneath a cloudy sky.
+    - src: /points/hoang-thanh-thang-long/detail.jpg
+      width: 2400
+      height: 1483
+      alt:
+        vi: Toàn cảnh cổng Đoan Môn và lầu gác Hoàng thành Thăng Long cùng vườn hoa phía trước dưới trời mây.
+        en: Wide view of the Đoan Môn gate, upper pavilion and front gardens of the Thang Long Imperial Citadel under a cloudy sky.
 - slug: van-mieu-quoc-tu-giam
   code: d02
   mapLocation:
@@ -89,12 +94,11 @@
     en: ""
   address: 58 Quốc Tử Giám
   hook:
-    vi: Hiền tài là nguyên khí quốc gia.
+    vi: Hiền tài là nguyên khí quốc gia
     en: ""
   story:
     vi:
-      - "{b:Trường đại học đầu tiên của Việt Nam}, mở cửa từ năm 1076. {b:Văn Miếu} dựng năm 1070 để thờ Khổng Tử. Sáu năm sau, {b:Quốc Tử Giám} ra đời bên cạnh, ban đầu dạy con vua, rồi dần mở cho người tài khắp nước. Trong gần bảy trăm năm, đây là nơi đào tạo quan lại của cả quốc gia."
-      - Tám mươi hai tấm bia đá dựng trên lưng rùa ghi tên 1.307 tiến sĩ qua các khoa thi — danh sách đầy đủ nhất còn lại về trí thức Việt Nam thời quân chủ. Người đến đây hôm nay vẫn xoa đầu rùa trước mùa thi.
+      - "{b:Trường đại học đầu tiên của Việt Nam}, mở cửa từ năm 1076. {b:Văn Miếu} dựng năm 1070 để thờ Khổng Tử. Sáu năm sau, {b:Quốc Tử Giám} ra đời bên cạnh, ban đầu dạy con vua, rồi dần mở cho người tài khắp nước. Trong gần bảy trăm năm, đây là nơi đào tạo quan lại của cả quốc gia. Tám mươi hai tấm bia đá dựng trên lưng rùa ghi tên 1.307 tiến sĩ qua các khoa thi — danh sách đầy đủ nhất còn lại về trí thức Việt Nam thời quân chủ. Người đến đây hôm nay vẫn xoa đầu rùa trước mùa thi."
     en: []
   fact:
     vi: Khuê Văn Các mà ai cũng chụp ảnh chỉ dựng năm 1805 — trẻ hơn Văn Miếu hơn bảy trăm năm. Nay nó thành biểu tượng chính thức của Hà Nội.
@@ -107,10 +111,16 @@
   images:
     - src: /points/van-mieu-quoc-tu-giam/cover.jpg
       width: 2400
-      height: 1600
+      height: 2154
       alt:
         vi: Gác Khuê Văn Các sơn đỏ mái ngói cong giữa tán cây xanh ở Văn Miếu – Quốc Tử Giám.
         en: The red-lacquered Khuê Văn Các pavilion with curved tiled roofs framed by trees at the Temple of Literature.
+    - src: /points/van-mieu-quoc-tu-giam/detail.jpg
+      width: 2400
+      height: 1483
+      alt:
+        vi: Cận cảnh gác Khuê Văn Các hai tầng sơn đỏ với cửa tròn và mái ngói rêu phong giữa tán cây xanh.
+        en: Close-up of the two-story red-lacquered Khuê Văn Các pavilion with circular windows and weathered tiled roofs among green trees.
 - slug: ho-hoan-kiem-den-ngoc-son
   code: d03
   mapLocation:
@@ -145,12 +155,11 @@
     en: ""
   address: Đinh Tiên Hoàng
   hook:
-    vi: Rủ nhau xem cảnh Kiếm Hồ, / Xem cầu Thê Húc, xem chùa Ngọc Sơn.
+    vi: Rủ nhau xem cảnh Kiếm Hồ, / Xem cầu Thê Húc, / xem chùa Ngọc Sơn
     en: ""
   story:
     vi:
-      - "{b:Hồ Hoàn Kiếm} không phải nơi lớn nhất hay cổ nhất Hà Nội, nhưng là nơi thành phố tự nhận ra mình. Tên hồ gắn với truyền thuyết vua Lê trả gươm cho rùa thần sau khi đuổi xong giặc — một câu chuyện về việc buông quyền lực, không phải giành lấy nó."
-      - "{b:Đền Ngọc Sơn} trên đảo nối vào bờ bằng cầu Thê Húc sơn đỏ. Quanh hồ, mỗi sáng vẫn là người tập thể dục, mỗi cuối tuần là phố đi bộ."
+      - "{b:Hồ Hoàn Kiếm} không phải nơi lớn nhất hay cổ nhất Hà Nội, nhưng là nơi thành phố tự nhận ra mình. Tên hồ gắn với truyền thuyết vua Lê trả gươm cho rùa thần sau khi đuổi xong giặc — một câu chuyện về việc buông quyền lực, không phải giành lấy nó. {b:Đền Ngọc Sơn} trên đảo nối vào bờ bằng cầu Thê Húc sơn đỏ. Quanh hồ, mỗi sáng vẫn là người tập thể dục, mỗi cuối tuần là phố đi bộ."
     en: []
   fact:
     vi: Tháp Rùa giữa hồ chỉ dựng cuối thế kỷ 19, muộn hơn truyền thuyết nó gợi nhắc tới gần bốn trăm năm.
@@ -162,11 +171,17 @@
       km: 0.2
   images:
     - src: /points/ho-hoan-kiem-den-ngoc-son/cover.jpg
-      width: 1595
-      height: 2400
+      width: 2400
+      height: 2154
       alt:
         vi: Tháp Rùa cổ kính trên gò cỏ giữa mặt nước xanh hồ Hoàn Kiếm qua khung tán lá.
         en: Turtle Tower on its grassy islet in Hoan Kiem Lake, framed by overhanging tree leaves.
+    - src: /points/ho-hoan-kiem-den-ngoc-son/detail.jpg
+      width: 2400
+      height: 1484
+      alt:
+        vi: Tháp Rùa cổ kính giữa gò cỏ xanh trên mặt hồ Hoàn Kiếm, nhìn qua khung tán lá hai bên.
+        en: Turtle Tower on its grassy island in the green waters of Hoan Kiem Lake, framed by dark foliage on both sides.
 - slug: pho-co-36-pho-phuong
   code: d04
   mapLocation:
@@ -178,7 +193,7 @@
       vi: Điểm đại diện của khu phố cổ — Chợ Đồng Xuân
       en: Representative point for the Old Quarter — Đồng Xuân Market
   name:
-    vi: Phố cổ 36 phố phường
+    vi: Phố cổ – 36 phố phường
     en: The Old Quarter
   headline:
     vi: "Phố cổ\n– 36 phố phường"
@@ -199,17 +214,16 @@
   price:
     vi: Tham quan miễn phí
     en: ""
-  address: Hàng Đào – Đồng Xuân
+  address: Hàng Đào - Đồng Xuân
   hook:
     vi: Rủ nhau chơi khắp Long thành, / Ba sáu phố rành rành chẳng sai
     en: ""
   story:
     vi:
-      - "{b:Khu phố cổ} hình thành từ các làng nghề kéo về kinh thành buôn bán. Mỗi phố nhận một mặt hàng và lấy luôn tên hàng ấy: {b:Hàng Bạc} đúc bạc, {b:Hàng Trống} làm trống và vẽ tranh, {b:Hàng Thiếc} gò thiếc, {b:Hàng Đường} bán ô mai và bánh."
-      - Nhà ở đây là nhà ống — mặt tiền hẹp vì thuế tính theo bề ngang, nhưng sâu hun hút về phía sau, có sân trong lấy sáng. Nhiều phố nay đã đổi hàng, nhưng tên thì vẫn giữ nguyên nghề cũ.
+      - "{b:Khu phố cổ} hình thành từ các làng nghề kéo về kinh thành buôn bán. Mỗi phố nhận một mặt hàng và lấy luôn tên hàng ấy: {b:Hàng Bạc} đúc bạc, {b:Hàng Trống} làm trống và vẽ tranh, {b:Hàng Thiếc} gò thiếc, {b:Hàng Đường} bán ô mai và bánh. Nhà ở đây là nhà ống — mặt tiền hẹp vì thuế tính theo bề ngang, nhưng sâu hun hút về phía sau, có sân trong lấy sáng. Nhiều phố nay đã đổi hàng, nhưng tên thì vẫn giữ nguyên nghề cũ."
     en: []
   fact:
-    vi: Phố Chả Cá vốn tên Hàng Sơn, đổi tên theo món ăn của một hàng nổi tiếng trên phố — con phố duy nhất Hà Nội mang tên một món ăn.
+    vi: "Phố Chả Cá vốn tên Hàng Sơn, đổi tên theo món ăn của một hàng nổi tiếng trên phố — con phố duy nhất\nHà Nội mang tên một món ăn."
     en: ""
   nearby:
     - slug: hang-trong
@@ -219,10 +233,16 @@
   images:
     - src: /points/pho-co-36-pho-phuong/cover.jpg
       width: 2400
-      height: 1609
+      height: 2154
       alt:
         vi: Những ngôi nhà ống nhiều tầng sơn vàng cũ kỹ với chuồng cọp sắt ở khu phố cổ Hà Nội.
         en: Weathered yellow multi-story shophouses with iron window cages in Hanoi's Old Quarter.
+    - src: /points/pho-co-36-pho-phuong/detail.jpg
+      width: 2400
+      height: 1485
+      alt:
+        vi: Mặt đứng những ngôi nhà tập thể và nhà ống sơn vàng cũ kỹ với chuồng cọp sắt dưới nền trời xanh ở phố cổ Hà Nội.
+        en: Weathered yellow shophouses and old apartment facades with iron balcony cages against a blue sky in Hanoi's Old Quarter.
 - slug: cau-long-bien
   code: d05
   mapLocation:
@@ -256,12 +276,11 @@
     en: ""
   address: Trần Nhật Duật
   hook:
-    vi: Cầu Long Biên gù lưng người phu già, / Sớm chiều cõng chuông qua sông…
+    vi: Cầu Long Biên gù lưng người phu già, / Sớm chiều cõng chuông qua sông...
     en: ""
   story:
     vi:
-      - Khánh thành năm 1903 sau bốn năm xây dựng, {b:Long Biên} là cây cầu thép đầu tiên bắc qua sông Hồng, nối nội thành với vùng đất bên kia sông.
-      - Trong chiến tranh, cầu bị đánh bom nhiều lần, có nhịp gãy rồi được nối lại bằng dầm khác hẳn kiểu cũ — nên đến nay nhìn dọc thân cầu vẫn thấy rõ chỗ nào là nguyên bản, chỗ nào là vá. Tàu hỏa, xe máy và người đi bộ vẫn qua cầu mỗi ngày.
+      - Khánh thành năm 1903 sau bốn năm xây dựng, {b:Long Biên} là cây cầu thép đầu tiên bắc qua sông Hồng, nối nội thành với vùng đất bên kia sông. Trong chiến tranh, cầu bị đánh bom nhiều lần, có nhịp gãy rồi được nối lại bằng dầm khác hẳn kiểu cũ — nên đến nay nhìn dọc thân cầu vẫn thấy rõ chỗ nào là nguyên bản, chỗ nào là vá. Tàu hỏa, xe máy và người đi bộ vẫn qua cầu mỗi ngày.
     en: []
   fact:
     vi: Trên cầu Long Biên, xe chạy phía bên trái — thói quen từ thời Pháp còn giữ lại, khác mọi con đường khác ở Việt Nam.
@@ -273,8 +292,14 @@
       km: 1.8
   images:
     - src: /points/cau-long-bien/cover.jpg
-      width: 1692
-      height: 2400
+      width: 2400
+      height: 2154
       alt:
         vi: Nhịp cầu thép rỉ sét của cầu Long Biên chạy dọc đường ray xe lửa và làn xe máy.
         en: Weathered steel trusses of Long Bien Bridge running alongside the railway tracks and motorbike lane.
+    - src: /points/cau-long-bien/detail.jpg
+      width: 2400
+      height: 1485
+      alt:
+        vi: Dàn thép đỏ rỉ sét của cầu Long Biên dọc đường ray xe lửa giữa hai làn xe máy chạy qua cầu lúc hoàng hôn.
+        en: Rusted red steel trusses of Long Bien Bridge along the railway tracks flanked by motorbike lanes at dusk.

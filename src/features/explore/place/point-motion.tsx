@@ -3,13 +3,20 @@
 import { useRouter } from "next/navigation";
 import { type ReactNode, useRef } from "react";
 import {
+  arrivalScale,
+  computeArrivalFrame,
+  resolveArrival,
+  type Size,
+} from "@/features/explore/place/arrival-scale";
+import {
   attachGateTransition,
   consumeGateScrollReset,
+  GATE_EXIT_TIMING,
   type GateHandoff,
   LABEL_CLIPPED,
   LABEL_SHOWN,
   takeGateHandoff,
-} from "@/features/explore/gate-transition";
+} from "@/features/explore/place/gate-transition";
 import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 
 // Negative horizontal insets keep the clip vertical-only so wide children
@@ -28,10 +35,12 @@ const START = "top 88%";
  */
 export function PointMotion({
   slug,
+  heroSize,
   className,
   children,
 }: {
   slug: string;
+  heroSize?: Size;
   className: string;
   children: ReactNode;
 }) {
@@ -56,6 +65,10 @@ export function PointMotion({
         // router cache are cleared before reveal tweens set their initial clips.
         const gatesSection =
           article.querySelector<HTMLElement>("[data-point-gates]");
+        const layerLineSvg =
+          article.querySelector<SVGSVGElement>("[data-layer-line]");
+        const layerLine =
+          layerLineSvg?.querySelector<SVGGeometryElement>("path, line") ?? null;
         let detachTransition: (() => void) | null = null;
         if (gatesSection) {
           const header =
@@ -71,7 +84,7 @@ export function PointMotion({
                   {
                     clipPath: LABEL_CLIPPED,
                     yPercent: -60,
-                    duration: 0.42,
+                    duration: GATE_EXIT_TIMING.heading,
                     ease: "power2.in",
                   },
                   0,
@@ -79,16 +92,28 @@ export function PointMotion({
               }
             },
             extraResetTargets: () => (header ? [header] : []),
+            onReset: () => {
+              if (layerLine) {
+                gsap.killTweensOf(layerLine);
+                gsap.set(layerLine, { drawSVG: "0% 100%" });
+              }
+            },
           });
         }
 
         let arrivalTl: gsap.core.Timeline | null = null;
         let handoffRevealAt = 0;
 
+        // Cache Components keeps visited pages alive and re-runs this effect on
+        // show, so a fresh gate click must re-arm the flight on a revisit.
+        const next = resolveArrival(
+          { arrived: arrived.current, handoff: handoffRef.current },
+          takeGateHandoff(slug),
+        );
+        arrived.current = next.arrived;
+        handoffRef.current = next.handoff;
+
         if (!arrived.current) {
-          if (handoffRef.current === undefined) {
-            handoffRef.current = takeGateHandoff(slug);
-          }
           const handoff = handoffRef.current;
           const media = article.querySelector<HTMLElement>("[data-media]");
           const tl = gsap.timeline({
@@ -108,79 +133,78 @@ export function PointMotion({
             const gateRect = handoff.rect;
             if (heroRect.width > 0 && heroRect.height > 0) {
               const img = media.querySelector<HTMLImageElement>("img");
-              const nw = img?.naturalWidth || handoff.naturalWidth;
-              const nh = img?.naturalHeight || handoff.naturalHeight;
 
-              // Match cover content scale across the swap so the image never jumps in zoom.
-              const scale =
-                nw > 0 && nh > 0
-                  ? Math.max(gateRect.width / nw, gateRect.height / nh) /
-                    Math.max(heroRect.width / nw, heroRect.height / nh)
-                  : Math.max(
-                      gateRect.width / heroRect.width,
-                      gateRect.height / heroRect.height,
-                    );
+              // Match cover content scale across the swap using the destination hero's
+              // content dimensions so an unloaded detail photo never falls back to the
+              // gate cover's aspect ratio and re-zooms on decode.
+              const scale = arrivalScale({
+                gateRect,
+                heroRect,
+                heroPhoto: heroSize,
+                loaded: img
+                  ? { width: img.naturalWidth, height: img.naturalHeight }
+                  : undefined,
+                handoff: {
+                  width: handoff.naturalWidth,
+                  height: handoff.naturalHeight,
+                },
+              });
 
-              // If the content-matched hero box is narrower or shorter than the gate box
-              // (e.g. a portrait cover in the wider 1.62 hero frame), expand media inside
-              // its fixed-size .photoWrap so the first frame matches gateRect with 0 px error,
-              // then clip smoothly back to heroRect as it lands.
-              const boxW = Math.max(heroRect.width, gateRect.width / scale);
-              const boxH = Math.max(heroRect.height, gateRect.height / scale);
-              const expanded =
-                boxW > heroRect.width + 0.5 || boxH > heroRect.height + 0.5;
+              // Morph the visible frame linearly from gateRect (~1.11:1) to heroRect
+              // (~1.62:1) while the photo scales uniformly (`object-fit: cover`).
+              // Computing clipPath per frame avoids Chrome's `inset()` shorthand
+              // canonicalization freezing CSS string interpolation.
+              const applyFrame = (progress: number) => {
+                const frame = computeArrivalFrame({
+                  gateRect,
+                  heroRect,
+                  startScale: scale,
+                  progress,
+                });
+                gsap.set(media, {
+                  x: frame.x,
+                  y: frame.y,
+                  scale: frame.scale,
+                  clipPath: frame.clipPath,
+                  transformOrigin: "50% 50%",
+                  zIndex: 10,
+                });
+                return frame;
+              };
 
-              const dx =
-                gateRect.left +
-                gateRect.width / 2 -
-                (heroRect.left + heroRect.width / 2);
-              const dy =
-                gateRect.top +
-                gateRect.height / 2 -
-                (heroRect.top + heroRect.height / 2);
-
-              const startIx =
-                Math.max(0, (1 - gateRect.width / (boxW * scale)) / 2) * 100;
-              const startIy =
-                Math.max(0, (1 - gateRect.height / (boxH * scale)) / 2) * 100;
-              const endIx = Math.max(0, (1 - heroRect.width / boxW) / 2) * 100;
-              const endIy = Math.max(0, (1 - heroRect.height / boxH) / 2) * 100;
-
-              if (expanded) {
+              const initialFrame = applyFrame(0);
+              if (initialFrame.expanded) {
                 gsap.set(media, {
                   position: "absolute",
-                  left: (heroRect.width - boxW) / 2,
-                  top: (heroRect.height - boxH) / 2,
-                  width: boxW,
-                  height: boxH,
+                  left: (heroRect.width - initialFrame.boxWidth) / 2,
+                  top: (heroRect.height - initialFrame.boxHeight) / 2,
+                  width: initialFrame.boxWidth,
+                  height: initialFrame.boxHeight,
                 });
               }
 
-              tl.fromTo(
-                media,
+              const flight = { p: 0 };
+              tl.to(
+                flight,
                 {
-                  x: dx,
-                  y: dy,
-                  scale,
-                  clipPath: `inset(${startIy.toFixed(2)}% ${startIx.toFixed(2)}% ${startIy.toFixed(2)}% ${startIx.toFixed(2)}%)`,
-                  transformOrigin: "50% 50%",
-                  zIndex: 10,
-                },
-                {
-                  x: 0,
-                  y: 0,
-                  scale: 1,
-                  clipPath: `inset(${endIy.toFixed(2)}% ${endIx.toFixed(2)}% ${endIy.toFixed(2)}% ${endIx.toFixed(2)}%)`,
+                  p: 1,
                   duration: 1.15,
                   ease: "power2.out",
-                  clearProps:
-                    "position,left,top,width,height,transform,clipPath,zIndex",
+                  onUpdate: () => {
+                    applyFrame(flight.p);
+                  },
+                  onComplete: () => {
+                    gsap.set(media, {
+                      clearProps:
+                        "position,left,top,width,height,transform,clipPath,zIndex",
+                    });
+                  },
                 },
                 0,
               );
               // Headline, info bar and in-view story blocks follow once the photo has mostly landed.
-              revealAt = 0.72;
-              cellsAt = 0.9;
+              revealAt = 0.52;
+              cellsAt = 0.65;
               handoffRevealAt = revealAt;
             }
           } else {
@@ -303,12 +327,29 @@ export function PointMotion({
           }
         });
 
+        if (layerLineSvg && layerLine) {
+          gsap.fromTo(
+            layerLine,
+            { drawSVG: "0% 0%" },
+            {
+              drawSVG: "0% 100%",
+              duration: 1.5,
+              ease: "power2.inOut",
+              scrollTrigger: {
+                trigger: layerLineSvg,
+                start: START,
+                toggleActions: "play none none reverse",
+              },
+            },
+          );
+        }
+
         return () => {
           detachTransition?.();
         };
       });
 
-      // Lifts the CSS that holds content back until this first paint (page.module.css).
+      // Lifts the CSS that holds content back until this first paint (point-page.module.css).
       article.dataset.arrived = "";
     },
     { scope: root },

@@ -1,4 +1,4 @@
-import { pieces as placePieces } from "@/features/explore/art";
+import { pieces as placePieces } from "@/features/explore/place/art";
 import { pieces, type ArtBox, type ArtComponent } from "./art";
 
 /**
@@ -19,14 +19,14 @@ const lines: Record<string, { baseline: number; cap: number }> = {};
 const on = (baseline: number, cap: number, names: string[]) =>
   names.forEach((name) => (lines[name] = { baseline, cap }));
 
-// Home (WEB-02)
-on(523, 111, ["glyph-hero-o", "glyph-hero-a"]);
-on(1260, 51, ["glyph-thread-i", "glyph-thread-a"]);
-on(4592, 72, ["glyph-layers-a", "glyph-layers-o"]);
-// About (WEB-05): the heading, then the four lines of fields.
+// Home (docs/svg/01.HOME/02-Home.svg)
+on(523, 111, ["glyph-hero-a"]);
+on(1260, 51, ["glyph-thread-a"]);
+on(4592, 72, ["glyph-layers-a"]);
+// About (docs/svg/02.ABOUT US): the heading, then the four lines of fields.
 on(532, 67, ["glyph-about-i"]);
-on(599, 67, ["glyph-about-e"]);
-on(918, 67, ["glyph-about-a"]);
+on(615, 67, ["glyph-about-e"]);
+on(919, 67, ["glyph-about-a"]);
 on(2465, 87, ["field-roof", "field-weave", "field-star"]);
 on(2590, 87, ["field-tiers", "field-arch"]);
 on(2715, 87, ["field-spark", "field-line"]);

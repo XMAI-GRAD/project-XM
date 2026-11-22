@@ -1,10 +1,10 @@
-/* Home: the designer's comps (WEB-01 opening, WEB-02 page) as one long slide, scaled
-   to the window. Desktop only for now (SPEC Part 1).
+/* Home: the designer's comps (docs/svg/01.HOME: opening, page) as one long slide,
+   scaled to the window. Desktop only for now (SPEC Part 1).
 
    Units. The comp is 1920 wide; 1 comp unit = var(--u), so the page keeps the comp's
    proportions at any width. Numbers below are comp units, read straight off the comp.
 
-   Placement. A section sets --sy and --sh, its band of the 5400-tall board. Inside, an
+   Placement. A section sets --sy and --sh, its band of the 5496-tall board. Inside, an
    `.at` element sits at --x, --y (comp coordinates, not section ones) and is --w wide.
    Text is trimmed to its cap height and baseline (text-box), so a text block's --y is
    the top of its capitals, as measured in the comp.
@@ -23,8 +23,8 @@
 .board {
   position: relative;
   isolation: isolate;
-  /* The comp's height: home is 5400; another page sets --board to its own. */
-  height: calc(var(--board, 5400) * var(--u) + var(--brand-hold, 0px));
+  /* The comp's height: home is 5496; another page sets --board to its own. */
+  height: calc(var(--board, 5496) * var(--u) + var(--brand-hold, 0px));
 }
 
 .section {
@@ -73,16 +73,6 @@ svg.at,
   right: calc((1920 - var(--r)) * var(--u));
   width: max-content;
   text-align: right;
-}
-
-/* A pale hairline across the card at the top of a section, behind the drawings. */
-.rule::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  inset-inline: calc(180 * var(--u));
-  z-index: -1;
-  border-top: 1px solid var(--navy-100);
 }
 
 /* ---------- Opening (WEB-01) ---------- */
@@ -141,19 +131,19 @@ svg.at,
   height: auto;
 }
 
-/* ---------- Frame: the lime border and its mark, above the drawings ---------- */
+/* ---------- Frame: the lavender border and its mark, above the drawings ---------- */
 
 .frame {
   position: absolute;
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  /* Drawn for home's 5400-tall comp; a shorter page crops it to its own height. */
+  /* Drawn for home's 5496-tall comp; a shorter page crops it to its own height. */
   overflow: clip;
   --sy: 0;
 }
 
-/* ---------- Header: weather and date, logo, language, search, nav tab ---------- */
+/* ---------- Header: weather and date, logo, search, nav tab ---------- */
 
 .header {
   --sy: 0;
@@ -169,7 +159,7 @@ svg.at,
 }
 .weather {
   --x: 181;
-  --y: 84;
+  --y: 70;
   --w: 400;
   font-size: calc(24 * var(--u));
   line-height: calc(28 * var(--u));
@@ -232,47 +222,12 @@ svg.at,
   outline-offset: calc(8 * var(--u));
 }
 
-/* VI | EN: the current language filled navy, the other a link. Same height and stroke
-   as the search box beside it. */
-.lang {
-  --x: 1250;
-  --y: 68;
-  --w: 120;
-  display: flex;
-  height: calc(45 * var(--u));
-  border: calc(1.5 * var(--u)) solid var(--navy-400);
-  border-radius: 999px;
-  overflow: hidden;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: calc(20 * var(--u));
-  letter-spacing: 0.04em;
-}
-.lang > * {
-  flex: 1;
-  display: grid;
-  place-items: center;
-  text-decoration: none;
-}
-.lang > [aria-current] {
-  background: var(--navy-500);
-  color: var(--seashell);
-}
-.lang a {
-  color: var(--navy-400);
-}
-.lang a:hover {
-  background: var(--frosted-blue);
-  color: var(--navy-500);
-}
-.lang a:focus-visible {
-  outline-offset: -3px;
-}
-
 /* The tag-shaped search box: the designer's outline behind the shared search field. */
 .search {
   z-index: 3;
   height: calc(45 * var(--u));
+  /* The comp sits the box 9 px lower than the outline export (search-frame.tsx is generated). */
+  translate: 0 calc(9 * var(--u));
 }
 .search > svg {
   position: absolute;
@@ -298,11 +253,11 @@ svg.at,
   color: var(--navy-400);
   font-size: calc(20 * var(--u));
 }
-.searchField svg {
+.searchField.searchField svg {
   width: calc(20 * var(--u));
   height: calc(20 * var(--u));
 }
-.searchField input {
+.searchField.searchField input {
   width: 100%;
   font-size: inherit;
 }
@@ -320,33 +275,100 @@ svg.at,
   position: absolute;
   top: calc(180 * var(--u));
   left: calc(180 * var(--u));
-  right: calc(198 * var(--u));
+  right: calc(180 * var(--u));
   height: calc(78 * var(--u));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: calc(64 * var(--u));
 }
-.nav a {
+/* The five entries, each centred where the comp sets its label on the tab. */
+.nav > * {
+  position: absolute;
+  top: 50%;
+  left: calc((var(--cx) - 180) * var(--u));
+  translate: -50% -50%;
+}
+.nav > :nth-child(1) {
+  --cx: 534.5;
+}
+.nav > :nth-child(2) {
+  --cx: 763.5;
+}
+.nav > :nth-child(3) {
+  --cx: 975.5;
+}
+.nav > :nth-child(4) {
+  --cx: 1157;
+}
+.nav > :nth-child(5) {
+  --cx: 1370.5;
+}
+.navLink,
+.menuLink {
+  display: block;
+  white-space: nowrap;
   padding: calc(10 * var(--u)) calc(20 * var(--u));
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: inherit;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: calc(19 / 0.703 * var(--u));
+  font-size: calc(19.3 / 0.703 * var(--u));
   line-height: 1;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 999px;
 }
-.nav a:hover {
+/* Hovered, and the page you're on: the navy pill, so the current page reads at a
+   glance (seashell on the frosted tab alone was too faint). Khám phá keeps it while
+   its list is open. */
+.navLink:hover,
+.navLink[aria-current="page"],
+.menu[data-current] > .navLink,
+.menu[data-open] > .navLink,
+.menuLink:hover,
+.menuLink[aria-current="page"] {
   background: var(--navy-500);
   color: var(--seashell);
 }
-/* The page you're on, in seashell on the tab (WEB-05). */
-.nav a[aria-current="page"] {
-  color: var(--seashell);
+
+/* Khám phá's list: the tab carried down below the label, the layers stacked in it,
+   each with its colour as a dot. It starts right at the label so the pointer can
+   travel into it without the list closing. */
+.menuList {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 0;
+  display: grid;
+  gap: calc(6 * var(--u));
+  margin: 0;
+  padding: calc(30 * var(--u)) calc(14 * var(--u)) calc(14 * var(--u));
+  list-style: none;
+  background: var(--frosted-blue);
+  border-radius: 0 0 calc(24 * var(--u)) calc(24 * var(--u));
 }
-.nav a[aria-current="page"]:hover {
-  color: var(--seashell);
+.menuList[hidden] {
+  display: none;
+}
+.menuLink {
+  display: flex;
+  align-items: center;
+  gap: calc(12 * var(--u));
+  padding-inline: calc(20 * var(--u)) calc(28 * var(--u));
+}
+.menuLink::before {
+  content: "";
+  width: calc(14 * var(--u));
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--layer);
+}
+.menuLink[data-layer="place"] {
+  --layer: var(--lime-600);
+}
+.menuLink[data-layer="taste"] {
+  --layer: var(--sunflower-gold-600);
+}
+.menuLink[data-layer="craft"] {
+  --layer: var(--mauve-600);
 }
 
 /* ---------- Hero ---------- */
@@ -356,7 +378,7 @@ svg.at,
   --sh: 882;
 }
 .heroTitle {
-  --x: 477;
+  --x: 486;
   --y: 412;
   --w: 1100;
   font-size: calc(111 / 0.703 * var(--u));
@@ -365,8 +387,8 @@ svg.at,
   white-space: nowrap;
 }
 .tagline {
-  --r: 1426;
-  --y: 623;
+  --r: 1433;
+  --y: 583;
   font-size: calc(25 / 0.703 * var(--u));
 }
 
@@ -377,15 +399,17 @@ svg.at,
   --sh: 1020;
 }
 .threadStart {
-  --x: 223;
+  --x: 218;
   --y: 1209;
   --w: 400;
   font-size: calc(51 / 0.703 * var(--u));
+  color: var(--navy-400);
 }
 .threadEnd {
-  --r: 1707;
+  --r: 1702;
   --y: 1209;
   font-size: calc(51 / 0.703 * var(--u));
+  color: var(--brick-red);
 }
 .threadBody {
   --x: 1396;
@@ -437,6 +461,12 @@ svg.at,
   padding: 0;
   list-style: none;
 }
+/* Each count spans the band, so its parts keep their places in it and move as one
+   (src/features/home/motion/stats-motion.tsx). */
+.statList li {
+  position: absolute;
+  inset: 0;
+}
 .statValue,
 .statLabel {
   position: absolute;
@@ -462,6 +492,23 @@ svg.at,
 .roles {
   --sy: 2416;
   --sh: 824;
+}
+/* The drawings' boxes overlap the motto: let the pointer through them to the words
+   (they beat on hover), and catch it only on the buildings themselves (they light
+   up on hover; src/features/home/motion/roles-motion.tsx). */
+.roles svg {
+  pointer-events: none;
+}
+.roles
+  [data-art="roles-cluster"]
+  :is(
+    [data-part="public"],
+    [data-part="artists"],
+    [data-part="artists-crown"],
+    [data-part="state-roof"],
+    [data-part="state-house"]
+  ) {
+  pointer-events: visiblePainted;
 }
 .rolesTitle {
   --x: 224;
@@ -591,7 +638,7 @@ svg.at,
 
 .layers {
   --sy: 4320;
-  --sh: 1080;
+  --sh: 1176;
 }
 .layersKicker {
   --x: 225;
@@ -656,7 +703,7 @@ svg.at,
   color: var(--dark-cyan);
 }
 .mapLink {
-  --x: 224;
+  --x: 301;
   --y: 5000;
   --w: 160;
   display: flex;
@@ -679,8 +726,8 @@ svg.at,
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .nav a,
-  .lang a {
+  .navLink,
+  .menuLink {
     transition:
       background-color 0.15s,
       color 0.15s;

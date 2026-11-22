@@ -26,7 +26,7 @@ export function CountUp({ to }: { to: string }) {
         onUpdate: () => {
           el.textContent = String(count.value);
         },
-        scrollTrigger: { trigger: el, start: homeEnter(el, 0.85), once: true },
+        scrollTrigger: { trigger: el, start: homeEnter(el, 0.75), once: true },
       });
       return () => {
         el.textContent = to;

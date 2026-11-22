@@ -55,6 +55,7 @@ import { HeritageMotion } from "./motion/heritage-motion";
 import { HeroMotion } from "./motion/hero-motion";
 import { LayersMotion } from "./motion/layers-motion";
 import { RolesMotion } from "./motion/roles-motion";
+import { StatsMotion } from "./motion/stats-motion";
 import { ThreadMotion } from "./motion/thread-motion";
 import { RichText, toneClass } from "./rich-text";
 import { HomeSectionLink } from "./section-link";
@@ -64,7 +65,7 @@ const display = `${text} ${s.display}`;
 /** A display heading whose words move: placed by cap top without text-box trim. */
 const movingDisplay = `${s.at} ${s.display} ${s.capTop}`;
 
-/** The lime frame around the card, painted above the drawings it crops. */
+/** The lavender frame around the card, painted above the drawings it crops. */
 export function Frame({ lang }: { lang: Locale }) {
   const { home } = getDictionary(lang);
   return (
@@ -143,7 +144,7 @@ export function Thread({ lang }: { lang: Locale }) {
 export function Stats({ lang }: { lang: Locale }) {
   const { stats } = getPage("home");
   return (
-    <section className={`${s.section} ${s.stats} ${s.rule}`}>
+    <StatsMotion className={`${s.section} ${s.stats}`}>
       <StatsBand className={s.at} style={at(statsBandBox)} />
       <ul className={s.statList}>
         {stats.map((count) => {
@@ -154,7 +155,7 @@ export function Stats({ lang }: { lang: Locale }) {
           const style = { "--cx": box.x + box.w / 2 } as CSSProperties;
           return (
             <li key={count.art} style={style} className={toneClass(count.tone)}>
-              <Art className={s.at} style={at(box)} />
+              <Art className={s.at} style={at(box)} data-motion="stat-icon" />
               <span className={s.statValue}>
                 <CountUp to={count.value} />
               </span>{" "}
@@ -163,7 +164,7 @@ export function Stats({ lang }: { lang: Locale }) {
           );
         })}
       </ul>
-    </section>
+    </StatsMotion>
   );
 }
 
@@ -200,7 +201,7 @@ export function Heritage({ lang }: { lang: Locale }) {
   const { heritage } = getPage("home");
   const [left, right] = heritage.body[lang];
   return (
-    <HeritageMotion className={`${s.section} ${s.heritage} ${s.rule}`}>
+    <HeritageMotion className={`${s.section} ${s.heritage}`}>
       <HeritageWave className={s.at} style={at(heritageWaveBox)} />
       <p className={`${text} ${s.since}`} data-motion="since">
         {heritage.since[lang]}
@@ -268,7 +269,7 @@ export function Layers({ lang }: { lang: Locale }) {
   const { layers: copy } = getPage("home");
   const { layers: names, home } = getDictionary(lang);
   return (
-    <LayersMotion className={`${s.section} ${s.layers} ${s.rule}`}>
+    <LayersMotion className={`${s.section} ${s.layers}`}>
       <h2>
         <span className={`${display} ${s.layersKicker}`}>
           {copy.kicker[lang]}

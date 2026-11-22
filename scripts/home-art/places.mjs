@@ -1,5 +1,5 @@
 // The Places (ĐỊA) artwork pieces: drawn headline letters and marks from the
-// designer's ĐỊA comps, extracted into src/features/explore/art/.
+// designer's ĐỊA comps, extracted into src/features/explore/place/art/.
 //
 // Because VĂN MIẾU.svg and LONG BIÊN.svg have a broken headline font and
 // HỒ GƯƠM.svg is truncated, dia-a-breve and dia-a-circ come from ĐỊA FULL.pdf
@@ -12,7 +12,7 @@
 //   ln -sf "$DIA/HTTL.svg" "$STAGE/HTTL.svg"
 //   pdftocairo -svg -f 2 -l 2 "$DIA/ĐỊA FULL.pdf" "$STAGE/page-2.svg"
 //   pdftocairo -svg -f 5 -l 5 "$DIA/ĐỊA FULL.pdf" "$STAGE/page-5.svg"
-//   node scripts/home-art/extract.mjs "$STAGE" scripts/home-art/places.mjs src/features/explore/art
+//   node scripts/home-art/extract.mjs "$STAGE" scripts/home-art/places.mjs src/features/explore/place/art
 
 const httl = "HTTL.svg";
 const vanMieuPdf = "page-2.svg";

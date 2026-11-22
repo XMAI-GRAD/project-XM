@@ -107,9 +107,9 @@
 /* Non-stretching concave-corner frame: 4 CSS hairline edges + 4 fixed-ratio corner SVGs. */
 .frame {
   --notch: calc(18 * var(--u));
-  --stroke: 1px;
-  --svg-stroke: 1;
-  --corner-inset: 0px;
+  --stroke: 2px;
+  --svg-stroke: 2;
+  --corner-inset: 0.5px;
   --frame-color: var(--navy-400);
   position: relative;
   width: 100%;
@@ -127,15 +127,12 @@
 .frameCompact {
   --notch: calc(14 * var(--u));
 }
-.frame:focus-within {
-  --frame-color: var(--navy-500);
-  --stroke: 2px;
-  --svg-stroke: 2;
-  --corner-inset: 0.5px;
-}
+.frame:focus-within,
 .frame:has(textarea:focus-visible) {
-  outline: 3px solid var(--navy-500);
-  outline-offset: 3px;
+  --frame-color: var(--navy-500);
+  --stroke: 1px;
+  --svg-stroke: 1;
+  --corner-inset: 0px;
 }
 
 .corner {
@@ -197,7 +194,8 @@
   color: var(--navy-300);
   opacity: 1;
 }
-.textarea:focus {
+.textarea:focus,
+.textarea:focus-visible {
   outline: none;
 }
 

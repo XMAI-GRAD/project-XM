@@ -232,7 +232,17 @@ export function HomeHeaderMotion({
             const heldScroll = gsap.utils.clamp(0, distance, offset);
             sceneY(heldScroll);
             x(dx * movement.progress);
-            y(progress === 0 ? 0 : offset - heldScroll);
+            const follow = progress === 0 ? 0 : offset - heldScroll;
+            y(follow);
+            // Docked, the mark rides the rail down the page but stays on it: it
+            // stops above the footer, as far from the rail's end as from its edge.
+            if (state === "rail") {
+              const mark = link.getBoundingClientRect();
+              const page = host.getBoundingClientRect();
+              const past =
+                mark.bottom - (page.bottom - (mark.left - page.left));
+              if (past > 0) y(follow - past);
+            }
             link.style.width = `${width + (railWidth - width) * movement.progress}px`;
             link.style.height = `${height + (railHeight - height) * movement.progress}px`;
             // Avoid overlapping the weather while the symbol crosses its slot.

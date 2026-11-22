@@ -24,6 +24,7 @@ import {
 import { DirectionsPanel } from "./directions-panel";
 import type { MapControls, MapViewport } from "./map-canvas";
 import s from "./page.module.css";
+import { pointHref } from "@/features/explore/paths";
 
 const MapCanvas = dynamic(() => import("./map-canvas"), { ssr: false });
 const noPoints: MapGroup["points"] = [];
@@ -611,7 +612,7 @@ export function MapExplorer({
               <div className={s.cardActions}>
                 <Link
                   className={s.detailLink}
-                  href={`/${lang}/explore/${featured.slug}`}
+                  href={pointHref(lang, { layer, slug: featured.slug })}
                 >
                   {ui.viewDetails}
                   <Icon name="arrow" />
