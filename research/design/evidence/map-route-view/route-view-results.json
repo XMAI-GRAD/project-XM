@@ -1,0 +1,450 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "motion": "no-preference",
+    "count": 12,
+    "checks": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-mieu-quoc-tu-giam",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "ho-hoan-kiem-den-ngoc-son",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "pho-co-36-pho-phuong",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "bun-thang-ba-duc",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "che-muoi-sau",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "com-lang-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "ngu-xa",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "hang-trong",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-phuc",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      }
+    ],
+    "clearButton": true,
+    "reopenDetails": true,
+    "escape": true,
+    "deepLinks": true,
+    "anchoredLabels": true,
+    "motionChangePreservesView": true,
+    "popups": [],
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 1920,
+    "motion": "reduce",
+    "count": 12,
+    "checks": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-mieu-quoc-tu-giam",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "ho-hoan-kiem-den-ngoc-son",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "pho-co-36-pho-phuong",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "bun-thang-ba-duc",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "che-muoi-sau",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "com-lang-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "ngu-xa",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "hang-trong",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-phuc",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      }
+    ],
+    "clearButton": true,
+    "reopenDetails": true,
+    "escape": true,
+    "deepLinks": true,
+    "anchoredLabels": true,
+    "motionChangePreservesView": true,
+    "popups": [],
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "motion": "reduce",
+    "count": 12,
+    "checks": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-mieu-quoc-tu-giam",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "ho-hoan-kiem-den-ngoc-son",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "pho-co-36-pho-phuong",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "bun-thang-ba-duc",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "che-muoi-sau",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "com-lang-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "ngu-xa",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "hang-trong",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-phuc",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      }
+    ],
+    "clearButton": true,
+    "reopenDetails": true,
+    "escape": true,
+    "deepLinks": true,
+    "anchoredLabels": true,
+    "motionChangePreservesView": true,
+    "popups": [],
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "motion": "no-preference",
+    "count": 12,
+    "checks": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-mieu-quoc-tu-giam",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "ho-hoan-kiem-den-ngoc-son",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "pho-co-36-pho-phuong",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "layer": "place",
+        "color": "rgb(39, 57, 145)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "bun-thang-ba-duc",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "che-muoi-sau",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "com-lang-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 0,
+        "mapFocused": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "layer": "taste",
+        "color": "rgb(183, 38, 42)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "ngu-xa",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "hang-trong",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      },
+      {
+        "slug": "van-phuc",
+        "layer": "craft",
+        "color": "rgb(0, 139, 134)",
+        "wholeRoute": true,
+        "gap": 1,
+        "mapFocused": true
+      }
+    ],
+    "clearButton": true,
+    "reopenDetails": true,
+    "escape": true,
+    "deepLinks": true,
+    "anchoredLabels": true,
+    "motionChangePreservesView": true,
+    "popups": [],
+    "errors": []
+  }
+]

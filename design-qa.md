@@ -1,5 +1,99 @@
 # Design QA
 
+## Route button and anchored labels — 22 November 2026
+
+**Final result: passed.** Selecting a location now shows only its detail card.
+“Lộ trình đến đây” / “Route to this place” dismisses the card, draws the themed
+route on this map, and frames the complete path from ĐHKT. No external tab opens.
+Selecting a pin/row again reopens details. Clear route and Escape remove the line;
+URL state distinguishes details from route view with `view=route`.
+
+Labels remain centered above their pins while panning, zooming or opening other
+overlays. Removed border/card/legend collision repositioning for every label,
+including the origin. Labels clip naturally at the map boundary. Hover still
+renders above selection.
+
+All 48 location checks pass across VI/EN, 1920/390 and both motion preferences:
+card-only selection, CTA dismissal, one correctly colored full route, map focus,
+clear/reopen, direct links and fixed label offsets. Additional 1280 checks pass
+for rapid selection, Escape during dismissal, motion-preference changes during
+dismissal, search/theme clearing and the reported edge case. The origin and its
+label remain centered at x=20px while the label extends past the left boundary.
+No page errors. Scoped ESLint/formatting, TypeScript and production build pass.
+
+Evidence: [details](research/design/evidence/map-route-view/route-view-detail.png),
+[route](research/design/evidence/map-route-view/route-view-vi-1920-place.png),
+[mobile](research/design/evidence/map-route-view/route-view-en-390-place.png),
+[anchored edge label](research/design/evidence/map-route-view/route-view-anchored-edge.png),
+[all destinations](research/design/evidence/map-route-view/route-view-results.json),
+[transitions](research/design/evidence/map-route-view/route-view-transitions.json).
+
+## Illustrated routes from ĐHKT — 22 November 2026
+
+**Final result: passed.** All 12 destinations now have an illustrated path from
+the fixed university anchor, following roads in the current SVG. Only the selected
+destination's path appears. Its color matches the theme text: navy, brick red or
+teal. Hover keeps the selected route; closing, searching or changing themes clears
+it. The route draws from origin to destination in 0.8 seconds and appears instantly
+under reduced motion. Fractional dash offsets prevent a rounded on/off reveal.
+
+The new YAML manifest validates source-art identity, complete destination coverage,
+coordinate bounds and exact origin/destination connections. It uses authored
+illustration coordinates; the old map's geographic walking-route data and external
+directions remain separate. The camera keeps the destination clear of the card;
+the two eastern desktop destinations may crop the origin end when fitting both
+would conflict with the artwork boundary.
+
+Validated 48 selections across VI/EN, 1920/390 and both motion preferences: one
+route, correct color and endpoints, no card overlap, hover preservation, clear,
+rapid switching, pan/zoom and preference changes. Additional 1280 checks confirm
+deep links, pin clicks, gradual reveal, interruption, history and invalid slugs.
+The bounds sweep at 1920/1280/390 and 765 additional animation frames show no
+exposed artwork edges beyond the existing 1.5px rounding tolerance. No page errors.
+Scoped formatting/lint, TypeScript, 46 unit tests and production build pass; the
+build still reports the existing 109 English-content fallbacks.
+
+Evidence: [all authored paths](research/design/evidence/map-origin-routes/routes-authored-overview.png),
+[Địa](research/design/evidence/map-origin-routes/routes-vi-1920-place.png),
+[Vị](research/design/evidence/map-origin-routes/routes-vi-1920-taste.png),
+[Nghề](research/design/evidence/map-origin-routes/routes-vi-1920-craft.png),
+[mobile](research/design/evidence/map-origin-routes/routes-en-390-craft.png),
+[selection checks](research/design/evidence/map-origin-routes/routes-results.json),
+[state checks](research/design/evidence/map-origin-routes/routes-state-results.json).
+
+## Neutral theme-route roads — 22 November 2026
+
+Restored the embedded PLACE/TASTE/CRAFT route segments to the map's default road
+color, #E4CFC5. All 17 changed fill/stroke attributes preserve the original road
+geometry. The centre symbol and dashed ring-road guides remain unchanged.
+Removed the three obsolete theme-route keys from the legend and updated its
+VI/EN description. Regeneration applies the same changes in the extraction script.
+
+Verified the SVG structure and inspected the [rendered map](research/design/evidence/map-roads/neutral-roads.png).
+All three themes retain 5/4/3 destination pins and the fixed university origin.
+Changed JSON/YAML formatting passes.
+
+## Fixed university origin — 22 November 2026
+
+**Final result: passed.** The university now has a persistent Bạn/You badge,
+using the list's exact mask and #B5262A from the HÀ NỘI heading. The label identifies
+the starting point and the university in VI/EN. It remains present across themes,
+searches, card selections, pan/zoom/reset and motion-preference changes; theme
+counts remain 5/4/3. External directions retain 20.981012, 105.7892685 as origin.
+
+The display anchor (330, 590) is an authored illustration position, separate from
+the geographic coordinate. It is not a calibrated campus entrance. Source and
+implementation notes are in `docs/plans/2026-11-22-map-fixed-origin.md`.
+
+Headless Edge checks pass at 1920 and 390 widths in VI/EN, with no page errors.
+Screenshots were inspected; a mobile label/legend overlap was found and corrected.
+Shared label placement now avoids both the card and legend. Manifest validation,
+all 44 tests, scoped ESLint, TypeScript and production build pass.
+
+Evidence: [desktop](research/design/evidence/map-origin/origin-vi-1920.png),
+[mobile](research/design/evidence/map-origin/origin-vi-390.png),
+[checks](research/design/evidence/map-origin/origin-results.json).
+
 ## Map location focus — 22 November 2026
 
 **Final result: passed.** Following owner review, circular selection outlines and

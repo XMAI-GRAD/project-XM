@@ -6,7 +6,7 @@ import "leaflet/dist/leaflet.css";
 import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { mapFocusPoint } from "../layout";
-import type { DesignMapPoint } from "./types";
+import type { DesignMapOrigin, DesignMapPoint } from "./types";
 import s from "./map.module.css";
 
 export interface DesignMapControls {
@@ -29,14 +29,17 @@ type MarkerEntry = {
 type MapState = {
   points: DesignMapPoint[];
   selected: string | null;
+  routeVisible: boolean;
   highlighted: string | null;
 };
 
 export default function DesignMapCanvas({
   ref,
   artwork,
+  origin,
   points,
   selected,
+  routeVisible,
   highlighted,
   cardId,
   helpId,
@@ -48,8 +51,10 @@ export default function DesignMapCanvas({
 }: {
   ref: Ref<DesignMapControls>;
   artwork: { src: string; width: number; height: number };
+  origin: DesignMapOrigin;
   points: DesignMapPoint[];
   selected: string | null;
+  routeVisible: boolean;
   highlighted: string | null;
   cardId: string;
   helpId: string;
@@ -61,7 +66,12 @@ export default function DesignMapCanvas({
 }) {
   const element = useRef<HTMLDivElement>(null);
   const mapRef = useRef<L.Map | null>(null);
-  const state = useRef<MapState>({ points, selected, highlighted });
+  const state = useRef<MapState>({
+    points,
+    selected,
+    routeVisible,
+    highlighted,
+  });
   const callbacks = useRef({ onSelect, onHighlight });
   const actions = useRef<
     (DesignMapControls & { sync: () => void; stop: () => void }) | null
@@ -147,68 +157,57 @@ export default function DesignMapCanvas({
       overlay.addTo(map);
       map.on("zoomend", report);
 
+      // The configured starting point is independent of theme/search results.
+      const originElement = document.createElement("div");
+      originElement.className = `${s.pin} ${s.originPin}`;
+      originElement.dataset.origin = "true";
+      originElement.setAttribute("role", "img");
+      originElement.setAttribute(
+        "aria-label",
+        `${ui.design.origin}: ${origin.name}`,
+      );
+      const originBadge = document.createElement("span");
+      originBadge.className = s.originBadge;
+      originBadge.textContent = ui.design.you;
+      originBadge.setAttribute("aria-hidden", "true");
+      const originLabel = document.createElement("span");
+      originLabel.className = s.pinLabel;
+      originLabel.setAttribute("aria-hidden", "true");
+      const originCaption = document.createElement("strong");
+      originCaption.textContent = ui.design.origin;
+      const originName = document.createElement("span");
+      originName.textContent = origin.name;
+      originLabel.append(originCaption, originName);
+      originElement.append(originBadge, originLabel);
+      L.marker([artwork.height - origin.position.y, origin.position.x], {
+        keyboard: false,
+        interactive: false,
+        zIndexOffset: 500,
+        icon: L.divIcon({
+          html: originElement,
+          className: s.markerHost,
+          iconSize: [44, 44],
+          iconAnchor: [22, 22],
+        }),
+      }).addTo(map);
+
       let focusedPin: string | undefined;
+      let fittedView = "";
       const media = gsap.matchMedia();
       media.add(
         { motion: MOTION, reduced: "(prefers-reduced-motion: reduce)" },
         (context) => {
           const motion = !!context.conditions?.motion;
           const entries = new Map<string, MarkerEntry>();
+          const routeRenderer = L.svg({ padding: 0.5 });
+          let route: L.Polyline | undefined;
+          let routeReveal: gsap.core.Tween | undefined;
           let camera: gsap.core.Tween | undefined;
           let targetZoom: number | undefined;
           let lastPoints: DesignMapPoint[] | undefined;
           let lastSelected: string | null = null;
+          let lastRouteVisible = false;
           let lastHighlighted: string | null = null;
-          const positionLabels = () => {
-            const size = map.getSize();
-            const surface = host.getBoundingClientRect();
-            const card = document
-              .getElementById(cardId)
-              ?.getBoundingClientRect();
-            for (const entry of entries.values()) {
-              if (!entry.label.offsetWidth) continue;
-              const anchor = map.latLngToContainerPoint(
-                entry.marker.getLatLng(),
-              );
-              const { offsetWidth: width, offsetHeight: height } = entry.label;
-              const visible =
-                anchor.x >= 0 &&
-                anchor.x <= size.x &&
-                anchor.y >= 0 &&
-                anchor.y <= size.y;
-              entry.label.style.visibility = visible ? "" : "hidden";
-              if (!visible) continue;
-              // Keep the name close to its icon, clear of map edges and the card.
-              const naturalTop = anchor.y - 22 - height;
-              const top = Math.max(
-                8,
-                Math.min(
-                  size.y - height - 8,
-                  naturalTop < 8 ? anchor.y + 22 : naturalTop,
-                ),
-              );
-              let right = size.x - 8;
-              if (
-                card &&
-                top < card.bottom - surface.top &&
-                top + height > card.top - surface.top &&
-                card.left - surface.left > width + 16
-              )
-                right = Math.min(right, card.left - surface.left - 8);
-              const left = Math.max(
-                8,
-                Math.min(right - width, anchor.x - width / 2),
-              );
-              entry.label.style.setProperty(
-                "--label-x",
-                `${left - (anchor.x - width / 2)}px`,
-              );
-              entry.label.style.setProperty(
-                "--label-y",
-                `${top - naturalTop}px`,
-              );
-            }
-          };
           const stop = () => {
             camera?.kill();
             camera = undefined;
@@ -234,12 +233,14 @@ export default function DesignMapCanvas({
               zoom,
               duration,
               ease: "power2.inOut",
-              onUpdate: () =>
+              onUpdate: () => {
+                if (!camera) return;
                 map.setView(
                   [view.lat, view.lng],
                   Math.max(map.getMinZoom(), view.zoom),
                   { animate: false },
-                ),
+                );
+              },
               onComplete: () => {
                 targetZoom = undefined;
                 report();
@@ -407,12 +408,72 @@ export default function DesignMapCanvas({
               }
             }
 
-            if (next.selected !== lastSelected) {
+            if (
+              next.selected !== lastSelected ||
+              next.routeVisible !== lastRouteVisible ||
+              lastPoints !== next.points
+            ) {
+              routeReveal?.kill();
+              route?.remove();
+              route = undefined;
+              const destination = next.points.find(
+                (point) => point.slug === next.selected,
+              );
+              if (destination && next.routeVisible) {
+                route = L.polyline(
+                  destination.route.map(([x, y]) => [artwork.height - y, x]),
+                  {
+                    renderer: routeRenderer,
+                    className: s.route,
+                    interactive: false,
+                    bubblingMouseEvents: false,
+                    weight: 3,
+                    opacity: 0.95,
+                    lineCap: "round",
+                    lineJoin: "round",
+                    // Keep the reveal's length stable during camera movement.
+                    noClip: true,
+                    smoothFactor: 0,
+                  },
+                ).addTo(map);
+                const path = route.getElement();
+                if (path) {
+                  path.setAttribute("data-route", destination.slug);
+                  path.setAttribute("data-layer", destination.layer);
+                  path.setAttribute("aria-hidden", "true");
+                  path.setAttribute("pathLength", "1");
+                  if (motion)
+                    routeReveal = gsap.fromTo(
+                      path,
+                      { strokeDasharray: "1 1", strokeDashoffset: 1 },
+                      {
+                        strokeDashoffset: 0,
+                        // pathLength=1 needs fractional offsets throughout.
+                        autoRound: false,
+                        duration: 0.8,
+                        ease: "power1.inOut",
+                        clearProps: "strokeDasharray,strokeDashoffset",
+                      },
+                    );
+                }
+              }
+            }
+
+            const view = `${next.selected ?? ""}:${next.routeVisible}`;
+            if (view !== fittedView) {
               stop();
+              fittedView = view;
               const target = next.selected
                 ? entries.get(next.selected)
                 : undefined;
-              if (target) {
+              if (route) {
+                // Route view has no card: frame both endpoints together.
+                const routeBounds = route.getBounds();
+                moveTo(
+                  routeBounds.getCenter(),
+                  map.getBoundsZoom(routeBounds, false, L.point(80, 100)),
+                );
+              } else if (target) {
                 const anchor = target.marker.getLatLng();
                 const surface = host.getBoundingClientRect();
                 const card = document
@@ -454,7 +515,7 @@ export default function DesignMapCanvas({
             lastPoints = next.points;
             lastSelected = next.selected;
             lastHighlighted = next.highlighted;
-            positionLabels();
+            lastRouteVisible = next.routeVisible;
           });
           const zoom = context.add("zoom", (delta: number) =>
             moveTo(map.getCenter(), (targetZoom ?? map.getZoom()) + delta, 0.3),
@@ -475,7 +536,6 @@ export default function DesignMapCanvas({
             capture: true,
           });
           map.on("dragstart", stop);
-          map.on("move resize", positionLabels);
           sync();
           if (focusedPin) {
             entries.get(focusedPin)?.button.focus({ preventScroll: true });
@@ -488,11 +548,13 @@ export default function DesignMapCanvas({
                 ? active.dataset.point
                 : undefined;
             stop();
+            routeReveal?.kill();
+            route?.remove();
+            routeRenderer.remove();
             actions.current = null;
             host.removeEventListener("pointerdown", stop, true);
             host.removeEventListener("touchstart", stop, true);
             map.off("dragstart", stop);
-            map.off("move resize", positionLabels);
             for (const entry of entries.values()) entry.marker.remove();
             entries.clear();
           };
@@ -527,6 +589,11 @@ export default function DesignMapCanvas({
         artwork.src,
         artwork.width,
         artwork.height,
+        origin.name,
+        origin.position.x,
+        origin.position.y,
+        ui.design.origin,
+        ui.design.you,
         cardId,
         ui.design.illustration,
         onViewport,
@@ -537,10 +604,10 @@ export default function DesignMapCanvas({
   );
 
   useEffect(() => {
-    state.current = { points, selected, highlighted };
+    state.current = { points, selected, routeVisible, highlighted };
     callbacks.current = { onSelect, onHighlight };
     actions.current?.sync();
-  }, [points, selected, highlighted, onSelect, onHighlight]);
+  }, [points, selected, routeVisible, highlighted, onSelect, onHighlight]);
 
   return (
     <div

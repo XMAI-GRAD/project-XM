@@ -47,6 +47,18 @@ def emit(name, box, paths):
     })
     for path in paths:
         svg.append(at(path))
+    if name == "map-base":
+        # Theme itineraries are drawn into the first two source layers. Keep
+        # their road geometry, using the surrounding streets' original paint.
+        route_colors = {"#27398F", "#273991", "#B7262A", "#C48DFF"}
+        for layer in list(svg)[:2]:
+            for element in layer.iter():
+                for paint in ("fill", "stroke"):
+                    if element.get(paint) in route_colors:
+                        element.set(paint, "#E4CFC5")
+    elif name == "legend":
+        # Remove the three solid-line theme-route keys and their captions.
+        svg[2].remove(svg[2][9])
     ET.ElementTree(svg).write(out / (name + ".svg"), encoding="utf-8", xml_declaration=False)
 
 emit("page-frame", [0, 0, 1920, 1672.5], ["7", "8", "9", "10"])
@@ -92,6 +104,9 @@ manifest = {
     "pins": {k: {"x": round(x - 597, 2), "y": round(y - 610, 2)} for k, (x, y) in pins.items()},
     "origin": {
         "latitude": 20.981012, "longitude": 105.7892685,
+        # Authored HAU display anchor in the Nguyen Trai/Ha Dong area; this is
+        # separate from the geographic origin used by external directions.
+        "position": {"x": 330, "y": 590},
         "name": {"vi": "Trường Đại học Kiến trúc Hà Nội", "en": "Hanoi Architectural University"},
         "sourceUrl": "https://www.google.com/maps/search/?api=1&query=20.981012%2C105.7892685",
     },

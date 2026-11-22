@@ -1,5 +1,11 @@
 import type { Layer } from "@/content";
 import type { ReactNode } from "react";
+import type { IllustratedRoute } from "../design";
+
+export interface DesignMapOrigin {
+  name: string;
+  position: { x: number; y: number };
+}
 
 export interface DesignMapPoint {
   slug: string;
@@ -10,8 +16,8 @@ export interface DesignMapPoint {
   hook: string;
   headline: ReactNode[];
   photo: { src: string; width: number; height: number; alt: string } | null;
-  directionsDestination: string;
   position: { x: number; y: number };
+  route: IllustratedRoute;
 }
 
 export interface DesignMapGroup {

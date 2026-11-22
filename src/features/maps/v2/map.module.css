@@ -377,6 +377,17 @@
   border: 0;
   pointer-events: none;
 }
+
+.route {
+  stroke: var(--navy-400);
+  pointer-events: none;
+}
+.route[data-layer="taste"] {
+  stroke: var(--brick-red);
+}
+.route[data-layer="craft"] {
+  stroke: var(--dark-cyan);
+}
 .mapSurface :global(.leaflet-marker-pane) .markerHost {
   pointer-events: none;
 }
@@ -431,7 +442,7 @@
   position: absolute;
   left: 50%;
   bottom: 100%;
-  transform: translate(calc(-50% + var(--label-x, 0px)), var(--label-y, 0px));
+  transform: translateX(-50%);
   padding: 6px 10px;
   max-width: 220px;
   width: max-content;
@@ -451,6 +462,34 @@
 }
 .pin[aria-pressed="true"] .pinLabel {
   font-weight: 600;
+}
+.originPin {
+  /* The exact red of the HÀ NỘI lettering in heading.svg. */
+  color: #b5262a;
+  pointer-events: none;
+}
+.originBadge {
+  display: grid;
+  place-items: center;
+  width: clamp(28px, calc(30.4 * var(--u)), 36px);
+  aspect-ratio: 30.4 / 38.8;
+  background: #b5262a;
+  mask: url("/maps/v2/list-badge.svg") center / 100% 100% no-repeat;
+  font: 600 11px / 1 var(--font-body);
+  color: #fff8f5;
+}
+.originPin .pinLabel {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+}
+.originPin .pinLabel strong,
+.originPin .pinLabel span {
+  display: block;
+}
+.originPin .pinLabel strong {
+  margin-bottom: 3px;
+  font-weight: 700;
 }
 .compass {
   position: absolute;
@@ -737,6 +776,12 @@
   white-space: nowrap;
 }
 .cardDirections {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
   top: calc(362 * var(--cu));
   height: calc(30 * var(--cu));
   font-size: calc(10.5 * var(--cu));

@@ -4,7 +4,10 @@ import { join } from "node:path";
 import { createHash } from "node:crypto";
 import { parse } from "yaml";
 import { readMapContext, readSavedRoutes } from "../features/maps/catalogue.ts";
-import { readMapDesign } from "../features/maps/design.ts";
+import {
+  readIllustratedRoutes,
+  readMapDesign,
+} from "../features/maps/design.ts";
 import {
   fitArtworkTransform,
   projectToArtwork,
@@ -201,6 +204,10 @@ export const mapTransform = fitArtworkTransform(
 export const mapDesign = readMapDesign(
   read("map-design.yaml"),
   points.map((point) => point.code),
+);
+export const illustratedMapRoutes = readIllustratedRoutes(
+  read("map-design-routes.yaml"),
+  mapDesign,
 );
 
 const isEmpty = (v: unknown) => {

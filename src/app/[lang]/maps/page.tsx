@@ -1,6 +1,12 @@
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
-import { getPage, getPoints, layers, mapDesign } from "@/content";
+import {
+  getPage,
+  getPoints,
+  illustratedMapRoutes,
+  layers,
+  mapDesign,
+} from "@/content";
 import { SiteFooter } from "@/components/site-footer";
 import { HomeHeader } from "@/features/home/home-header";
 import { RichText } from "@/features/home/rich-text";
@@ -37,10 +43,8 @@ export default async function MapsPage() {
           .split("\n")
           .map((line, i) => <RichText key={i} text={line} />),
         photo: photo ? { ...photo, alt: photo.alt[lang] } : null,
-        directionsDestination: point.mapLocation
-          ? `${point.mapLocation.latitude},${point.mapLocation.longitude}`
-          : point.address,
         position: mapDesign.pins[point.code],
+        route: illustratedMapRoutes[point.code],
       };
     }),
   }));
@@ -89,7 +93,10 @@ export default async function MapsPage() {
               lang={lang}
               groups={groups}
               artwork={mapDesign.artwork}
-              origin={`${mapDesign.origin.latitude},${mapDesign.origin.longitude}`}
+              origin={{
+                name: mapDesign.origin.name[lang],
+                position: mapDesign.origin.position,
+              }}
               ui={ui}
             />
           </MapPageMotion>

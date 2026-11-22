@@ -14,7 +14,7 @@ import type { Layer } from "@/content";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { matchesMapSearch } from "../search";
-import type { DesignMapGroup, DesignMapPoint } from "./types";
+import type { DesignMapGroup, DesignMapOrigin, DesignMapPoint } from "./types";
 import type { DesignMapControls, DesignMapViewport } from "./map-canvas";
 import { LocationCard, type LocationCardControls } from "./location-card";
 import s from "./map.module.css";
@@ -29,10 +29,11 @@ function subscribe(onChange: () => void) {
   };
 }
 const snapshot = () => window.location.search;
-function writeSelection(slug: string | null) {
+function writeSelection(slug: string | null, view?: "route") {
   const url = new URL(window.location.href);
   for (const key of ["from", "to", "view"]) url.searchParams.delete(key);
   if (slug) url.searchParams.set("to", slug);
+  if (slug && view) url.searchParams.set("view", view);
   window.history.replaceState(
     window.history.state,
     "",
@@ -78,7 +79,7 @@ export function DesignMapExplorer({
   lang: Locale;
   groups: DesignMapGroup[];
   artwork: { src: string; width: number; height: number };
-  origin: string;
+  origin: DesignMapOrigin;
   ui: Dictionary["maps"];
 }) {
   const id = useId();
@@ -107,12 +108,14 @@ export function DesignMapExplorer({
   const trigger = useRef<HTMLElement | null>(null);
   const legendTrigger = useRef<HTMLButtonElement>(null);
   const params = useSyncExternalStore(subscribe, snapshot, () => "");
-  const destination = new URLSearchParams(params).get("to");
+  const selectionParams = new URLSearchParams(params);
+  const destination = selectionParams.get("to");
   const allPoints = useMemo(
     () => groups.flatMap((group) => group.points),
     [groups],
   );
   const selected = allPoints.find((point) => point.slug === destination);
+  const routeVisible = !!selected && selectionParams.get("view") === "route";
   const activeLayer = selected?.layer ?? layer;
   const group = groups.find((entry) => entry.layer === activeLayer)!;
   const visible = useMemo(
@@ -242,7 +245,27 @@ export function DesignMapExplorer({
   );
 
   function close() {
-    card.current?.dismiss(finishClose);
+    if (card.current) card.current.dismiss(finishClose);
+    else finishClose();
+  }
+
+  function showRoute() {
+    if (!selected) return;
+    const slug = selected.slug;
+    card.current?.dismiss(() => {
+      setHighlighted(null);
+      writeSelection(slug, "route");
+      requestAnimationFrame(() => {
+        const current = new URLSearchParams(window.location.search);
+        if (current.get("to") !== slug || current.get("view") !== "route")
+          return;
+        const map = root.current?.querySelector<HTMLElement>(
+          `.${s.mapSurface}`,
+        );
+        map?.focus({ preventScroll: true });
+        map?.scrollIntoView({ block: "nearest", behavior: "instant" });
+      });
+    });
   }
 
   function finishClose() {
@@ -458,8 +481,10 @@ export function DesignMapExplorer({
             key={attempt}
             ref={controls}
             artwork={artwork}
+            origin={origin}
             points={visible}
             selected={selected?.slug ?? null}
+            routeVisible={routeVisible}
             highlighted={highlighted}
             onHighlight={highlight}
             cardId={cardId}
@@ -489,7 +514,7 @@ export function DesignMapExplorer({
             </button>
           </div>
         )}
-        {selected && (
+        {selected && !routeVisible && (
           <LocationCard
             ref={card}
             point={selected}
@@ -498,8 +523,8 @@ export function DesignMapExplorer({
             id={cardId}
             titleId={titleId}
             titleRef={cardTitle}
-            origin={origin}
             onClose={close}
+            onRoute={showRoute}
             ui={ui}
           />
         )}
@@ -545,6 +570,16 @@ export function DesignMapExplorer({
         )}
       </div>
       <div className={s.tools} role="group" aria-label={ui.controls}>
+        {routeVisible && (
+          <button
+            type="button"
+            aria-label={ui.clearRoute}
+            title={ui.clearRoute}
+            onClick={close}
+          >
+            <ControlIcon name="close" />
+          </button>
+        )}
         <button
           type="button"
           disabled={!viewport.ready || !viewport.canZoomIn}

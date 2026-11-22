@@ -26,8 +26,8 @@ type CardProps = {
   id: string;
   titleId: string;
   titleRef: Ref<HTMLHeadingElement>;
-  origin: string;
   onClose: () => void;
+  onRoute: () => void;
   ui: Dictionary["maps"];
 };
 
@@ -116,18 +116,20 @@ export function LocationCard({
             }
           }
           const dismiss = context.add("dismiss", (complete: () => void) => {
+            completeExit = complete;
             if (exit) return;
             if (!context.conditions?.motion) {
+              completeExit = undefined;
               complete();
               return;
             }
-            completeExit = complete;
             entrance.progress(1);
             exit = gsap
               .timeline({
                 onComplete: () => {
+                  const finish = completeExit;
                   completeExit = undefined;
-                  complete();
+                  finish?.();
                 },
               })
               .to(current, {
@@ -234,7 +236,7 @@ function CardContent({
   lang,
   titleId,
   titleRef,
-  origin,
+  onRoute,
   ui,
 }: Omit<CardProps, "titleId" | "titleRef"> & {
   titleId?: string;
@@ -295,15 +297,10 @@ function CardContent({
       <span className={s.cardBadge} aria-hidden="true">
         {point.code.toUpperCase()}
       </span>
-      <a
-        className={s.cardDirections}
-        href={`https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(point.directionsDestination)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <button type="button" className={s.cardDirections} onClick={onRoute}>
         <span>{ui.directionsTo}</span>
         <span className={s.cardArrow} aria-hidden="true" />
-      </a>
+      </button>
     </>
   );
 }
