@@ -80,8 +80,9 @@ export default function DesignMapCanvas({
       markerZoomAnimation: false,
       inertia: false,
       bounceAtZoomLimits: false,
-      maxBounds: bounds.pad(0.35),
+      maxBounds: bounds,
       maxBoundsViscosity: 1,
+      trackResize: false,
     });
     mapRef.current = map;
     let ready = false;
@@ -92,11 +93,30 @@ export default function DesignMapCanvas({
         canZoomIn: map.getZoom() < map.getMaxZoom() - 0.01,
         canZoomOut: map.getZoom() > map.getMinZoom() + 0.01,
       });
+    const updateMinimum = () => {
+      const size = map.getSize();
+      if (!size.x || !size.y) return;
+      // Cover the viewport in both dimensions, including on tall/narrow screens.
+      map.setMinZoom(
+        Math.log2(Math.max(size.x / artwork.width, size.y / artwork.height)),
+      );
+    };
     const fit = () => {
-      map.fitBounds(bounds, { padding: [0, 0], animate: false });
+      updateMinimum();
+      map.setView(bounds.getCenter(), map.getMinZoom(), { animate: false });
     };
     fitRef.current = fit;
     fit();
+    let constraining = false;
+    const keepInsideBounds = () => {
+      if (constraining) return;
+      constraining = true;
+      map.panInsideBounds(bounds, { animate: false });
+      constraining = false;
+    };
+    // Leaflet's solid drag bounds do not constrain an in-progress pinch or panBy.
+    // Clamp those moves immediately as well, rather than bouncing back on release.
+    map.on("move", keepInsideBounds);
     const overlay = L.imageOverlay(artwork.src, bounds, {
       alt: ui.design.illustration,
       interactive: false,
@@ -116,13 +136,9 @@ export default function DesignMapCanvas({
       if (disposed) return;
       const atOverview = map.getZoom() <= map.getMinZoom() + 0.02;
       map.invalidateSize({ animate: false, pan: false });
-      const size = map.getSize();
-      const minimum = Math.log2(
-        Math.min(size.x / artwork.width, size.y / artwork.height),
-      );
-      if (!Number.isFinite(minimum)) return;
-      map.setMinZoom(minimum);
+      updateMinimum();
       if (atOverview || !ready) fit();
+      else keepInsideBounds();
       report();
     });
     resize.observe(element.current);
