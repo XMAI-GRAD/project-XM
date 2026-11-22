@@ -22,6 +22,10 @@ import h from "@/features/home/home.module.css";
 import { at } from "@/features/home/place";
 import { RichText } from "@/features/home/rich-text";
 import s from "./about.module.css";
+import { FieldsMotion } from "./fields-motion";
+import { IntroMotion } from "./intro-motion";
+import { TimelineMotion } from "./timeline-motion";
+import { WorkMotion } from "./work-motion";
 
 const text = `${h.at} ${h.text}`;
 const display = `${text} ${h.display}`;
@@ -37,10 +41,12 @@ function piece(name: string) {
 export function Intro({ lang }: { lang: Locale }) {
   const { title, heading, petal, intro } = getPage("about");
   return (
-    <section className={`${h.section} ${s.intro}`}>
+    <IntroMotion className={`${h.section} ${s.intro}`}>
       <AboutPetal className={h.at} style={at(aboutPetalBox)} />
       <AboutIntroLine className={h.at} style={at(aboutIntroLineBox)} />
-      <p className={`${text} ${s.label}`}>{title[lang]}</p>
+      <p className={`${text} ${s.label}`} data-motion="about-label">
+        {title[lang]}
+      </p>
       <h1 className={s.heading}>
         {heading[lang].split("\n").map((line, i) => (
           <span key={i} className={`${display} ${s.headingLine}`}>
@@ -48,12 +54,22 @@ export function Intro({ lang }: { lang: Locale }) {
           </span>
         ))}
       </h1>
-      <p className={`${text} ${s.note} ${s.petalRight}`}>{petal.right[lang]}</p>
-      <p className={`${text} ${s.note} ${s.petalLeft}`}>{petal.left[lang]}</p>
-      <p className={`${text} ${s.introBody}`}>
+      <p
+        className={`${text} ${s.note} ${s.petalRight}`}
+        data-motion="about-note"
+      >
+        {petal.right[lang]}
+      </p>
+      <p
+        className={`${text} ${s.note} ${s.petalLeft}`}
+        data-motion="about-note"
+      >
+        {petal.left[lang]}
+      </p>
+      <p className={`${text} ${s.introBody}`} data-motion="about-intro">
         <RichText text={intro[lang]} />
       </p>
-    </section>
+    </IntroMotion>
   );
 }
 
@@ -61,7 +77,7 @@ export function Intro({ lang }: { lang: Locale }) {
 export function Work({ lang }: { lang: Locale }) {
   const { work } = getPage("about");
   return (
-    <section className={`${h.section} ${s.work}`}>
+    <WorkMotion className={`${h.section} ${s.work}`}>
       <h2 className="sr-only">{work.title[lang]}</h2>
       <ol className={s.workList}>
         {work.items.map((item, i) => {
@@ -78,7 +94,7 @@ export function Work({ lang }: { lang: Locale }) {
         })}
       </ol>
       <AboutWorkLine className={h.at} style={at(aboutWorkLineBox)} />
-    </section>
+    </WorkMotion>
   );
 }
 
@@ -86,13 +102,13 @@ export function Work({ lang }: { lang: Locale }) {
 export function Fields({ lang }: { lang: Locale }) {
   const { fields } = getPage("about");
   return (
-    <section className={`${h.section} ${s.fields}`}>
+    <FieldsMotion className={`${h.section} ${s.fields}`}>
       <h2 className={`${h.at} ${h.display} ${h.capTop} ${s.fieldsDisplay}`}>
         <RichText text={fields.display[lang]} />
       </h2>
       <p className={`${text} ${s.fieldsNote}`}>{fields.note[lang]}</p>
       <AboutFieldsLine className={h.at} style={at(aboutFieldsLineBox)} />
-    </section>
+    </FieldsMotion>
   );
 }
 
@@ -100,7 +116,7 @@ export function Fields({ lang }: { lang: Locale }) {
 export function Timeline({ lang }: { lang: Locale }) {
   const { timeline } = getPage("about");
   return (
-    <section className={`${h.section} ${s.timeline}`}>
+    <TimelineMotion className={`${h.section} ${s.timeline}`}>
       <h2 className={`${text} ${s.label} ${s.timelineLabel}`}>
         {timeline.title[lang]}
       </h2>
@@ -129,7 +145,7 @@ export function Timeline({ lang }: { lang: Locale }) {
           );
         })}
       </ol>
-    </section>
+    </TimelineMotion>
   );
 }
 

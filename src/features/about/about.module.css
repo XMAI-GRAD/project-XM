@@ -28,6 +28,11 @@
   width: max-content;
   white-space: nowrap;
 }
+/* As wide as its words, so the mask its motion sweeps across them fits them. */
+.intro .note,
+.intro .label {
+  width: max-content;
+}
 .headingLine:nth-child(1) {
   --x: 704;
   --y: 375;
@@ -60,6 +65,19 @@
 .headingLine:nth-child(4) {
   left: auto;
   right: calc((1920 - var(--r)) * var(--u));
+}
+/* Kept out of sight until its motion (./intro-motion.tsx) sets each phrase, the
+   petal, the words beside it, GIỚI THIỆU, its line and the intro where they arrive
+   from, so they don't show whole for a moment first. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .heading,
+  .intro [data-art="about-petal"],
+  .intro [data-motion="about-note"],
+  .intro [data-motion="about-label"],
+  .intro [data-art="about-intro-line"],
+  .intro [data-motion="about-intro"] {
+    visibility: hidden;
+  }
 }
 
 .note {
@@ -131,6 +149,14 @@
 .workList li:nth-child(3) .workBody {
   --y: 2030;
 }
+/* Kept out of sight until its motion (./work-motion.tsx) sets each role, and the
+   line, where they arrive from. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .workList li,
+  .work [data-art="about-work-line"] {
+    visibility: hidden;
+  }
+}
 
 /* ---------- Fields: one composed block, icons between the words ---------- */
 
@@ -147,6 +173,12 @@
   font-size: calc(87 / 0.703 * var(--u));
   line-height: calc(125 * var(--u));
   white-space: nowrap;
+}
+/* Kept out of sight until its motion (./fields-motion.tsx) sets it to draw. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .fields [data-art="about-fields-line"] {
+    visibility: hidden;
+  }
 }
 .fieldsNote {
   --x: 969;
@@ -167,6 +199,15 @@
   --y: 3464;
   margin: 0;
   font-size: calc(24 / 0.727 * var(--u));
+}
+/* Kept out of sight until its motion (./timeline-motion.tsx) sets each part where
+   it arrives from. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .timelineLabel,
+  .timeline [data-art="about-timeline-line"],
+  .years li {
+    visibility: hidden;
+  }
 }
 .years {
   margin: 0;
