@@ -14,6 +14,8 @@ import type { Layer } from "@/content";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { matchesMapSearch } from "../search";
+import { SearchIcon } from "@/components/search-icon";
+import { SearchFrame } from "@/features/home/art";
 import type { DesignMapGroup, DesignMapOrigin, DesignMapPoint } from "./types";
 import type { DesignMapControls, DesignMapViewport } from "./map-canvas";
 import { LocationCard, type LocationCardControls } from "./location-card";
@@ -341,15 +343,20 @@ export function DesignMapExplorer({
         <div className={s.sidebarHead}>
           <h2>{ui.design.title}</h2>
           <div className={s.searchBox}>
+            <SearchFrame className={s.searchFrame} />
+            <SearchIcon className={s.searchIcon} />
             <label className="sr-only" htmlFor={searchId}>
               {ui.search}
             </label>
             <input
               id={searchId}
               ref={search}
+              type="search"
               value={query}
+              placeholder={ui.search}
               aria-describedby={hintId}
               autoComplete="off"
+              spellCheck={false}
               onChange={(event) => {
                 setHighlighted(null);
                 setQuery(event.target.value);

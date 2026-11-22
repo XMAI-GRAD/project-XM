@@ -1,5 +1,22 @@
 # Design QA
 
+## Matching search fields — 22 November 2026
+
+The map search now shares the header's decorative frame and magnifying-glass icon,
+with matching placeholder, navy typography and spacing. Both decorative search
+fields use a slightly stronger frame and pale fill for focus, with no rectangular
+outline. The map retains its layer filtering and clear action; the header retains
+its result links. Placeholder text fits down to 320px.
+
+Headless Edge checks pass in VI/EN at 1920/1280/390/320: input/container outlines
+are absent, frame focus is visible, filtering/empty results/clear work, Enter opens
+the matching map card, and header arrow-key navigation and Escape work. No page
+errors. Scoped formatting, ESLint, TypeScript and production build pass.
+Evidence: [map](research/design/evidence/map-search/search-map-vi-1920-focus.png),
+[header](research/design/evidence/map-search/search-header-vi-1920-focus.png),
+[narrow layout](research/design/evidence/map-search/search-map-en-320-focus.png),
+[checks](research/design/evidence/map-search/search-style-results.json).
+
 ## Route button and anchored labels — 22 November 2026
 
 **Final result: passed.** Selecting a location now shows only its detail card.
