@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Phudu } from "next/font/google";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getLocale, siteUrl } from "@/i18n/server";
@@ -37,7 +38,10 @@ export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
   const lang = await getLocale();
   return (
     <html lang={lang} className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

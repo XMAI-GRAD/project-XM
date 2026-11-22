@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { homeEnter, gsap, MOTION, useGSAP } from "./gsap";
+import { REVEAL_CAP } from "./timing";
 
 /**
  * A number that counts up from 0 to `to` the first time it scrolls into view. Its box
@@ -20,7 +21,7 @@ export function CountUp({ to }: { to: string }) {
       el.textContent = "0";
       gsap.to(count, {
         value: target,
-        duration: 2,
+        duration: REVEAL_CAP,
         ease: "power2.out",
         snap: { value: 1 },
         onUpdate: () => {

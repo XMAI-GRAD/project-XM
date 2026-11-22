@@ -2,16 +2,17 @@
 
 import { useRef, type ReactNode } from "react";
 import { homeEnter, gsap, MOTION, ScrollTrigger, useGSAP } from "./gsap";
+import { OVERSHOOT_EASE, REVEAL_CAP } from "./timing";
 
 /*
- * Tempo. Hà Nội không vội: long, soft eases that settle slowly, short travels, no
- * bounce. Tune the whole hero from here.
+ * Tempo. Hà Nội không vội: calm eases that settle cleanly, short travels, capped
+ * so the brand dock remains the most deliberate move on Home.
  */
-const TITLE_PACE = 0.9; // the title's words, 10% quicker than the 1.8 s they began at
-const WORD = 1.8 * TITLE_PACE; // each word's entrance
-const WORD_GAP = 0.4 * TITLE_PACE; // between the starts of two words
-const ART = 3; // each drawing's way into the frame
-const ART_GAP = 0.25; // between drawings coming from the same side
+const TITLE_PACE = 0.9;
+const WORD = 1.1; // each word's entrance (slit words: WORD * 1.4 = 1.54 s)
+const WORD_GAP = 0.32 * TITLE_PACE; // between the starts of two words
+const ART = 1.5; // each drawing's way into the frame
+const ART_GAP = 0.16; // between drawings coming from the same side
 const SOFT = "power2.out";
 
 /** How each word of the title arrives, in turn: from → to. */
@@ -87,8 +88,8 @@ const STAR_FROM = { scale: 0, rotation: -90, transformOrigin: "50% 50%" };
  * rises above this share of the window: MẠCH NỐI is then near the middle of it.
  */
 const LEAVE_AT = 0.4;
-/** The skyline returning, a little slower than its entrance. */
-const LEAVE = 3.3;
+/** The skyline returning, matching its entrance cap. */
+const LEAVE = 1.5;
 /** The buildings leaving: quicker, so they are gone before they drift far. */
 const BUILDINGS_LEAVE = LEAVE * 0.75;
 /** The text leaving upward: short and accelerating, fading as it goes. */
@@ -155,7 +156,7 @@ export function HeroMotion({
                   opacity: 1,
                   transformOrigin: "50% 60%",
                   duration: WORD,
-                  ease: "back.out(1.2)",
+                  ease: OVERSHOOT_EASE,
                   overwrite: true,
                 },
                 at + 0.5 * TITLE_PACE,
@@ -166,12 +167,12 @@ export function HeroMotion({
             { clipPath: "inset(-40% 100% -40% 0%)", yPercent: 0, opacity: 1 },
             {
               clipPath: "inset(-40% 0% -40% 0%)",
-              duration: 2,
+              duration: REVEAL_CAP,
               ease: "sine.inOut",
               clearProps: "clipPath,transform,opacity",
               overwrite: true,
             },
-            "-=1",
+            "-=0.8",
           );
         };
 
@@ -193,13 +194,15 @@ export function HeroMotion({
             defaults: { duration: WORD, ease: SOFT },
           }),
         );
-        first
-          .addLabel("art", 0)
-          .from(
-            wave,
-            { ...WAVE_FROM, duration: 2, clearProps: "transform,clipPath" },
-            "art",
-          );
+        first.addLabel("art", 0).from(
+          wave,
+          {
+            ...WAVE_FROM,
+            duration: REVEAL_CAP,
+            clearProps: "transform,clipPath",
+          },
+          "art",
+        );
         for (const [names, from, start] of artWays)
           first.from(
             parts(names),
@@ -208,8 +211,8 @@ export function HeroMotion({
           );
         first.from(
           star,
-          { ...STAR_FROM, duration: 2.4, ease: "back.out(1.1)" },
-          "art+=1.6",
+          { ...STAR_FROM, duration: 1.5, ease: OVERSHOOT_EASE },
+          "art+=0.9",
         );
 
         // The skyline leaving all together, the buildings fading as they slide; and
@@ -234,9 +237,9 @@ export function HeroMotion({
           tl.to(
             star,
             out
-              ? { ...STAR_FROM, duration: 2.4 }
-              : { scale: 1, rotation: 0, duration: 2.4, ease: "back.out(1.1)" },
-            out ? 0 : 1,
+              ? { ...STAR_FROM, duration: 1.5 }
+              : { scale: 1, rotation: 0, duration: 1.5, ease: OVERSHOOT_EASE },
+            out ? 0 : 0.7,
           );
         };
 

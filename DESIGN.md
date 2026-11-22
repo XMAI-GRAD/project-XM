@@ -158,7 +158,9 @@ Phudu has no width axis, so don't use `font-stretch`.
 ## Motion
 
 The new homepage opening uses a reversible SVG letter morph into the measured
-header logo. See [current implementation and extraction notes](research/design/2026-11-17-svg-homepage-migration.md)
+header logo, scrubbed 1:1 by the user's scroll (`scrub: true`) with no auto-snap
+so Lenis smooth scroll (`wheelMultiplier: 1.0`, `lerp: 0.1`) is the only
+smoothing and the page stops wherever the user stops. See [current implementation and extraction notes](research/design/2026-11-17-svg-homepage-migration.md)
 for path pairing, coordinate spaces, native scroll behavior, endpoint handoff,
 reduced motion and lifecycle cleanup. Keep the original SVGs at both endpoints.
 The [current opening transition](docs/plans/2026-11-17-opening-header-reveal.md)
@@ -166,14 +168,19 @@ keeps the header and content hidden until the lettering settles in the brand log
 The page then reveals, with header controls entering from above; the final extracted
 layout stays intact.
 
-After that opening, the header, content and original frame stay together while the full brand
-[collapses and travels into the floating rail mark](research/design/2026-11-17-floating-rail-brand.md).
-Once the logo arrives, the composition scrolls away together. Keep the symbol
-colored over the paper background; reveal its pale version where the original
-lime rail passes behind it, without adding a separate lime panel. The mark stays
-at its original header height while browsing; clicking it returns to the header
-without replaying the opening. Reduced motion switches states and returns instantly.
-Morph a temporary SVG copy and keep original extracted paths pristine for the opening.
+After that opening, the brand logo [collapses and travels into the floating rail mark](research/design/2026-11-17-floating-rail-brand.md)
+scrubbed directly by scroll (`power2.inOut` across ~0.48 vh total from opening
+end to header exit) using transform-only scaling: the header holds briefly and
+then exits during the second half of the dock while the logo stays steady at its
+header Y and finishes landing on the rail as the header clears. Secondary Home
+reveals stay capped at ~1.4–1.6 s with a single shared `back.out(1.2)` overshoot
+and `0.5 s` edge/footer smoothing so the brand dock remains the most deliberate
+move. Keep the symbol colored over the paper background; reveal its pale version
+where the original lime rail passes behind it, without adding a separate lime
+panel. The mark stays at its original header height while browsing; clicking it
+returns to the header without replaying the opening. Reduced motion switches
+states and returns instantly. Morph a temporary SVG copy and keep original
+extracted paths pristine for the opening.
 
 The [dev motion integration](docs/plans/2026-11-17-dev-motion-merge.md) retains the
 incoming section choreography. `homeEnter` measures entrance thresholds without
