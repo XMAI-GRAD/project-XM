@@ -2,7 +2,7 @@
   position: relative;
 }
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -18,11 +18,20 @@
   }
   .root[data-opening-motion="active"] [data-opening] {
     z-index: 2;
+    height: calc(
+      max(100svh, calc(540 * var(--u))) * var(--opening-scroll-vh, 0.7)
+    );
+    min-height: 0;
     background: transparent;
     pointer-events: none;
   }
   .root[data-opening-motion="active"] [data-opening-backdrop] {
+    bottom: auto;
+    height: max(100svh, calc(540 * var(--u)));
     background: var(--navy-500);
+  }
+  .root[data-opening-motion="active"] [data-opening-origin] {
+    top: calc(max(100svh, calc(540 * var(--u))) / 2);
   }
   .root[data-opening-motion="active"] [data-home-design="web-02"] {
     z-index: 1;

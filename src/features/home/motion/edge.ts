@@ -1,10 +1,11 @@
 "use client";
 
 import { gsap, ScrollTrigger } from "./gsap";
+import { SCRUB_SMOOTH } from "./timing";
 
 /** How far an element sinks as it nears the window's foot, or rises as it nears
  *  its head, in comp units: the footer's rise (src/components/footer-motion.tsx). */
-const SINK = 120;
+export const SINK = 120;
 /** Where in the window it sinks through, by its top, as shares of the window's
  *  height from the top: settled above 75%, gone below 95%. Close to the edges, so a
  *  section that fills the window shows whole; only what is leaving it moves out. */
@@ -14,7 +15,7 @@ const GONE_AT = 0.95;
 const SHOWN_ABOVE = 0.1;
 const GONE_ABOVE = 0;
 /** Seconds it takes to catch up with the scroll, so it glides. */
-const SMOOTH = 1;
+const SMOOTH = SCRUB_SMOOTH;
 
 type Edge = {
   el: HTMLElement | SVGElement;
@@ -137,7 +138,9 @@ export function edgeMotion(context: gsap.Context, unit: () => number) {
           // scroll puts it.
           if (!shown) {
             edge.target = progress(edge);
-            if (edge.target !== 1) move.progress(edge.target / 2);
+            // Rendered by hand: a paused timeline sent to where it already is (0,
+            // sunk) draws nothing, and the element would show at rest.
+            if (edge.target !== 1) move.progress(1).progress(edge.target / 2);
           }
           const state = { p: edge.target };
           edge.glide = gsap.quickTo(state, "p", {

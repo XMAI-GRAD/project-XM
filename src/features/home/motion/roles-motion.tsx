@@ -11,6 +11,7 @@ import {
   ScrollTrigger,
   useGSAP,
 } from "./gsap";
+import { OVERSHOOT_EASE, REVEAL_CAP } from "./timing";
 
 /** How fast the line runs, in comp units a second. Calm, and even: each name rises
  *  as the line reaches it, so its pace sets when the names show. */
@@ -50,7 +51,7 @@ const RETRACT = 1.4;
 const DRIFT = 240;
 /** How long a name takes to fade in as the line reaches it, or out as it leaves
  *  with its building: an even fade, so it reads as one. */
-const NAME_FADE = 1.6;
+const NAME_FADE = 1.2;
 /** How far the clouds drift back to the right, in px (as they came in). */
 const CLOUD_DRIFT = 500;
 
@@ -200,7 +201,7 @@ export function RolesMotion({
                   opacity: 0,
                   transformOrigin: "50% 70%",
                   duration: 1.2,
-                  ease: "back.out(1.7)",
+                  ease: OVERSHOOT_EASE,
                   clearProps: CLEAR_WORD,
                 }
               : { y: 14, opacity: 0, duration: 0.9, clearProps: CLEAR_WORD },
@@ -281,7 +282,7 @@ export function RolesMotion({
           const rise = LINE_START + i * BUILD_GAP;
           tl.from(
             parts.map(part),
-            { y: RISE, duration: 2.4, stagger: 0.2 },
+            { y: RISE, duration: 1.5, stagger: 0.14 },
             rise,
           );
           if (role === "artists")
@@ -290,14 +291,14 @@ export function RolesMotion({
               {
                 scale: 0,
                 transformOrigin: "50% 100%",
-                duration: 1.2,
-                ease: "back.out(1.4)",
+                duration: 1.1,
+                ease: OVERSHOOT_EASE,
               },
-              rise + 1.8,
+              rise + 1.1,
             );
           const name = q(`[data-role="${role}"]`)[0];
           const named = timeAt(reach(leftOf(name)));
-          tl.from(name, { y: 24, duration: 1.2 }, named).from(
+          tl.from(name, { y: 24, duration: 1.1 }, named).from(
             name,
             { opacity: 0, duration: NAME_FADE, ease: "sine.inOut" },
             named,
@@ -320,15 +321,15 @@ export function RolesMotion({
             scale: 0,
             rotation: -90,
             transformOrigin: "50% 50%",
-            duration: 2,
-            ease: "back.out(1.1)",
+            duration: REVEAL_CAP,
+            ease: OVERSHOOT_EASE,
           },
           timeAt(total),
         ).from(
           q(
             '[data-art="roles-wave"], [data-art="roles-petal"], [data-art="roles-cloud"]',
           ),
-          { x: 500, opacity: 0, duration: 2.8, stagger: 0.35 },
+          { x: 500, opacity: 0, duration: 1.6, stagger: 0.2 },
           LINE_START + 0.8,
         );
 
@@ -392,9 +393,9 @@ export function RolesMotion({
             {
               x: CLOUD_DRIFT,
               opacity: 0,
-              duration: 1.6,
+              duration: 1.2,
               ease: "power2.in",
-              stagger: 0.2,
+              stagger: 0.14,
             },
             0,
           );

@@ -166,11 +166,15 @@ svg.at,
 }
 .logo {
   z-index: 4;
+  transform-origin: 0 0;
 }
 .logo > svg:first-child,
 .logo > [data-brand-flight] {
-  /* The link narrows during travel; source SVG coordinates stay stable. */
+  /* The link scales during travel; source SVG coordinates stay stable. */
   width: calc(var(--w) * var(--u));
+}
+.logo > [data-brand-flight] {
+  transform-origin: 0 0;
 }
 .logo > [data-brand-flight],
 .logo > [data-brand-docked] {
@@ -182,6 +186,7 @@ svg.at,
 }
 .logo > [data-brand-docked] {
   width: 100%;
+  height: 100%;
 }
 .logo[data-brand-state="travel"] > svg:first-child,
 .logo[data-brand-state="rail"] > svg:first-child {

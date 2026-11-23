@@ -6,6 +6,19 @@ import { gsap } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  getLenis,
+  scrollToImmediate,
+  stopSmoothScroll,
+} from "@/components/smooth-scroll";
+import {
+  computeDockLayout,
+  computeDockScale,
+  dockEaseInOut,
+  dockHeaderOffset,
+  dockProgress,
+} from "./header-docking";
+import { openingTransitionEnd } from "./opening-snap";
 
 gsap.registerPlugin(useGSAP, MorphSVGPlugin, ScrollToPlugin, ScrollTrigger);
 
@@ -66,6 +79,7 @@ export function HomeHeaderMotion({
           // The opening reads original paths. Only the temporary flight copy morphs.
           flight.dataset.brandFlight = "";
           docked.dataset.brandDocked = "";
+          docked.setAttribute("preserveAspectRatio", "none");
           flight
             .querySelectorAll("[data-brand-letter], [data-brand-detail]")
             .forEach((node) => {
@@ -114,32 +128,26 @@ export function HomeHeaderMotion({
           const centerShift =
             viewBox.x + viewBox.width / 2 - (left + right) / 2;
           const movement = { progress: 0 };
+          // Keep internal movement linear so the authored outer power3.out tween
+          // produces one smooth, monotonic deceleration curve with no double-easing.
           const timeline = gsap.timeline({ paused: true });
           timeline.to(
             copy,
             {
               opacity: 0,
               x: -viewBox.width * 0.08,
-              duration: 0.2,
-              ease: "power1.inOut",
+              duration: 0.22,
+              ease: "none",
             },
             0,
           );
           timeline.to(
             symbol,
-            { x: centerShift, duration: 0.22, ease: "power2.inOut" },
+            { x: centerShift, duration: 0.16, ease: "none" },
             0,
           );
-          timeline.to(
-            symbol,
-            { x: 0, duration: 0.78, ease: "power2.inOut" },
-            0.22,
-          );
-          timeline.to(
-            movement,
-            { progress: 1, duration: 0.78, ease: "power2.inOut" },
-            0.22,
-          );
+          timeline.to(symbol, { x: 0, duration: 0.84, ease: "none" }, 0.16);
+          timeline.to(movement, { progress: 1, duration: 1, ease: "none" }, 0);
           paths.forEach((path, index) => {
             const target = targets[index];
             const geometry = MorphSVGPlugin.stringToRawPath(
@@ -158,10 +166,10 @@ export function HomeHeaderMotion({
                   shape: MorphSVGPlugin.rawPathToString(geometry),
                   type: "linear",
                 },
-                duration: 0.78,
-                ease: "power2.inOut",
+                duration: 0.9,
+                ease: "none",
               },
-              0.22,
+              0.1,
             );
             timeline.fromTo(
               path,
@@ -169,14 +177,15 @@ export function HomeHeaderMotion({
               {
                 strokeWidth: 1,
                 duration: 0.35,
-                ease: "power1.inOut",
+                ease: "none",
               },
               0.65,
             );
           });
 
           let start = 0,
-            distance = 0,
+            totalDistance = 0,
+            holdDistance = 0,
             dx = 0,
             width = 0,
             height = 0,
@@ -187,15 +196,30 @@ export function HomeHeaderMotion({
             logoLeft = 0,
             weatherLeft = 0,
             weatherRight = 0;
+          let lastState: "expanded" | "travel" | "rail" | "" = "";
           let returnTween: gsap.core.Tween | undefined;
+          let returningWithLenis = false;
+          gsap.set([link, flight], { transformOrigin: "0 0" });
           const x = gsap.quickSetter(link, "x", "px");
           const y = gsap.quickSetter(link, "y", "px");
+          const linkScaleX = gsap.quickSetter(link, "scaleX");
+          const linkScaleY = gsap.quickSetter(link, "scaleY");
+          const flightScaleX = gsap.quickSetter(flight, "scaleX");
+          const flightScaleY = gsap.quickSetter(flight, "scaleY");
           const sceneY = gsap.quickSetter(scene, "y", "px");
           const measure = () => {
-            start = opening.getBoundingClientRect().bottom + window.scrollY;
-            distance = Math.max(280, header.offsetHeight * 2);
+            start = openingTransitionEnd(
+              opening.getBoundingClientRect().bottom,
+              window.scrollY,
+            );
+            const dockLayout = computeDockLayout({
+              viewportHeight: window.innerHeight,
+              headerHeight: header.offsetHeight,
+            });
+            totalDistance = dockLayout.totalDistance;
+            holdDistance = dockLayout.holdDistance;
             // Reserve the scroll used by the hold so no artwork is lost at the footer.
-            board.style.setProperty("--brand-hold", `${distance}px`);
+            board.style.setProperty("--brand-hold", `${holdDistance}px`);
             const sourceRect = source.getBoundingClientRect();
             const railRect = destination.getBoundingClientRect();
             width = sourceRect.width;
@@ -215,25 +239,50 @@ export function HomeHeaderMotion({
           const sync = () => {
             const offset = window.scrollY - start;
             const progress = reduced
-              ? Number(offset >= distance)
+              ? Number(offset >= totalDistance)
               : offset <= 1
                 ? 0
-                : gsap.utils.clamp(0, 1, offset / distance);
+                : dockProgress({ offset, totalDistance });
             timeline.progress(progress).pause();
             const state =
-              progress === 0 ? "expanded" : progress === 1 ? "rail" : "travel";
-            link.dataset.brandState = state;
-            link.setAttribute(
-              "aria-label",
-              state === "expanded" ? originalLabel : returnLabel,
-            );
-            // Keep the original composition together until docking: no hero crop
-            // or detached frame corners under a separately held header.
-            const heldScroll = gsap.utils.clamp(0, distance, offset);
+              progress <= 0.0001
+                ? "expanded"
+                : progress >= 0.9999
+                  ? "rail"
+                  : "travel";
+            if (state !== lastState) {
+              lastState = state;
+              link.dataset.brandState = state;
+              link.setAttribute(
+                "aria-label",
+                state === "expanded" ? originalLabel : returnLabel,
+              );
+            }
+            // Hold the composition briefly, then overlap the dock with the header's
+            // exit while keeping the logo pinned at its constant viewport-Y slot.
+            const { heldScroll, logoFollowY } = dockHeaderOffset({
+              offset,
+              holdDistance,
+            });
             sceneY(heldScroll);
             x(dx * movement.progress);
-            const follow = progress === 0 ? 0 : offset - heldScroll;
-            y(follow);
+            const {
+              scaleX,
+              scaleY,
+              flightScaleX: invX,
+              flightScaleY: invY,
+            } = computeDockScale({
+              progress: movement.progress,
+              width,
+              height,
+              railWidth,
+              railHeight,
+            });
+            linkScaleX(scaleX);
+            linkScaleY(scaleY);
+            flightScaleX(invX);
+            flightScaleY(invY);
+            y(logoFollowY);
             // Docked, the mark rides the rail down the page but stays on it: it
             // stops above the footer, as far from the rail's end as from its edge.
             if (state === "rail") {
@@ -241,20 +290,21 @@ export function HomeHeaderMotion({
               const page = host.getBoundingClientRect();
               const past =
                 mark.bottom - (page.bottom - (mark.left - page.left));
-              if (past > 0) y(follow - past);
+              if (past > 0) y(logoFollowY - past);
             }
-            link.style.width = `${width + (railWidth - width) * movement.progress}px`;
-            link.style.height = `${height + (railHeight - height) * movement.progress}px`;
-            // Avoid overlapping the weather while the symbol crosses its slot.
+            // Fade weather smoothly as the logo nears its slot and keep it out
+            // until the moving logo fully clears the weather's left edge.
             const movingLeft = logoLeft + dx * movement.progress;
-            const movingRight =
-              movingLeft + width + (railWidth - width) * movement.progress;
+            const movingRight = movingLeft + width * scaleX;
             const gap = Math.max(
               movingLeft - weatherRight,
               weatherLeft - movingRight,
             );
+            const weatherRamp = railWidth * 1.1;
+            const weatherAlpha =
+              weatherRamp > 0 ? gsap.utils.clamp(0, 1, gap / weatherRamp) : 1;
             weather.style.opacity = String(
-              gsap.utils.clamp(0, 1, gap / (railWidth * 0.28)),
+              weatherAlpha * weatherAlpha * (3 - 2 * weatherAlpha),
             );
             // Keep the colored symbol on paper. Reveal the pale version only where
             // the original lime rail actually passes behind it after release.
@@ -266,9 +316,16 @@ export function HomeHeaderMotion({
             const edge = reduced && cut > 0 ? railHeight : cut;
             flight.style.clipPath =
               state === "rail" ? `inset(0 0 ${height - edge}px 0)` : "none";
-            docked.style.clipPath = `inset(${edge}px 0 0 0)`;
+            const dockedInsetPct =
+              railHeight > 0 ? (edge / railHeight) * 100 : 0;
+            docked.style.clipPath = `inset(${dockedInsetPct}% 0 0 0)`;
           };
           measure();
+          const openingObserver = new ResizeObserver(() => {
+            measure();
+            sync();
+          });
+          openingObserver.observe(opening);
           ScrollTrigger.create({
             start: 0,
             end: "max",
@@ -285,6 +342,10 @@ export function HomeHeaderMotion({
           const cancelReturn = () => {
             returnTween?.kill();
             returnTween = undefined;
+            if (returningWithLenis) {
+              returningWithLenis = false;
+              stopSmoothScroll();
+            }
           };
           const returnToHeader = (event: MouseEvent) => {
             if (
@@ -298,21 +359,36 @@ export function HomeHeaderMotion({
             event.preventDefault();
             cancelReturn();
             measure();
+            const targetTop = Math.ceil(start);
             const complete = () => {
-              // Browser scroll positions may round a fractional opening height down.
-              window.scrollTo({ top: Math.ceil(start), behavior: "instant" });
-              ScrollTrigger.update();
-              header.focus({ preventScroll: true });
+              returningWithLenis = false;
               returnTween = undefined;
+              // Browser scroll positions may round a fractional opening height down.
+              scrollToImmediate(targetTop);
+              header.focus({ preventScroll: true });
             };
-            if (reduced) complete();
-            else
+            if (reduced) {
+              complete();
+              return;
+            }
+            const lenis = getLenis();
+            if (lenis) {
+              returningWithLenis = true;
+              lenis.scrollTo(targetTop, {
+                duration: 0.85,
+                easing: dockEaseInOut,
+                lock: false,
+                force: true,
+                onComplete: complete,
+              });
+            } else {
               returnTween = gsap.to(window, {
-                scrollTo: { y: Math.ceil(start), autoKill: true },
+                scrollTo: { y: targetTop, autoKill: true },
                 duration: 0.85,
                 ease: "power2.inOut",
                 onComplete: complete,
               });
+            }
           };
           link.addEventListener("click", returnToHeader);
           window.addEventListener("wheel", cancelReturn, { passive: true });
@@ -323,6 +399,7 @@ export function HomeHeaderMotion({
           window.addEventListener("resize", cancelReturn);
           return () => {
             cancelReturn();
+            openingObserver.disconnect();
             link.removeEventListener("click", returnToHeader);
             window.removeEventListener("wheel", cancelReturn);
             window.removeEventListener("touchstart", cancelReturn);

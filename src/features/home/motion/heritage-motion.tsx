@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import { edgeMotion } from "./edge";
+import { OVERSHOOT_EASE } from "./timing";
 import { CLEAR_WORD, homeEnter, gsap, HOVER, MOTION, useGSAP } from "./gsap";
 
 /** Hidden to the right of the left edge → fully shown; the vertical slack keeps
@@ -198,7 +199,7 @@ export function HeritageMotion({
             gsap.to(phrase, {
               yPercent: LIFT,
               duration: 0.35,
-              ease: "back.out(2.5)",
+              ease: OVERSHOOT_EASE,
               overwrite: true,
             });
         };
