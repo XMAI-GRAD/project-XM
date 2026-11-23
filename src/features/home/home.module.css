@@ -668,6 +668,20 @@ svg.at,
 .layerList [data-art$="-shapes"] {
   overflow: visible;
 }
+/* A layer's link holds its parts but takes no room: they stay placed on the section.
+   Focused, its name shows the ring. */
+.layerLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+.layerLink:focus-visible {
+  outline: none;
+}
+.layerLink:focus-visible .layerName {
+  outline: 2px solid currentColor;
+  outline-offset: calc(8 * var(--u));
+}
 .layerName {
   font-size: calc(33 / 0.703 * var(--u));
   width: max-content;
