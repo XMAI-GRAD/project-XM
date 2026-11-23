@@ -1,11 +1,16 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  DOCK_PALE_FADE_EXTRA_PX,
   DOCK_TOTAL_VH,
   computeDockLayout,
   computeDockScale,
   dockHeaderOffset,
   dockProgress,
+  dockRailToneProgress,
+  dockStartY,
+  resolveUnscaledSize,
+  shouldInterceptLogoClick,
 } from "./header-docking.ts";
 
 describe("header-docking overlapping layout", () => {
@@ -90,5 +95,151 @@ describe("header-docking scroll-scrubbed progress", () => {
     });
     assert.ok(Math.abs(end.scaleX * end.flightScaleX - 1) < 1e-6);
     assert.ok(Math.abs(end.scaleY * end.flightScaleY - 1) < 1e-6);
+  });
+
+  it("starts docking at scrollY=0 on subpages with no opening, and only intercepts clicks when docked or on Home", () => {
+    assert.equal(dockStartY({ openingBottom: null, scrollY: 0 }), 0);
+    assert.equal(dockStartY({ openingBottom: null, scrollY: 500 }), 0);
+    assert.equal(dockStartY({ openingBottom: 756, scrollY: 0 }), 756);
+    assert.equal(dockStartY({ openingBottom: 456, scrollY: 300 }), 756);
+
+    // Subpage at top (expanded): let <Link> navigate back to Home
+    assert.equal(
+      shouldInterceptLogoClick({ hasOpening: false, state: "expanded" }),
+      false,
+    );
+    // Subpage docked in rail: intercept to smoothly return to top of current page
+    assert.equal(
+      shouldInterceptLogoClick({ hasOpening: false, state: "rail" }),
+      true,
+    );
+    // Home: always intercept to return to Home header without replaying opening
+    assert.equal(
+      shouldInterceptLogoClick({ hasOpening: true, state: "expanded" }),
+      true,
+    );
+    assert.equal(
+      shouldInterceptLogoClick({ hasOpening: true, state: "rail" }),
+      true,
+    );
+  });
+
+  it("resolves untransformed CSS width/height for a scaled link and falls back cleanly", () => {
+    // Even when link is scaled to 0.293x (rect=85.3), computed CSS width/height stay unscaled (200x85.3)
+    assert.deepEqual(
+      resolveUnscaledSize({
+        cssWidth: "200px",
+        cssHeight: "85.3px",
+        fallbackWidth: 200,
+        fallbackHeight: 85.3,
+      }),
+      { width: 200, height: 85.3 },
+    );
+    // Fallback when CSS returns "auto" or empty
+    assert.deepEqual(
+      resolveUnscaledSize({
+        cssWidth: "auto",
+        cssHeight: "",
+        fallbackWidth: 200,
+        fallbackHeight: 85.3,
+      }),
+      { width: 200, height: 85.3 },
+    );
+  });
+
+  it("starts coloured -> pale fade at exact nav-band contact (bandTop === logoBottom) and eases to full cover + extra", () => {
+    assert.ok(DOCK_PALE_FADE_EXTRA_PX >= 0 && DOCK_PALE_FADE_EXTRA_PX <= 100);
+    const logoTop = 45.7;
+    const logoBottom = 131.0;
+    const span = logoBottom - logoTop + DOCK_PALE_FADE_EXTRA_PX;
+
+    // Before contact: 0
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: 176,
+        reduced: false,
+      }),
+      0,
+    );
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom,
+        reduced: false,
+      }),
+      0,
+    );
+    // Immediately after contact: > 0
+    assert.ok(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom - 1,
+        reduced: false,
+      }) > 0,
+    );
+
+    // Monotonic and symmetric in reverse across the full span
+    let prev = 0;
+    for (let d = 10; d < span; d += 10) {
+      const fwd = dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom - d,
+        reduced: false,
+      });
+      const rev = dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom - (span - d),
+        reduced: false,
+      });
+      assert.ok(fwd > prev && fwd < 1);
+      assert.ok(Math.abs(fwd + rev - 1) < 1e-6);
+      prev = fwd;
+    }
+
+    // At and past full cover + extra: 1
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoTop - DOCK_PALE_FADE_EXTRA_PX,
+        reduced: false,
+      }),
+      1,
+    );
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoTop - DOCK_PALE_FADE_EXTRA_PX - 100,
+        reduced: false,
+      }),
+      1,
+    );
+
+    // Reduced motion: instant switch at contact
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom + 1,
+        reduced: true,
+      }),
+      0,
+    );
+    assert.equal(
+      dockRailToneProgress({
+        logoTop,
+        logoBottom,
+        bandTop: logoBottom,
+        reduced: true,
+      }),
+      1,
+    );
   });
 });

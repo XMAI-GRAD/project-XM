@@ -17,8 +17,11 @@ import {
   dockEaseInOut,
   dockHeaderOffset,
   dockProgress,
+  dockRailToneProgress,
+  dockStartY,
+  resolveUnscaledSize,
+  shouldInterceptLogoClick,
 } from "./header-docking";
-import { openingTransitionEnd } from "./opening-snap";
 
 gsap.registerPlugin(useGSAP, MorphSVGPlugin, ScrollToPlugin, ScrollTrigger);
 
@@ -36,9 +39,12 @@ export function HomeHeaderMotion({
   useGSAP(
     () => {
       const header = root.current;
-      const board = header?.closest<HTMLElement>('[data-home-design="web-02"]');
+      const board =
+        header?.closest<HTMLElement>('[data-home-design="web-02"]') ??
+        header?.parentElement;
       const host = board?.parentElement;
-      const opening = host?.querySelector<HTMLElement>("[data-opening]");
+      const opening =
+        host?.querySelector<HTMLElement>("[data-opening]") ?? null;
       const link =
         header?.querySelector<HTMLAnchorElement>("[data-header-logo]");
       const source = link?.querySelector("svg");
@@ -54,7 +60,6 @@ export function HomeHeaderMotion({
         !header ||
         !board ||
         !host ||
-        !opening ||
         !link ||
         !source ||
         !weather ||
@@ -183,6 +188,15 @@ export function HomeHeaderMotion({
             );
           });
 
+          const fillMixers = paths.map((path, index) => {
+            const fromFill =
+              path.getAttribute("fill") || getComputedStyle(path).fill;
+            const toFill =
+              targets[index].getAttribute("fill") ||
+              getComputedStyle(targets[index]).fill;
+            return gsap.utils.interpolate(fromFill, toFill);
+          });
+
           let start = 0,
             totalDistance = 0,
             holdDistance = 0,
@@ -208,10 +222,12 @@ export function HomeHeaderMotion({
           const flightScaleY = gsap.quickSetter(flight, "scaleY");
           const sceneY = gsap.quickSetter(scene, "y", "px");
           const measure = () => {
-            start = openingTransitionEnd(
-              opening.getBoundingClientRect().bottom,
-              window.scrollY,
-            );
+            start = dockStartY({
+              openingBottom: opening
+                ? opening.getBoundingClientRect().bottom
+                : null,
+              scrollY: window.scrollY,
+            });
             const dockLayout = computeDockLayout({
               viewportHeight: window.innerHeight,
               headerHeight: header.offsetHeight,
@@ -220,12 +236,26 @@ export function HomeHeaderMotion({
             holdDistance = dockLayout.holdDistance;
             // Reserve the scroll used by the hold so no artwork is lost at the footer.
             board.style.setProperty("--brand-hold", `${holdDistance}px`);
-            const sourceRect = source.getBoundingClientRect();
-            const railRect = destination.getBoundingClientRect();
-            width = sourceRect.width;
-            height = sourceRect.height;
-            railWidth = railRect.width;
-            railHeight = railRect.height;
+            // Read untransformed CSS box sizes so re-measuring while `link` is scaled
+            // never reads the scaled rect and oscillates the rail logo width.
+            const sourceCss = getComputedStyle(source);
+            const railCss = getComputedStyle(destination);
+            const sourceSize = resolveUnscaledSize({
+              cssWidth: sourceCss.width,
+              cssHeight: sourceCss.height,
+              fallbackWidth: link.offsetWidth,
+              fallbackHeight: link.offsetHeight,
+            });
+            const railSize = resolveUnscaledSize({
+              cssWidth: railCss.width,
+              cssHeight: railCss.height,
+              fallbackWidth: rail.offsetWidth,
+              fallbackHeight: rail.offsetHeight,
+            });
+            width = sourceSize.width;
+            height = sourceSize.height;
+            railWidth = railSize.width;
+            railHeight = railSize.height;
             const linkStyle = getComputedStyle(link);
             const railStyle = getComputedStyle(rail);
             dx = parseFloat(railStyle.left) - parseFloat(linkStyle.left);
@@ -306,26 +336,30 @@ export function HomeHeaderMotion({
             weather.style.opacity = String(
               weatherAlpha * weatherAlpha * (3 - 2 * weatherAlpha),
             );
-            // Keep the colored symbol on paper. Reveal the pale version only where
-            // the original lime rail actually passes behind it after release.
-            const cut = gsap.utils.clamp(
-              0,
-              railHeight,
-              railEdge + heldScroll - offset - logoTop,
-            );
-            const edge = reduced && cut > 0 ? railHeight : cut;
-            flight.style.clipPath =
-              state === "rail" ? `inset(0 0 ${height - edge}px 0)` : "none";
-            const dockedInsetPct =
-              railHeight > 0 ? (edge / railHeight) * 100 : 0;
-            docked.style.clipPath = `inset(${dockedInsetPct}% 0 0 0)`;
+            // Start the coloured -> pale tone ease at exact contact between the
+            // logo's bottom edge and the rising nav/lavender band top edge.
+            const bandTop = railEdge + heldScroll - offset;
+            const logoBottom = logoTop + railHeight;
+            const pale = dockRailToneProgress({
+              logoTop,
+              logoBottom,
+              bandTop,
+              reduced,
+            });
+            paths.forEach((path, index) => {
+              path.style.fill = fillMixers[index](pale);
+            });
+            const showDocked = state === "rail" && pale >= 1;
+            flight.style.opacity = showDocked ? "0" : "1";
+            docked.style.opacity = showDocked ? "1" : "0";
           };
           measure();
           const openingObserver = new ResizeObserver(() => {
             measure();
             sync();
           });
-          openingObserver.observe(opening);
+          if (opening) openingObserver.observe(opening);
+          openingObserver.observe(header);
           ScrollTrigger.create({
             start: 0,
             end: "max",
@@ -348,6 +382,13 @@ export function HomeHeaderMotion({
             }
           };
           const returnToHeader = (event: MouseEvent) => {
+            if (
+              !shouldInterceptLogoClick({
+                hasOpening: !!opening,
+                state: lastState || "expanded",
+              })
+            )
+              return;
             if (
               event.button !== 0 ||
               event.ctrlKey ||
