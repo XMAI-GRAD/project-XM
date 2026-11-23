@@ -283,20 +283,23 @@ export function Layers({ lang }: { lang: Locale }) {
           const { Line, line, Shapes, shapes } = layerArt[layer];
           return (
             <li key={layer} data-layer={layer}>
-              <Line className={s.at} style={at(line)} />
-              <Shapes className={s.at} style={at(shapes)} />
-              <span
-                className={`${display} ${s.layerName}`}
-                data-motion="layer-name"
-              >
-                {names[layer]}
-              </span>{" "}
-              <span
-                className={`${text} ${s.layerCaption}`}
-                data-motion="layer-caption"
-              >
-                {copy[layer][lang]}
-              </span>
+              {/* The whole layer, shapes and all, opens its explore page. */}
+              <Link href={`/${lang}/explore/${layer}`} className={s.layerLink}>
+                <Line className={s.at} style={at(line)} />
+                <Shapes className={s.at} style={at(shapes)} />
+                <span
+                  className={`${display} ${s.layerName}`}
+                  data-motion="layer-name"
+                >
+                  {names[layer]}
+                </span>{" "}
+                <span
+                  className={`${text} ${s.layerCaption}`}
+                  data-motion="layer-caption"
+                >
+                  {copy[layer][lang]}
+                </span>
+              </Link>
             </li>
           );
         })}
