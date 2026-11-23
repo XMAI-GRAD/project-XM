@@ -1,5 +1,38 @@
+import { openingTransitionEnd } from "./opening-snap.ts";
+
 /** Total scroll from opening end to header fully out, as a share of viewport height (~5 notches). */
 export const DOCK_TOTAL_VH = 0.48;
+
+/** Extra scroll distance (px) past full logo cover so the pale tone fade reads smoothly on 1440/1920. */
+export const DOCK_PALE_FADE_EXTRA_PX = 60;
+
+/** Document-Y scroll origin where docking begins (`0` on subpages with no opening). */
+export function dockStartY({
+  openingBottom,
+  scrollY,
+}: {
+  openingBottom: number | null;
+  scrollY: number;
+}): number {
+  return openingBottom === null
+    ? 0
+    : openingTransitionEnd(openingBottom, scrollY);
+}
+
+/**
+ * Whether clicking `[data-header-logo]` should scroll back to the header instead of
+ * following its `<Link>` to Home. On subpages at the top (`expanded`), let the link
+ * navigate to Home; once docked in the rail (or on Home), scroll back to the header.
+ */
+export function shouldInterceptLogoClick({
+  hasOpening,
+  state,
+}: {
+  hasOpening: boolean;
+  state: "expanded" | "travel" | "rail";
+}): boolean {
+  return hasOpening || state !== "expanded";
+}
 
 /**
  * Split the total dock travel into an initial header hold plus the header's own exit height.
@@ -52,6 +85,51 @@ export function dockProgress({
   if (totalDistance <= 0) return offset > 0 ? 1 : 0;
   const linear = Math.max(0, Math.min(1, offset / totalDistance));
   return dockEaseInOut(linear);
+}
+
+/**
+ * Eased coloured -> pale progress (`0..1`) driven by the rising nav/rail band top edge
+ * contacting the logo's bottom edge (`bandTop === logoBottom`) through full cover plus
+ * `DOCK_PALE_FADE_EXTRA_PX`. Reduced motion switches instantly at contact.
+ */
+export function dockRailToneProgress({
+  logoTop,
+  logoBottom,
+  bandTop,
+  reduced,
+}: {
+  logoTop: number;
+  logoBottom: number;
+  bandTop: number;
+  reduced: boolean;
+}): number {
+  if (reduced) return bandTop <= logoBottom ? 1 : 0;
+  const span = Math.max(1, logoBottom - logoTop + DOCK_PALE_FADE_EXTRA_PX);
+  const linear = Math.max(0, Math.min(1, (logoBottom - bandTop) / span));
+  return dockEaseInOut(linear);
+}
+
+/**
+ * Resolve untransformed layout width/height from computed CSS lengths (immune to
+ * ancestor `transform: scale(...)`), falling back to layout offset dimensions.
+ */
+export function resolveUnscaledSize({
+  cssWidth,
+  cssHeight,
+  fallbackWidth,
+  fallbackHeight,
+}: {
+  cssWidth: string;
+  cssHeight: string;
+  fallbackWidth: number;
+  fallbackHeight: number;
+}): { width: number; height: number } {
+  const w = parseFloat(cssWidth);
+  const h = parseFloat(cssHeight);
+  return {
+    width: Number.isFinite(w) && w > 0 ? w : fallbackWidth,
+    height: Number.isFinite(h) && h > 0 ? h : fallbackHeight,
+  };
 }
 
 /**

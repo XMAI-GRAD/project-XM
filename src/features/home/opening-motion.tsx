@@ -6,14 +6,19 @@ import { gsap } from "gsap";
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { scrollToImmediate } from "@/components/smooth-scroll";
-import { OPENING_SCROLL_VH, openingTransitionEnd } from "./opening-snap";
+import { resolveUnscaledSize } from "./header-docking";
+import {
+  OPENING_REVEAL_TIMING,
+  OPENING_SCROLL_VH,
+  openingTransitionEnd,
+} from "./opening-snap";
 import { normalizeMorphPair, rawPathBounds } from "./opening-morph";
 import s from "./opening-motion.module.css";
 import { takeHomeEntry } from "./section-link";
 
 gsap.registerPlugin(useGSAP, MorphSVGPlugin, ScrollTrigger);
 
-const WORDMARK_END = 0.72;
+const WORDMARK_END = OPENING_REVEAL_TIMING.wordmarkEnd;
 const REVEAL_DURATION = 1 - WORDMARK_END;
 
 function svgNode<K extends keyof SVGElementTagNameMap>(name: K) {
@@ -205,12 +210,18 @@ export function HomeOpeningMotion({
         const rebuild = () => {
           const origin = host.getBoundingClientRect();
           const sourceBox = source.getBoundingClientRect();
-          // Measure the untransformed header slot, even while the brand travels
-          // to the rail. Its original SVG dimensions remain unchanged.
+          // Measure the untransformed header slot, even while the brand link is
+          // scaled for rail docking (`getBoundingClientRect` would read scaled px).
           const headerRect = header.getBoundingClientRect();
-          const targetRect = target.getBoundingClientRect();
           const targetLink = target.parentElement!;
           const targetStyle = getComputedStyle(targetLink);
+          const targetSvgStyle = getComputedStyle(target);
+          const targetSize = resolveUnscaledSize({
+            cssWidth: targetSvgStyle.width,
+            cssHeight: targetSvgStyle.height,
+            fallbackWidth: targetLink.offsetWidth,
+            fallbackHeight: targetLink.offsetHeight,
+          });
           const edge = opening.getBoundingClientRect().bottom - origin.top;
           const headerHeight = headerRect.height;
           const viewHeight = Math.max(window.innerHeight, headerHeight);
@@ -226,8 +237,8 @@ export function HomeOpeningMotion({
           const targetViewportBox = new DOMRect(
             headerRect.left + parseFloat(targetStyle.left),
             parseFloat(targetStyle.top),
-            targetRect.width,
-            targetRect.height,
+            targetSize.width,
+            targetSize.height,
           );
           if (!origin.width || !sourceBox.width || !targetViewportBox.width)
             return;
@@ -357,14 +368,27 @@ export function HomeOpeningMotion({
             timeline.fromTo(
               board,
               { opacity: 0 },
-              { opacity: 1, duration: REVEAL_DURATION, ease: "power1.inOut" },
-              WORDMARK_END,
+              {
+                opacity: 1,
+                duration:
+                  OPENING_REVEAL_TIMING.boardFadeEnd -
+                  OPENING_REVEAL_TIMING.boardFadeStart,
+                ease: "power1.inOut",
+              },
+              OPENING_REVEAL_TIMING.boardFadeStart,
             );
             timeline.fromTo(
               [...header.children].filter((child) => !child.contains(target)),
-              { y: -headerHeight },
-              { y: 0, duration: REVEAL_DURATION, ease: "power2.out" },
-              WORDMARK_END,
+              { y: OPENING_REVEAL_TIMING.headerSlideY, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration:
+                  OPENING_REVEAL_TIMING.headerEnterEnd -
+                  OPENING_REVEAL_TIMING.headerEnterStart,
+                ease: "power2.out",
+              },
+              OPENING_REVEAL_TIMING.headerEnterStart,
             );
             // Keep the overlay letters stationary in viewport coordinates; only
             // the document-flow entry link tracks them across the opening scroll.
@@ -462,8 +486,13 @@ export function HomeOpeningMotion({
             timeline.fromTo(
               detailGroup,
               { opacity: 0 },
-              { opacity: 1, duration: REVEAL_DURATION },
-              WORDMARK_END,
+              {
+                opacity: 1,
+                duration:
+                  OPENING_REVEAL_TIMING.detailFadeEnd -
+                  OPENING_REVEAL_TIMING.detailFadeStart,
+              },
+              OPENING_REVEAL_TIMING.detailFadeStart,
             );
             const syncPhase = () => {
               const progress = timeline.progress();

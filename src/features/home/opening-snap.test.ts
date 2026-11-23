@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  OPENING_REVEAL_TIMING,
   OPENING_SCROLL_VH,
   computeOpeningGeometry,
   openingTransitionEnd,
@@ -49,5 +50,21 @@ describe("openingTransitionEnd", () => {
     assert.equal(openingTransitionEnd(-200, 956), 756);
     assert.equal(openingTransitionEnd(629.4, 0), 630);
     assert.equal(openingTransitionEnd(1080, 0), 1080);
+  });
+});
+
+describe("OPENING_REVEAL_TIMING", () => {
+  it("finishes symbol detail fade with the wordmark and keeps header slide within the logo-to-nav gap", () => {
+    // Symbol must reach full opacity by WORDMARK_END so no mid-scroll frame shows faded symbol + dark text
+    assert.ok(
+      OPENING_REVEAL_TIMING.detailFadeEnd <= OPENING_REVEAL_TIMING.wordmarkEnd,
+    );
+    // Header controls slide must stay smaller than the 33px 1440p gap between logo bottom and nav top
+    assert.ok(Math.abs(OPENING_REVEAL_TIMING.headerSlideY) <= 24);
+    assert.ok(
+      OPENING_REVEAL_TIMING.boardFadeEnd <= 1 &&
+        OPENING_REVEAL_TIMING.boardFadeStart <
+          OPENING_REVEAL_TIMING.boardFadeEnd,
+    );
   });
 });
