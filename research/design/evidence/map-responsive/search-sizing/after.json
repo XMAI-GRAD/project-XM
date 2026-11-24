@@ -1,0 +1,162 @@
+[
+  {
+    "width": 2002,
+    "lang": "vi",
+    "font": 20,
+    "boxWidth": 345.5625,
+    "boxHeight": 46.671875,
+    "inputWidth": 242.125,
+    "placeholderWidth": 121.11328125,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 2002,
+    "lang": "en",
+    "font": 20,
+    "boxWidth": 345.5625,
+    "boxHeight": 46.671875,
+    "inputWidth": 242.125,
+    "placeholderWidth": 133.955078125,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "font": 19.8438,
+    "boxWidth": 331.3125,
+    "boxHeight": 44.734375,
+    "inputWidth": 232.09375,
+    "placeholderWidth": 120.14427185058594,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "font": 19.8438,
+    "boxWidth": 331.3125,
+    "boxHeight": 44.734375,
+    "inputWidth": 232.09375,
+    "placeholderWidth": 132.8833465576172,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 1600,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 275.65625,
+    "boxHeight": 44,
+    "inputWidth": 193.125,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 1600,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 275.65625,
+    "boxHeight": 44,
+    "inputWidth": 193.125,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 256.53125,
+    "boxHeight": 44,
+    "inputWidth": 179.734375,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 256.53125,
+    "boxHeight": 44,
+    "inputWidth": 179.734375,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 1376,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 236.703125,
+    "boxHeight": 44,
+    "inputWidth": 165.84375,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 1376,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 236.703125,
+    "boxHeight": 44,
+    "inputWidth": 165.84375,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 1280,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 339,
+    "boxHeight": 45.09375,
+    "inputWidth": 239,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 1280,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 339,
+    "boxHeight": 45.09375,
+    "inputWidth": 239,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 275,
+    "boxHeight": 45.09375,
+    "inputWidth": 175,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 275,
+    "boxHeight": 45.09375,
+    "inputWidth": 175,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "font": 14,
+    "boxWidth": 216.1875,
+    "boxHeight": 45.09375,
+    "inputWidth": 116.1875,
+    "placeholderWidth": 84.779296875,
+    "placeholder": "Tìm địa điểm"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "font": 14,
+    "boxWidth": 216.1875,
+    "boxHeight": 45.09375,
+    "inputWidth": 116.1875,
+    "placeholderWidth": 93.7685546875,
+    "placeholder": "Search places"
+  }
+]

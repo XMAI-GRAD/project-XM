@@ -1080,9 +1080,6 @@
     white-space: normal;
     font-size: 24px;
   }
-  .searchBox input {
-    font-size: clamp(16px, 5vw, 20px);
-  }
   .searchHint {
     white-space: normal;
     margin-left: 8px;
@@ -1203,7 +1200,7 @@
   min-height: 2.75rem;
 }
 .searchBox input {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, calc(20 * var(--u)), 1.25rem);
 }
 .searchHint {
   font-size: 0.75rem;
@@ -1438,6 +1435,9 @@
   .sidebarHead h2 {
     font-size: 1.375rem;
   }
+  .searchBox input {
+    font-size: 0.875rem;
+  }
   .layers {
     gap: 0.5rem;
   }
@@ -1459,6 +1459,9 @@
   .sidebar {
     padding: 1.5rem 1rem 1rem;
     height: auto;
+  }
+  .searchBox input {
+    font-size: 0.875rem;
   }
   .sidebarHead h2 {
     font-size: 1.5rem;
