@@ -413,3 +413,26 @@ errors. Changed-file formatting and `git diff --check` pass. This follow-up is
 CSS-only; SPEC and existing uncommitted work are preserved.
 
 Measurements: `research/design/evidence/map-responsive/row-spacing/results.json`.
+
+### November 25: scale the search text with the map layout
+
+Follow-up to merged PR #90, tracked by issue #91 on `fix/map-search-text`.
+The search input's fixed 20px override made it disproportionately large as the
+desktop sidebar narrowed. At 320px, both locale placeholders exceeded the input
+width. The input scales with the larger desktop composition between 1rem and
+1.25rem. Following owner review, containers up to 100rem use 0.875rem (14px at the
+default text size), including the stacked layout. Its 44px minimum target height
+is preserved.
+Removed the earlier, overridden viewport-font rule so the sizing is explicit.
+
+16 headless Edge cases pass: VI/EN at widths 2002, 1920, 1600, 1490, 1376, 1280,
+390 and 320; the teammate's 1490 × 714 size uses DPR 1.25. Measured search text is
+20px at 2002, about 19.84px at 1920, and 14px at 1600 and the narrower
+sizes. Both placeholders fit, filtering by D02 and clearing work, and no page
+errors occur. Reviewed before/after captures. Evidence:
+`research/design/evidence/map-responsive/search-sizing/`.
+
+The owner authorized publishing this as a hotfix. Lint, TypeScript, all 90 tests
+and the production build pass. The default format check reports the same 183 untouched CRLF checkouts;
+formatting with checkout line endings accepted passes. SPEC is byte-for-byte
+unchanged. The PR targets `dev` and closes #91.
