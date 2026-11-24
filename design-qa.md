@@ -752,3 +752,63 @@ Safari, Firefox, physical-device gestures, screen-reader audio output and authen
 - [ ] Designer/owner review of mobile adaptation, source contrast, weather, statistics and final editorial copy.
 
 Tests used explicit file enumeration on Windows because the existing single-quoted `pnpm test` glob is not expanded correctly by the Windows command shell. The production build generated 61 pages and reported 105 untranslated fields across the dataset, which use the established fallback. Formatting results are scoped to changed files; the repository also has pre-existing CRLF-versus-LF formatting differences.
+
+## November 24: map-card photograph placement
+
+final result: passed
+
+This result covers the requested photograph crop/scale/position in D01-D05,
+not a redesign of the existing responsive card text or code overlays.
+
+Source visual: `D:/XMAI GRAD/workspace/File/SVG/web final-18.svg`, viewBox
+1151.6 x 1965. Its linked image files were absent. The uncropped versions of the
+same five photographs were recovered from commit
+`0c41140a36978e9b362954523dae98742aafc6da`. A temporary copy of the SVG was rendered
+with those images embedded at the original authored transformations. No source
+paths, image matrices or clipping bounds were changed. The PDF in the supplied
+folder predates the card artboard. Pixel identity with the missing linked raster
+exports cannot be established; the placement comparison uses the recovered
+photographs in both source and implementation.
+
+Evidence in `research/design/evidence/map-responsive/card-photos/`:
+
+- `photo-comparison.png`: source left, implementation right; D01-D05 top to
+  bottom. Source windows are approximately 308.8 x 95 artboard units, rendered
+  at 2x and normalized to 618 x 190 pixels. Implementation photo captures use
+  a 1920 x 1080 CSS viewport, DPR 2, Vietnamese, selected-card state, reduced
+  motion; the corresponding windows are normalized to that same pixel size.
+- `card-comparison.png`: full Văn Miếu card context, same left/right ordering,
+  normalized to 629px wide. Different text wrapping/address flow belongs to the
+  existing responsive card implementation, outside this photo adjustment.
+- `source-framing.json`: measured SVG image matrices and clip rectangles.
+- `browser-results.json`: 40 measured image cases at 1920/1490/390/320 widths,
+  VI/EN and height 1080. `visual-results.json` records the separate DPR-2 captures.
+- `state-results.json`: four normal-motion sequences across desktop/narrow and
+  VI/EN, covering quick switching, failed image loading, recovery and close focus.
+
+Finding and resolution: the current Explore cover assets had already been
+cropped; centering them again in a much wider map window lost the authored
+composition. The old D01-only zoom did not solve that. Dedicated uncropped map
+photos and per-photo normalized SVG rectangles now reproduce the authored
+framing. These measurements remain stable when the card resizes. The existing
+source-extracted mask and outline are preserved. The browser image must fill a
+positioned wrapper; setting custom dimensions directly on Next's `fill` image
+causes a runtime error. That intermediate implementation was corrected before
+the passing captures and state checks.
+
+Five fidelity surfaces reviewed in the combined images:
+
+| Surface        | Result for this change                                                                                                                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Typography     | Existing Phudu/Inter, card heading and live code badges preserved; their differences from outlined source text are outside photo scope.                                                        |
+| Spacing/layout | Photo-window shape and position preserved; individual image rectangles match measured source fractions within 0.001 in every tested size.                                                      |
+| Colors/tokens  | No palette, tint, overlay or source-color edits.                                                                                                                                               |
+| Image fidelity | Correct landmark subjects, uncropped inputs, source scale/offsets and SVG `xMidYMid meet` behavior; inspected at matching density. Missing linked-export pixel equivalence remains unverified. |
+| Copy/content   | Canonical names and existing localized photo alt text preserved; no invented content.                                                                                                          |
+
+No actionable photo-placement P0/P1/P2 findings remain with the available source
+images. Physical touch, screen readers and other browser engines were not
+retested. Lint, TypeScript, 86 unit tests, changed-source formatting and production
+build pass. Existing English-content fallbacks remain. SPEC SHA-256:
+`7F65EEC1C2D9725DBC19C0A09D7C064020EF928209DE99340353C7980193DFE3`.
+No commit or push.

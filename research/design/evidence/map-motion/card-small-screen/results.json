@@ -1,0 +1,6770 @@
+[
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 14,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 5,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 5,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 312.03125,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 411.828125,
+    "position": "absolute",
+    "readingHeight": 258.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 311.828125,
+        "bottom": 355.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 355.828125,
+        "bottom": 399.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 8.625,
+        "bottom": 52.625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 24,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 8,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 41,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 24,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 29,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 7,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 7,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 23,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "no-preference",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 7,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 33,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 23,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 7,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 33,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 50,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 359,
+    "position": "absolute",
+    "readingHeight": 208,
+    "scrollTop": 0,
+    "scrollMax": 33,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 673.640625,
+      "y": 425.296875,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 259,
+        "bottom": 303,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 303,
+        "bottom": 347,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 33,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 17,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 50,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 33,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 38,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 32,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 25,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 9,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 42,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 32,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 16,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 42,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 59,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 25,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 272,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 350.03125,
+    "position": "absolute",
+    "readingHeight": 199.03125,
+    "scrollTop": 0,
+    "scrollMax": 42,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 610.75,
+      "y": 387.015625,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 250.03125,
+        "bottom": 294.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 294.03125,
+        "bottom": 338.03125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.515625,
+        "bottom": 51.515625,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 384,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 506.828125,
+    "position": "relative",
+    "readingHeight": 337.890625,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 902.59375,
+      "y": 581.328125,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 403.578125,
+        "bottom": 450.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 450.828125,
+        "bottom": 494.828125,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 10.609375,
+        "bottom": 58.21875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 283,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 296.453125,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 7.828125,
+        "bottom": 51.828125,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "KHÁM PHÁ ĐỊA ĐIỂM",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Lộ trình đến đây",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Đóng thông tin địa điểm",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  },
+  {
+    "width": 224.1875,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "motion": "reduce",
+    "height": 448,
+    "position": "relative",
+    "readingHeight": 299.359375,
+    "scrollTop": 0,
+    "scrollMax": 0,
+    "horizontal": false,
+    "headerVisible": true,
+    "primaryVisible": true,
+    "addressVisible": true,
+    "readingClear": true,
+    "clearOfLegend": true,
+    "legend": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "actions": [
+      {
+        "text": "EXPLORE THIS PLACE",
+        "top": 348,
+        "bottom": 392,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Route to this place",
+        "top": 392,
+        "bottom": 436,
+        "inside": true,
+        "hittable": true
+      },
+      {
+        "text": "Close place details",
+        "top": 6.1875,
+        "bottom": 50.1875,
+        "inside": true,
+        "hittable": true
+      }
+    ]
+  }
+]

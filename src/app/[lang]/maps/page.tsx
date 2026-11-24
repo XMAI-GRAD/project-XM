@@ -31,7 +31,10 @@ export default async function MapsPage() {
     name: names[layer],
     intro: maps.layers[layer][lang],
     points: getPoints(layer).map((point) => {
-      const photo = point.images.find((image) => !image.temporary);
+      const photo =
+        point.mapPhoto && !point.mapPhoto.temporary
+          ? point.mapPhoto
+          : point.images.find((image) => !image.temporary);
       return {
         slug: point.slug,
         code: point.code,
@@ -81,13 +84,21 @@ export default async function MapsPage() {
                 </span>
               )}
             </h1>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {/* Exact source path from /maps/v2/heading-rule.svg, exposed for DrawSVG. */}
+            <svg
               className={s.headingRule}
-              src="/maps/v2/heading-rule.svg"
-              alt=""
+              viewBox="704.6 364.4 688.5 20"
+              fill="none"
               aria-hidden="true"
-            />
+              focusable="false"
+            >
+              <path
+                d="M704.6,365.4h382.7c0.2,1.6-0.1,7.6,4.9,12.3c5.3,5,11.5,5.6,13,5.6h287.9"
+                stroke="#C68FFF"
+                strokeWidth="2"
+                strokeMiterlimit="10"
+              />
+            </svg>
             <p className={s.lead}>{maps.lead[lang]}</p>
             <DesignMapExplorer
               lang={lang}

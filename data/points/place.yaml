@@ -47,6 +47,18 @@
       km: 1.2
     - slug: ngu-xa
       km: 1.5
+  mapPhoto:
+    src: /points/hoang-thanh-thang-long/map-original.jpg
+    width: 2400
+    height: 1600
+    alt:
+      vi: Cổng Đoan Môn bằng đá năm cửa vòm của Hoàng thành Thăng Long dưới bầu trời có mây.
+      en: The five-arched stone Đoan Môn gate of the Thang Long Imperial Citadel beneath a cloudy sky.
+    frame:
+      x: -0.044209094
+      y: -0.703709331
+      width: 1.088663531
+      height: 2.361240359
   images:
     - src: /points/hoang-thanh-thang-long/cover.jpg
       width: 2400
@@ -108,6 +120,18 @@
       km: 1.2
     - slug: ho-hoan-kiem-den-ngoc-son
       km: 1.8
+  mapPhoto:
+    src: /points/van-mieu-quoc-tu-giam/map-original.jpg
+    width: 2400
+    height: 1600
+    alt:
+      vi: Gác Khuê Văn Các sơn đỏ mái ngói cong giữa tán cây xanh ở Văn Miếu – Quốc Tử Giám.
+      en: The red-lacquered Khuê Văn Các pavilion with curved tiled roofs framed by trees at the Temple of Literature.
+    frame:
+      x: -0.0001516
+      y: -0.806644159
+      width: 1.054788364
+      height: 2.285744799
   images:
     - src: /points/van-mieu-quoc-tu-giam/cover.jpg
       width: 2400
@@ -169,6 +193,18 @@
       km: 0.4
     - slug: bun-thang-ba-duc
       km: 0.2
+  mapPhoto:
+    src: /points/ho-hoan-kiem-den-ngoc-son/map-original.jpg
+    width: 1595
+    height: 2400
+    alt:
+      vi: Tháp Rùa cổ kính trên gò cỏ giữa mặt nước xanh hồ Hoàn Kiếm qua khung tán lá.
+      en: Turtle Tower on its grassy islet in Hoan Kiem Lake, framed by overhanging tree leaves.
+    frame:
+      x: 0.000065077
+      y: -2.077663703
+      width: 0.999768177
+      height: 4.869177419
   images:
     - src: /points/ho-hoan-kiem-den-ngoc-son/cover.jpg
       width: 2400
@@ -230,6 +266,18 @@
       km: 0.3
     - slug: cha-ca-la-vong
       km: 0.3
+  mapPhoto:
+    src: /points/pho-co-36-pho-phuong/map-original.jpg
+    width: 2400
+    height: 1609
+    alt:
+      vi: Những ngôi nhà ống nhiều tầng sơn vàng cũ kỹ với chuồng cọp sắt ở khu phố cổ Hà Nội.
+      en: Weathered yellow multi-story shophouses with iron window cages in Hanoi's Old Quarter.
+    frame:
+      x: -0.000015417
+      y: -0.143866931
+      width: 0.999878289
+      height: 2.174217919
   images:
     - src: /points/pho-co-36-pho-phuong/cover.jpg
       width: 2400
@@ -290,6 +338,18 @@
       km: 1
     - slug: ngu-xa
       km: 1.8
+  mapPhoto:
+    src: /points/cau-long-bien/map-original.jpg
+    width: 1692
+    height: 2400
+    alt:
+      vi: Nhịp cầu thép rỉ sét của cầu Long Biên chạy dọc đường ray xe lửa và làn xe máy.
+      en: Weathered steel trusses of Long Bien Bridge running alongside the railway tracks and motorbike lane.
+    frame:
+      x: -0.000017393
+      y: -2.44570955
+      width: 0.999768255
+      height: 4.600938765
   images:
     - src: /points/cau-long-bien/cover.jpg
       width: 2400

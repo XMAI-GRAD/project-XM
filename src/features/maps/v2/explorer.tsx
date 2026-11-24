@@ -20,6 +20,7 @@ import { SearchFrame } from "@/features/home/art";
 import type { DesignMapGroup, DesignMapOrigin, DesignMapPoint } from "./types";
 import type { DesignMapControls, DesignMapViewport } from "./map-canvas";
 import { LocationCard, type LocationCardControls } from "./location-card";
+import { MapLegend, type MapLegendControls } from "./map-legend";
 import s from "./map.module.css";
 
 const Canvas = dynamic(() => import("./map-canvas"), { ssr: false });
@@ -157,7 +158,6 @@ export function DesignMapExplorer({
   const [layer, setLayer] = useState<Layer>("place");
   const [query, setQuery] = useState("");
   const [highlighted, setHighlighted] = useState<string | null>(null);
-  const [legendOpen, setLegendOpen] = useState(false);
   const [error, setError] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [viewport, setViewport] = useState<DesignMapViewport>({
@@ -172,7 +172,7 @@ export function DesignMapExplorer({
   const cardTitle = useRef<HTMLHeadingElement>(null);
   const list = useRef<HTMLDivElement>(null);
   const trigger = useRef<HTMLElement | null>(null);
-  const legendTrigger = useRef<HTMLButtonElement>(null);
+  const legend = useRef<MapLegendControls>(null);
   const params = useSyncExternalStore(subscribe, snapshot, () => "");
   const selectionParams = new URLSearchParams(params);
   const destination = selectionParams.get("to");
@@ -287,29 +287,6 @@ export function DesignMapExplorer({
     { scope: root, dependencies: [highlighted], revertOnUpdate: true },
   );
 
-  useGSAP(
-    () => {
-      if (!legendOpen) return;
-      const media = gsap.matchMedia();
-      media.add(
-        MOTION,
-        () => {
-          gsap.from(`.${s.legendPopover}`, {
-            opacity: 0,
-            y: 10,
-            scale: 0.96,
-            transformOrigin: "right bottom",
-            duration: 0.22,
-            ease: "power2.out",
-          });
-        },
-        root,
-      );
-      return () => media.revert();
-    },
-    { scope: root, dependencies: [legendOpen], revertOnUpdate: true },
-  );
-
   function close() {
     if (card.current) card.current.dismiss(finishClose);
     else finishClose();
@@ -352,11 +329,6 @@ export function DesignMapExplorer({
     });
   }
 
-  function closeLegend() {
-    setLegendOpen(false);
-    legendTrigger.current?.focus({ preventScroll: true });
-  }
-
   return (
     <section
       ref={root}
@@ -364,7 +336,7 @@ export function DesignMapExplorer({
       aria-label={ui.design.title}
       onKeyDown={(event) => {
         if (event.key !== "Escape") return;
-        if (legendOpen) closeLegend();
+        if (legend.current?.close()) event.stopPropagation();
         else if (selected) close();
         else if (query) {
           setQuery("");
@@ -613,37 +585,12 @@ export function DesignMapExplorer({
           alt=""
           aria-hidden="true"
         />
-        <button
-          className={s.legend}
-          ref={legendTrigger}
-          type="button"
-          aria-label={ui.design.legend}
-          aria-expanded={legendOpen}
-          aria-controls={legendOpen ? `${id}-legend` : undefined}
-          onClick={() => setLegendOpen(!legendOpen)}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/maps/v2/legend.svg" alt="" />
-        </button>
-        {legendOpen && (
-          <div
-            id={`${id}-legend`}
-            className={s.legendPopover}
-            role="region"
-            aria-label={ui.design.legend}
-          >
-            <button
-              type="button"
-              className={s.legendClose}
-              aria-label={ui.design.close}
-              onClick={closeLegend}
-            >
-              <ControlIcon name="close" />
-            </button>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/maps/v2/legend.svg" alt={ui.design.legend} />
-          </div>
-        )}
+        <MapLegend
+          ref={legend}
+          id={`${id}-legend`}
+          label={ui.design.legend}
+          closeLabel={ui.design.close}
+        />
       </div>
       <div className={s.tools} role="group" aria-label={ui.controls}>
         {routeVisible && (

@@ -1,0 +1,17 @@
+{
+  "width": 1280,
+  "reveal": 0.8332,
+  "interruptedSelection": true,
+  "escapeDuringDismiss": true,
+  "reducedDuringDismiss": true,
+  "edgeAnchor": {
+    "pinX": 20.009002685546875,
+    "labelX": 20.009017944335938,
+    "labelLeft": -82.13162231445312,
+    "dy": 0
+  },
+  "legendDoesNotShiftLabels": true,
+  "searchClears": true,
+  "themeClears": true,
+  "errors": []
+}

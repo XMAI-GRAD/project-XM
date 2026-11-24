@@ -1,0 +1,212 @@
+[
+  {
+    "width": 1490,
+    "lang": "vi",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": false
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "hover": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "route": [
+      {
+        "origin": true,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      },
+      {
+        "origin": false,
+        "centerError": 0,
+        "aboveError": 0,
+        "clipped": true
+      }
+    ],
+    "escapeDismiss": true,
+    "routeCleared": true,
+    "errors": []
+  }
+]

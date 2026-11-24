@@ -1,0 +1,38 @@
+[
+  {
+    "width": 1490,
+    "lang": "vi",
+    "normalMotion": true,
+    "rapidSwitch": true,
+    "imageFailureFallback": true,
+    "recoveryOnReselect": true,
+    "closeFocus": true
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "normalMotion": true,
+    "rapidSwitch": true,
+    "imageFailureFallback": true,
+    "recoveryOnReselect": true,
+    "closeFocus": true
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "normalMotion": true,
+    "rapidSwitch": true,
+    "imageFailureFallback": true,
+    "recoveryOnReselect": true,
+    "closeFocus": true
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "normalMotion": true,
+    "rapidSwitch": true,
+    "imageFailureFallback": true,
+    "recoveryOnReselect": true,
+    "closeFocus": true
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "viewport": [1490, 714],
+  "hoverDoesNotMoveCamera": true,
+  "focusRestored": true,
+  "keyboardFocus": {
+    "focusVisible": true,
+    "inside": true
+  },
+  "selectedResizeVisible": true,
+  "routeOpens": true,
+  "frames": 1002,
+  "maxTransientGap": 1
+}

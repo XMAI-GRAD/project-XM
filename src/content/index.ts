@@ -30,6 +30,11 @@ export interface Photo {
   alt: Localized;
 }
 
+export interface MapCardPhoto extends Photo {
+  /** SVG image rectangle relative to its clipping window; 1 equals its full size. */
+  frame: { x: number; y: number; width: number; height: number };
+}
+
 /** One shape for all three layers; the layer decides how `kind` is labelled. */
 export interface Point {
   slug: string;
@@ -58,6 +63,7 @@ export interface Point {
   mapPosition?: { x: number; y: number };
   nearby: { slug: string; km: number }[];
   images: Photo[];
+  mapPhoto?: MapCardPhoto;
   audio?: string;
 }
 
@@ -355,6 +361,19 @@ function validate(): string[] {
         );
     }
     p.images.forEach((img, i) => checkFile(`${p.slug} images[${i}]`, img.src));
+    if (p.mapPhoto) {
+      checkFile(`${p.slug} mapPhoto`, p.mapPhoto.src);
+      const frame = p.mapPhoto.frame;
+      if (
+        !frame ||
+        ![frame.x, frame.y, frame.width, frame.height].every(Number.isFinite) ||
+        frame.width <= 0 ||
+        frame.height <= 0
+      )
+        errors.push(
+          `${p.slug}: mapPhoto needs a finite frame with positive size`,
+        );
+    }
     if (p.audio) checkFile(`${p.slug} audio`, p.audio);
   }
   for (const p of points)

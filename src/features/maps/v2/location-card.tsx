@@ -59,6 +59,8 @@ export function LocationCard({
       const card = root.current!;
       const current = card.querySelector<HTMLElement>("[data-card-current]")!;
       const ghost = card.querySelector<HTMLElement>("[data-card-ghost]");
+      // A new location starts at its header, even after reading a longer card.
+      current.querySelector<HTMLElement>(`.${s.cardReading}`)!.scrollTop = 0;
       const media = gsap.matchMedia();
       media.add(
         { motion: MOTION, reduced: "(prefers-reduced-motion: reduce)" },
@@ -176,7 +178,7 @@ export function LocationCard({
       "[data-card-current] h3",
     );
     heading?.focus({ preventScroll: true });
-    if (window.matchMedia("(max-width: 800px)").matches)
+    if (root.current && getComputedStyle(root.current).position === "relative")
       root.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
   }, [props.point.slug]);
 
@@ -190,33 +192,35 @@ export function LocationCard({
       data-code={props.point.code}
       lang={props.lang}
     >
-      {content.previous && (
+      <div className={s.cardBody}>
+        {content.previous && (
+          <div
+            className={s.cardContent}
+            data-card-ghost=""
+            data-layer={content.previous.layer}
+            data-code={content.previous.code}
+            lang={props.lang}
+            aria-hidden="true"
+            inert
+          >
+            <CardContent
+              {...props}
+              key={content.previous.slug}
+              point={content.previous}
+              titleId={undefined}
+              titleRef={undefined}
+            />
+          </div>
+        )}
         <div
           className={s.cardContent}
-          data-card-ghost=""
-          data-layer={content.previous.layer}
-          data-code={content.previous.code}
+          data-card-current=""
+          data-layer={props.point.layer}
+          data-code={props.point.code}
           lang={props.lang}
-          aria-hidden="true"
-          inert
         >
-          <CardContent
-            {...props}
-            key={content.previous.slug}
-            point={content.previous}
-            titleId={undefined}
-            titleRef={undefined}
-          />
+          <CardContent {...props} key={props.point.slug} />
         </div>
-      )}
-      <div
-        className={s.cardContent}
-        data-card-current=""
-        data-layer={props.point.layer}
-        data-code={props.point.code}
-        lang={props.lang}
-      >
-        <CardContent {...props} key={props.point.slug} />
       </div>
       <button
         type="button"
@@ -252,56 +256,95 @@ function CardContent({
         </span>
         <span>{ui.selectedPlace}</span>
       </p>
-      <div className={s.cardPhoto}>
-        {point.photo && !imageFailed ? (
-          <Image
-            src={point.photo.src}
-            alt={point.photo.alt}
-            fill
-            loading="eager"
-            sizes="(max-width: 800px) 310px, 16vw"
-            onError={() => setImageFailed(true)}
-          />
-        ) : (
-          <span className={s.cardPhotoUnavailable}>{ui.imageUnavailable}</span>
-        )}
-        <span className={s.cardPhotoTheme} aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`/maps/v2/pin-${point.layer}.svg`} alt="" />
+      <div
+        className={s.cardReading}
+        data-card-reading=""
+        tabIndex={0}
+        aria-label={point.name}
+      >
+        <div className={s.cardReadingBody}>
+          <div className={s.cardReadingContent}>
+            <div className={s.cardPhoto}>
+              {point.photo && !imageFailed ? (
+                <div
+                  className={s.cardPhotoFraming}
+                  style={
+                    point.photo.frame
+                      ? {
+                          left: `${point.photo.frame.x * 100}%`,
+                          top: `${point.photo.frame.y * 100}%`,
+                          width: `${point.photo.frame.width * 100}%`,
+                          height: `${point.photo.frame.height * 100}%`,
+                        }
+                      : undefined
+                  }
+                >
+                  <Image
+                    className={s.cardPhotoImage}
+                    src={point.photo.src}
+                    alt={point.photo.alt}
+                    fill
+                    loading="eager"
+                    sizes="(max-width: 1200px) 420px, 22vw"
+                    // SVG images default to xMidYMid meet inside their authored box.
+                    style={
+                      point.photo.frame ? { objectFit: "contain" } : undefined
+                    }
+                    onError={() => setImageFailed(true)}
+                  />
+                </div>
+              ) : (
+                <span className={s.cardPhotoUnavailable}>
+                  {ui.imageUnavailable}
+                </span>
+              )}
+              <span className={s.cardPhotoTheme} aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/maps/v2/pin-${point.layer}.svg`} alt="" />
+                {point.code.toUpperCase()}
+              </span>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className={s.cardPhotoRule}
+              src="/maps/v2/card-photo-rule.svg"
+              alt=""
+              aria-hidden="true"
+            />
+            <div className={s.cardHeading}>
+              <h3
+                id={titleId}
+                ref={titleRef}
+                tabIndex={-1}
+                aria-label={point.name}
+              >
+                {point.headline.map((line, i) => (
+                  <span key={i}>{line}</span>
+                ))}
+              </h3>
+              <p className={s.cardAddress}>{point.address}</p>
+            </div>
+            <blockquote className={s.cardQuote}>
+              {point.hook.split(" / ").map((line, i) => (
+                <span key={i}>{line}</span>
+              ))}
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <div className={s.cardActions}>
+        <Link className={s.cardExplore} href={pointHref(lang, point)}>
+          <span>{ui.viewDetails}</span>
+          <span className={s.cardArrow} aria-hidden="true" />
+        </Link>
+        <span className={s.cardBadge} aria-hidden="true">
           {point.code.toUpperCase()}
         </span>
+        <button type="button" className={s.cardDirections} onClick={onRoute}>
+          <span>{ui.directionsTo}</span>
+          <span className={s.cardArrow} aria-hidden="true" />
+        </button>
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className={s.cardPhotoRule}
-        src="/maps/v2/card-photo-rule.svg"
-        alt=""
-        aria-hidden="true"
-      />
-      <div className={s.cardHeading}>
-        <h3 id={titleId} ref={titleRef} tabIndex={-1} aria-label={point.name}>
-          {point.headline.map((line, i) => (
-            <span key={i}>{line}</span>
-          ))}
-        </h3>
-        <p className={s.cardAddress}>{point.address}</p>
-      </div>
-      <blockquote className={s.cardQuote}>
-        {point.hook.split(" / ").map((line, i) => (
-          <span key={i}>{line}</span>
-        ))}
-      </blockquote>
-      <Link className={s.cardExplore} href={pointHref(lang, point)}>
-        <span>{ui.viewDetails}</span>
-        <span className={s.cardArrow} aria-hidden="true" />
-      </Link>
-      <span className={s.cardBadge} aria-hidden="true">
-        {point.code.toUpperCase()}
-      </span>
-      <button type="button" className={s.cardDirections} onClick={onRoute}>
-        <span>{ui.directionsTo}</span>
-        <span className={s.cardArrow} aria-hidden="true" />
-      </button>
     </>
   );
 }
