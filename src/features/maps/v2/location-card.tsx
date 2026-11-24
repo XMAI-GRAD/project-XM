@@ -176,7 +176,7 @@ export function LocationCard({
       "[data-card-current] h3",
     );
     heading?.focus({ preventScroll: true });
-    if (window.matchMedia("(max-width: 800px)").matches)
+    if (root.current && getComputedStyle(root.current).position === "relative")
       root.current?.scrollIntoView({ block: "nearest", behavior: "instant" });
   }, [props.point.slug]);
 
@@ -254,14 +254,31 @@ function CardContent({
       </p>
       <div className={s.cardPhoto}>
         {point.photo && !imageFailed ? (
-          <Image
-            src={point.photo.src}
-            alt={point.photo.alt}
-            fill
-            loading="eager"
-            sizes="(max-width: 800px) 310px, 16vw"
-            onError={() => setImageFailed(true)}
-          />
+          <div
+            className={s.cardPhotoFraming}
+            style={
+              point.photo.frame
+                ? {
+                    left: `${point.photo.frame.x * 100}%`,
+                    top: `${point.photo.frame.y * 100}%`,
+                    width: `${point.photo.frame.width * 100}%`,
+                    height: `${point.photo.frame.height * 100}%`,
+                  }
+                : undefined
+            }
+          >
+            <Image
+              className={s.cardPhotoImage}
+              src={point.photo.src}
+              alt={point.photo.alt}
+              fill
+              loading="eager"
+              sizes="(max-width: 1200px) 420px, 22vw"
+              // SVG images default to xMidYMid meet inside their authored box.
+              style={point.photo.frame ? { objectFit: "contain" } : undefined}
+              onError={() => setImageFailed(true)}
+            />
+          </div>
         ) : (
           <span className={s.cardPhotoUnavailable}>{ui.imageUnavailable}</span>
         )}

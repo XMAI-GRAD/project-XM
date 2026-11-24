@@ -1,4 +1,4 @@
-import type { Layer } from "@/content";
+import type { Layer, MapCardPhoto } from "@/content";
 import type { ReactNode } from "react";
 import type { IllustratedRoute } from "../design";
 
@@ -15,7 +15,13 @@ export interface DesignMapPoint {
   address: string;
   hook: string;
   headline: ReactNode[];
-  photo: { src: string; width: number; height: number; alt: string } | null;
+  photo: {
+    src: string;
+    width: number;
+    height: number;
+    alt: string;
+    frame?: MapCardPhoto["frame"];
+  } | null;
   position: { x: number; y: number };
   route: IllustratedRoute;
 }

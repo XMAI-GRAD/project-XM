@@ -1,0 +1,19 @@
+[
+  {
+    "hoverDismissAndReopen": true,
+    "labelHoverable": true,
+    "focusRestored": true
+  },
+  {
+    "directLocaleLoads": 4,
+    "searchSelectionAndRoute": true,
+    "limitation": "Current shared header has no language toggle; tested direct locale URLs."
+  },
+  {
+    "resizeWithCard": true,
+    "cardActionsReachable": true
+  },
+  {
+    "errors": []
+  }
+]

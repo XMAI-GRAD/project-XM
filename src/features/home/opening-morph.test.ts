@@ -9,7 +9,7 @@ import {
   signedArea,
 } from "./opening-morph.ts";
 
-function parseBrandLetters(filePath: string) {
+function parseBrandLetters(filePath: URL) {
   const source = readFileSync(filePath, "utf8");
   const matches = source.matchAll(/d="([^"]+)"\s+data-brand-letter="([^"]+)"/g);
   return new Map(Array.from(matches, ([, d, key]) => [key, d]));
@@ -98,10 +98,10 @@ function hausdorffDistance(
 
 describe("opening-morph geometry", () => {
   const srcLetters = parseBrandLetters(
-    new URL("./art/opening-wordmark.tsx", import.meta.url).pathname,
+    new URL("./art/opening-wordmark.tsx", import.meta.url),
   );
   const dstLetters = parseBrandLetters(
-    new URL("./art/logo.tsx", import.meta.url).pathname,
+    new URL("./art/logo.tsx", import.meta.url),
   );
   // Real 1920x1080 boxes from WEB-01-Opening.svg and 02-Home.svg.
   const srcViewBox = { x: 774.63, y: 402.88, width: 370.74, height: 274.23 };

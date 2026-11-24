@@ -1,0 +1,1026 @@
+﻿[
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "growthFrameCount": 90,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 94,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 1,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1490,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 148.4375,
+      "y": 170.078125,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 400.296875,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 4,
+    "shrinkFrameCount": 1,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 4,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "growthFrameCount": 96,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 1920,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "large": {
+      "x": 393.453125,
+      "y": 322.375,
+      "width": 680,
+      "height": 340.3125
+    },
+    "returned": {
+      "x": 12,
+      "y": 552.59375,
+      "width": 220,
+      "height": 110.09375
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 1,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 7,
+    "shrinkFrameCount": 3,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 166.375,
+      "width": 283,
+      "height": 141.625
+    },
+    "returned": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 4,
+    "shrinkFrameCount": 3,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 96,
+    "shrinkFrameCount": 74,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 6,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "vi",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": false,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 95,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "no-preference",
+    "withCard": true,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 94,
+    "shrinkFrameCount": 73,
+    "sameSingleArtwork": true,
+    "hoverScale": 1.08,
+    "pressScale": 0.9,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": false,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 1,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  },
+  {
+    "width": 320,
+    "height": 844,
+    "dpr": 1.25,
+    "lang": "en",
+    "motion": "reduce",
+    "withCard": true,
+    "small": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "large": {
+      "x": 12,
+      "y": 195.8125,
+      "width": 224.1875,
+      "height": 112.1875
+    },
+    "returned": {
+      "x": 96.1875,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "growthFrameCount": 5,
+    "shrinkFrameCount": 2,
+    "sameSingleArtwork": true,
+    "hoverScale": 1,
+    "pressScale": 1,
+    "keyboard": true
+  }
+]

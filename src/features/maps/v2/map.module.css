@@ -320,7 +320,8 @@
   margin-top: calc(22 * var(--u));
   scrollbar-width: thin;
   scrollbar-color: #7484c4 transparent;
-  padding-right: calc(6 * var(--u));
+  scrollbar-gutter: stable;
+  padding-right: 0.5rem;
 }
 .listScroll li + li {
   margin-top: calc(20.7 * var(--u));
@@ -330,7 +331,8 @@
   align-items: flex-start;
   width: 100%;
   min-height: calc(48.8 * var(--u));
-  padding: calc(5 * var(--u)) 0 calc(5 * var(--u)) calc(33.5 * var(--u));
+  /* Keep the arrow's 4px hover movement inside the highlighted row. */
+  padding: calc(5 * var(--u)) 0.75rem calc(5 * var(--u)) calc(33.5 * var(--u));
   text-align: left;
   gap: calc(12 * var(--u));
 }
@@ -492,6 +494,7 @@
 .pinLabel {
   display: none;
   position: absolute;
+  /* Above by default; only the true artwork bounds can switch the side. */
   left: 50%;
   bottom: 100%;
   transform: translateX(-50%);
@@ -503,8 +506,31 @@
   border: 0;
   border-bottom: 2px solid currentColor;
   color: inherit;
-  font: 500 12px / 1.4 var(--font-body);
-  pointer-events: none;
+  font: 500 0.875rem / 1.4 var(--font-body);
+  overflow-wrap: anywhere;
+  pointer-events: auto;
+}
+.pinLabel[data-side="right"] {
+  left: calc(100% + 4px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+.pinLabel[data-side="left"] {
+  left: auto;
+  right: calc(100% + 4px);
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+.pinLabel[data-side="below"] {
+  top: calc(100% + 4px);
+  bottom: auto;
+}
+.pinLabel::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
 }
 .pin:hover .pinLabel,
 .pin[aria-pressed="true"] .pinLabel,
@@ -533,7 +559,8 @@
 .originPin .pinLabel {
   display: block;
   text-align: center;
-  font-size: 11px;
+  font-size: 0.75rem;
+  pointer-events: none;
 }
 .originPin .pinLabel strong,
 .originPin .pinLabel span {
@@ -563,6 +590,21 @@
 .legend > img {
   width: 100%;
   height: 100%;
+  display: block;
+}
+.legendExpand {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+.legendExpand[hidden] {
+  display: none;
+}
+.legend[data-moving="true"] {
+  z-index: 600;
 }
 .legendPopover {
   position: absolute;
@@ -579,23 +621,20 @@
 }
 .legendClose {
   position: absolute;
-  right: 0;
-  top: -36px;
-  width: 32px;
-  height: 32px;
+  right: 10%;
+  top: 12px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: grid;
   place-items: center;
-  border: 1px solid #7484c4;
-  border-radius: 50%;
-  background: #fff8f5;
-  color: #273991;
+  border: 0;
+  background: transparent;
 }
-.legendClose:is(:hover, :focus-visible) {
-  background: #273991;
-  color: #fff8f5;
+.legendClose:is(:hover, :focus-visible) img {
+  filter: drop-shadow(0 2px 3px #0d18554d);
 }
-.legendClose:active {
-  background: #0d1855;
+.legendClose:active img {
+  filter: brightness(0.82);
 }
 .tools {
   position: absolute;
@@ -723,7 +762,8 @@
   width: calc(39 * var(--cu));
   height: calc(39 * var(--cu));
 }
-.cardClose img {
+.cardClose img,
+.legendClose img {
   width: 100%;
   height: 100%;
 }
@@ -737,12 +777,12 @@
   background: var(--card-ink);
   mask: url("/maps/v2/card-photo-mask.svg") center / 100% 100% no-repeat;
 }
-.cardPhoto > img {
-  object-fit: cover;
+.cardPhotoFraming {
+  position: absolute;
+  inset: 0;
 }
-.cardContent[data-code="d01"] .cardPhoto > img {
-  transform: scale(1.09);
-  object-position: center 52%;
+.cardPhotoImage {
+  object-fit: cover;
 }
 .cardPhotoUnavailable {
   position: absolute;
@@ -906,7 +946,7 @@
 }
 
 /* The supplied comp is desktop. Keep a usable stacked layout pending mobile art. */
-@media (max-width: 800px) {
+@container (max-width: 75rem) {
   .board {
     display: flow-root;
     height: auto !important;
@@ -1113,5 +1153,316 @@
     height: auto;
     top: 12px;
     left: 12px;
+  }
+}
+
+/* Artwork retains --u. Reading/UI sizes respond to text and available space. */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  /* Leave the scroll area above the source mask's 52.8-unit bottom corner. */
+  padding: calc(28.1 * var(--u)) calc(13.4 * var(--u))
+    max(3rem, calc(60 * var(--u)));
+}
+.sidebarHead,
+.results {
+  position: relative;
+  inset: auto;
+  flex-shrink: 0;
+}
+.sidebarHead h2 {
+  font-size: 1.70625rem;
+  white-space: normal;
+  line-height: 1.15;
+}
+.searchBox {
+  min-height: 2.75rem;
+}
+.searchBox input {
+  font-size: 1.25rem;
+}
+.searchHint {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: normal;
+  text-box: normal;
+}
+.layers {
+  gap: clamp(0.5rem, calc(30 * var(--u)), 1.875rem);
+}
+.layers button {
+  min-height: 2.75rem;
+  font-size: 1.54375rem;
+}
+.results {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  margin-top: calc(32 * var(--u));
+}
+.resultSummary,
+.layerIntro {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.resultSummary strong {
+  font-size: 1.75rem;
+}
+.layerTitle {
+  font-size: 1.375rem;
+}
+.listScroll {
+  flex: 1;
+  min-height: 0;
+  height: auto;
+}
+.listScroll li button {
+  min-height: 2.75rem;
+}
+.rowCopy strong {
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+.rowCopy > span {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.rowCopy {
+  overflow-wrap: anywhere;
+}
+.badge {
+  font-size: 0.75rem;
+  min-width: 1.9rem;
+  min-height: 2.425rem;
+}
+.empty,
+.loading,
+.mapError {
+  font-size: 0.875rem;
+}
+.tools button {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+.toolLabel {
+  font-size: 0.875rem;
+}
+
+/* Keep the source card's artwork; let its reading content determine its height. */
+.locationCard {
+  container-type: inline-size;
+  --cu: calc(100cqw / 314.5);
+  width: clamp(17rem, calc(314.5 * var(--u)), 24rem);
+  max-width: calc(100% - 24px);
+  height: auto;
+  max-height: calc(100% - max(24px, calc(70.6 * var(--u))));
+  display: flex;
+}
+.cardContent {
+  position: relative;
+  inset: auto;
+  --photo-top: max(calc(53.8 * var(--cu)), calc(15.5 * var(--cu) + 2.35rem));
+  width: 100%;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding: calc(15.5 * var(--cu)) calc(29.4 * var(--cu)) calc(24 * var(--cu));
+}
+.cardContent[data-card-ghost] {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.cardMeta {
+  position: relative;
+  inset: auto;
+  min-height: calc(var(--photo-top) + 93.4 * var(--cu));
+  margin-left: calc(14.5 * var(--cu));
+  padding-right: calc(55 * var(--cu));
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+.cardClose {
+  left: auto;
+  right: calc(43.6 * var(--cu));
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+}
+.cardPhoto {
+  top: var(--photo-top);
+}
+.cardPhotoRule {
+  top: calc(var(--photo-top) - 0.7 * var(--cu));
+}
+.cardHeading {
+  position: relative;
+  inset: auto;
+  width: auto;
+}
+.cardHeading h3 {
+  font-size: 2.1875rem;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.cardContent[lang="en"] .cardHeading h3,
+.cardContent:not([data-layer="place"]) .cardHeading h3 {
+  font-size: 1.8125rem;
+  line-height: 1.1;
+}
+.cardContent .cardAddress {
+  position: static;
+  max-width: none;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.cardContent[data-code] .cardAddress {
+  max-width: none;
+}
+.cardQuote,
+.cardContent:not([data-layer="place"]) .cardQuote {
+  position: static;
+  width: auto;
+  margin: 0.75rem 0 0 calc(15.3 * var(--cu));
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+.cardExplore,
+.cardDirections {
+  position: relative;
+  inset: auto;
+  width: auto;
+  min-height: 2.75rem;
+  height: auto;
+  margin: 0.5rem 0 0 calc(15.2 * var(--cu));
+  padding-right: 2.5rem;
+}
+.cardExplore {
+  font-size: 1.09375rem;
+}
+.cardExplore span {
+  white-space: normal;
+}
+.cardDirections {
+  font-size: 0.875rem;
+}
+.cardBadge {
+  top: auto;
+  left: auto;
+  right: calc(29.4 * var(--cu));
+  bottom: calc(24 * var(--cu) + 3.25rem);
+  font-size: 0.75rem;
+}
+.cardPhotoUnavailable {
+  font-size: 0.75rem;
+}
+.canvas:has(.locationCard) .legend {
+  left: 12px;
+  right: auto;
+  top: auto;
+  bottom: 12px;
+  width: min(28%, 220px);
+  height: auto;
+}
+@container (min-width: 75.001rem) and (max-width: 100rem) {
+  .sidebarHead h2 {
+    font-size: 1.375rem;
+  }
+  .layers {
+    gap: 0.5rem;
+  }
+  .layers button {
+    font-size: 1.25rem;
+    gap: 0.25rem;
+  }
+  .layers button img {
+    width: 0.875rem;
+  }
+  .results {
+    margin-top: 1.25rem;
+  }
+  .listScroll li + li {
+    margin-top: max(0.5rem, calc(12 * var(--u)));
+  }
+}
+@container (max-width: 75rem) {
+  .sidebar {
+    padding: 1.5rem 1rem 1rem;
+    height: auto;
+  }
+  .sidebarHead h2 {
+    font-size: 1.5rem;
+  }
+  .layers {
+    gap: 0.5rem;
+  }
+  .layers button {
+    font-size: 1.25rem;
+  }
+  .results {
+    margin-top: 1.5rem;
+  }
+  .listScroll {
+    flex: none;
+    height: 10rem;
+    margin-top: 1rem;
+  }
+  .rowCopy strong {
+    font-size: 0.9375rem;
+  }
+  .canvas {
+    height: auto;
+  }
+  .mapSurface {
+    height: max(320px, calc(680 * var(--u)));
+  }
+  .canvas:has(.locationCard) {
+    padding-bottom: 1rem;
+  }
+  .locationCard {
+    position: relative;
+    inset: auto;
+    width: min(24rem, calc(100% - 24px));
+    max-height: none;
+    margin: 1rem auto 0;
+  }
+  .cardContent {
+    overflow: visible;
+  }
+  .legend,
+  .canvas:has(.locationCard) .legend {
+    left: auto;
+    right: 12px;
+    top: calc(max(320px, calc(680 * var(--u))) - 82px);
+    bottom: auto;
+    width: 140px;
+  }
+  .legendPopover {
+    bottom: auto;
+    top: calc(max(320px, calc(680 * var(--u))) - 12px);
+    translate: 0 -100%;
+  }
+  .lead {
+    font-size: 0.875rem;
+  }
+  .tools {
+    flex-wrap: wrap;
+  }
+}
+.pin[data-label-dismissed="true"] .pinLabel {
+  display: none;
+}
+
+@container (max-width: 32rem) {
+  .legendClose {
+    top: 4px;
+  }
+  .legendClose img {
+    width: 24px;
+    height: 24px;
+    align-self: start;
   }
 }

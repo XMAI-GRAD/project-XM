@@ -31,7 +31,10 @@ export default async function MapsPage() {
     name: names[layer],
     intro: maps.layers[layer][lang],
     points: getPoints(layer).map((point) => {
-      const photo = point.images.find((image) => !image.temporary);
+      const photo =
+        point.mapPhoto && !point.mapPhoto.temporary
+          ? point.mapPhoto
+          : point.images.find((image) => !image.temporary);
       return {
         slug: point.slug,
         code: point.code,

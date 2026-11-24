@@ -1,0 +1,626 @@
+[
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "vi",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "vi",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "vi",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "en",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "en",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "en",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 8.46875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 238.53125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "vi",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "vi",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "vi",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "en",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "en",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 714,
+    "lang": "en",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 7.6875,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 313.3125,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "vi",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "vi",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "vi",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "en",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "en",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 714,
+    "lang": "en",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 8,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 257,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "vi",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "vi",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "vi",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "en",
+    "layer": "place",
+    "measurements": [
+      {
+        "slug": "hoang-thanh-thang-long",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "cau-long-bien",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "en",
+    "layer": "taste",
+    "measurements": [
+      {
+        "slug": "bun-thang-ba-duc",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "cha-ca-la-vong",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  },
+  {
+    "width": 320,
+    "height": 714,
+    "lang": "en",
+    "layer": "craft",
+    "measurements": [
+      {
+        "slug": "ngu-xa",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      },
+      {
+        "slug": "van-phuc",
+        "inset": 8,
+        "scrollbarGap": 7.8125,
+        "overflow": 0,
+        "textOverflow": 0,
+        "rowWidth": 198.1875,
+        "bottomFits": true
+      }
+    ]
+  }
+]

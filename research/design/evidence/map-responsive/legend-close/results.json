@@ -1,0 +1,274 @@
+[
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "vi",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "vi",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "en",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 714,
+    "lang": "en",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 383,
+    "lang": "vi",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 383,
+    "lang": "vi",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 383,
+    "lang": "en",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1490,
+    "height": 383,
+    "lang": "en",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "vi",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "vi",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "en",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "en",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "lang": "vi",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "lang": "vi",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Đóng"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "lang": "en",
+    "withCard": false,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "lang": "en",
+    "withCard": true,
+    "button": {
+      "width": 44,
+      "height": 44,
+      "inside": true,
+      "src": "/maps/v2/card-close.svg",
+      "name": "Close"
+    },
+    "pointer": true,
+    "keyboard": true,
+    "escape": true,
+    "focusRestored": true
+  }
+]

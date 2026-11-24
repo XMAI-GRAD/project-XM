@@ -1,0 +1,2210 @@
+[
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -19.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 67.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 142.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -12.96875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 77.671875
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 50.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 115.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 87.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 149.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 73.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 227.8125
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 58.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 176.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 9.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 61.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 69.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 197.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 153.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 320.96875
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 41.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 40.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 52.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 138.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -19.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 67.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 166.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -64.4765625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 25.796875
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 50.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 115.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 67.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 129.8125
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 73.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 227.8125
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 58.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 176.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 9.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 76.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 69.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 197.40625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 153.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 320.96875
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 21.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 20.8125
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 52.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 138.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -23.59375
+    },
+    "selected": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -3.59375
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 56.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 146.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -15.96875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 79.671875
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 41.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 119.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 75.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 153.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 60.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 234.8125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 48.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 181.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 3.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 64.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 57.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 174.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 134.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 329.96875
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 32.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 32.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 42.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 121.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -23.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 18.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 56.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 171.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -67.4765625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 27.796875
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 41.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 119.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 55.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 133.8125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 60.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 234.8125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 48.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 181.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 3.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 64.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 57.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 174.40625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 134.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 329.96875
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 12.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 12.8125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 42.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 121.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -9.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 18.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 103.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 171.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -3.96875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 79.671875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 82.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 140.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 129.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 178.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 117.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 272.8125
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 92.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 210.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 28.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 78.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 105.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 202.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 214.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 376.96875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 69.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 69.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 83.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 142.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -9.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 18.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 103.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 199.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -55.4765625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 27.796875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 82.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 140.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 109.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 158.8125
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 117.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 272.8125
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 92.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 210.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 28.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 78.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 105.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 202.40625
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 214.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 376.96875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 49.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 49.8125
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 83.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 142.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -33.59375
+    },
+    "selected": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -20.59375
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -23.96875
+    },
+    "selected": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -6.328125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 9.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 17.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 32.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 32.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.8125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 14.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 14.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "left",
+      "expected": "left",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -15.59375
+    },
+    "selected": {
+      "side": "left",
+      "expected": "left",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -15.59375
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 20.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 20.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 72.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 71.96875
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": true,
+      "overflow": 3.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 10.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 18.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "ngu-xa",
+    "hover": {
+      "side": "left",
+      "expected": "left",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": true,
+      "overflow": -33.59375
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 15.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "hang-trong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "van-phuc",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -75.4765625
+    },
+    "selected": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -1.203125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 9.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 17.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 12.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 12.8125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.8125
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 16.8125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 14.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 14.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "hover": {
+      "side": "left",
+      "expected": "left",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -15.59375
+    },
+    "selected": {
+      "side": "left",
+      "expected": "left",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -15.59375
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "bun-thang-ba-duc",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 20.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 20.40625
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "che-muoi-sau",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 72.3046875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 71.96875
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "com-lang-vong",
+    "hover": {
+      "side": "right",
+      "expected": "right",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": -16.1875
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 19.8125
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "cha-ca-la-vong",
+    "hover": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": false,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 10.40625
+    },
+    "selected": {
+      "side": "above",
+      "expected": "above",
+      "attached": true,
+      "inside": true,
+      "covers": true,
+      "overlaps": false,
+      "overflow": 18.40625
+    }
+  }
+]

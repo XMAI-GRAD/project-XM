@@ -5,7 +5,8 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { gsap, MOTION, useGSAP } from "@/features/home/motion/gsap";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { mapFocusPoint } from "../layout";
+import { artworkLabelLayout } from "./label-side";
+import { selectedMapView } from "./selected-view";
 import type { DesignMapOrigin, DesignMapPoint } from "./types";
 import s from "./map.module.css";
 
@@ -208,6 +209,52 @@ export default function DesignMapCanvas({
           let lastSelected: string | null = null;
           let lastRouteVisible = false;
           let lastHighlighted: string | null = null;
+          let labelsActive = true;
+          const updateLabel = (
+            label: HTMLElement,
+            anchor: { x: number; y: number },
+          ) => {
+            if (!labelsActive || !label.offsetWidth) return;
+            const layout = artworkLabelLayout({
+              artwork,
+              anchor,
+              label: label.getBoundingClientRect(),
+              scale: 2 ** map.getZoom(),
+            });
+            if (label.dataset.side !== layout.side)
+              label.dataset.side = layout.side;
+          };
+          const updateEntryLabel = (entry: MarkerEntry) => {
+            const anchor = entry.marker.getLatLng();
+            updateLabel(entry.label, {
+              x: anchor.lng,
+              y: artwork.height - anchor.lat,
+            });
+          };
+          const updateLabels = () => {
+            if (!labelsActive) return;
+            updateLabel(originLabel, origin.position);
+            for (const entry of entries.values())
+              if (!entry.leaving) updateEntryLabel(entry);
+          };
+          const labelResize = new ResizeObserver(updateLabels);
+          labelResize.observe(originLabel);
+          map.on("zoom resize", updateLabels);
+          document.fonts.addEventListener("loadingdone", updateLabels);
+          void document.fonts.ready.then(updateLabels);
+          const dismissLabel = (event: KeyboardEvent) => {
+            if (
+              event.key !== "Escape" ||
+              state.current.selected ||
+              !state.current.highlighted
+            )
+              return;
+            const entry = entries.get(state.current.highlighted);
+            if (!entry || !entry.label.offsetWidth) return;
+            entry.button.dataset.labelDismissed = "true";
+            event.stopPropagation();
+          };
+          document.addEventListener("keydown", dismissLabel, true);
           const stop = () => {
             camera?.kill();
             camera = undefined;
@@ -247,6 +294,77 @@ export default function DesignMapCanvas({
               },
             });
           };
+          const revealSelected = (entry: MarkerEntry, immediate = false) => {
+            updateEntryLabel(entry);
+            const surface = host.getBoundingClientRect();
+            const pin = entry.button.getBoundingClientRect();
+            const label = entry.label.getBoundingClientRect();
+            const anchor = entry.marker.getLatLng();
+            const pinX = (pin.left + pin.right) / 2;
+            const pinY = (pin.top + pin.bottom) / 2;
+            const relative = (rect: DOMRect) => ({
+              left: rect.left - surface.left,
+              right: rect.right - surface.left,
+              top: rect.top - surface.top,
+              bottom: rect.bottom - surface.top,
+            });
+            const obstacles = Array.from(
+              host.parentElement!.querySelectorAll<HTMLElement>(
+                `.${s.locationCard}, .${s.legend}, .${s.legendPopover}, .${s.compass}`,
+              ),
+            )
+              .map((el) => relative(el.getBoundingClientRect()))
+              .filter(
+                (rect) =>
+                  rect.right > 0 &&
+                  rect.left < surface.width &&
+                  rect.bottom > 0 &&
+                  rect.top < surface.height,
+              );
+            if (getComputedStyle(host.parentElement!).maskImage !== "none") {
+              const corner = (surface.width * 46) / artwork.width;
+              obstacles.push(
+                {
+                  left: surface.width - corner,
+                  right: surface.width,
+                  top: 0,
+                  bottom: corner,
+                },
+                {
+                  left: surface.width - corner,
+                  right: surface.width,
+                  top: surface.height - corner,
+                  bottom: surface.height,
+                },
+              );
+            }
+            const view = selectedMapView({
+              artwork,
+              viewport: surface,
+              anchor: { x: anchor.lng, y: artwork.height - anchor.lat },
+              footprint: (scale) =>
+                artworkLabelLayout({
+                  artwork,
+                  anchor: { x: anchor.lng, y: artwork.height - anchor.lat },
+                  label,
+                  scale,
+                }).footprint,
+              preferred: { x: pinX - surface.left, y: pinY - surface.top },
+              scale: 2 ** map.getZoom(),
+              maxScale: 2 ** map.getMaxZoom(),
+              obstacles,
+            });
+            if (!view) return; // The accessible details card remains available.
+            const center = L.latLng(
+              artwork.height - view.center.y,
+              view.center.x,
+            );
+            const zoom = Math.log2(view.scale);
+            if (immediate) {
+              stop();
+              map.setView(center, zoom, { animate: false });
+            } else moveTo(center, zoom);
+          };
           const sync = context.add("sync", () => {
             const next = state.current;
             if (lastPoints !== next.points) {
@@ -259,6 +377,7 @@ export default function DesignMapCanvas({
                 entry.button.setAttribute("aria-hidden", "true");
                 entry.label.style.display = "none";
                 const remove = () => {
+                  labelResize.unobserve(entry.label);
                   entry.marker.remove();
                   entries.delete(slug);
                 };
@@ -276,6 +395,7 @@ export default function DesignMapCanvas({
                 const existing = entries.get(point.slug);
                 if (existing && !existing.leaving) return;
                 if (existing) {
+                  labelResize.unobserve(existing.label);
                   gsap.killTweensOf([
                     existing.symbol,
                     ...existing.symbol.children,
@@ -314,6 +434,7 @@ export default function DesignMapCanvas({
                 visual.className = s.pinVisual;
                 visual.append(symbol);
                 button.append(visual, label);
+                labelResize.observe(label);
                 const anchor = L.latLng(
                   artwork.height - point.position.y,
                   point.position.x,
@@ -333,18 +454,18 @@ export default function DesignMapCanvas({
                   callbacks.current.onSelect(point, button),
                 );
                 button.addEventListener("focus", () => {
+                  delete button.dataset.labelDismissed;
                   callbacks.current.onHighlight(point.slug);
-                  if (
-                    button.matches(":focus-visible") &&
-                    !map.getBounds().pad(-0.02).contains(anchor)
-                  ) {
-                    stop();
-                    map.panTo(anchor, { animate: false });
-                  }
+                  const entry = entries.get(point.slug);
+                  if (entry && button.matches(":focus-visible"))
+                    revealSelected(entry, true);
                 });
-                button.addEventListener("pointerenter", () =>
-                  callbacks.current.onHighlight(point.slug),
-                );
+                button.addEventListener("pointerenter", () => {
+                  delete button.dataset.labelDismissed;
+                  callbacks.current.onHighlight(point.slug);
+                  const entry = entries.get(point.slug);
+                  if (entry) updateEntryLabel(entry);
+                });
                 button.addEventListener("pointerleave", () => {
                   if (!button.matches(":focus"))
                     callbacks.current.onHighlight(null);
@@ -382,6 +503,8 @@ export default function DesignMapCanvas({
 
             for (const [slug, entry] of entries) {
               if (entry.leaving) continue;
+              if (next.highlighted !== lastHighlighted)
+                delete entry.button.dataset.labelDismissed;
               const active = slug === next.highlighted;
               const chosen = slug === next.selected;
               entry.button.dataset.highlighted = String(active);
@@ -408,6 +531,7 @@ export default function DesignMapCanvas({
               }
             }
 
+            updateLabels();
             if (
               next.selected !== lastSelected ||
               next.routeVisible !== lastRouteVisible ||
@@ -473,44 +597,7 @@ export default function DesignMapCanvas({
                   routeBounds.getCenter(),
                   map.getBoundsZoom(routeBounds, false, L.point(80, 100)),
                 );
-              } else if (target) {
-                const anchor = target.marker.getLatLng();
-                const surface = host.getBoundingClientRect();
-                const card = document
-                  .getElementById(cardId)
-                  ?.getBoundingClientRect();
-                const pixel = map.latLngToContainerPoint(anchor);
-                const covered =
-                  card &&
-                  pixel.x + 28 > card.left - surface.left &&
-                  pixel.x - 28 < card.right - surface.left &&
-                  pixel.y + 28 > card.top - surface.top &&
-                  pixel.y - 28 < card.bottom - surface.top;
-                if (covered) {
-                  const size = map.getSize();
-                  const focus = mapFocusPoint(
-                    { width: size.x, height: size.y },
-                    {
-                      left: card.left - surface.left,
-                      right: card.right - surface.left,
-                      top: card.top - surface.top,
-                      bottom: card.bottom - surface.top,
-                    },
-                  );
-                  const zoom = Math.min(
-                    map.getMaxZoom(),
-                    Math.max(map.getZoom(), map.getMinZoom() + 1),
-                  );
-                  const center = map.unproject(
-                    map
-                      .project(anchor, zoom)
-                      .add([size.x / 2 - focus.x, size.y / 2 - focus.y]),
-                    zoom,
-                  );
-                  moveTo(center, zoom);
-                } else if (!map.getBounds().pad(-0.02).contains(anchor))
-                  moveTo(anchor, map.getZoom());
-              }
+              } else if (target) revealSelected(target);
             }
             lastPoints = next.points;
             lastSelected = next.selected;
@@ -552,6 +639,11 @@ export default function DesignMapCanvas({
             route?.remove();
             routeRenderer.remove();
             actions.current = null;
+            labelsActive = false;
+            labelResize.disconnect();
+            map.off("zoom resize", updateLabels);
+            document.fonts.removeEventListener("loadingdone", updateLabels);
+            document.removeEventListener("keydown", dismissLabel, true);
             host.removeEventListener("pointerdown", stop, true);
             host.removeEventListener("touchstart", stop, true);
             map.off("dragstart", stop);
@@ -570,6 +662,10 @@ export default function DesignMapCanvas({
         updateMinimum();
         if (atOverview || !ready) fit();
         else keepInsideBounds();
+        if (state.current.selected) {
+          fittedView = "";
+          actions.current?.sync();
+        }
         report();
       });
       resize.observe(host);
