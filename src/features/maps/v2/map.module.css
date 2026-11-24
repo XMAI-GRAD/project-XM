@@ -56,6 +56,18 @@
   line-height: 1.17;
   text-box: cap alphabetic;
 }
+@media (prefers-reduced-motion: no-preference) {
+  /* Same pre-hydration hold and no-script fallback as Explore's layer arrival. */
+  .intro:not([data-arrived]) :is(.heading, .headingRule, .lead) {
+    clip-path: inset(0 -50vw 100% -50vw);
+    animation: map-arrival-failsafe 0s 4s forwards;
+  }
+}
+@keyframes map-arrival-failsafe {
+  to {
+    clip-path: none;
+  }
+}
 .skip {
   position: absolute;
   z-index: 30;
@@ -723,7 +735,16 @@
   width: calc(314.5 * var(--cu));
   height: calc(415.1 * var(--cu));
   color: var(--card-ink);
-  background: url("/maps/v2/card-frame.svg") center / 100% 100% no-repeat;
+}
+.locationCard::before {
+  /* Slice the original border so only its straight edges grow with the panel. */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  border: calc(30 * var(--cu)) solid transparent;
+  border-image: url("/maps/v2/card-frame.svg") 30 fill stretch;
 }
 .cardContent {
   --card-ink: var(--navy-400);
@@ -946,7 +967,7 @@
 }
 
 /* The supplied comp is desktop. Keep a usable stacked layout pending mobile art. */
-@container (max-width: 75rem) {
+@container (max-width: 85rem) {
   .board {
     display: flow-root;
     height: auto !important;
@@ -987,7 +1008,7 @@
     --u: 0.8px;
     left: 8%;
     top: 82px;
-    width: 84%;
+    width: min(84%, calc(339 / 46.2 * 44px));
     height: 44px;
   }
   .board header > div:has(input) > svg {
@@ -1050,6 +1071,9 @@
     left: 16px;
     right: 16px;
     top: 24px;
+  }
+  .searchBox {
+    max-width: calc(339 * var(--u));
   }
   .sidebarHead h2 {
     margin-left: 8px;
@@ -1249,26 +1273,33 @@
   font-size: 0.875rem;
 }
 
-/* Keep the source card's artwork; let its reading content determine its height. */
+/* Keep one source-proportioned frame; longer reading content scrolls inside it. */
 .locationCard {
   container-type: inline-size;
   --cu: calc(100cqw / 314.5);
   width: clamp(17rem, calc(314.5 * var(--u)), 24rem);
   max-width: calc(100% - 24px);
   height: auto;
-  max-height: calc(100% - max(24px, calc(70.6 * var(--u))));
+  aspect-ratio: 314.5 / 415.1;
+  min-height: 0;
+  /* Stop above the legend: its source top (487.4) minus the card top (35.3). */
+  max-height: calc(452.1 * var(--u) - 12px);
   display: flex;
+}
+.cardBody {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 .cardContent {
   position: relative;
   inset: auto;
   --photo-top: max(calc(53.8 * var(--cu)), calc(15.5 * var(--cu) + 2.35rem));
   width: 100%;
-  min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  padding: calc(15.5 * var(--cu)) calc(29.4 * var(--cu)) calc(24 * var(--cu));
+  height: 100%;
+  display: grid;
+  grid-template-rows: var(--photo-top) minmax(0, 1fr) auto;
 }
 .cardContent[data-card-ghost] {
   position: absolute;
@@ -1278,11 +1309,32 @@
 .cardMeta {
   position: relative;
   inset: auto;
-  min-height: calc(var(--photo-top) + 93.4 * var(--cu));
-  margin-left: calc(14.5 * var(--cu));
-  padding-right: calc(55 * var(--cu));
+  min-height: 0;
+  margin: 0;
+  padding: calc(15.5 * var(--cu)) calc(90 * var(--cu)) 0 calc(43.9 * var(--cu));
   font-size: 0.75rem;
   line-height: 1.3;
+}
+.cardReading {
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-gutter: stable;
+  mask-image: linear-gradient(#000 calc(100% - 12px), transparent);
+}
+.cardReading:focus-visible {
+  outline-offset: -3px;
+}
+.cardReadingBody {
+  /* Measure the artwork after the scrollbar without shrinking the outer frame. */
+  container-type: inline-size;
+  width: 100%;
+}
+.cardReadingContent {
+  position: relative;
+  padding: calc(106.7 * var(--cu)) calc(29.4 * var(--cu)) 0.75rem;
 }
 .cardClose {
   left: auto;
@@ -1291,10 +1343,10 @@
   min-height: 2.75rem;
 }
 .cardPhoto {
-  top: var(--photo-top);
+  top: 0;
 }
 .cardPhotoRule {
-  top: calc(var(--photo-top) - 0.7 * var(--cu));
+  top: calc(-0.7 * var(--cu));
 }
 .cardHeading {
   position: relative;
@@ -1302,13 +1354,13 @@
   width: auto;
 }
 .cardHeading h3 {
-  font-size: 2.1875rem;
+  font-size: clamp(1.5rem, calc(35 * var(--cu)), 2.1875rem);
   line-height: 1.05;
   overflow-wrap: anywhere;
 }
 .cardContent[lang="en"] .cardHeading h3,
 .cardContent:not([data-layer="place"]) .cardHeading h3 {
-  font-size: 1.8125rem;
+  font-size: clamp(1.375rem, calc(29 * var(--cu)), 1.8125rem);
   line-height: 1.1;
 }
 .cardContent .cardAddress {
@@ -1330,6 +1382,12 @@
   font-size: 0.75rem;
   line-height: 1.4;
 }
+.cardActions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) calc(30.3 * var(--cu));
+  column-gap: calc(10 * var(--cu));
+  padding: 0 calc(29.4 * var(--cu)) 0.75rem calc(44.6 * var(--cu));
+}
 .cardExplore,
 .cardDirections {
   position: relative;
@@ -1337,37 +1395,46 @@
   width: auto;
   min-height: 2.75rem;
   height: auto;
-  margin: 0.5rem 0 0 calc(15.2 * var(--cu));
-  padding-right: 2.5rem;
+  margin: 0;
+  padding: 0;
 }
 .cardExplore {
-  font-size: 1.09375rem;
+  grid-column: 1;
+  grid-row: 1;
+  font-size: clamp(0.9375rem, calc(17.5 * var(--cu)), 1.09375rem);
 }
 .cardExplore span {
   white-space: normal;
 }
 .cardDirections {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  justify-content: flex-start;
   font-size: 0.875rem;
 }
 .cardBadge {
-  top: auto;
-  left: auto;
-  right: calc(29.4 * var(--cu));
-  bottom: calc(24 * var(--cu) + 3.25rem);
+  position: static;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
   font-size: 0.75rem;
 }
 .cardPhotoUnavailable {
   font-size: 0.75rem;
 }
-.canvas:has(.locationCard) .legend {
-  left: 12px;
-  right: auto;
-  top: auto;
-  bottom: 12px;
-  width: min(28%, 220px);
-  height: auto;
-}
-@container (min-width: 75.001rem) and (max-width: 100rem) {
+@container (min-width: 85.001rem) and (max-width: 100rem) {
+  /* Use the compact legend footprint before the desktop layout gets cramped. */
+  .legend {
+    left: auto;
+    right: calc(34.9 * var(--u));
+    top: auto;
+    bottom: calc(35.2 * var(--u));
+    width: 140px;
+    height: auto;
+  }
+  .locationCard {
+    max-height: calc(100% - 70.5 * var(--u) - 82px);
+  }
   .sidebarHead h2 {
     font-size: 1.375rem;
   }
@@ -1388,7 +1455,7 @@
     margin-top: max(0.5rem, calc(12 * var(--u)));
   }
 }
-@container (max-width: 75rem) {
+@container (max-width: 85rem) {
   .sidebar {
     padding: 1.5rem 1rem 1rem;
     height: auto;
@@ -1427,13 +1494,10 @@
     inset: auto;
     width: min(24rem, calc(100% - 24px));
     max-height: none;
+    min-height: 28rem;
     margin: 1rem auto 0;
   }
-  .cardContent {
-    overflow: visible;
-  }
-  .legend,
-  .canvas:has(.locationCard) .legend {
+  .legend {
     left: auto;
     right: 12px;
     top: calc(max(320px, calc(680 * var(--u))) - 82px);

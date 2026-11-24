@@ -1,0 +1,82 @@
+﻿[
+  {
+    "route": "maps",
+    "lang": "vi",
+    "width": 1920,
+    "motion": "no-preference",
+    "sampledFrames": 250,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "vi",
+    "width": 1920,
+    "motion": "reduce",
+    "sampledFrames": 262,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "vi",
+    "width": 390,
+    "motion": "no-preference",
+    "sampledFrames": 216,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "vi",
+    "width": 390,
+    "motion": "reduce",
+    "sampledFrames": 244,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "en",
+    "width": 1920,
+    "motion": "no-preference",
+    "sampledFrames": 291,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "en",
+    "width": 1920,
+    "motion": "reduce",
+    "sampledFrames": 300,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "en",
+    "width": 390,
+    "motion": "no-preference",
+    "sampledFrames": 263,
+    "passed": true
+  },
+  {
+    "route": "maps",
+    "lang": "en",
+    "width": 390,
+    "motion": "reduce",
+    "sampledFrames": 303,
+    "passed": true
+  },
+  {
+    "route": "explore/place",
+    "lang": "vi",
+    "width": 1920,
+    "motion": "no-preference",
+    "sampledFrames": 292,
+    "passed": true
+  },
+  {
+    "route": "explore/place",
+    "lang": "en",
+    "width": 1920,
+    "motion": "no-preference",
+    "sampledFrames": 311,
+    "passed": true
+  }
+]

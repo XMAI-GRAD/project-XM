@@ -1,0 +1,45 @@
+﻿[
+  {
+    "value": [
+      {
+        "check": "reduced motion interrupts arrival",
+        "route": "maps",
+        "passed": true
+      },
+      {
+        "check": "reduced motion interrupts arrival",
+        "route": "explore/place",
+        "passed": true
+      },
+      {
+        "check": "Explore gate navigation after shared timeline extraction",
+        "passed": true
+      },
+      {
+        "check": "client navigation from Explore detail to map leaves heading settled",
+        "passed": true
+      },
+      {
+        "check": "no JavaScript content remains readable",
+        "motion": "no-preference",
+        "passed": true
+      }
+    ],
+    "Count": 5
+  },
+  {
+    "value": [
+      {
+        "check": "no JavaScript content remains readable",
+        "motion": "no-preference",
+        "passed": true
+      },
+      {
+        "check": "no JavaScript content remains readable",
+        "motion": "reduce",
+        "passed": true
+      }
+    ],
+    "Count": 2
+  }
+]

@@ -10,15 +10,16 @@ import {
   useGSAP,
 } from "@/features/home/motion/gsap";
 import {
+  headingReveal,
+  HEADING_DRIFT as DRIFT,
+} from "@/features/home/motion/heading-reveal";
+import {
   attachGateTransition,
   GATE_EXIT_TIMING,
   LABEL_CLIPPED,
   LABEL_SHOWN,
 } from "./gate-transition";
 
-/** Matches home Layers (src/features/home/motion/layers-motion.tsx). */
-const DURATION = 1.5;
-const DRIFT = 40;
 const SOFT = "power2.out";
 /** How far a gate rises as it pops in, in comp units. */
 const RISE = 18;
@@ -26,7 +27,7 @@ const GATE_CLIPPED = "inset(100% -10% -10% -10%)";
 const GATE_SHOWN = "inset(-10% -10% -10% -10%)";
 
 /**
- * Explore slide motion, paced like home's Layers (DURATION 1.5 s, power2.out):
+ * Explore slide motion, paced like home's Layers (1.5 s, power2.out):
  * on arrival the layer name rises out of its baseline, its line draws away from
  * the name and its caption opens from the name's side. All five gates move as
  * one group on a single ScrollTrigger, reversing only after all five have left
@@ -148,49 +149,14 @@ export function ExploreMotion({
         });
 
         // 1. Heading, line and caption — same pace and feel as home Layers.
-        const headingTl = gsap.timeline({
-          defaults: { duration: DURATION, ease: SOFT },
+        const headingTl = headingReveal({
+          name,
+          line,
+          caption,
+          unit,
+          fromStart,
+          toLeft,
         });
-
-        if (name) {
-          headingTl.fromTo(
-            name,
-            { yPercent: 70, clipPath: "inset(100% -10% -40% -10%)" },
-            {
-              yPercent: 0,
-              clipPath: "inset(-70% -10% -40% -10%)",
-              clearProps: "transform,clipPath",
-            },
-            0,
-          );
-        }
-
-        if (line) {
-          headingTl.fromTo(
-            line,
-            { drawSVG: fromStart ? "0% 0%" : "100% 100%" },
-            { drawSVG: "0% 100%", ease: "power2.inOut" },
-            0,
-          );
-        }
-
-        if (caption) {
-          headingTl.fromTo(
-            caption,
-            {
-              x: (toLeft ? DRIFT : -DRIFT) * unit,
-              clipPath: toLeft
-                ? "inset(-70% 0% -40% 100%)"
-                : "inset(-70% 100% -40% 0%)",
-            },
-            {
-              x: 0,
-              clipPath: "inset(-70% 0% -40% 0%)",
-              clearProps: "transform,clipPath",
-            },
-            0.15,
-          );
-        }
 
         // 2. All five gates as ONE group on a single ScrollTrigger.
         // The list's <li> children are absolutely placed, so the <ul> itself has
