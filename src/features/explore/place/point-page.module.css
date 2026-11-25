@@ -3,7 +3,8 @@
 
 .board {
   height: auto;
-  min-height: calc(2348 * var(--u));
+  min-height: calc(2348 * var(--u) + var(--brand-hold, 0px));
+  padding-bottom: var(--brand-hold, 0px);
 }
 
 /* Content runs from x 280 to x 1690 (width 1410), starting at y 325 (info row cap top). */
