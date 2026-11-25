@@ -9,6 +9,12 @@
   fill: var(--mauve-100);
 }
 
+/* Keep the translated home frame ending at the board bottom instead of spilling
+   into the footer by --brand-hold; ::before/::after below paint the bottom corners. */
+.lavenderFrame [data-home-frame] {
+  bottom: var(--brand-hold, 0px);
+}
+
 /* The bottom frame corners (from comp y 1447.5..2347.5), pinned to the bottom
    of the growing board above the clipped lavender frame. */
 .lavenderFrame::before,
