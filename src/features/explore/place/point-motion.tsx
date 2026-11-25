@@ -334,7 +334,7 @@ export function PointMotion({
             { drawSVG: "0% 0%" },
             {
               drawSVG: "0% 100%",
-              duration: 1.5,
+              duration: 2.5,
               ease: "power2.inOut",
               scrollTrigger: {
                 trigger: layerLineSvg,
