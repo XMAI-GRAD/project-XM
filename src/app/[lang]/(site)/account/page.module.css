@@ -1,0 +1,379 @@
+/* Account on the prototype A frame: an identity strip, then the saved points as a wall of
+   framed figures (the home list's hover panel, kept open). */
+.page {
+  display: grid;
+}
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* identity strip */
+.strip {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px clamp(20px, 2.4vw, 40px);
+  padding: clamp(18px, 2vw, 32px) var(--pad);
+  border-bottom: 1px solid var(--navy-500);
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 5.5vw, 96px);
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid var(--navy-500);
+  border-radius: 999px;
+  background: var(--frosted-blue);
+  object-fit: cover;
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 2.6vw, 3rem);
+  line-height: 1;
+}
+.bar {
+  width: min(70%, 32rem);
+  height: clamp(2.25rem, 4.2vw, 4.25rem);
+  background: color-mix(in srgb, var(--navy-500) 8%, transparent);
+}
+.identity {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+.displayName {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.2vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  padding-top: 0.08em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.nameForm {
+  display: grid;
+  gap: 6px;
+}
+.nameInput {
+  width: 100%;
+  padding: 0.08em 0 0.04em;
+  border: 0;
+  border-bottom: 2px solid var(--navy-500);
+  border-radius: 0;
+  background: transparent;
+  color: var(--navy-500);
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.2vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  caret-color: var(--brick-red);
+}
+.nameInput:focus-visible {
+  outline-offset: 6px;
+}
+.nameInput:user-invalid {
+  border-color: var(--brick-red);
+}
+.hint {
+  margin: 4px 0 0;
+  max-width: 60ch;
+  font-size: clamp(0.95rem, 1vw, 1.15rem);
+  color: var(--navy-300);
+}
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+/* Proof of the two demo actions, so it reads on a projector like the count. */
+.status {
+  margin: 0;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.signOut {
+  align-self: start;
+}
+
+/* buttons */
+.pill,
+.primary,
+.unsave {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  cursor: pointer;
+}
+.pill,
+.primary {
+  padding: 12px 22px;
+  font-size: clamp(0.95rem, 1.05vw, 1.2rem);
+}
+.pill {
+  border: 1px solid var(--navy-500);
+  background: transparent;
+  color: var(--navy-500);
+}
+.pill:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.primary {
+  justify-self: start;
+  border: 1px solid var(--brick-red);
+  background: var(--brick-red);
+  color: var(--seashell);
+}
+.primary:hover:not(:disabled) {
+  border-color: var(--navy-500);
+  background: var(--navy-500);
+}
+.primary:disabled,
+.unsave:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* saved points */
+.saved {
+  padding: clamp(24px, 2.4vw, 40px) var(--pad) clamp(64px, 8vw, 128px);
+}
+.savedHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 32px;
+  margin-bottom: clamp(20px, 1.8vw, 32px);
+}
+.heading {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 3.6vw, 3.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+}
+/* Larger than the shared .meta: it has to read on a projector. */
+.count {
+  margin: 0;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(28px, 2.8vw, 48px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* A framed figure: the whole card links to the point; the remove button sits above that link. */
+.card {
+  position: relative;
+  display: grid;
+  /* cap, figure, name (takes the slack), foot, status: the feet line up across a row */
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 10px;
+  padding: 10px 14px 8px;
+  border: 1px solid var(--navy-500);
+  background: var(--seashell);
+}
+.cap {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0;
+  font-weight: 600;
+}
+.figure {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--navy-500);
+  background: var(--layer-bg);
+}
+.figure img {
+  object-fit: cover;
+}
+.chip {
+  padding: 6px 10px;
+  background: var(--navy-500);
+  color: var(--seashell);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.name {
+  margin: 6px 0 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 1.8vw, 2.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  padding-top: 0.05em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.link {
+  text-decoration: none;
+}
+.link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.link:focus-visible {
+  outline: none;
+}
+/* Reserved even when empty, so a removed card's status line doesn't knock its foot out of line. */
+.card .status {
+  min-height: 1.3em;
+}
+/* Address and the remove button share a row; the status line, when there is one, goes under. */
+.foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 12px;
+}
+.address {
+  flex: 1 1 8rem;
+  margin: 0;
+  font-size: clamp(0.875rem, 1vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.unsave {
+  position: relative; /* above the card link */
+  padding: 10px 16px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  font-size: clamp(0.9rem, 0.95vw, 1.1rem);
+}
+.unsave svg {
+  width: 1.15em;
+  height: auto;
+}
+.unsave:hover:not(:disabled) {
+  border-color: var(--navy-500);
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+/* Removed, until reload: the figure fades and the button turns into the primary "save again". */
+.card[data-removed] .figure {
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+.card[data-removed] .unsave {
+  border-color: var(--brick-red);
+  background: var(--brick-red);
+  color: var(--seashell);
+}
+
+/* Hover and keyboard focus invert the card to navy, as on the home and explore rows. */
+@media (hover: hover) {
+  .card:hover {
+    background: var(--navy-500);
+    color: var(--seashell);
+  }
+  .card:hover .unsave:hover:not(:disabled) {
+    border-color: var(--seashell);
+    background: var(--seashell);
+    color: var(--navy-500);
+  }
+  .card:hover :focus-visible {
+    outline-color: var(--seashell);
+  }
+}
+.card:has(.link:focus-visible) {
+  background: var(--navy-500);
+  color: var(--seashell);
+  outline: 3px solid var(--frosted-blue);
+  outline-offset: -6px;
+}
+
+/* empty */
+.empty {
+  position: relative;
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+  padding: clamp(36px, 5vw, 80px) clamp(24px, 3.4vw, 56px);
+  border: 1px solid var(--navy-500);
+  background: var(--frosted-blue);
+}
+.emptyTitle {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  padding-top: 0.08em;
+}
+.emptyHint {
+  margin: 0 0 8px;
+  max-width: 40ch;
+  font-size: clamp(1.05rem, 1.25vw, 1.4rem);
+  line-height: 1.4;
+}
+
+@media (max-width: 48rem) {
+  .strip {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: start;
+  }
+  .signOut {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pill,
+  .primary,
+  .unsave,
+  .card {
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      border-color 0.15s;
+  }
+  .figure {
+    transition:
+      opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

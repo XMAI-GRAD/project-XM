@@ -1,0 +1,410 @@
+[
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "place",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "taste",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "craft",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "place",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "taste",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1920,
+      "height": 1080,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "craft",
+    "legend": {
+      "x": 738.78125,
+      "y": 483.578125,
+      "width": 312.03125,
+      "height": 156.15625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "vi",
+    "layer": "place",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "vi",
+    "layer": "taste",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "vi",
+    "layer": "craft",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "en",
+    "layer": "place",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "en",
+    "layer": "taste",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1490,
+      "height": 714,
+      "dpr": 1.25
+    },
+    "lang": "en",
+    "layer": "craft",
+    "legend": {
+      "x": 572.015625,
+      "y": 374.421875,
+      "width": 241.59375,
+      "height": 120.90625
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "place",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "taste",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "craft",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "place",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "taste",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 1280,
+      "height": 720,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "craft",
+    "legend": {
+      "x": 490.578125,
+      "y": 321.125,
+      "width": 207.203125,
+      "height": 103.703125
+    },
+    "scrollableCard": true,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "place",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "taste",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "vi",
+    "layer": "craft",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "place",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "taste",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  },
+  {
+    "size": {
+      "width": 390,
+      "height": 844,
+      "dpr": 1
+    },
+    "lang": "en",
+    "layer": "craft",
+    "legend": {
+      "x": 155,
+      "y": 238,
+      "width": 140,
+      "height": 70.0625
+    },
+    "scrollableCard": false,
+    "passed": true
+  }
+]

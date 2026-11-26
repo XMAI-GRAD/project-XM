@@ -1,0 +1,68 @@
+{
+  "checks": [
+    "Nine named roads, three landmarks and two canonical entrances; selected feature coordinates, provenance and source asset links",
+    "Drawing/reference comparison, overlay/label/route toggles, opacity, pointer/keyboard panning and zoom, no overlapping visible labels",
+    "390px layout without horizontal overflow; reduced-motion context; no runtime service requests"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "visibleLabels": [
+    {
+      "map": "art-map",
+      "text": "Đường Hoàng Diệu"
+    },
+    {
+      "map": "art-map",
+      "text": "Phố Nguyễn Thái Học"
+    },
+    {
+      "map": "art-map",
+      "text": "Phố Chu Văn An"
+    },
+    {
+      "map": "art-map",
+      "text": "Phố Trần Phú"
+    },
+    {
+      "map": "art-map",
+      "text": "Phố Tôn Đức Thắng"
+    },
+    {
+      "map": "art-map",
+      "text": "Đường Nguyễn Tri Phương"
+    },
+    {
+      "map": "art-map",
+      "text": "Công viên Lê-nin"
+    },
+    {
+      "map": "geo-map",
+      "text": "Đường Hoàng Diệu"
+    },
+    {
+      "map": "geo-map",
+      "text": "Phố Nguyễn Thái Học"
+    },
+    {
+      "map": "geo-map",
+      "text": "Phố Chu Văn An"
+    },
+    {
+      "map": "geo-map",
+      "text": "Phố Trần Phú"
+    },
+    {
+      "map": "geo-map",
+      "text": "Phố Tôn Đức Thắng"
+    },
+    {
+      "map": "geo-map",
+      "text": "Đường Nguyễn Tri Phương"
+    },
+    {
+      "map": "geo-map",
+      "text": "Công viên Lê-nin"
+    }
+  ],
+  "status": "passed"
+}

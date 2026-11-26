@@ -1,0 +1,46 @@
+[
+  {
+    "width": 1920,
+    "reducedMotion": "no-preference",
+    "lang": "vi",
+    "locations": 12,
+    "persistentLabel": true,
+    "cardAndEdgesClear": true,
+    "noCircles": true,
+    "keyboard": true,
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "reducedMotion": "reduce",
+    "lang": "en",
+    "locations": 12,
+    "persistentLabel": true,
+    "cardAndEdgesClear": true,
+    "noCircles": true,
+    "keyboard": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "reducedMotion": "no-preference",
+    "lang": "en",
+    "locations": 12,
+    "persistentLabel": true,
+    "cardAndEdgesClear": true,
+    "noCircles": true,
+    "keyboard": true,
+    "errors": []
+  },
+  {
+    "width": 390,
+    "reducedMotion": "reduce",
+    "lang": "vi",
+    "locations": 12,
+    "persistentLabel": true,
+    "cardAndEdgesClear": true,
+    "noCircles": true,
+    "keyboard": true,
+    "errors": []
+  }
+]

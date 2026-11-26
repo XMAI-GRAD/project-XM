@@ -1,0 +1,298 @@
+[
+  {
+    "lang": "vi",
+    "motion": "reduce",
+    "expected": "left",
+    "hover": {
+      "side": "left",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": 191.609375,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "above",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -795.390625,
+        "y": 182.609375,
+        "width": 2426,
+        "height": 1508
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "vi",
+    "motion": "reduce",
+    "expected": "below",
+    "hover": {
+      "side": "below",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": 191.609375,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "right",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -800.390625,
+        "y": 157.609375,
+        "width": 2156,
+        "height": 1340
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "vi",
+    "motion": "no-preference",
+    "expected": "left",
+    "hover": {
+      "side": "left",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": -0.390625,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "above",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -795.390625,
+        "y": -9.390625,
+        "width": 2426,
+        "height": 1508
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "vi",
+    "motion": "no-preference",
+    "expected": "below",
+    "hover": {
+      "side": "below",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": -0.390625,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "right",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -800.390625,
+        "y": -34.390625,
+        "width": 2156,
+        "height": 1340
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "en",
+    "motion": "reduce",
+    "expected": "left",
+    "hover": {
+      "side": "left",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": 191.609375,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "above",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -795.390625,
+        "y": 182.609375,
+        "width": 2426,
+        "height": 1508
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "en",
+    "motion": "reduce",
+    "expected": "below",
+    "hover": {
+      "side": "below",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": 191.609375,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "right",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -800.390625,
+        "y": 157.609375,
+        "width": 2156,
+        "height": 1340
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "en",
+    "motion": "no-preference",
+    "expected": "left",
+    "hover": {
+      "side": "left",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": -0.390625,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "above",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -795.390625,
+        "y": -9.390625,
+        "width": 2426,
+        "height": 1508
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  },
+  {
+    "lang": "en",
+    "motion": "no-preference",
+    "expected": "below",
+    "hover": {
+      "side": "below",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": 458.609375,
+        "y": -0.390625,
+        "width": 840,
+        "height": 522
+      }
+    },
+    "selected": {
+      "side": "right",
+      "attached": true,
+      "visible": true,
+      "inside": true,
+      "covers": true,
+      "clearCard": true,
+      "image": {
+        "x": -800.390625,
+        "y": -34.390625,
+        "width": 2156,
+        "height": 1340
+      }
+    },
+    "hoverBridge": true,
+    "escape": true,
+    "focusRestored": true,
+    "panStable": true
+  }
+]

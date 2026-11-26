@@ -1,0 +1,107 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "motion": "no-preference",
+    "originalWidth": 314.5,
+    "artwork": {
+      "x": 999,
+      "y": 71.671875,
+      "width": 680,
+      "height": 340.3125
+    },
+    "close": {
+      "x": 1647,
+      "y": 35.671875,
+      "width": 32,
+      "height": 32
+    },
+    "copyRemoved": true,
+    "clickKeyboardTouch": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "motion": "reduce",
+    "originalWidth": 209.65625,
+    "artwork": {
+      "x": 435.3125,
+      "y": 507.671875,
+      "width": 680,
+      "height": 340.3125
+    },
+    "close": {
+      "x": 1083.3125,
+      "y": 471.671875,
+      "width": 32,
+      "height": 32
+    },
+    "copyRemoved": true,
+    "clickKeyboardTouch": true,
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 820,
+    "motion": "reduce",
+    "originalWidth": 134.3125,
+    "artwork": {
+      "x": 266.953125,
+      "y": 317.09375,
+      "width": 443.21875,
+      "height": 221.8125
+    },
+    "close": {
+      "x": 678.171875,
+      "y": 281.09375,
+      "width": 32,
+      "height": 32
+    },
+    "copyRemoved": true,
+    "clickKeyboardTouch": true,
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "motion": "reduce",
+    "originalWidth": 140,
+    "artwork": {
+      "x": 47.1875,
+      "y": 579.0625,
+      "width": 295.59375,
+      "height": 147.9375
+    },
+    "close": {
+      "x": 310.78125,
+      "y": 543.0625,
+      "width": 32,
+      "height": 32
+    },
+    "copyRemoved": true,
+    "clickKeyboardTouch": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "motion": "reduce",
+    "originalWidth": 140,
+    "artwork": {
+      "x": 41.59375,
+      "y": 633.5,
+      "width": 236.796875,
+      "height": 118.5
+    },
+    "close": {
+      "x": 246.390625,
+      "y": 597.5,
+      "width": 32,
+      "height": 32
+    },
+    "copyRemoved": true,
+    "clickKeyboardTouch": true,
+    "errors": []
+  }
+]

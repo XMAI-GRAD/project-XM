@@ -1,0 +1,833 @@
+{
+  "checks": [
+    "four viewports: source paths unchanged, exact rail SVG endpoint, precise dock position, stable deep scrolling, click returns to header/focus, reversible progress and opening handoff",
+    "keyboard activation returns and focuses header; wheel input cancels return",
+    "resize and reload restore rail state",
+    "repeated locale navigation cleans temporary SVGs and controllers",
+    "live reduced motion uses instant state/return and restores one motion instance",
+    "no-JavaScript rail link reaches the header without opening"
+  ],
+  "frames": [
+    {
+      "width": 1920,
+      "height": 7689,
+      "p": 0,
+      "scroll": 1080,
+      "start": 1080,
+      "range": 516,
+      "state": "expanded",
+      "link": {
+        "x": 860.21875,
+        "y": 45.71875,
+        "width": 198.859375,
+        "height": 85.8125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 258
+      },
+      "hero": {
+        "x": 0,
+        "y": 258,
+        "width": 1920,
+        "height": 882
+      },
+      "frameTop": 180,
+      "rail": {
+        "x": 47.3125,
+        "y": 361.21875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "phase": "end",
+      "sourceVisibility": "visible",
+      "flightDisplay": "none",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Hanoi Creative City",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1920,
+      "height": 7689,
+      "p": 0.2,
+      "scroll": 1183,
+      "start": 1080,
+      "range": 516,
+      "state": "travel",
+      "link": {
+        "x": 860.21875,
+        "y": 45.71875,
+        "width": 198.859375,
+        "height": 85.8125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 258
+      },
+      "hero": {
+        "x": 0,
+        "y": 258,
+        "width": 1920,
+        "height": 882
+      },
+      "frameTop": 180,
+      "rail": {
+        "x": 47.3125,
+        "y": 361.21875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1920,
+      "height": 7689,
+      "p": 0.45,
+      "scroll": 1312,
+      "start": 1080,
+      "range": 516,
+      "state": "travel",
+      "link": {
+        "x": 777.2720336914062,
+        "y": 45.71875,
+        "width": 187.265625,
+        "height": 85.75
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 258
+      },
+      "hero": {
+        "x": 0,
+        "y": 258,
+        "width": 1920,
+        "height": 882
+      },
+      "frameTop": 180,
+      "rail": {
+        "x": 47.3125,
+        "y": 361.21875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1920,
+      "height": 7689,
+      "p": 0.7,
+      "scroll": 1441,
+      "start": 1080,
+      "range": 516,
+      "state": "travel",
+      "link": {
+        "x": 233.03875732421875,
+        "y": 45.71875,
+        "width": 111.234375,
+        "height": 85.40625
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 258
+      },
+      "hero": {
+        "x": 0,
+        "y": 258,
+        "width": 1920,
+        "height": 882
+      },
+      "frameTop": 180,
+      "rail": {
+        "x": 47.3125,
+        "y": 361.21875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1920,
+      "height": 7689,
+      "p": 1,
+      "scroll": 1596,
+      "start": 1080,
+      "range": 516,
+      "state": "rail",
+      "link": {
+        "x": 47.3187255859375,
+        "y": 45.71875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1920,
+        "height": 258
+      },
+      "hero": {
+        "x": 0,
+        "y": 258,
+        "width": 1920,
+        "height": 882
+      },
+      "frameTop": 180,
+      "rail": {
+        "x": 47.3125,
+        "y": 361.21875,
+        "width": 85.296875,
+        "height": 85.296875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "block",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1440,
+      "height": 5858,
+      "p": 0,
+      "scroll": 900,
+      "start": 900,
+      "range": 388,
+      "state": "expanded",
+      "link": {
+        "x": 645.15625,
+        "y": 34.296875,
+        "width": 149.140625,
+        "height": 64.359375
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 193.5
+      },
+      "hero": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 661.5
+      },
+      "frameTop": 135,
+      "rail": {
+        "x": 35.484375,
+        "y": 270.90625,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "phase": "end",
+      "sourceVisibility": "visible",
+      "flightDisplay": "none",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Hanoi Creative City",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1440,
+      "height": 5858,
+      "p": 0.2,
+      "scroll": 978,
+      "start": 900,
+      "range": 388,
+      "state": "travel",
+      "link": {
+        "x": 645.15625,
+        "y": 34.296875,
+        "width": 149.140625,
+        "height": 64.359375
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 193.5
+      },
+      "hero": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 661.5
+      },
+      "frameTop": 135,
+      "rail": {
+        "x": 35.484375,
+        "y": 270.90625,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1440,
+      "height": 5858,
+      "p": 0.45,
+      "scroll": 1075,
+      "start": 900,
+      "range": 388,
+      "state": "travel",
+      "link": {
+        "x": 581.7860107421875,
+        "y": 34.296875,
+        "width": 140.28125,
+        "height": 64.3125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 193.5
+      },
+      "hero": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 661.5
+      },
+      "frameTop": 135,
+      "rail": {
+        "x": 35.484375,
+        "y": 270.90625,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1440,
+      "height": 5858,
+      "p": 0.7,
+      "scroll": 1172,
+      "start": 900,
+      "range": 388,
+      "state": "travel",
+      "link": {
+        "x": 172.8074951171875,
+        "y": 34.296875,
+        "width": 83.140625,
+        "height": 64.046875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 193.5
+      },
+      "hero": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 661.5
+      },
+      "frameTop": 135,
+      "rail": {
+        "x": 35.484375,
+        "y": 270.90625,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 1440,
+      "height": 5858,
+      "p": 1,
+      "scroll": 1288,
+      "start": 900,
+      "range": 388,
+      "state": "rail",
+      "link": {
+        "x": 35.48126220703125,
+        "y": 34.296875,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 193.5
+      },
+      "hero": {
+        "x": 0,
+        "y": 193.5,
+        "width": 1440,
+        "height": 661.5
+      },
+      "frameTop": 135,
+      "rail": {
+        "x": 35.484375,
+        "y": 270.90625,
+        "width": 63.96875,
+        "height": 63.96875
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "block",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 390,
+      "height": 2362,
+      "p": 0,
+      "scroll": 844,
+      "start": 844,
+      "range": 280,
+      "state": "expanded",
+      "link": {
+        "x": 174.71875,
+        "y": 9.28125,
+        "width": 40.390625,
+        "height": 17.421875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 52.40625
+      },
+      "hero": {
+        "x": 0,
+        "y": 52.40625,
+        "width": 390,
+        "height": 179.15625
+      },
+      "frameTop": 36.5625,
+      "rail": {
+        "x": 9.609375,
+        "y": 73.359375,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "phase": "end",
+      "sourceVisibility": "visible",
+      "flightDisplay": "none",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Hanoi Creative City",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 390,
+      "height": 2362,
+      "p": 0.2,
+      "scroll": 900,
+      "start": 844,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 174.71875,
+        "y": 9.28125,
+        "width": 40.390625,
+        "height": 17.421875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 52.40625
+      },
+      "hero": {
+        "x": 0,
+        "y": 52.40625,
+        "width": 390,
+        "height": 179.15625
+      },
+      "frameTop": 36.5625,
+      "rail": {
+        "x": 9.609375,
+        "y": 73.359375,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 390,
+      "height": 2362,
+      "p": 0.45,
+      "scroll": 970,
+      "start": 844,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 157.78469848632812,
+        "y": 9.28125,
+        "width": 38.015625,
+        "height": 17.40625
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 52.40625
+      },
+      "hero": {
+        "x": 0,
+        "y": 52.40625,
+        "width": 390,
+        "height": 179.15625
+      },
+      "frameTop": 36.5625,
+      "rail": {
+        "x": 9.609375,
+        "y": 73.359375,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 390,
+      "height": 2417,
+      "p": 0.7,
+      "scroll": 1040,
+      "start": 844,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 47.177154541015625,
+        "y": 9.28125,
+        "width": 22.5625,
+        "height": 17.328125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 52.40625
+      },
+      "hero": {
+        "x": 0,
+        "y": 52.40625,
+        "width": 390,
+        "height": 179.15625
+      },
+      "frameTop": 36.5625,
+      "rail": {
+        "x": 9.609375,
+        "y": 73.359375,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 390,
+      "height": 2501,
+      "p": 1,
+      "scroll": 1124,
+      "start": 844,
+      "range": 280,
+      "state": "rail",
+      "link": {
+        "x": 9.598617553710938,
+        "y": 9.28125,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 52.40625
+      },
+      "hero": {
+        "x": 0,
+        "y": 52.40625,
+        "width": 390,
+        "height": 179.15625
+      },
+      "frameTop": 36.5625,
+      "rail": {
+        "x": 9.609375,
+        "y": 73.359375,
+        "width": 17.3125,
+        "height": 17.3125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "block",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 320,
+      "height": 1996,
+      "p": 0,
+      "scroll": 700,
+      "start": 700,
+      "range": 280,
+      "state": "expanded",
+      "link": {
+        "x": 143.359375,
+        "y": 7.609375,
+        "width": 33.140625,
+        "height": 14.296875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 43
+      },
+      "hero": {
+        "x": 0,
+        "y": 43,
+        "width": 320,
+        "height": 147
+      },
+      "frameTop": 30,
+      "rail": {
+        "x": 7.875,
+        "y": 60.203125,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "phase": "end",
+      "sourceVisibility": "visible",
+      "flightDisplay": "none",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Hanoi Creative City",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 320,
+      "height": 1996,
+      "p": 0.2,
+      "scroll": 756,
+      "start": 700,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 143.359375,
+        "y": 7.609375,
+        "width": 33.140625,
+        "height": 14.296875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 43
+      },
+      "hero": {
+        "x": 0,
+        "y": 43,
+        "width": 320,
+        "height": 147
+      },
+      "frameTop": 30,
+      "rail": {
+        "x": 7.875,
+        "y": 60.203125,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 320,
+      "height": 2006,
+      "p": 0.45,
+      "scroll": 826,
+      "start": 700,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 129.46475219726562,
+        "y": 7.609375,
+        "width": 31.1875,
+        "height": 14.28125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 43
+      },
+      "hero": {
+        "x": 0,
+        "y": 43,
+        "width": 320,
+        "height": 147
+      },
+      "frameTop": 30,
+      "rail": {
+        "x": 7.875,
+        "y": 60.203125,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 320,
+      "height": 2076,
+      "p": 0.7,
+      "scroll": 896,
+      "start": 700,
+      "range": 280,
+      "state": "travel",
+      "link": {
+        "x": 38.709747314453125,
+        "y": 7.609375,
+        "width": 18.5,
+        "height": 14.21875
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 43
+      },
+      "hero": {
+        "x": 0,
+        "y": 43,
+        "width": 320,
+        "height": 147
+      },
+      "frameTop": 30,
+      "rail": {
+        "x": 7.875,
+        "y": 60.203125,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "none",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    },
+    {
+      "width": 320,
+      "height": 2160,
+      "p": 1,
+      "scroll": 980,
+      "start": 700,
+      "range": 280,
+      "state": "rail",
+      "link": {
+        "x": 7.87603759765625,
+        "y": 7.609375,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 320,
+        "height": 43
+      },
+      "hero": {
+        "x": 0,
+        "y": 43,
+        "width": 320,
+        "height": 147
+      },
+      "frameTop": 30,
+      "rail": {
+        "x": 7.875,
+        "y": 60.203125,
+        "width": 14.203125,
+        "height": 14.203125
+      },
+      "phase": "end",
+      "sourceVisibility": "hidden",
+      "flightDisplay": "block",
+      "dockedDisplay": "block",
+      "sourceRailVisibility": "hidden",
+      "label": "Về đầu trang chủ",
+      "href": "/vi#home-entry-vi"
+    }
+  ],
+  "errors": []
+}

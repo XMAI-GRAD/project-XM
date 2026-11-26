@@ -1,0 +1,306 @@
+{
+  "checks": [
+    "forward/endpoints/reverse 1920x1080",
+    "forward/endpoints/reverse 390x844",
+    "forward/endpoints/reverse 2560x1440",
+    "forward/endpoints/reverse 320x700",
+    "resize during morph, round trip",
+    "moving logo hit area enters header",
+    "fast scroll and live reduced-motion toggle",
+    "skip and entry anchors/focus",
+    "hash reload uses completed frame",
+    "reduced-motion initial visit and English entry",
+    "no-JavaScript static fallback"
+  ],
+  "frames": [
+    {
+      "progress": 0,
+      "scroll": 0,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 831.6900634765625,
+        "y": 402.7890625,
+        "width": 50.03509521484375,
+        "height": 72.67080688476562
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.25,
+      "scroll": 270,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 875.3800048828125,
+        "y": 387.03997802734375,
+        "width": 37.42999267578125,
+        "height": 54.36004638671875
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 540,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 919.0700073242188,
+        "y": 371.29998779296875,
+        "width": 24.82000732421875,
+        "height": 36.04998779296875
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.75,
+      "scroll": 810,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 957.5248413085938,
+        "y": 325.048095703125,
+        "width": 13.729248046875,
+        "height": 19.9359130859375
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0.1071"
+    },
+    {
+      "progress": 0.9,
+      "scroll": 972,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 957.5248413085938,
+        "y": 163.048095703125,
+        "width": 13.729248046875,
+        "height": 19.9359130859375
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0.6429"
+    },
+    {
+      "progress": 1,
+      "scroll": 1080,
+      "width": 1920,
+      "height": 1080,
+      "hanoiH": {
+        "x": 957.5248413085938,
+        "y": 55.048095703125,
+        "width": 13.729248046875,
+        "height": 19.9359130859375
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "1"
+    },
+    {
+      "progress": 0,
+      "scroll": 0,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 168.94886918249958,
+        "y": 393.9541920864563,
+        "width": 10.163360595703125,
+        "height": 14.759246826171875
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.25,
+      "scroll": 211,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 177.81778804253094,
+        "y": 342.95885480216134,
+        "width": 7.600006103515625,
+        "height": 11.03997802734375
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 422,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 186.6837632909186,
+        "y": 291.9762680843646,
+        "width": 5.040008544921875,
+        "height": 7.32000732421875
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.75,
+      "scroll": 633,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 194.49595607460344,
+        "y": 221.79309743768522,
+        "width": 2.78857421875,
+        "height": 4.0474853515625
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0.1071"
+    },
+    {
+      "progress": 0.9,
+      "scroll": 760,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 194.49595607460344,
+        "y": 94.79309743768522,
+        "width": 2.78857421875,
+        "height": 4.0474853515625
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0.6445"
+    },
+    {
+      "progress": 1,
+      "scroll": 844,
+      "width": 390,
+      "height": 844,
+      "hanoiH": {
+        "x": 194.49595607460344,
+        "y": 10.79309743768522,
+        "width": 2.78857421875,
+        "height": 4.0474853515625
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "1"
+    },
+    {
+      "progress": 0,
+      "scroll": 0,
+      "width": 2560,
+      "height": 1440,
+      "hanoiH": {
+        "x": 1108.9237060546875,
+        "y": 537.0625,
+        "width": 66.7120361328125,
+        "height": 96.888916015625
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 720,
+      "width": 2560,
+      "height": 1440,
+      "hanoiH": {
+        "x": 1225.4300537109375,
+        "y": 495.0699462890625,
+        "width": 33.0999755859375,
+        "height": 48.070068359375
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 1,
+      "scroll": 1440,
+      "width": 2560,
+      "height": 1440,
+      "hanoiH": {
+        "x": 1276.704833984375,
+        "y": 73.399658203125,
+        "width": 18.306396484375,
+        "height": 26.586181640625
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "1"
+    },
+    {
+      "progress": 0,
+      "scroll": 0,
+      "width": 320,
+      "height": 700,
+      "hanoiH": {
+        "x": 138.61680603027344,
+        "y": 327.140625,
+        "width": 8.338485717773438,
+        "height": 12.106964111328125
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 0.5,
+      "scroll": 350,
+      "width": 320,
+      "height": 700,
+      "hanoiH": {
+        "x": 153.1699981689453,
+        "y": 242.44000244140625,
+        "width": 4.1399993896484375,
+        "height": 6
+      },
+      "paperTop": 0,
+      "overlayVisible": "visible",
+      "overflow": false,
+      "detailOpacity": "0"
+    },
+    {
+      "progress": 1,
+      "scroll": 700,
+      "width": 320,
+      "height": 700,
+      "hanoiH": {
+        "x": 159.58619689941406,
+        "y": 9.17413330078125,
+        "width": 2.2880401611328125,
+        "height": 3.3214111328125
+      },
+      "paperTop": 0,
+      "overlayVisible": "hidden",
+      "overflow": false,
+      "detailOpacity": "1"
+    }
+  ],
+  "errors": []
+}

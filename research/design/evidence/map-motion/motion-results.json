@@ -1,0 +1,110 @@
+[
+  {
+    "width": 1920,
+    "reducedMotion": "no-preference",
+    "frames": 2132,
+    "blankEdges": 0,
+    "themeSamples": [
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      }
+    ],
+    "linkedHoverFocus": true,
+    "rapidSwitching": true,
+    "cardSwapClose": true,
+    "cameraInterruption": true,
+    "preferenceChanges": true,
+    "errors": [],
+    "warnings": []
+  },
+  {
+    "width": 390,
+    "reducedMotion": "no-preference",
+    "frames": 3049,
+    "blankEdges": 0,
+    "themeSamples": [
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      },
+      {
+        "opacity": "0",
+        "transform": "matrix(0.72, 0, 0, 0.72, 0, 0)"
+      }
+    ],
+    "linkedHoverFocus": true,
+    "rapidSwitching": true,
+    "cardSwapClose": true,
+    "cameraInterruption": true,
+    "preferenceChanges": true,
+    "errors": [],
+    "warnings": []
+  },
+  {
+    "width": 1920,
+    "reducedMotion": "reduce",
+    "frames": 477,
+    "blankEdges": 0,
+    "themeSamples": [
+      {
+        "opacity": "1",
+        "transform": "none"
+      },
+      {
+        "opacity": "1",
+        "transform": "none"
+      },
+      {
+        "opacity": "1",
+        "transform": "none"
+      }
+    ],
+    "linkedHoverFocus": true,
+    "rapidSwitching": true,
+    "cardSwapClose": true,
+    "cameraInterruption": true,
+    "preferenceChanges": true,
+    "errors": [],
+    "warnings": []
+  },
+  {
+    "width": 390,
+    "reducedMotion": "reduce",
+    "frames": 463,
+    "blankEdges": 0,
+    "themeSamples": [
+      {
+        "opacity": "1",
+        "transform": "none"
+      },
+      {
+        "opacity": "1",
+        "transform": "none"
+      },
+      {
+        "opacity": "1",
+        "transform": "none"
+      }
+    ],
+    "linkedHoverFocus": true,
+    "rapidSwitching": true,
+    "cardSwapClose": true,
+    "cameraInterruption": true,
+    "preferenceChanges": true,
+    "errors": [],
+    "warnings": []
+  }
+]

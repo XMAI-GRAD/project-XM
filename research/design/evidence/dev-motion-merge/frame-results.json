@@ -1,0 +1,76 @@
+{
+  "checks": [
+    "full composition held until docking; released together afterward",
+    "no added lime panel; colored/pale SVG masks follow the actual rail",
+    "horizontal floating height and return-to-header preserved",
+    "visual capture at the supplied screenshot dimensions"
+  ],
+  "shots": [
+    {
+      "name": "start",
+      "offset": 0,
+      "scroll": 1080,
+      "headerY": 0,
+      "heroY": 258,
+      "frameY": 180,
+      "logoY": 45.71875,
+      "hold": 516,
+      "paleMask": "inset(85.2969px 0px 0px)",
+      "coloredMask": "none",
+      "hasPanel": "none"
+    },
+    {
+      "name": "half",
+      "offset": 258,
+      "scroll": 1338,
+      "headerY": 0,
+      "heroY": 258,
+      "frameY": 180,
+      "logoY": 45.71875,
+      "hold": 516,
+      "paleMask": "inset(85.2969px 0px 0px)",
+      "coloredMask": "none",
+      "hasPanel": "none"
+    },
+    {
+      "name": "arrived",
+      "offset": 516,
+      "scroll": 1596,
+      "headerY": 0,
+      "heroY": 258,
+      "frameY": 180,
+      "logoY": 45.71875,
+      "hold": 516,
+      "paleMask": "inset(85.2969px 0px 0px)",
+      "coloredMask": "inset(0px 0px 0.515625px)",
+      "hasPanel": "none"
+    },
+    {
+      "name": "release",
+      "offset": 606,
+      "scroll": 1686,
+      "headerY": -90,
+      "heroY": 168,
+      "frameY": 90,
+      "logoY": 45.71875,
+      "hold": 516,
+      "paleMask": "inset(44.27px 0px 0px)",
+      "coloredMask": "inset(0px 0px 41.5425px)",
+      "hasPanel": "none"
+    },
+    {
+      "name": "reading",
+      "offset": 816,
+      "scroll": 1896,
+      "headerY": -300,
+      "heroY": -42,
+      "frameY": -120,
+      "logoY": 45.71875,
+      "hold": 516,
+      "paleMask": "inset(0px)",
+      "coloredMask": "inset(0px 0px 85.8125px)",
+      "hasPanel": "none"
+    }
+  ],
+  "errors": []
+}

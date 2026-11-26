@@ -1,0 +1,48 @@
+# Placeholder events (SPEC Part 1, Events). Order here doesn't matter: the site sorts by date.
+# Images go in public/events/; leave image out until there is a photo. endDate is optional and must not be before date.
+- title:
+    vi: Lễ hội Thiết kế Sáng tạo Hà Nội
+    en: Hanoi Creative Design Festival
+  date: 2026-11-14
+  endDate: 2026-11-23
+  place:
+    vi: Hoàng thành Thăng Long
+    en: Imperial Citadel of Thang Long
+- title:
+    vi: Đêm thơ bên Hồ Văn
+    en: A night of poetry by Van Lake
+  date: 2026-11-28
+  place:
+    vi: Văn Miếu – Quốc Tử Giám
+    en: Temple of Literature
+- title:
+    vi: Chợ phiên làng nghề cuối năm
+    en: Year-end craft village market
+  date: 2026-12-19
+  endDate: 2026-12-20
+  place:
+    vi: Phố đi bộ Hồ Gươm
+    en: Hoan Kiem Lake walking street
+- title:
+    vi: Triển lãm Gốm Bát Tràng đương đại
+    en: Contemporary Bat Trang ceramics exhibition
+  date: 2027-01-09
+  endDate: 2027-02-07
+  place:
+    vi: Bảo tàng Mỹ thuật Việt Nam
+    en: Vietnam Fine Arts Museum
+- title:
+    vi: Tọa đàm Di sản và Thiết kế
+    en: Talk — Heritage and design
+  date: 2027-02-27
+  place:
+    vi: Trung tâm Sáng tạo Hà Nội
+    en: Hanoi Creative Centre
+- title:
+    vi: Tuần lễ ẩm thực mùa xuân
+    en: Spring food week
+  date: 2027-03-13
+  endDate: 2027-03-21
+  place:
+    vi: Phố cổ Hà Nội
+    en: Hanoi Old Quarter

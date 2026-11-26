@@ -1,22 +1,40 @@
 import type { NextConfig } from "next";
-import { defaultLocale } from "./src/i18n/config";
 
 const nextConfig: NextConfig = {
   /* config options here */
   cacheComponents: true,
   partialPrefetching: true,
+  // Images are served from the CDN; the content check that reads public/ only runs at build.
+  outputFileTracingExcludes: { "/**": ["./public/**/*"] },
+  images: {
+    // Google profile photos, YouTube thumbnails (the About video).
+    remotePatterns: [
+      new URL("https://lh3.googleusercontent.com/**"),
+      new URL("https://i.ytimg.com/vi/**"),
+    ],
+  },
   turbopack: {
     rules: {
+      // src/content imports data/*.yaml with `?raw` as plain text (import.meta.glob).
+      "*.yaml": { condition: { query: "?raw" }, type: "text" },
       "*.css": {
+        // `as: "*.css"` would turn CSS Modules into global CSS, so leave them out.
+        condition: { not: { path: /\.module\.css$/ } },
         loaders: ["@tailwindcss/turbopack"],
         as: "*.css",
       },
     },
   },
-  // ponytail: fixed redirect to the default locale; replaced by locale negotiation in proxy.ts
-  async redirects() {
+  async headers() {
     return [
-      { source: "/", destination: `/${defaultLocale}`, permanent: false },
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "DENY" },
+        ],
+      },
     ];
   },
 };

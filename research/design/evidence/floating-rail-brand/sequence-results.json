@@ -1,0 +1,524 @@
+{
+  "checks": [
+    "header, content, frame and logo details remain invisible until lettering stops, at four sizes",
+    "settled letter shape and screen position stay unchanged during page reveal",
+    "reverse scroll hides the page before letters move back",
+    "keyboard focus reveals controls rather than landing on invisible content",
+    "reduced motion restores the visible static layout"
+  ],
+  "measurements": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0,
+      "progress": 0,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 871.8181762695312,
+        "y": 602.2685546875,
+        "width": 46.302490234375,
+        "height": 74.9423828125
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.25,
+      "progress": 0.25,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 901.4500122070312,
+        "y": 431.260009765625,
+        "width": 34.6400146484375,
+        "height": 56.05999755859375
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.5,
+      "progress": 0.5,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 931.0900268554688,
+        "y": 260.260009765625,
+        "width": 22.969970703125,
+        "height": 37.179931640625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.7,
+      "progress": 0.7,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 954.7999877929688,
+        "y": 123.449951171875,
+        "width": 13.6300048828125,
+        "height": 22.080078125
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.72,
+      "progress": 0.7203703703703703,
+      "boardOpacity": 0,
+      "detailOpacity": 0.0013,
+      "letter": {
+        "x": 957.1748657226562,
+        "y": 109.7769775390625,
+        "width": 12.69927978515625,
+        "height": 20.5657958984375
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.8,
+      "progress": 0.8,
+      "boardOpacity": 0.1633,
+      "detailOpacity": 0.2857,
+      "letter": {
+        "x": 957.1748657226562,
+        "y": 109.7769775390625,
+        "width": 12.69927978515625,
+        "height": 20.5657958984375
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 0.9,
+      "progress": 0.9,
+      "boardOpacity": 0.7449,
+      "detailOpacity": 0.6429,
+      "letter": {
+        "x": 957.1748657226562,
+        "y": 109.7769775390625,
+        "width": 12.69927978515625,
+        "height": 20.5657958984375
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "requestedProgress": 1,
+      "progress": 1,
+      "boardOpacity": 1,
+      "detailOpacity": 1,
+      "letter": {
+        "x": 957.1748657226562,
+        "y": 109.7769775390625,
+        "width": 12.69927978515625,
+        "height": 20.5657958984375
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0,
+      "progress": 0,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 1162.4267578125,
+        "y": 803.0199584960938,
+        "width": 61.7352294921875,
+        "height": 99.91754150390625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.25,
+      "progress": 0.25,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 1201.93994140625,
+        "y": 575.02001953125,
+        "width": 46.1800537109375,
+        "height": 74.739990234375
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.5,
+      "progress": 0.5,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 1241.4599609375,
+        "y": 347.02001953125,
+        "width": 30.6199951171875,
+        "height": 49.5699462890625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.7,
+      "progress": 0.7,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 1273.0699462890625,
+        "y": 164.6199951171875,
+        "width": 18.1800537109375,
+        "height": 29.4400634765625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.72,
+      "progress": 0.7201388888888889,
+      "boardOpacity": 0,
+      "detailOpacity": 0.0005,
+      "letter": {
+        "x": 1276.2381591796875,
+        "y": 146.384765625,
+        "width": 16.93310546875,
+        "height": 27.426025390625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.8,
+      "progress": 0.8,
+      "boardOpacity": 0.1633,
+      "detailOpacity": 0.2857,
+      "letter": {
+        "x": 1276.2381591796875,
+        "y": 146.384765625,
+        "width": 16.93310546875,
+        "height": 27.426025390625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 0.9,
+      "progress": 0.9,
+      "boardOpacity": 0.7449,
+      "detailOpacity": 0.6429,
+      "letter": {
+        "x": 1276.2381591796875,
+        "y": 146.384765625,
+        "width": 16.93310546875,
+        "height": 27.426025390625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "requestedProgress": 1,
+      "progress": 1,
+      "boardOpacity": 1,
+      "detailOpacity": 1,
+      "letter": {
+        "x": 1276.2381591796875,
+        "y": 146.384765625,
+        "width": 16.93310546875,
+        "height": 27.426025390625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0,
+      "progress": 0,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 177.09619140625,
+        "y": 434.4495849609375,
+        "width": 9.400924682617188,
+        "height": 15.213714599609375
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.25,
+      "progress": 0.25,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 183.1053924560547,
+        "y": 291.2366943359375,
+        "width": 7.03680419921875,
+        "height": 11.3748779296875
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.5,
+      "progress": 0.5,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 189.12266540527344,
+        "y": 148.03045654296875,
+        "width": 4.667877197265625,
+        "height": 7.54656982421875
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.7,
+      "progress": 0.7002369668246445,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 193.9404754638672,
+        "y": 33.3236083984375,
+        "width": 2.7687530517578125,
+        "height": 4.47796630859375
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.72,
+      "progress": 0.7203791469194313,
+      "boardOpacity": 0,
+      "detailOpacity": 0.0014,
+      "letter": {
+        "x": 194.42489624023438,
+        "y": 22.0062255859375,
+        "width": 2.5782012939453125,
+        "height": 4.1734619140625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.8,
+      "progress": 0.7997630331753555,
+      "boardOpacity": 0.1623,
+      "detailOpacity": 0.2849,
+      "letter": {
+        "x": 194.42489624023438,
+        "y": 21.975830078125,
+        "width": 2.5782012939453125,
+        "height": 4.1734619140625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 0.9,
+      "progress": 0.9004739336492891,
+      "boardOpacity": 0.7473,
+      "detailOpacity": 0.6445,
+      "letter": {
+        "x": 194.42489624023438,
+        "y": 21.93731689453125,
+        "width": 2.5782012939453125,
+        "height": 4.1734619140625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "requestedProgress": 1,
+      "progress": 1,
+      "boardOpacity": 1,
+      "detailOpacity": 1,
+      "letter": {
+        "x": 194.42489624023438,
+        "y": 21.8992919921875,
+        "width": 2.5782012939453125,
+        "height": 4.1734619140625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0,
+      "progress": 0,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 145.3042755126953,
+        "y": 360.37396240234375,
+        "width": 7.7164306640625,
+        "height": 12.48541259765625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.25,
+      "progress": 0.25,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 150.24000549316406,
+        "y": 241.59439086914062,
+        "width": 5.769989013671875,
+        "height": 9.339996337890625
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.5,
+      "progress": 0.5,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 155.17999267578125,
+        "y": 122.80889892578125,
+        "width": 3.82000732421875,
+        "height": 6.20001220703125
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.7,
+      "progress": 0.7,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 159.1300048828125,
+        "y": 27.79437255859375,
+        "width": 2.269989013671875,
+        "height": 3.6700439453125
+      },
+      "headerTop": 0,
+      "pointerEvents": "none"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.72,
+      "progress": 0.72,
+      "boardOpacity": 0,
+      "detailOpacity": 0,
+      "letter": {
+        "x": 159.52786254882812,
+        "y": 18.29229736328125,
+        "width": 2.11639404296875,
+        "height": 3.4263916015625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.8,
+      "progress": 0.8,
+      "boardOpacity": 0.1633,
+      "detailOpacity": 0.2857,
+      "letter": {
+        "x": 159.52786254882812,
+        "y": 18.29229736328125,
+        "width": 2.11639404296875,
+        "height": 3.4263916015625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 0.9,
+      "progress": 0.9,
+      "boardOpacity": 0.7449,
+      "detailOpacity": 0.6429,
+      "letter": {
+        "x": 159.52786254882812,
+        "y": 18.29229736328125,
+        "width": 2.11639404296875,
+        "height": 3.4263916015625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "requestedProgress": 1,
+      "progress": 1,
+      "boardOpacity": 1,
+      "detailOpacity": 1,
+      "letter": {
+        "x": 159.52786254882812,
+        "y": 18.29229736328125,
+        "width": 2.11639404296875,
+        "height": 3.4263916015625
+      },
+      "headerTop": 0,
+      "pointerEvents": "auto"
+    }
+  ],
+  "errors": []
+}

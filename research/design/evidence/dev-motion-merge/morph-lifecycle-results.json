@@ -1,0 +1,13 @@
+{
+  "checks": [
+    "four locale switches: one observer, one active morph, unique IDs and local SVG references",
+    "map navigation cleans observer and hidden path updates; returning recreates one instance",
+    "live reduced-motion cleanup and reactivation",
+    "emulated touch swipe uses native scroll; moving logo tap enters homepage"
+  ],
+  "gesture": {
+    "scroll": 471,
+    "phase": "morph"
+  },
+  "errors": []
+}

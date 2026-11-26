@@ -1,0 +1,18 @@
+[
+  {
+    "lang": "vi",
+    "zoomSequence": ["right", "above", "right"],
+    "panKeepsSide": true,
+    "labelHoverable": true,
+    "escapeAndReopen": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "zoomSequence": ["right", "above", "right"],
+    "panKeepsSide": true,
+    "labelHoverable": true,
+    "escapeAndReopen": true,
+    "errors": []
+  }
+]

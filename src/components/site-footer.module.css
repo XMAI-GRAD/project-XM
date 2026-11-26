@@ -1,0 +1,135 @@
+/* The navy footer, after docs/svg/01.HOME/03-Footer.svg: a full screen (1920 × 1082).
+   It keeps the comp's columns and spacing, scaled like home: 1 comp unit = var(--u).
+   It fills the screen: the space between the columns and the credits takes up what
+   the viewport adds or lacks. Text blocks are trimmed to cap top and baseline
+   (text-box), so the gaps below are the comp's: baseline to the next capitals. Body
+   text is Inter, 20 on 24. */
+
+/* The footer is the container its units are measured against; the grid inside
+   lays out in them. */
+.footer {
+  container-type: inline-size;
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+.grid {
+  --u: calc(100cqw / 1920);
+  display: grid;
+  /* The comp's columns: tagline 179, nav 705, visit 1048, contact 1428. */
+  grid-template-columns:
+    calc(526 * var(--u)) calc(343 * var(--u)) calc(380 * var(--u))
+    1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "logo   home  visit  contact"
+    "tag    nav   where  reach"
+    "credit credit credit made";
+  align-items: start;
+  min-height: 100svh;
+  /* The comp's logo top (208) and the space under the credits' baseline (151). */
+  padding: calc(208 * var(--u)) calc(100 * var(--u)) calc(151 * var(--u))
+    calc(179 * var(--u));
+  font-size: calc(20 * var(--u));
+  line-height: calc(24 * var(--u));
+}
+.footer :focus-visible {
+  outline-color: var(--seashell);
+}
+/* Zero-specificity reset, so the gaps set below win. */
+:where(.footer) :where(p, ul, h2) {
+  margin: 0;
+}
+.footer a {
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Row 1: the logo, and the column titles sitting on the logo's baseline. */
+.logo {
+  grid-area: logo;
+  display: block;
+  width: calc(233 * var(--u));
+  margin-left: calc(42 * var(--u));
+}
+.logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.title {
+  align-self: end;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(33 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  text-box: cap alphabetic;
+}
+.title:nth-of-type(1) {
+  grid-area: home;
+}
+.title:nth-of-type(2) {
+  grid-area: visit;
+}
+.title:nth-of-type(3) {
+  grid-area: contact;
+}
+
+/* Row 2: 78 units below the titles' baseline. */
+.tagline,
+.nav,
+.visit,
+.contact {
+  margin-top: calc(78 * var(--u));
+  font-style: normal;
+}
+.tagline {
+  grid-area: tag;
+  text-box: cap alphabetic;
+}
+.nav {
+  grid-area: nav;
+}
+.nav ul {
+  display: grid;
+  gap: calc(37 * var(--u));
+  padding: 0;
+  list-style: none;
+}
+.nav li {
+  text-box: cap alphabetic;
+}
+.visit {
+  grid-area: where;
+  display: grid;
+  gap: calc(33 * var(--u));
+  max-width: calc(290 * var(--u));
+}
+.visit p,
+.contact p {
+  text-box: cap alphabetic;
+}
+.contact {
+  grid-area: reach;
+  overflow-wrap: anywhere;
+}
+
+/* Row 3, at the foot: the credits, and the signature in the quieter navy. */
+.credits,
+.madeBy {
+  align-self: end;
+  margin-top: calc(80 * var(--u));
+  font-size: calc(18 * var(--u));
+  text-box: cap alphabetic;
+}
+.credits {
+  grid-area: credit;
+  font-weight: 600;
+}
+.madeBy {
+  grid-area: made;
+  /* Faded in its colour, so the footer motion can own the opacity. */
+  color: color-mix(in srgb, var(--navy-200) 60%, transparent);
+}

@@ -1,0 +1,842 @@
+[
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 281],
+    "actual": {
+      "x": -0.044203120220250844,
+      "y": -0.7035809018567639,
+      "width": 1.0886611603956358,
+      "height": 2.361240053050398
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 281],
+    "actual": {
+      "x": -0.00010196798205363516,
+      "y": -0.8065318302387268,
+      "width": 1.0547568063628021,
+      "height": 2.2856432360742707
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 635],
+    "actual": {
+      "x": 0.00005098399102681758,
+      "y": -2.0775862068965516,
+      "width": 0.999745080044866,
+      "height": 4.869031830238727
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 283],
+    "actual": {
+      "x": 0,
+      "y": -0.14373342175066314,
+      "width": 0.9998470480269196,
+      "height": 2.1740716180371353
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 599],
+    "actual": {
+      "x": 0,
+      "y": -2.4456233421750664,
+      "width": 0.999745080044866,
+      "height": 4.60079575596817
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 281],
+    "actual": {
+      "x": -0.044203120220250844,
+      "y": -0.7035809018567639,
+      "width": 1.0886611603956358,
+      "height": 2.361240053050398
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 281],
+    "actual": {
+      "x": -0.00010196798205363516,
+      "y": -0.8065318302387268,
+      "width": 1.0547568063628021,
+      "height": 2.2856432360742707
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 635],
+    "actual": {
+      "x": 0.00005098399102681758,
+      "y": -2.0775862068965516,
+      "width": 0.999745080044866,
+      "height": 4.869031830238727
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 283],
+    "actual": {
+      "x": 0,
+      "y": -0.14373342175066314,
+      "width": 0.9998470480269196,
+      "height": 2.1740716180371353
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [422, 599],
+    "actual": {
+      "x": 0,
+      "y": -2.4456233421750664,
+      "width": 0.999745080044866,
+      "height": 4.60079575596817
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 218],
+    "actual": {
+      "x": -0.04415721136975085,
+      "y": -0.7036896158235071,
+      "width": 1.0886068546028775,
+      "height": 2.3611639406618488
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 218],
+    "actual": {
+      "x": -0.00011697274535033338,
+      "y": -0.806580448839863,
+      "width": 1.054743244823956,
+      "height": 2.285659946747813
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 493],
+    "actual": {
+      "x": 0.00005848637267516669,
+      "y": -2.077596044123241,
+      "width": 0.9997660545092993,
+      "height": 4.869151768733358
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 219],
+    "actual": {
+      "x": 0,
+      "y": -0.14378090528718143,
+      "width": 0.9998245408819745,
+      "height": 2.1742107265119817
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 465],
+    "actual": {
+      "x": 0,
+      "y": -2.4456066945606696,
+      "width": 0.9997660545092993,
+      "height": 4.600798782807151
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 218],
+    "actual": {
+      "x": -0.04415721136975085,
+      "y": -0.7036896158235071,
+      "width": 1.0886068546028775,
+      "height": 2.3611639406618488
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 218],
+    "actual": {
+      "x": -0.00011697274535033338,
+      "y": -0.806580448839863,
+      "width": 1.054743244823956,
+      "height": 2.285659946747813
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 493],
+    "actual": {
+      "x": 0.00005848637267516669,
+      "y": -2.077596044123241,
+      "width": 0.9997660545092993,
+      "height": 4.869151768733358
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 219],
+    "actual": {
+      "x": 0,
+      "y": -0.14378090528718143,
+      "width": 0.9998245408819745,
+      "height": 2.1742107265119817
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [327, 465],
+    "actual": {
+      "x": 0,
+      "y": -2.4456066945606696,
+      "width": 0.9997660545092993,
+      "height": 4.600798782807151
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.0441846084659059,
+      "y": -0.7035276914640833,
+      "width": 1.08865028950475,
+      "height": 2.361177115700969
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.00011242902917533307,
+      "y": -0.8066167062694206,
+      "width": 1.0547529372083873,
+      "height": 2.285688174008408
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 631],
+    "actual": {
+      "x": 0.00005621451458766653,
+      "y": -2.077499543045147,
+      "width": 0.9997189274270617,
+      "height": 4.8691281301407425
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 281],
+    "actual": {
+      "x": 0,
+      "y": -0.14384938768049715,
+      "width": 0.999831356456237,
+      "height": 2.1741911899104367
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 595],
+    "actual": {
+      "x": 0,
+      "y": -2.4456223725095962,
+      "width": 0.9997189274270617,
+      "height": 4.600804240541034
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.0441846084659059,
+      "y": -0.7035276914640833,
+      "width": 1.08865028950475,
+      "height": 2.361177115700969
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.00011242902917533307,
+      "y": -0.8066167062694206,
+      "width": 1.0547529372083873,
+      "height": 2.285688174008408
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 631],
+    "actual": {
+      "x": 0.00005621451458766653,
+      "y": -2.077499543045147,
+      "width": 0.9997189274270617,
+      "height": 4.8691281301407425
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 281],
+    "actual": {
+      "x": 0,
+      "y": -0.14384938768049715,
+      "width": 0.999831356456237,
+      "height": 2.1741911899104367
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 595],
+    "actual": {
+      "x": 0,
+      "y": -2.4456223725095962,
+      "width": 0.9997189274270617,
+      "height": 4.600804240541034
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.04413851830826,
+      "y": -0.7035071527457314,
+      "width": 1.0886318478569401,
+      "height": 2.361098292570374
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.0001419244961680386,
+      "y": -0.8064143977849562,
+      "width": 1.054782855520863,
+      "height": 2.2856483617904937
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 631],
+    "actual": {
+      "x": 0,
+      "y": -2.0775265343793263,
+      "width": 0.999716151007664,
+      "height": 4.869173973234887
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 281],
+    "actual": {
+      "x": 0,
+      "y": -0.1437471158283341,
+      "width": 0.999858075503832,
+      "height": 2.1742039686202124
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "vi",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 595],
+    "actual": {
+      "x": 0,
+      "y": -2.445546838947854,
+      "width": 0.999716151007664,
+      "height": 4.600830641439779
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "slug": "hoang-thanh-thang-long",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fhoang-thanh-thang-long%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.04413851830826,
+      "y": -0.7035071527457314,
+      "width": 1.0886318478569401,
+      "height": 2.361098292570374
+    },
+    "expected": {
+      "x": -0.0442091,
+      "y": -0.703709,
+      "width": 1.08866,
+      "height": 2.36124
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "slug": "van-mieu-quoc-tu-giam",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fvan-mieu-quoc-tu-giam%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 280],
+    "actual": {
+      "x": -0.0001419244961680386,
+      "y": -0.8064143977849562,
+      "width": 1.054782855520863,
+      "height": 2.2856483617904937
+    },
+    "expected": {
+      "x": -0.0001516,
+      "y": -0.806644,
+      "width": 1.05479,
+      "height": 2.28574
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fho-hoan-kiem-den-ngoc-son%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 631],
+    "actual": {
+      "x": 0,
+      "y": -2.0775265343793263,
+      "width": 0.999716151007664,
+      "height": 4.869173973234887
+    },
+    "expected": {
+      "x": 0.000065077,
+      "y": -2.07766,
+      "width": 0.999768,
+      "height": 4.86918
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "slug": "pho-co-36-pho-phuong",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fpho-co-36-pho-phuong%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 281],
+    "actual": {
+      "x": 0,
+      "y": -0.1437471158283341,
+      "width": 0.999858075503832,
+      "height": 2.1742039686202124
+    },
+    "expected": {
+      "x": -0.000015417,
+      "y": -0.143867,
+      "width": 0.9998779999999999,
+      "height": 2.17422
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  },
+  {
+    "width": 320,
+    "lang": "en",
+    "slug": "cau-long-bien",
+    "src": "http://localhost:3000/_next/image?url=%2Fpoints%2Fcau-long-bien%2Fmap-original.jpg&w=3840&q=75",
+    "natural": [420, 595],
+    "actual": {
+      "x": 0,
+      "y": -2.445546838947854,
+      "width": 0.999716151007664,
+      "height": 4.600830641439779
+    },
+    "expected": {
+      "x": -0.000017393,
+      "y": -2.44571,
+      "width": 0.999768,
+      "height": 4.60094
+    },
+    "objectFit": "contain",
+    "maxWidth": "100%"
+  }
+]

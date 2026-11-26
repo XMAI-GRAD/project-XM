@@ -1,0 +1,33 @@
+{
+  "checks": [
+    "dev hero waits for opening, plays on exact anchor entry and settles with all ten skyline parts",
+    "logo docks horizontally while the full composition holds; thread entrance has not played early",
+    "thread line/title/weave reveal and original sprite hover remain active after the hold",
+    "dev counters reach their canonical accessible values",
+    "roles drawing and its timed role labels reveal",
+    "heritage word entrance, ink accents and body reveal remain active",
+    "layer captions and lines reveal; original magnet hover animates",
+    "dev footer is present and floating mark returns from page bottom",
+    "new About and Explore layouts/current nav stay intact; their header links return without replaying opening",
+    "live reduced motion restores static artwork and cleans the cloned thread line"
+  ],
+  "counts": [
+    {
+      "spoken": "83",
+      "shown": "83"
+    },
+    {
+      "spoken": "48",
+      "shown": "48"
+    },
+    {
+      "spoken": "18",
+      "shown": "18"
+    },
+    {
+      "spoken": "43",
+      "shown": "43"
+    }
+  ],
+  "errors": []
+}

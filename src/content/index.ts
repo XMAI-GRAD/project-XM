@@ -1,0 +1,433 @@
+import "server-only";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import { createHash } from "node:crypto";
+import { parse } from "yaml";
+import { readMapContext, readSavedRoutes } from "../features/maps/catalogue.ts";
+import {
+  readIllustratedRoutes,
+  readMapDesign,
+} from "../features/maps/design.ts";
+import {
+  fitArtworkTransform,
+  projectToArtwork,
+  validCoordinates,
+  type Coordinates,
+  type MapCalibration,
+} from "../features/maps/georeference.ts";
+
+export type Localized<T = string> = { vi: T; en: T };
+
+export const layers = ["place", "taste", "craft"] as const;
+export type Layer = (typeof layers)[number];
+export type Season = "spring" | "summer" | "autumn" | "winter";
+
+export interface Photo {
+  src: string;
+  temporary?: boolean; // a stand-in until the real photo arrives
+  width: number;
+  height: number;
+  alt: Localized;
+}
+
+export interface MapCardPhoto extends Photo {
+  /** SVG image rectangle relative to its clipping window; 1 equals its full size. */
+  frame: { x: number; y: number; width: number; height: number };
+}
+
+/** One shape for all three layers; the layer decides how `kind` is labelled. */
+export interface Point {
+  slug: string;
+  code: string;
+  layer: Layer;
+  name: Localized;
+  headline?: Localized; // the display headline: marks for drawn letters, "\n" between lines; falls back to `name`
+  headlineIndent?: number; // comp units; indents every headline line after the first
+  shortName?: Localized; // the name in "Nearby" lines ("Hoàng thành"); falls back to `name`
+  kind: Localized; // PLACE: type of site · TASTE: dish to order · CRAFT: the craft
+  since?: Localized;
+  season?: Season; // TASTE only
+  hours: Localized;
+  price?: Localized; // PLACE and TASTE
+  address: string;
+  hook: Localized;
+  story: Localized<string[]>;
+  fact: Localized;
+  /** Source-backed geographic location; an area uses a named representative point. */
+  mapLocation?: Coordinates & {
+    kind: "entrance" | "venue" | "representative";
+    source: string;
+    label: Localized;
+  };
+  /** Derived from mapLocation and the artwork calibration; not authored separately. */
+  mapPosition?: { x: number; y: number };
+  nearby: { slug: string; km: number }[];
+  images: Photo[];
+  mapPhoto?: MapCardPhoto;
+  audio?: string;
+}
+
+export interface EventCard {
+  title: Localized;
+  date: string; // YYYY-MM-DD
+  endDate?: string; // YYYY-MM-DD
+  place: Localized;
+  image?: Photo; // absent until the event has a photo
+}
+
+interface JoinAudience {
+  title: Localized;
+  intro: Localized;
+  benefits: Localized<string[]>;
+}
+
+/** An accent color for a word or a number on home (data/home.yaml). */
+export const tones = [
+  "navy",
+  "red",
+  "gold",
+  "lime",
+  "frosted",
+  "mauve",
+  "cyan",
+] as const;
+export type Tone = (typeof tones)[number];
+
+/** A count on home: the number, its label, its color and the icon above it. */
+export interface HomeCount {
+  value: string;
+  tone: Tone;
+  art: string; // a piece in src/features/home/art, e.g. "stat-library"
+  label: Localized;
+}
+
+interface Section<T> {
+  title: Localized;
+  items: T[];
+}
+
+export interface Pages {
+  site: {
+    brand: Localized;
+    designation: Localized;
+    fullName: Localized;
+    tagline: Localized;
+    motto: Localized;
+    mottoShort: Localized;
+    contact: {
+      address: Localized<string[]>;
+      hours: Localized<string[]>;
+      phone: string;
+      email: string;
+    };
+    credits: Localized;
+    madeBy: Localized;
+  };
+  home: {
+    weather: string;
+    hero: { title: Localized; tagline: Localized };
+    thread: { title: Localized<string[]>; body: Localized<string[]> };
+    stats: HomeCount[];
+    roles: {
+      title: Localized;
+      state: Localized;
+      artists: Localized;
+      public: Localized;
+    };
+    heritage: {
+      since: Localized;
+      title: Localized;
+      body: Localized<string[]>;
+      numbers: Omit<HomeCount, "art">[];
+    };
+    layers: { kicker: Localized; title: Localized } & Record<Layer, Localized>;
+  };
+  about: {
+    title: Localized;
+    heading: Localized;
+    /** The two words set beside the petal: right of it, then below left. */
+    petal: { right: Localized; left: Localized };
+    intro: Localized;
+    lede: Localized;
+    unesco: { title: Localized; body: Localized<string[]> };
+    video: { id: string; title: Localized }; // a YouTube video id
+    work: Section<{ art: string; title: Localized; body: Localized }>;
+    fields: Section<Localized> & { display: Localized; note: Localized };
+    timeline: Section<{ year: string; body: Localized }>;
+    operators: Section<Localized>;
+  };
+  explore: { title: Localized; lead: Localized };
+  maps: {
+    title: Localized;
+    displayTitle: Localized;
+    lead: Localized;
+    artwork: Photo;
+    layers: Record<Layer, Localized>;
+  };
+  join: {
+    title: Localized;
+    lead: Localized;
+    individual: JoinAudience;
+    organization: JoinAudience;
+  };
+}
+
+// Bundled as text (next.config.ts rule), so `next dev` reloads content when a YAML file
+// changes; files read with fs at runtime are not watched. Read `.default` per module:
+// the glob's `import: "default"` option yields undefined in `next build` (Next 16.4).
+const files = import.meta.glob<{ default: string }>("/data/**/*.yaml", {
+  query: "?raw",
+  eager: true,
+});
+const read = (file: string): unknown => {
+  const text = files[`/data/${file}`]?.default;
+  if (text === undefined) throw new Error(`data/${file} is missing`);
+  return parse(text);
+};
+
+const codePrefix: Record<Layer, string> = {
+  place: "d",
+  taste: "v",
+  craft: "n",
+};
+
+export const points: Point[] = layers.flatMap((layer) =>
+  (read(`points/${layer}.yaml`) as Omit<Point, "layer">[]).map(
+    (p) => ({ ...p, layer }) as Point,
+  ),
+);
+const events = (read("events.yaml") ?? []) as EventCard[];
+const pages = Object.fromEntries(
+  (["site", "home", "about", "explore", "maps", "join"] as const).map(
+    (name) => [name, read(`${name}.yaml`)],
+  ),
+) as unknown as Pages;
+
+export const mapCalibration = read("map-calibration.yaml") as MapCalibration;
+export const mapTransform = fitArtworkTransform(
+  mapCalibration.origin,
+  mapCalibration.controls,
+);
+export const mapDesign = readMapDesign(
+  read("map-design.yaml"),
+  points.map((point) => point.code),
+);
+export const illustratedMapRoutes = readIllustratedRoutes(
+  read("map-design-routes.yaml"),
+  mapDesign,
+);
+
+const isEmpty = (v: unknown) => {
+  const parts = Array.isArray(v) ? v : [v];
+  return (
+    parts.length === 0 || parts.some((p) => typeof p !== "string" || !p.trim())
+  );
+};
+
+// public/ isn't shipped with the deployed functions (next.config.ts), so file checks and warnings run in dev and `next build` only.
+const buildOrDev =
+  process.env.NODE_ENV !== "production" ||
+  process.env.NEXT_PHASE === "phase-production-build";
+
+// Runs when the module loads, so a bad YAML edit fails `next build`.
+function validate(): string[] {
+  const errors: string[] = [];
+  const untranslated: string[] = [];
+  const walk = (where: string, value: unknown): void => {
+    if (!value || typeof value !== "object") return;
+    if ("vi" in value || "en" in value) {
+      const text = value as Localized<unknown>;
+      if (isEmpty(text.vi)) errors.push(`${where}: empty "vi"`);
+      // ponytail: English is translated later; until then an empty `en` shows the Vietnamese.
+      else if (isEmpty(text.en)) {
+        untranslated.push(where);
+        text.en = text.vi;
+      }
+      return;
+    }
+    for (const [k, v] of Object.entries(value)) walk(`${where}.${k}`, v);
+  };
+  const checkFile = (where: string, src: string) => {
+    if (buildOrDev && !existsSync(join(process.cwd(), "public", src)))
+      errors.push(`${where}: missing file public${src}`);
+  };
+
+  for (const [name, page] of Object.entries(pages)) walk(name, page);
+  const { stats, heritage } = pages.home;
+  [...stats, ...heritage.numbers].forEach((count, i) => {
+    if (!(tones as readonly string[]).includes(count.tone))
+      errors.push(`home count ${i}: tone must be one of ${tones.join(", ")}`);
+    if (typeof count.value !== "string" || !count.value.trim())
+      errors.push(`home count ${i}: value must be a quoted string`);
+  });
+  checkFile("maps.artwork", pages.maps.artwork.src);
+  const artwork = pages.maps.artwork;
+  if (
+    mapCalibration.artwork.src !== artwork.src ||
+    mapCalibration.artwork.width !== artwork.width ||
+    mapCalibration.artwork.height !== artwork.height
+  )
+    errors.push("maps.artwork: calibration belongs to a different image");
+  const artworkPath = join(process.cwd(), "public", artwork.src);
+  if (
+    buildOrDev &&
+    existsSync(artworkPath) &&
+    createHash("sha256").update(readFileSync(artworkPath)).digest("hex") !==
+      mapCalibration.artwork.sha256
+  )
+    errors.push(
+      "maps.artwork: image changed; recalibrate before displaying geographic pins",
+    );
+  if (
+    mapCalibration.checks.length < 3 ||
+    !Number.isFinite(mapCalibration.maxCheckErrorPixels) ||
+    mapCalibration.maxCheckErrorPixels <= 0
+  )
+    errors.push(
+      "map calibration: at least three independent checks and a positive error limit are required",
+    );
+  for (const check of mapCalibration.checks) {
+    if (mapCalibration.controls.some((control) => control.id === check.id))
+      errors.push(
+        `map calibration: ${check.id} is both a control and an independent check`,
+      );
+    const projected = projectToArtwork(check.coordinates, mapTransform);
+    const distance = Math.hypot(
+      projected.x - check.image.x,
+      projected.y - check.image.y,
+    );
+    if (
+      !Number.isFinite(distance) ||
+      distance > mapCalibration.maxCheckErrorPixels
+    )
+      errors.push(`map calibration: ${check.id} exceeds the check error limit`);
+  }
+
+  const slugs = new Set<string>();
+  const codes = new Set<string>();
+  for (const p of points) {
+    if (slugs.has(p.slug)) errors.push(`duplicate slug "${p.slug}"`);
+    if (codes.has(p.code)) errors.push(`duplicate code "${p.code}"`);
+    slugs.add(p.slug);
+    codes.add(p.code);
+    if (!p.code?.startsWith(codePrefix[p.layer]))
+      errors.push(`${p.slug}: code "${p.code}" doesn't match ${p.layer}`);
+    walk(p.slug, p);
+    if (
+      p.headlineIndent !== undefined &&
+      !(Number.isFinite(p.headlineIndent) && p.headlineIndent >= 0)
+    )
+      errors.push(`${p.slug}: headlineIndent must be a number ≥ 0`);
+    if (p.mapPosition)
+      errors.push(
+        `${p.slug}: author mapLocation instead of an unverified mapPosition`,
+      );
+    if (p.mapLocation) {
+      if (
+        !["entrance", "venue", "representative"].includes(p.mapLocation.kind) ||
+        typeof p.mapLocation.source !== "string" ||
+        !p.mapLocation.source.startsWith("https://")
+      )
+        errors.push(
+          `${p.slug}: mapLocation needs a placement kind and an HTTPS source`,
+        );
+      if (!validCoordinates(p.mapLocation))
+        errors.push(`${p.slug}: invalid mapLocation coordinates`);
+      else {
+        const position = projectToArtwork(p.mapLocation, mapTransform);
+        // A real place may be outside the drawing; keep it discoverable in the list.
+        if (
+          position.x >= 0 &&
+          position.x <= artwork.width &&
+          position.y >= 0 &&
+          position.y <= artwork.height
+        )
+          p.mapPosition = position;
+      }
+    }
+    if (p.mapPosition) {
+      const { x, y } = p.mapPosition;
+      const { width, height } = pages.maps.artwork;
+      if (
+        !Number.isFinite(x) ||
+        !Number.isFinite(y) ||
+        x < 0 ||
+        y < 0 ||
+        x > width ||
+        y > height
+      )
+        errors.push(
+          `${p.slug}: mapPosition must be inside the artwork in original pixels`,
+        );
+    }
+    p.images.forEach((img, i) => checkFile(`${p.slug} images[${i}]`, img.src));
+    if (p.mapPhoto) {
+      checkFile(`${p.slug} mapPhoto`, p.mapPhoto.src);
+      const frame = p.mapPhoto.frame;
+      if (
+        !frame ||
+        ![frame.x, frame.y, frame.width, frame.height].every(Number.isFinite) ||
+        frame.width <= 0 ||
+        frame.height <= 0
+      )
+        errors.push(
+          `${p.slug}: mapPhoto needs a finite frame with positive size`,
+        );
+    }
+    if (p.audio) checkFile(`${p.slug} audio`, p.audio);
+  }
+  for (const p of points)
+    for (const n of p.nearby)
+      if (!slugs.has(n.slug))
+        errors.push(`${p.slug}: nearby "${n.slug}" is not a point`);
+  // Round-trips, so 2026-02-31 fails instead of rolling over to March.
+  const isDate = (d: unknown) =>
+    typeof d === "string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(d) &&
+    new Date(Date.parse(d) || 0).toISOString().slice(0, 10) === d;
+  events.forEach((e, i) => {
+    const where = `events[${i}]`;
+    if (!isDate(e.date)) errors.push(`${where}: date must be YYYY-MM-DD`);
+    if (e.endDate !== undefined && !(isDate(e.endDate) && e.endDate >= e.date))
+      errors.push(`${where}: endDate must be YYYY-MM-DD, not before date`);
+    walk(where, e);
+    if (e.image) checkFile(`${where} image`, e.image.src);
+  });
+  if (untranslated.length && buildOrDev)
+    console.warn(
+      `data/: ${untranslated.length} fields have no English yet; showing Vietnamese.`,
+    );
+  return errors;
+}
+
+const errors = validate();
+if (errors.length)
+  throw new Error(`data/ content is invalid:\n- ${errors.join("\n- ")}`);
+
+export const savedMapRoutes = readSavedRoutes(
+  read("map-routes.yaml"),
+  points,
+  mapTransform,
+  pages.maps.artwork,
+);
+export const mapContextLabels = readMapContext(
+  read("map-context.yaml"),
+  mapTransform,
+  pages.maps.artwork,
+);
+
+/** Every point slug. Validates user-supplied slugs (favorites, comments). */
+export const pointSlugs: ReadonlySet<string> = new Set(
+  points.map((p) => p.slug),
+);
+
+export { detailPhoto } from "./photo.ts";
+
+export const getPoints = (layer: Layer) =>
+  points.filter((p) => p.layer === layer);
+export const getPoint = (slug: string) => points.find((p) => p.slug === slug);
+/** Events sorted by date, earliest first. */
+export const getEvents = (): EventCard[] =>
+  [...events].sort((a, b) => a.date.localeCompare(b.date));
+export const getPage = <K extends keyof Pages>(name: K): Pages[K] =>
+  pages[name];

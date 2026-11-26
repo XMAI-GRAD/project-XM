@@ -1,0 +1,41 @@
+/* Accent tones for words and numbers on home (data/home.yaml). On seashell the comp
+   uses the deeper step of the light accents. */
+.navy {
+  color: var(--navy-400);
+}
+.red {
+  color: var(--brick-red);
+}
+.gold {
+  color: var(--sunflower-gold-600);
+}
+.lime {
+  color: var(--lime-600);
+}
+.frosted {
+  color: var(--frosted-blue-600);
+}
+.mauve {
+  color: var(--mauve-600);
+}
+.cyan {
+  color: var(--dark-cyan);
+}
+
+/* A drawn letter, sized in cap heights so it matches the heading's capitals; --drop
+   is how far its bottom sits below the baseline. */
+.glyph {
+  display: inline-block;
+  height: calc(var(--h) * 1cap);
+  width: auto;
+  vertical-align: calc(var(--drop) * -1cap);
+  margin-inline: 0.03em;
+  overflow: visible;
+}
+
+/* A word of split text: its own box, so motion can move it. As a block of its own
+   it would inherit the heading's first-line indent; it mustn't. */
+.word {
+  display: inline-block;
+  text-indent: 0;
+}

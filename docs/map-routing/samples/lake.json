@@ -1,0 +1,121 @@
+{
+  "id": "lake",
+  "fetchedAt": "2026-11-09T13:51:32.764Z",
+  "provider": "FOSSGIS OSRM",
+  "mode": "walking",
+  "requestUrl": "https://routing.openstreetmap.de/routed-foot/route/v1/foot/105.852837,21.0323458;105.8523763,21.0307296?overview=full&geometries=geojson&steps=false&alternatives=false&radiuses=100%3B100&generate_hints=false",
+  "policyUrl": "https://routing.openstreetmap.de/about.html",
+  "attribution": "Routing: OSRM / FOSSGIS; map data © OpenStreetMap contributors (ODbL)",
+  "endpoints": [
+    {
+      "slug": "bun-thang-ba-duc",
+      "code": "v01",
+      "name": "Bún thang Bà Đức",
+      "latitude": 21.0323458,
+      "longitude": 105.852837,
+      "kind": "venue",
+      "source": "https://maps.app.goo.gl/gybVwccQ2BEVsKDUA",
+      "label": {
+        "vi": "Ghim tại quán Bún thang Bà Đức",
+        "en": "Pin at Bún thang Bà Đức restaurant"
+      }
+    },
+    {
+      "slug": "ho-hoan-kiem-den-ngoc-son",
+      "code": "d03",
+      "name": "Hồ Hoàn Kiếm – Đền Ngọc Sơn",
+      "latitude": 21.0307296,
+      "longitude": 105.8523763,
+      "kind": "representative",
+      "source": "https://www.openstreetmap.org/way/178995262",
+      "label": {
+        "vi": "Điểm đại diện cho cụm hồ và đền — Đền Ngọc Sơn",
+        "en": "Representative point for the lake and temple — Ngọc Sơn Temple"
+      }
+    }
+  ],
+  "response": {
+    "code": "Ok",
+    "routes": [
+      {
+        "legs": [
+          {
+            "steps": [],
+            "weight": 27.56,
+            "summary": "",
+            "duration": 251.9,
+            "distance": 314.8
+          }
+        ],
+        "weight_name": "routability",
+        "geometry": {
+          "coordinates": [
+            [105.852947, 21.032336],
+            [105.852936, 21.032227],
+            [105.853163, 21.032215],
+            [105.853161, 21.032154],
+            [105.853157, 21.032067],
+            [105.853191, 21.032066],
+            [105.853202, 21.032065],
+            [105.85319, 21.031834],
+            [105.853208, 21.031777],
+            [105.85323, 21.031708],
+            [105.853353, 21.031452],
+            [105.853374, 21.031416],
+            [105.853389, 21.031394],
+            [105.8534, 21.031382],
+            [105.853414, 21.031371],
+            [105.853422, 21.031368],
+            [105.853425, 21.031359],
+            [105.853436, 21.031323],
+            [105.853448, 21.031283],
+            [105.853458, 21.031264],
+            [105.85346, 21.031211],
+            [105.853453, 21.031209],
+            [105.853389, 21.031186],
+            [105.85333, 21.031164],
+            [105.8533, 21.031149],
+            [105.85319, 21.031098],
+            [105.853198, 21.031063],
+            [105.853213, 21.031013],
+            [105.853221, 21.03098],
+            [105.853222, 21.030969],
+            [105.853215, 21.03094],
+            [105.853195, 21.030908],
+            [105.853166, 21.030878],
+            [105.853109, 21.030841],
+            [105.853064, 21.030822],
+            [105.853063, 21.030805],
+            [105.853061, 21.03075],
+            [105.853045, 21.03075],
+            [105.85304, 21.03075],
+            [105.853004, 21.030749],
+            [105.852561, 21.03079],
+            [105.852537, 21.030793],
+            [105.85252, 21.030839],
+            [105.852489, 21.030854],
+            [105.852435, 21.030864],
+            [105.852371, 21.030867],
+            [105.852343, 21.030861]
+          ],
+          "type": "LineString"
+        },
+        "weight": 27.56,
+        "duration": 251.9,
+        "distance": 314.8
+      }
+    ],
+    "waypoints": [
+      {
+        "distance": 11.48831444,
+        "name": "Ngõ Cầu Gỗ",
+        "location": [105.852947, 21.032336]
+      },
+      {
+        "distance": 14.90413486,
+        "name": "",
+        "location": [105.852343, 21.030861]
+      }
+    ]
+  }
+}

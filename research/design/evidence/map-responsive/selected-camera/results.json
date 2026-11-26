@@ -1,0 +1,2594 @@
+[
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 183,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 464.59375,
+      "top": 11.40625,
+      "right": 533.40625,
+      "bottom": 45
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 183,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 434.40625,
+      "top": 67.40625,
+      "right": 533.59375,
+      "bottom": 101
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 183,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 12.671875,
+      "top": 314.40625,
+      "right": 97.328125,
+      "bottom": 348
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 310,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 342.6484375,
+      "top": 50.40625,
+      "right": 533.3515625,
+      "bottom": 84
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 310,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 338.9921875,
+      "top": 87.40625,
+      "right": 533.0078125,
+      "bottom": 121
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 310,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 313,
+      "top": 72.8125,
+      "right": 533,
+      "bottom": 126
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 310,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 350.34375,
+      "top": 58.40625,
+      "right": 533.65625,
+      "bottom": 92
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 310,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 416.2578125,
+      "top": 12.40625,
+      "right": 533.7421875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 232,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 392.578125,
+      "top": 69.40625,
+      "right": 533.421875,
+      "bottom": 103
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 232,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 418.96875,
+      "top": 169.40625,
+      "right": 533.03125,
+      "bottom": 203
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 232,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 175.6171875,
+      "top": 40.40625,
+      "right": 298.3828125,
+      "bottom": 74
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 232,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 407.0859375,
+      "top": 52.40625,
+      "right": 532.9140625,
+      "bottom": 86
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 190,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 342.8125,
+      "top": 11.40625,
+      "right": 533.1875,
+      "bottom": 45
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 190,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 330.1015625,
+      "top": 67.40625,
+      "right": 533.8984375,
+      "bottom": 101
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 190,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.796875,
+      "top": 314.40625,
+      "right": 200.203125,
+      "bottom": 348
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 347,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 323.125,
+      "top": 50.40625,
+      "right": 532.875,
+      "bottom": 84
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 347,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 313,
+      "top": 67.8125,
+      "right": 533,
+      "bottom": 121
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 347,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 313,
+      "top": 72.8125,
+      "right": 533,
+      "bottom": 126
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 347,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 404.8984375,
+      "top": 58.40625,
+      "right": 533.1015625,
+      "bottom": 92
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 347,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 398.5625,
+      "top": 12.40625,
+      "right": 533.4375,
+      "bottom": 46
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 250,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 392.578125,
+      "top": 69.40625,
+      "right": 533.421875,
+      "bottom": 103
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 250,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 418.96875,
+      "top": 169.40625,
+      "right": 533.03125,
+      "bottom": 203
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 250,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 127,
+      "top": 20.8125,
+      "right": 347,
+      "bottom": 74
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1490,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 182.8125,
+      "scroll": 250,
+      "client": 183
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 407.0859375,
+      "top": 52.40625,
+      "right": 532.9140625,
+      "bottom": 86
+    },
+    "map": {
+      "width": 840.4375,
+      "height": 522.390625
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 166,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 390.59375,
+      "top": 12.40625,
+      "right": 459.40625,
+      "bottom": 46
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 166,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 359.40625,
+      "top": 56.40625,
+      "right": 458.59375,
+      "bottom": 90
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 166,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.671875,
+      "top": 270.40625,
+      "right": 96.328125,
+      "bottom": 304
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 354,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 268.6484375,
+      "top": 42.40625,
+      "right": 459.3515625,
+      "bottom": 76
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 354,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 265.9921875,
+      "top": 75.40625,
+      "right": 460.0078125,
+      "bottom": 109
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 354,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 240,
+      "top": 60.8125,
+      "right": 460,
+      "bottom": 114
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 354,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 276.34375,
+      "top": 48.40625,
+      "right": 459.65625,
+      "bottom": 82
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 354,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 342.2578125,
+      "top": 12.40625,
+      "right": 459.7421875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 240,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 318.578125,
+      "top": 57.40625,
+      "right": 459.421875,
+      "bottom": 91
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 240,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 344.96875,
+      "top": 149.40625,
+      "right": 459.03125,
+      "bottom": 183
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 240,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 153.6171875,
+      "top": 32.40625,
+      "right": 276.3828125,
+      "bottom": 66
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 143.546875,
+      "scroll": 240,
+      "client": 144
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 333.0859375,
+      "top": 42.40625,
+      "right": 458.9140625,
+      "bottom": 76
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 118.25,
+      "scroll": 220,
+      "client": 118
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 268.8125,
+      "top": 12.40625,
+      "right": 459.1875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 118.25,
+      "scroll": 220,
+      "client": 118
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 256.1015625,
+      "top": 56.40625,
+      "right": 459.8984375,
+      "bottom": 90
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 118.25,
+      "scroll": 220,
+      "client": 118
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.796875,
+      "top": 270.40625,
+      "right": 200.203125,
+      "bottom": 304
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 336,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 249.125,
+      "top": 42.40625,
+      "right": 458.875,
+      "bottom": 76
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 336,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 240,
+      "top": 55.8125,
+      "right": 460,
+      "bottom": 109
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 336,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 240,
+      "top": 60.8125,
+      "right": 460,
+      "bottom": 114
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 336,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 331.8984375,
+      "top": 48.40625,
+      "right": 460.1015625,
+      "bottom": 82
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 336,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 324.5625,
+      "top": 12.40625,
+      "right": 459.4375,
+      "bottom": 46
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 259,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 318.578125,
+      "top": 57.40625,
+      "right": 459.421875,
+      "bottom": 91
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 259,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 344.96875,
+      "top": 149.40625,
+      "right": 459.03125,
+      "bottom": 183
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 259,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 105,
+      "top": 12.8125,
+      "right": 325,
+      "bottom": 66
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1355,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 48,
+      "height": 101.453125,
+      "scroll": 259,
+      "client": 101
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 333.0859375,
+      "top": 42.40625,
+      "right": 458.9140625,
+      "bottom": 76
+    },
+    "map": {
+      "width": 763.515625,
+      "height": 474.578125
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 661.59375,
+      "top": 12.40625,
+      "right": 730.40625,
+      "bottom": 46
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 631.40625,
+      "top": 104.40625,
+      "right": 730.59375,
+      "bottom": 138
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.671875,
+      "top": 467.40625,
+      "right": 96.328125,
+      "bottom": 501
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 361,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 539.6484375,
+      "top": 82.40625,
+      "right": 730.3515625,
+      "bottom": 116
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 361,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 536.9921875,
+      "top": 129.40625,
+      "right": 731.0078125,
+      "bottom": 163
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 361,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 511,
+      "top": 117.8125,
+      "right": 731,
+      "bottom": 171
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 361,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 547.34375,
+      "top": 92.40625,
+      "right": 730.65625,
+      "bottom": 126
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 361,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 613.2578125,
+      "top": 28.40625,
+      "right": 730.7421875,
+      "bottom": 62
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 589.578125,
+      "top": 105.40625,
+      "right": 730.421875,
+      "bottom": 139
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 616.96875,
+      "top": 235.40625,
+      "right": 731.03125,
+      "bottom": 269
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 244.6171875,
+      "top": 69.40625,
+      "right": 367.3828125,
+      "bottom": 103
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 604.0859375,
+      "top": 83.40625,
+      "right": 729.9140625,
+      "bottom": 117
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 539.8125,
+      "top": 12.40625,
+      "right": 730.1875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 526.1015625,
+      "top": 103.40625,
+      "right": 729.8984375,
+      "bottom": 137
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 285,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.796875,
+      "top": 467.40625,
+      "right": 200.203125,
+      "bottom": 501
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 379,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 521.125,
+      "top": 82.40625,
+      "right": 730.875,
+      "bottom": 116
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 379,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 511,
+      "top": 109.8125,
+      "right": 731,
+      "bottom": 163
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 379,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 511,
+      "top": 117.8125,
+      "right": 731,
+      "bottom": 171
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 379,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 601.8984375,
+      "top": 92.40625,
+      "right": 730.1015625,
+      "bottom": 126
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 379,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 595.5625,
+      "top": 28.40625,
+      "right": 730.4375,
+      "bottom": 62
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 303,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 589.578125,
+      "top": 105.40625,
+      "right": 730.421875,
+      "bottom": 139
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 303,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 616.96875,
+      "top": 235.40625,
+      "right": 731.03125,
+      "bottom": 269
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 303,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 196,
+      "top": 49.8125,
+      "right": 416,
+      "bottom": 103
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 1920,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 59.53125,
+      "height": 284.8125,
+      "scroll": 303,
+      "client": 285
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 604.0859375,
+      "top": 83.40625,
+      "right": 729.9140625,
+      "bottom": 117
+    },
+    "map": {
+      "width": 1085.453125,
+      "height": 674.6875
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 206.59375,
+      "top": 12.40625,
+      "right": 275.40625,
+      "bottom": 46
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 196.40625,
+      "top": 19.40625,
+      "right": 295.59375,
+      "bottom": 53
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.671875,
+      "top": 230.40625,
+      "right": 96.328125,
+      "bottom": 264
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 389,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 104.6484375,
+      "top": 11.40625,
+      "right": 295.3515625,
+      "bottom": 45
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 389,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 100.9921875,
+      "top": 32.40625,
+      "right": 295.0078125,
+      "bottom": 66
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 389,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 75,
+      "top": 16.8125,
+      "right": 295,
+      "bottom": 70
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 389,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 112.34375,
+      "top": 14.40625,
+      "right": 295.65625,
+      "bottom": 48
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 389,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 177.2578125,
+      "top": 12.40625,
+      "right": 294.7421875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 291,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 154.578125,
+      "top": 20.40625,
+      "right": 295.421875,
+      "bottom": 54
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 291,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 180.96875,
+      "top": 82.40625,
+      "right": 295.03125,
+      "bottom": 116
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 291,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 59.6171875,
+      "top": 12.40625,
+      "right": 182.3828125,
+      "bottom": 46
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "vi",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 291,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 169.0859375,
+      "top": 11.40625,
+      "right": 294.9140625,
+      "bottom": 45
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "ngu-xa",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 104.8125,
+      "top": 12.40625,
+      "right": 295.1875,
+      "bottom": 46
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "hang-trong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 91.1015625,
+      "top": 19.40625,
+      "right": 294.8984375,
+      "bottom": 53
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "craft",
+    "slug": "van-phuc",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 213,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 11.796875,
+      "top": 152.40625,
+      "right": 200.203125,
+      "bottom": 186
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "place",
+    "slug": "hoang-thanh-thang-long",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 408,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 85.125,
+      "top": 11.40625,
+      "right": 294.875,
+      "bottom": 45
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "place",
+    "slug": "van-mieu-quoc-tu-giam",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 408,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 75,
+      "top": 12.8125,
+      "right": 295,
+      "bottom": 66
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "place",
+    "slug": "ho-hoan-kiem-den-ngoc-son",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 408,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 75,
+      "top": 16.8125,
+      "right": 295,
+      "bottom": 70
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "place",
+    "slug": "pho-co-36-pho-phuong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 408,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 167.8984375,
+      "top": 14.40625,
+      "right": 296.1015625,
+      "bottom": 48
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "place",
+    "slug": "cau-long-bien",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 408,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 159.5625,
+      "top": 12.40625,
+      "right": 294.4375,
+      "bottom": 46
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "bun-thang-ba-duc",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 311,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 154.578125,
+      "top": 20.40625,
+      "right": 295.421875,
+      "bottom": 54
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "che-muoi-sau",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 311,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 180.96875,
+      "top": 82.40625,
+      "right": 295.03125,
+      "bottom": 116
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "com-lang-vong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 311,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 60,
+      "top": 11.8125,
+      "right": 280,
+      "bottom": 65
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  },
+  {
+    "width": 390,
+    "lang": "en",
+    "layer": "taste",
+    "slug": "cha-ca-la-vong",
+    "sidebar": {
+      "bottomGap": 16,
+      "height": 160,
+      "scroll": 311,
+      "client": 160
+    },
+    "inside": true,
+    "centerError": 0,
+    "aboveError": 0,
+    "covers": true,
+    "overlaps": false,
+    "label": {
+      "left": 169.0859375,
+      "top": 11.40625,
+      "right": 294.9140625,
+      "bottom": 45
+    },
+    "map": {
+      "width": 307,
+      "height": 320
+    }
+  }
+]

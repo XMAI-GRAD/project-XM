@@ -1,0 +1,122 @@
+# Measured against the supplied artwork. Checks are excluded from the affine fit.
+# Reference coordinates: OpenStreetMap contributors, ODbL. See docs/map-calibration/README.md.
+researchedOn: 2026-11-08
+artwork:
+  src: /maps/hanoi-map.png
+  width: 1618
+  height: 1020
+  sha256: 2ebf7ebdcbf7cc5893fdb1b35ae4696d7b32fa8a8551b805231521f6820f627a
+origin:
+  latitude: 21
+  longitude: 105.8
+maxCheckErrorPixels: 6
+controls:
+  - id: C1
+    name: Đường Hoàng Quốc Việt / Đường Phạm Văn Đồng
+    coordinates:
+      latitude: 21.0460459
+      longitude: 105.7814371
+    image:
+      x: 398
+      y: 80
+    source: https://www.openstreetmap.org/node/448814812
+  - id: C2
+    name: Đường Nguyễn Khánh Toàn / Đường Nguyễn Văn Huyên
+    coordinates:
+      latitude: 21.0389683
+      longitude: 105.7976007
+    image:
+      x: 581
+      y: 168
+    source: https://www.openstreetmap.org/node/4462012548
+  - id: C3
+    name: secondary_link / Đường Mễ Trì / Đường Phạm Hùng
+    coordinates:
+      latitude: 21.0175819
+      longitude: 105.781926
+    image:
+      x: 402
+      y: 432
+    source: https://www.openstreetmap.org/node/1312650077
+  - id: C4
+    name: Đường Lê Duẩn / Phố Trần Nhân Tông
+    coordinates:
+      latitude: 21.0174645
+      longitude: 105.8414099
+    image:
+      x: 1088
+      y: 434
+    source: https://www.openstreetmap.org/node/440059875
+  - id: C5
+    name: Phố Kim Đồng / Đường Giải Phóng
+    coordinates:
+      latitude: 20.9835393
+      longitude: 105.8409202
+    image:
+      x: 1079
+      y: 851
+    source: https://www.openstreetmap.org/node/5701252396
+  - id: C6
+    name: Vòng xoay Cầu Chương Dương / Cầu Chương Dương
+    coordinates:
+      latitude: 21.0355011
+      longitude: 105.8550415
+    image:
+      x: 1242
+      y: 210
+    source: https://www.openstreetmap.org/node/5927884978
+  - id: C7
+    name: Phố Liễu Giai / Phố Kim Mã / Đường Nguyễn Chí Thanh
+    coordinates:
+      latitude: 21.0302472
+      longitude: 105.8131428
+    image:
+      x: 758
+      y: 274
+    source: https://www.openstreetmap.org/node/1755770102
+  - id: C8
+    name: Đường Ngọc Thụy / Đường Long Biên – Xuân Quan
+    coordinates:
+      latitude: 21.0458873
+      longitude: 105.8653846
+    image:
+      x: 1360
+      y: 81
+    source: https://www.openstreetmap.org/node/6639095249
+checks:
+  - id: V1
+    name: Phố Dương Đình Nghệ / Phố Phạm Văn Bạch / Phố Trung Kính
+    coordinates:
+      latitude: 21.0230922
+      longitude: 105.7900713
+    image:
+      x: 495
+      y: 362
+    source: https://www.openstreetmap.org/node/1748294231
+  - id: V2
+    name: Đường Giải Phóng / Phố Xã Đàn
+    coordinates:
+      latitude: 21.0075582
+      longitude: 105.841305
+    image:
+      x: 1084
+      y: 554
+    source: https://www.openstreetmap.org/node/1755146759
+  - id: V3
+    name: Phố Tôn Thất Tùng / Đường Trường Chinh
+    coordinates:
+      latitude: 21.0008036
+      longitude: 105.829059
+    image:
+      x: 943
+      y: 640
+    source: https://www.openstreetmap.org/node/4599745018
+  - id: V4
+    name: Phố Tràng Thi / Phố Quán Sứ
+    coordinates:
+      latitude: 21.0275475
+      longitude: 105.8459889
+    image:
+      x: 1136
+      y: 307
+    source: https://www.openstreetmap.org/node/98044325

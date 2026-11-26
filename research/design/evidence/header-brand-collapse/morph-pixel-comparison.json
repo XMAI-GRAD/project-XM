@@ -1,0 +1,58 @@
+[
+  {
+    "width": 1920,
+    "endpoint": 0,
+    "meanChannelError": 0.0026,
+    "changedPixelsOver16": 0,
+    "totalPixels": 102672
+  },
+  {
+    "width": 1920,
+    "endpoint": 1,
+    "meanChannelError": 0.0,
+    "changedPixelsOver16": 0,
+    "totalPixels": 17400
+  },
+  {
+    "width": 390,
+    "endpoint": 0,
+    "meanChannelError": 0.0119,
+    "changedPixelsOver16": 0,
+    "totalPixels": 4256
+  },
+  {
+    "width": 390,
+    "endpoint": 1,
+    "meanChannelError": 0.0,
+    "changedPixelsOver16": 0,
+    "totalPixels": 756
+  },
+  {
+    "width": 2560,
+    "endpoint": 0,
+    "meanChannelError": 0.0018,
+    "changedPixelsOver16": 0,
+    "totalPixels": 181536
+  },
+  {
+    "width": 2560,
+    "endpoint": 1,
+    "meanChannelError": 0.0,
+    "changedPixelsOver16": 0,
+    "totalPixels": 30972
+  },
+  {
+    "width": 320,
+    "endpoint": 0,
+    "meanChannelError": 0.0136,
+    "changedPixelsOver16": 0,
+    "totalPixels": 2852
+  },
+  {
+    "width": 320,
+    "endpoint": 1,
+    "meanChannelError": 0.0,
+    "changedPixelsOver16": 0,
+    "totalPixels": 510
+  }
+]

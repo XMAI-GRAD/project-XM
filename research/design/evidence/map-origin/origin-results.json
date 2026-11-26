@@ -1,0 +1,86 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "themes": true,
+    "search": true,
+    "routeOrigin": true,
+    "panZoomReset": true,
+    "motionPreferenceChange": true,
+    "initial": {
+      "role": "img",
+      "name": "Điểm xuất phát: Trường Đại học Kiến trúc Hà Nội",
+      "text": "Bạn",
+      "color": "rgb(181, 38, 42)",
+      "mask": "url(\"http://localhost:3000/maps/v2/list-badge.svg\")",
+      "x": 330,
+      "y": 590,
+      "labelClear": true,
+      "legendClear": true
+    },
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 1920,
+    "themes": true,
+    "search": true,
+    "routeOrigin": true,
+    "panZoomReset": true,
+    "motionPreferenceChange": true,
+    "initial": {
+      "role": "img",
+      "name": "Starting point: Hanoi Architectural University",
+      "text": "You",
+      "color": "rgb(181, 38, 42)",
+      "mask": "url(\"http://localhost:3000/maps/v2/list-badge.svg\")",
+      "x": 330,
+      "y": 590,
+      "labelClear": true,
+      "legendClear": true
+    },
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "themes": true,
+    "search": true,
+    "routeOrigin": true,
+    "panZoomReset": true,
+    "motionPreferenceChange": true,
+    "initial": {
+      "role": "img",
+      "name": "Điểm xuất phát: Trường Đại học Kiến trúc Hà Nội",
+      "text": "Bạn",
+      "color": "rgb(181, 38, 42)",
+      "mask": "url(\"http://localhost:3000/maps/v2/list-badge.svg\")",
+      "x": 329.26213592233006,
+      "y": 590.75,
+      "labelClear": true,
+      "legendClear": true
+    },
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 390,
+    "themes": true,
+    "search": true,
+    "routeOrigin": true,
+    "panZoomReset": true,
+    "motionPreferenceChange": true,
+    "initial": {
+      "role": "img",
+      "name": "Starting point: Hanoi Architectural University",
+      "text": "You",
+      "color": "rgb(181, 38, 42)",
+      "mask": "url(\"http://localhost:3000/maps/v2/list-badge.svg\")",
+      "x": 329.26213592233006,
+      "y": 590.75,
+      "labelClear": true,
+      "legendClear": true
+    },
+    "errors": []
+  }
+]

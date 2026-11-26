@@ -1,0 +1,115 @@
+{
+  "id": "bridge",
+  "fetchedAt": "2026-11-09T13:51:43.126Z",
+  "provider": "FOSSGIS OSRM",
+  "mode": "walking",
+  "requestUrl": "https://routing.openstreetmap.de/routed-foot/route/v1/foot/105.8496735,21.0382416;105.8580294,21.0430926?overview=full&geometries=geojson&steps=false&alternatives=false&radiuses=100%3B100&generate_hints=false",
+  "policyUrl": "https://routing.openstreetmap.de/about.html",
+  "attribution": "Routing: OSRM / FOSSGIS; map data © OpenStreetMap contributors (ODbL)",
+  "endpoints": [
+    {
+      "slug": "pho-co-36-pho-phuong",
+      "code": "d04",
+      "name": "Phố cổ 36 phố phường",
+      "latitude": 21.0382416,
+      "longitude": 105.8496735,
+      "kind": "representative",
+      "source": "https://www.openstreetmap.org/way/1212230635",
+      "label": {
+        "vi": "Điểm đại diện của khu phố cổ — Chợ Đồng Xuân",
+        "en": "Representative point for the Old Quarter — Đồng Xuân Market"
+      }
+    },
+    {
+      "slug": "cau-long-bien",
+      "code": "d05",
+      "name": "Cầu Long Biên",
+      "latitude": 21.0430926,
+      "longitude": 105.8580294,
+      "kind": "representative",
+      "source": "https://www.openstreetmap.org/way/874082896",
+      "label": {
+        "vi": "Điểm đại diện trên cầu Long Biên; không phải lối lên cầu",
+        "en": "Representative point on Long Biên Bridge; not a bridge entrance"
+      }
+    }
+  ],
+  "response": {
+    "code": "Ok",
+    "routes": [
+      {
+        "legs": [
+          {
+            "steps": [],
+            "weight": 108.37,
+            "summary": "",
+            "duration": 999.3,
+            "distance": 1246.8
+          }
+        ],
+        "weight_name": "routability",
+        "geometry": {
+          "coordinates": [
+            [105.849709, 21.038392],
+            [105.849709, 21.038392],
+            [105.849722, 21.038398],
+            [105.849797, 21.038431],
+            [105.849734, 21.038561],
+            [105.849748, 21.038567],
+            [105.850077, 21.038703],
+            [105.850138, 21.038752],
+            [105.850186, 21.038776],
+            [105.850173, 21.038788],
+            [105.850043, 21.038935],
+            [105.84986, 21.039179],
+            [105.849651, 21.039749],
+            [105.849609, 21.039849],
+            [105.85005, 21.040005],
+            [105.850193, 21.040314],
+            [105.850283, 21.040231],
+            [105.850198, 21.040181],
+            [105.850152, 21.040103],
+            [105.850129, 21.040022],
+            [105.850139, 21.039999],
+            [105.85015, 21.039975],
+            [105.850153, 21.039967],
+            [105.850166, 21.039972],
+            [105.850186, 21.03998],
+            [105.850203, 21.03994],
+            [105.850222, 21.039947],
+            [105.850299, 21.039975],
+            [105.850311, 21.039978],
+            [105.85032, 21.040013],
+            [105.850357, 21.040041],
+            [105.851077, 21.040321],
+            [105.85319, 21.041149],
+            [105.853754, 21.04137],
+            [105.854618, 21.041708],
+            [105.855417, 21.042022],
+            [105.856405, 21.042408],
+            [105.856934, 21.042614],
+            [105.857785, 21.042947],
+            [105.857778, 21.042965],
+            [105.85804, 21.043068]
+          ],
+          "type": "LineString"
+        },
+        "weight": 108.37,
+        "duration": 999.3,
+        "distance": 1246.8
+      }
+    ],
+    "waypoints": [
+      {
+        "distance": 17.00147406,
+        "name": "",
+        "location": [105.849709, 21.038392]
+      },
+      {
+        "distance": 2.994831036,
+        "name": "Cầu Long Biên",
+        "location": [105.85804, 21.043068]
+      }
+    ]
+  }
+}

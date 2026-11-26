@@ -1,41 +1,47 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { notFound } from "next/navigation";
-import { hasLocale, locales } from "@/i18n/config";
+import { Inter, Phudu } from "next/font/google";
+import { SmoothScroll } from "@/components/smooth-scroll";
+import { locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
+import { getLocale, siteUrl } from "@/i18n/server";
 import "../globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const display = Phudu({
+  variable: "--font-display",
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
+});
+const body = Inter({
+  variable: "--font-body",
+  subsets: ["latin", "vietnamese"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "project-xm",
-  description: "Online gallery of cultural heritage",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { meta } = getDictionary(await getLocale());
+  return {
+    metadataBase: new URL(siteUrl),
+    title: { default: meta.siteName, template: `%s | ${meta.siteName}` },
+    description: meta.description,
+  };
+}
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps<"/[lang]">) {
-  const { lang } = await params;
-  if (!hasLocale(lang)) notFound();
-
+/**
+ * The document only. Home draws its own frame (src/features/home); every other page
+ * sits in the rail-and-top-bar frame of (site)/layout.tsx.
+ */
+export default async function RootLayout({ children }: LayoutProps<"/[lang]">) {
+  const lang = await getLocale();
   return (
-    <html
-      lang={lang}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col">{children}</body>
+    <html lang={lang} className={`${display.variable} ${body.variable}`}>
+      <body>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,0 +1,10 @@
+{
+  "checks": [
+    "generated logo outlines, fills and viewBoxes match origin/dev; 17 semantic hooks each",
+    "remote SVG sections active, full-width 1920x5400 artboard, one main/h1, no image-based home assets",
+    "header search selection, Back/Forward/Back restoration after opening entry, and Escape work",
+    "shared route-group navigation returns to the extracted SVG homepage"
+  ],
+  "artRequests": [],
+  "errors": []
+}

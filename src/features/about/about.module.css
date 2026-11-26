@@ -1,0 +1,286 @@
+/* About, after docs/svg/02.ABOUT US/01-AboutUs.svg (1920 × 4320). Same system as home
+   (src/features/home/home.module.css): comp units, sections by --sy/--sh, pieces at
+   --x/--y with text placed by its cap top. Phudu capitals are 0.703 em, Inter's 0.727. */
+
+/* ---------- Intro: GIỚI THIỆU, the composed heading, the words by the petal ---------- */
+
+.intro {
+  --sy: 268;
+  --sh: 1432;
+}
+.label {
+  --x: 278;
+  --y: 416;
+  --w: 400;
+  font-weight: 600;
+  font-size: calc(26 / 0.727 * var(--u));
+  text-transform: uppercase;
+  color: var(--brick-red);
+}
+
+/* The heading's seven lines, each where the comp sets it around the petal. */
+.heading {
+  margin: 0;
+}
+.headingLine {
+  font-size: calc(67 / 0.703 * var(--u));
+  font-weight: 800;
+  width: max-content;
+  white-space: nowrap;
+}
+/* As wide as its words, so the mask its motion sweeps across them fits them. */
+.intro .note,
+.intro .label {
+  width: max-content;
+}
+.headingLine:nth-child(1) {
+  --x: 704;
+  --y: 375;
+}
+.headingLine:nth-child(2) {
+  --x: 930;
+  --y: 462;
+}
+.headingLine:nth-child(3) {
+  --r: 772;
+  --y: 548;
+}
+.headingLine:nth-child(4) {
+  --r: 776;
+  --y: 642;
+}
+.headingLine:nth-child(5) {
+  --x: 1102;
+  --y: 768;
+}
+.headingLine:nth-child(6) {
+  --x: 930;
+  --y: 852;
+}
+.headingLine:nth-child(7) {
+  --x: 930;
+  --y: 940;
+}
+.headingLine:nth-child(3),
+.headingLine:nth-child(4) {
+  left: auto;
+  right: calc((1920 - var(--r)) * var(--u));
+}
+/* Kept out of sight until its motion (./intro-motion.tsx) sets each phrase, the
+   petal, the words beside it, GIỚI THIỆU, its line and the intro where they arrive
+   from, so they don't show whole for a moment first. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .heading,
+  .intro [data-art="about-petal"],
+  .intro [data-motion="about-note"],
+  .intro [data-motion="about-label"],
+  .intro [data-art="about-intro-line"],
+  .intro [data-motion="about-intro"] {
+    visibility: hidden;
+  }
+}
+
+.note {
+  font-weight: 600;
+  font-size: calc(18 * var(--u));
+  color: var(--brick-red);
+  white-space: nowrap;
+}
+.petalRight {
+  --x: 1164;
+  --y: 660;
+  --w: 300;
+}
+.petalLeft {
+  --x: 670;
+  --y: 906;
+  --w: 300;
+}
+.introBody {
+  --x: 280;
+  --y: 1236;
+  --w: 760;
+  font-weight: 600;
+  font-size: calc(36 * var(--u));
+  line-height: calc(43.2 * var(--u));
+  color: var(--navy-400);
+}
+
+/* ---------- Work: three roles, each a mark, a name, a hook and a line of text ---------- */
+
+.work {
+  --sy: 1700;
+  --sh: 700;
+}
+.workList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.workName {
+  --r: 1258;
+  left: auto;
+  right: calc((1920 - var(--r)) * var(--u));
+  width: max-content;
+  font-size: calc(25 / 0.703 * var(--u));
+  color: var(--navy-400);
+}
+.workBody {
+  --x: 1291;
+  --w: 340;
+  font-size: calc(18 * var(--u));
+  line-height: calc(22 * var(--u));
+}
+.workList li:nth-child(1) .workName {
+  --y: 1744;
+}
+.workList li:nth-child(1) .workBody {
+  --y: 1782;
+}
+.workList li:nth-child(2) .workName {
+  --y: 1870;
+}
+.workList li:nth-child(2) .workBody {
+  --y: 1904;
+}
+.workList li:nth-child(3) .workName {
+  --y: 1995;
+}
+.workList li:nth-child(3) .workBody {
+  --y: 2030;
+}
+/* Kept out of sight until its motion (./work-motion.tsx) sets each role, and the
+   line, where they arrive from. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .workList li,
+  .work [data-art="about-work-line"] {
+    visibility: hidden;
+  }
+}
+
+/* ---------- Fields: one composed block, icons between the words ---------- */
+
+.fields {
+  --sy: 2300;
+  --sh: 900;
+}
+.fieldsDisplay {
+  --x: 245;
+  --y: 2378;
+  --w: 1500;
+  /* The comp sets the fields in black at 70%, a warm grey on seashell. */
+  color: rgb(0 0 0 / 0.7);
+  font-size: calc(87 / 0.703 * var(--u));
+  line-height: calc(125 * var(--u));
+  white-space: nowrap;
+}
+/* Kept out of sight until its motion (./fields-motion.tsx) sets it to draw. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .fields [data-art="about-fields-line"] {
+    visibility: hidden;
+  }
+}
+.fieldsNote {
+  --x: 969;
+  --y: 3059;
+  --w: 800;
+  font-weight: 500;
+  font-size: calc(36 * var(--u));
+  color: var(--navy-400);
+}
+
+/* ---------- Timeline: the years along one winding line ---------- */
+
+.timeline {
+  --sy: 3200;
+  --sh: 1120;
+}
+.timelineLabel {
+  --y: 3464;
+  margin: 0;
+  font-size: calc(24 / 0.727 * var(--u));
+}
+/* Kept out of sight until its motion (./timeline-motion.tsx) sets each part where
+   it arrives from. */
+@media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
+  .timelineLabel,
+  .timeline [data-art="about-timeline-line"],
+  .years li {
+    visibility: hidden;
+  }
+}
+.years {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.year {
+  font-size: calc(26 / 0.703 * var(--u));
+  width: max-content;
+  color: var(--navy-400);
+}
+/* A year on a shape sits centred on it, in seashell. */
+.year[data-on-shape] {
+  left: calc(var(--cx) * var(--u));
+  translate: -50% 0;
+  color: var(--seashell);
+}
+.yearBody {
+  font-size: calc(18 * var(--u));
+  line-height: calc(22 * var(--u));
+}
+.years li:nth-child(1) .year {
+  --cx: 340;
+  --y: 3647;
+}
+.years li:nth-child(1) .yearBody {
+  --x: 247;
+  --y: 3797;
+  --w: 245;
+}
+.years li:nth-child(2) .year {
+  --x: 706;
+  --y: 3614;
+}
+.years li:nth-child(2) .yearBody {
+  --x: 706;
+  --y: 3547;
+  --w: 180;
+}
+.years li:nth-child(3) .year {
+  --cx: 934;
+  --y: 3933;
+}
+.years li:nth-child(3) .yearBody {
+  --x: 968;
+  --y: 4016;
+  --w: 170;
+}
+.years li:nth-child(4) .year {
+  --cx: 934;
+  --y: 3715;
+}
+.years li:nth-child(4) .yearBody {
+  --x: 744;
+  --y: 3796;
+  --w: 150;
+  text-align: right;
+}
+.years li:nth-child(5) .year {
+  --x: 1187;
+  --y: 3854;
+}
+.years li:nth-child(5) .yearBody {
+  --x: 1295;
+  --y: 3856;
+  --w: 210;
+}
+.years li:nth-child(6) .year {
+  --cx: 1505;
+  --y: 3518;
+}
+.years li:nth-child(6) .yearBody {
+  --x: 1415;
+  --y: 3605;
+  --w: 200;
+}

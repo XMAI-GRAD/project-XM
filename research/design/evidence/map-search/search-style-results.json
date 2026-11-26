@@ -1,0 +1,94 @@
+[
+  {
+    "lang": "vi",
+    "width": 1920,
+    "state": {
+      "inputOutline": "none",
+      "containerOutline": "none",
+      "font": "20px",
+      "color": "rgb(39, 57, 145)",
+      "placeholderColor": "rgb(57, 79, 160)",
+      "frameStroke": "2px",
+      "frameFill": "rgba(230, 205, 255, 0.2)",
+      "iconWidth": 20,
+      "available": 234,
+      "placeholderWidth": 121.11328125
+    },
+    "headerState": {
+      "input": "none",
+      "container": "none",
+      "frame": "2px"
+    },
+    "filter": true,
+    "enter": true,
+    "clear": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 1280,
+    "state": {
+      "inputOutline": "none",
+      "containerOutline": "none",
+      "font": "14px",
+      "color": "rgb(39, 57, 145)",
+      "placeholderColor": "rgb(57, 79, 160)",
+      "frameStroke": "2px",
+      "frameFill": "rgba(230, 205, 255, 0.2)",
+      "iconWidth": 13.328125,
+      "available": 156,
+      "placeholderWidth": 93.7685546875
+    },
+    "headerState": {
+      "input": "none",
+      "container": "none",
+      "frame": "2px"
+    },
+    "filter": true,
+    "enter": true,
+    "clear": true,
+    "errors": []
+  },
+  {
+    "lang": "vi",
+    "width": 390,
+    "state": {
+      "inputOutline": "none",
+      "containerOutline": "none",
+      "font": "19.5px",
+      "color": "rgb(39, 57, 145)",
+      "placeholderColor": "rgb(57, 79, 160)",
+      "frameStroke": "2px",
+      "frameFill": "rgba(230, 205, 255, 0.2)",
+      "iconWidth": 20,
+      "available": 188,
+      "placeholderWidth": 118.08544921875
+    },
+    "headerState": null,
+    "filter": true,
+    "enter": true,
+    "clear": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "width": 320,
+    "state": {
+      "inputOutline": "none",
+      "containerOutline": "none",
+      "font": "16px",
+      "color": "rgb(39, 57, 145)",
+      "placeholderColor": "rgb(57, 79, 160)",
+      "frameStroke": "2px",
+      "frameFill": "rgba(230, 205, 255, 0.2)",
+      "iconWidth": 20,
+      "available": 129,
+      "placeholderWidth": 107.1640625
+    },
+    "headerState": null,
+    "filter": true,
+    "enter": true,
+    "clear": true,
+    "errors": []
+  }
+]

@@ -1,0 +1,16 @@
+.page {
+  --pad: clamp(16px, 2.4vw, 32px);
+  display: grid;
+  gap: 24px;
+  padding: var(--pad);
+}
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 8vw, 8rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  padding-top: 0.08em;
+}

@@ -1,0 +1,22 @@
+[
+  {
+    "lang": "vi",
+    "reverseMidGrowth": true,
+    "resizeMidGrowth": true,
+    "resizeMidShrink": true,
+    "liveReducedMotion": true,
+    "relocatedReturn": true,
+    "repeatedEscape": true,
+    "errors": []
+  },
+  {
+    "lang": "en",
+    "reverseMidGrowth": true,
+    "resizeMidGrowth": true,
+    "resizeMidShrink": true,
+    "liveReducedMotion": true,
+    "relocatedReturn": true,
+    "repeatedEscape": true,
+    "errors": []
+  }
+]

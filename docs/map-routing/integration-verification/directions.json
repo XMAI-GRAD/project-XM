@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-16",
+  "base": "http://localhost:3000",
+  "checks": [
+    "en: four directed routes; reverse/unavailable/same-place clearing; labels, clear focus, card handoff, unique locale IDs",
+    "vi: four directed routes; reverse/unavailable/same-place clearing; labels, clear focus, card handoff, unique locale IDs",
+    "en: four directed routes; reverse/unavailable/same-place clearing; labels, clear focus, card handoff, unique locale IDs",
+    "vi: four directed routes; reverse/unavailable/same-place clearing; labels, clear focus, card handoff, unique locale IDs",
+    "en: four directed routes; reverse/unavailable/same-place clearing; labels, clear focus, card handoff, unique locale IDs",
+    "Keyboard/button navigation, source, fit, reduced motion, 768/390/320px overflow",
+    "Valid deep-link preselection; invalid query slugs ignored",
+    "Image failure disables fit; retry restores selected route"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "browser": "157.0.4341.60",
+  "status": "passed"
+}

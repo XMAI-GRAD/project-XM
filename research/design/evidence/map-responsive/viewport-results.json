@@ -1,0 +1,352 @@
+[
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "vi",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 303,
+      "sideHeight": 680,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 303,
+      "sideHeight": 680,
+      "overflow": false,
+      "card": {
+        "width": 315,
+        "height": 393,
+        "position": "absolute",
+        "content": 393,
+        "scroll": 393
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 2002,
+    "height": 1122,
+    "lang": "vi",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 319,
+      "sideHeight": 709,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 319,
+      "sideHeight": 709,
+      "overflow": false,
+      "card": {
+        "width": 328,
+        "height": 401,
+        "position": "absolute",
+        "content": 401,
+        "scroll": 401
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1536,
+    "height": 740,
+    "lang": "vi",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 231,
+      "sideHeight": 544,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 231,
+      "sideHeight": 544,
+      "overflow": false,
+      "card": {
+        "width": 272,
+        "height": 406,
+        "position": "absolute",
+        "content": 406,
+        "scroll": 406
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1280,
+    "height": 800,
+    "lang": "en",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 133,
+      "sideHeight": 453,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "14px",
+      "listHeight": 133,
+      "sideHeight": 453,
+      "overflow": false,
+      "card": {
+        "width": 272,
+        "height": 406,
+        "position": "absolute",
+        "content": 406,
+        "scroll": 417
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1100,
+    "height": 700,
+    "lang": "en",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": {
+        "width": 384,
+        "height": 434,
+        "position": "relative",
+        "content": 434,
+        "scroll": 434
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "lang": "en",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": {
+        "width": 384,
+        "height": 434,
+        "position": "relative",
+        "content": 434,
+        "scroll": 434
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 800,
+    "height": 700,
+    "lang": "vi",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": {
+        "width": 384,
+        "height": 434,
+        "position": "relative",
+        "content": 434,
+        "scroll": 434
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "lang": "en",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 422,
+      "overflow": false,
+      "card": {
+        "width": 296,
+        "height": 432,
+        "position": "relative",
+        "content": 432,
+        "scroll": 432
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 320,
+    "height": 720,
+    "lang": "vi",
+    "textScale": 1,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 439,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "14px",
+      "inputFont": "20px",
+      "rowFont": "15px",
+      "listHeight": 160,
+      "sideHeight": 439,
+      "overflow": false,
+      "card": {
+        "width": 237,
+        "height": 389,
+        "position": "relative",
+        "content": 389,
+        "scroll": 389
+      }
+    },
+    "errors": []
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "lang": "vi",
+    "textScale": 2,
+    "hover": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "28px",
+      "inputFont": "40px",
+      "rowFont": "30px",
+      "listHeight": 320,
+      "sideHeight": 798,
+      "overflow": false,
+      "card": null
+    },
+    "selected": {
+      "labelVisible": true,
+      "labelInside": true,
+      "labelFont": "28px",
+      "inputFont": "40px",
+      "rowFont": "30px",
+      "listHeight": 320,
+      "sideHeight": 798,
+      "overflow": false,
+      "card": {
+        "width": 768,
+        "height": 868,
+        "position": "relative",
+        "content": 868,
+        "scroll": 868
+      }
+    },
+    "errors": []
+  }
+]

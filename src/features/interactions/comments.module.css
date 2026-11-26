@@ -1,0 +1,473 @@
+/* Comments ("góc ký ức") on the point detail board, built on the ĐỊA comp grid (--u). */
+
+.section {
+  width: 100%;
+  padding-top: calc(56 * var(--u));
+  border-top: 1px solid var(--navy-100);
+  color: var(--navy-500);
+  font-family: var(--font-body);
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
+}
+
+/* Matches .layerHeader / .placeMark / .layerHeading in explore/[slug]/page.module.css. */
+.header {
+  display: flex;
+  align-items: center;
+  gap: calc(32.7 * var(--u));
+}
+.placeMark {
+  width: calc(44.49 * var(--u));
+  height: auto;
+  flex-shrink: 0;
+}
+.title {
+  margin: 0;
+  color: var(--navy-400);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(25.2 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+/* Two columns on the page's photo/story grid: content x 280..1690, right col at x 1196. */
+.columns {
+  display: grid;
+  grid-template-columns: calc(884 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(32 * var(--u));
+  align-items: start;
+  margin-top: calc(36 * var(--u));
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(28 * var(--u));
+  min-width: 0;
+}
+
+.right {
+  min-width: 0;
+}
+
+.invitation {
+  margin: 0;
+  max-width: calc(740 * var(--u));
+  color: var(--navy-400);
+  text-wrap: pretty;
+}
+
+.note {
+  margin: 0;
+  color: var(--navy-400);
+}
+
+/* Primary action pill (DESIGN.md primary button): brick-red with seashell text, hover navy. */
+.login {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(10 * var(--u));
+  height: calc(52 * var(--u));
+  padding: 0 calc(28 * var(--u));
+  border: 0;
+  border-radius: 999px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(14 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.login:hover {
+  background: var(--navy-500);
+  color: var(--seashell);
+}
+
+/* ---------- Comment form & gate-notched hairline frame ---------- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(20 * var(--u));
+  width: 100%;
+  max-width: calc(740 * var(--u));
+}
+.formReply {
+  gap: calc(14 * var(--u));
+  max-width: none;
+}
+
+/* Non-stretching concave-corner frame: 4 CSS hairline edges + 4 fixed-ratio corner SVGs. */
+.frame {
+  --notch: calc(18 * var(--u));
+  --stroke: 2px;
+  --svg-stroke: 2;
+  --corner-inset: 0.5px;
+  --frame-color: var(--navy-400);
+  position: relative;
+  width: 100%;
+  background:
+    linear-gradient(var(--frame-color), var(--frame-color)) var(--notch) 0 /
+      calc(100% - 2 * var(--notch)) var(--stroke) no-repeat,
+    linear-gradient(var(--frame-color), var(--frame-color)) var(--notch) 100% /
+      calc(100% - 2 * var(--notch)) var(--stroke) no-repeat,
+    linear-gradient(var(--frame-color), var(--frame-color)) 0 var(--notch) /
+      var(--stroke) calc(100% - 2 * var(--notch)) no-repeat,
+    linear-gradient(var(--frame-color), var(--frame-color)) 100% var(--notch) /
+      var(--stroke) calc(100% - 2 * var(--notch)) no-repeat;
+  color: var(--frame-color);
+}
+.frameCompact {
+  --notch: calc(14 * var(--u));
+}
+.frame:focus-within,
+.frame:has(textarea:focus-visible) {
+  --frame-color: var(--navy-500);
+  --stroke: 1px;
+  --svg-stroke: 1;
+  --corner-inset: 0px;
+}
+
+.corner {
+  position: absolute;
+  width: var(--notch);
+  height: var(--notch);
+  overflow: visible;
+  pointer-events: none;
+}
+.cornerTl {
+  top: var(--corner-inset);
+  left: var(--corner-inset);
+}
+.cornerTr {
+  top: var(--corner-inset);
+  right: var(--corner-inset);
+  transform: scaleX(-1);
+}
+.cornerBr {
+  bottom: var(--corner-inset);
+  right: var(--corner-inset);
+  transform: scale(-1, -1);
+}
+.cornerBl {
+  bottom: var(--corner-inset);
+  left: var(--corner-inset);
+  transform: scaleY(-1);
+}
+.cornerAccent {
+  fill: var(--lime);
+}
+.cornerStroke {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: var(--svg-stroke);
+  stroke-linecap: square;
+}
+
+.textarea {
+  display: block;
+  width: 100%;
+  min-height: calc(132 * var(--u));
+  padding: calc(20 * var(--u)) calc(26 * var(--u));
+  border: 0;
+  background: transparent;
+  color: var(--navy-500);
+  caret-color: var(--navy-500);
+  font-family: var(--font-body);
+  font-size: calc(13.1 / 0.727 * var(--u));
+  line-height: calc(21.6 * var(--u));
+  overflow-y: auto;
+  resize: none;
+}
+.frameCompact .textarea {
+  min-height: calc(88 * var(--u));
+  padding: calc(14 * var(--u)) calc(20 * var(--u));
+}
+.textarea::placeholder {
+  color: var(--navy-300);
+  opacity: 1;
+}
+.textarea:focus,
+.textarea:focus-visible {
+  outline: none;
+}
+
+.formFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(12 * var(--u)) calc(20 * var(--u));
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(10 * var(--u));
+  height: calc(52 * var(--u));
+  padding: 0 calc(28 * var(--u));
+  border: 0;
+  border-radius: 999px;
+  background: var(--brick-red);
+  color: var(--seashell);
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: calc(14 / 0.703 * var(--u));
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.submit:hover:not(:disabled) {
+  background: var(--navy-500);
+}
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.submitReply {
+  height: calc(38 * var(--u));
+  padding: 0 calc(20 * var(--u));
+  background: var(--navy-500);
+  font-size: calc(12 / 0.703 * var(--u));
+}
+.submitReply:hover:not(:disabled) {
+  background: var(--navy-400);
+}
+
+.status {
+  margin: 0;
+  color: var(--brick-red);
+  font-size: calc(11.5 / 0.727 * var(--u));
+  font-weight: 600;
+  line-height: 1.35;
+}
+.status:empty {
+  display: none;
+}
+
+/* ---------- Empty state (right column, aligned with left invitation) ---------- */
+
+.empty {
+  display: grid;
+  grid-template-columns: calc(37.7 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(12 * var(--u));
+  align-items: start;
+}
+.emptyMark {
+  width: calc(37.7 * var(--u));
+  height: auto;
+  margin-top: calc(-8.8 * var(--u));
+}
+.emptyText {
+  margin: 0;
+  color: var(--navy-400);
+  text-wrap: pretty;
+}
+
+/* ---------- Thread & replies (right column) ---------- */
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thread {
+  padding: calc(20 * var(--u)) 0;
+}
+.thread:first-child {
+  padding-top: 0;
+}
+.thread + .thread {
+  border-top: 1px solid var(--navy-100);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: calc(8 * var(--u));
+}
+.itemPending {
+  opacity: 0.55;
+}
+.itemPending .body {
+  color: var(--navy-300);
+}
+
+.body {
+  margin: 0;
+  color: var(--navy-500);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: calc(6 * var(--u)) calc(16 * var(--u));
+  font-size: calc(10.5 / 0.727 * var(--u));
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+}
+
+.byline {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(6 * var(--u)) calc(8 * var(--u));
+  color: var(--navy-300);
+}
+.avatar {
+  width: calc(22 * var(--u));
+  height: calc(22 * var(--u));
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.author {
+  color: var(--navy-400);
+  font-weight: 600;
+}
+.sep {
+  color: var(--navy-300);
+}
+.date {
+  color: var(--navy-300);
+}
+
+.actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: calc(14 * var(--u));
+}
+
+.textAction,
+.delete {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--navy-400);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: inherit;
+  line-height: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.24em;
+  text-decoration-thickness: 1px;
+}
+.textAction:hover {
+  color: var(--navy-500);
+}
+.delete:hover:not(:disabled) {
+  color: var(--brick-red);
+}
+.delete:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.deleteError {
+  color: var(--brick-red);
+  font-weight: 600;
+}
+
+.repliesBlock {
+  display: flex;
+  flex-direction: column;
+  gap: calc(16 * var(--u));
+  margin: calc(16 * var(--u)) 0 0;
+  padding: calc(2 * var(--u)) 0 calc(2 * var(--u)) calc(20 * var(--u));
+  border-left: calc(2 * var(--u)) solid var(--lime);
+}
+.replies {
+  display: flex;
+  flex-direction: column;
+  gap: calc(16 * var(--u));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.replyItem {
+  min-width: 0;
+}
+
+.replyFormWrap {
+  min-width: 0;
+}
+
+/* ---------- Static loading skeletons (0px shift vs signed-out empty state) ---------- */
+
+/* Preserved for StatCounts (stat-counts.tsx). */
+.statsSkeleton {
+  display: inline-block;
+  width: 18ch;
+  height: 1lh;
+  vertical-align: middle;
+  border-radius: 999px;
+  background: var(--navy-100);
+}
+
+.skeletonPill {
+  display: block;
+  width: calc(272 * var(--u));
+  height: calc(52 * var(--u));
+  border-radius: 999px;
+  background: var(--navy-100);
+}
+
+.skeletonEmpty {
+  display: grid;
+  grid-template-columns: calc(37.7 * var(--u)) minmax(0, 1fr);
+  column-gap: calc(12 * var(--u));
+  align-items: start;
+}
+.skeletonMark {
+  display: block;
+  width: calc(37.7 * var(--u));
+  height: calc(37.7 * var(--u));
+  margin-top: calc(-8.8 * var(--u));
+  border-radius: 999px;
+  background: var(--navy-100);
+}
+.skeletonLines {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 * var(--u));
+  padding-top: calc(3 * var(--u));
+}
+.skeletonLine,
+.skeletonLineShort {
+  display: block;
+  height: calc(15 * var(--u));
+  border-radius: calc(4 * var(--u));
+  background: var(--navy-100);
+}
+.skeletonLine {
+  width: 82%;
+}
+.skeletonLineShort {
+  width: 54%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .login,
+  .submit,
+  .textAction,
+  .delete {
+    transition:
+      background-color 0.15s,
+      color 0.15s,
+      opacity 0.15s;
+  }
+}
